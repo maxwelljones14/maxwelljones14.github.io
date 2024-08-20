@@ -6,16 +6,16 @@ img: assets/img/WalkSafe.jpg
 importance: 3
 category: fun
 ---
+### [[CodeBase]](https://github.com/jasonchadwick/WalkSafe)
 
+Partners: [Tanvi Bhargava](https://www.linkedin.com/in/tanvi-bhargava-2b23060/), [Jason Chadwick](https://www.linkedin.com/in/jasonchadwick/), [Adrian Kager](https://www.linkedin.com/in/adriankager/)
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/path.jpg"  title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
-<a class="text" href="https://github.com/jasonchadwick/WalkSafe">[CodeBase]</a>
 
-Partners: [Tanvi Bhargava](https://www.linkedin.com/in/tanvi-bhargava-2b23060/), [Jason Chadwick](https://www.linkedin.com/in/jasonchadwick/), [Adrian Kager](https://www.linkedin.com/in/adriankager/)
 
 Our goal was to create a program that, given a start and end location, gives a user the
 safest timely walking path to their destination. We used Manhatten as a test area since they had

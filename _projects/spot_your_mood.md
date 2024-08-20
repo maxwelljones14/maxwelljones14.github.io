@@ -7,12 +7,12 @@ importance: 2
 category: fun
 giscus_comments: false
 ---
-
+### [[Full Code]](https://github.com/itswin/tartanhacks21)
+Partners: [Bharath Sreenivas](https://www.linkedin.com/in/bsreenivas/), [Winston Cheung](https://www.linkedin.com/in/winston-cheung/), [Richard Zhan](https://www.linkedin.com/in/rzhan11/)
 <iframe width="75%" height="400" 
                     src="https://youtube.com/embed/UaUhAYyHwYQ" frameborder="0"
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen=""></iframe>
-[[Full Code]](https://github.com/itswin/tartanhacks21)
 
 # Overview
 

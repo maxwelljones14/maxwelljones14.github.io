@@ -6,7 +6,9 @@ img: assets/img/living_room_depth_map.png
 importance: 3
 category: course project
 ---
+### [[Codebase]](https://github.com/maxwelljones14/Cog_Robo_Final_Project) [[Presentation Slides]](/assets/pdf/cozmo_depth_map_presentation_slides.pdf)
 
+Partner: [Akshath Burra](https://www.linkedin.com/in/arburra/)
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/3_cubes.png" title="example image" class="img-fluid rounded z-depth-1" %}
@@ -16,9 +18,7 @@ category: course project
     Screenshot of our overall method. The robot uses markers to predict absolute depth for up to 3 cubes. We then use these absolute depth predictions with a relative monocular depth prediction from <a class="text" href="https://github.com/isl-org/MiDaS">MiDaS</a> to predict absolute depth at every pixel
 </div>
 
-[[Codebase]](https://github.com/maxwelljones14/Cog_Robo_Final_Project) [[Presentation Slides]](/assets/pdf/cozmo_depth_map_presentation_slides.pdf)
 
-Partner: [Akshath Burra](https://www.linkedin.com/in/arburra/)
 
 My senior year I took [Cognitive
 Robotics](http://www.cs.cmu.edu/afs/cs.cmu.edu/academic/class/15494-s23/), a course in which you program [Cozmo](https://www.digitaldreamlabs.com/products/cozmo-robot), a robot with a camera sensor. Our goal was to estimate absolute depth of every pixel seen by the camera sensor 

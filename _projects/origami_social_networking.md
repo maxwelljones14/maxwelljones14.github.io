@@ -6,6 +6,7 @@ img: assets/img/Origami.png
 importance: 3
 category: fun
 ---
+### [[Codebase]](https://github.com/maxwelljones14/Origami_Social_Networking)
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/Origami.png" title="example image" class="img-fluid rounded z-depth-1" %}
@@ -13,7 +14,6 @@ category: fun
 </div>
 
 
-[[Codebase]](https://github.com/maxwelljones14/Origami_Social_Networking)
 
 The idea of this project was to create a platform that origamists could share their work
 with each other and also share models that they made with each other along with

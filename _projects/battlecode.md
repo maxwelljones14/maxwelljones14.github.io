@@ -30,12 +30,12 @@ in the top 16 for the three years we competed (2020, 2021, 2022), with monotonic
 
 <h2> 2023 Overview</h2>
 
-
+[[Full Code]](https://github.com/maxwelljones14/BattleCode2023) [[Full Post Mortem]](https://battlecode.org/assets/files/postmortem-2023-4-musketeers.pdf)
  <iframe width="560" height="315" src="https://www.youtube.com/embed/oa4CAizd1Nk?start=8810"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
-[[Full Code]](https://github.com/maxwelljones14/BattleCode2023) [[Full Post Mortem]](https://battlecode.org/assets/files/postmortem-2023-4-musketeers.pdf)
+
 
 This year, we worked really hard to make a post mortem that is both easy to read and
 informative for any level of reader. Please feel free to give it a skim/read some paragraphs
@@ -44,12 +44,12 @@ click on a section to go there)!
 
 <h2> 2022 Overview</h2>
 
-
+[[Full Code]](https://github.com/BSreenivas0713/Battlecode2022) [[Full Post Mortem]](https://battlecode.org/assets/files/postmortem-2022-5-musketeers.pdf)
  <iframe width="560" height="315" src="https://www.youtube.com/embed/X5d00wtBX3k?start=5832&end=6027"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
-[[Full Code]](https://github.com/BSreenivas0713/Battlecode2022) [[Full Post Mortem]](https://battlecode.org/assets/files/postmortem-2022-5-musketeers.pdf)
+
 
 Here are some of the cooler features from this year:
 - Like in 2021, we used a stack to store states (look at the first bullet 2021 for more
@@ -63,12 +63,12 @@ Here are some of the cooler features from this year:
 
 
 <h2> 2021 Overview</h2>
-
+[[Full Code]](https://github.com/maxwelljones14/BattleCode2023) [[Full Post Mortem]](https://battlecode.org/assets/files/postmortem-2021-musketeers.pdf)
  <iframe width="560" height="315" src="https://youtube.com/embed/WZrlJAE3LKw"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
-[[Full Code]](https://github.com/maxwelljones14/BattleCode2023) [[Full Post Mortem]](https://battlecode.org/assets/files/postmortem-2021-musketeers.pdf)
+
 
 Here are some of the cooler features from this year:
 - Our home base towers used a stack to store different States. With this in place, we

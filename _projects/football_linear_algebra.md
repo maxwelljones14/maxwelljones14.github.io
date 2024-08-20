@@ -6,14 +6,14 @@ img: assets/img/Football.jpg
 importance: 3
 category: course project
 ---
-
+### [[Full Writeup]](/assets/pdf/Linear.pdf)
+Partner: [Eric Gan](https://www.linkedin.com/in/eric-gan-cmu/)
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/football_pic.jpg"  width="50%" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
-<a class="text" href="/assets/pdf/Linear.pdf">[Full Writeup]</a>
-Partner: [Eric Gan](https://www.linkedin.com/in/eric-gan-cmu/)
+
 
 This was a course project from when I took Matrix Algebra at CMU in 2019. The main goal of this project was to take data from the regular season of the NFL and predict the playoffs be computing rankings for each team.
 
