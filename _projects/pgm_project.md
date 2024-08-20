@@ -10,15 +10,14 @@ related_publications: false
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        <!-- add gif from assets/img/pgm_gif.gif -->
-        <img src="../../assets/img/pgm_gif.gif">
+        {% include figure.liquid loading="eager" path="/assets/img/pgm_gif.gif" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
     An example of the diffusion process to find the minimum spanning tree in a graph. Here, each edge gets a probability that it is in the minimum spanning tree. At the beginning of the process, these probabilities are random, and the graph neural network (GNN) denoises them into 1 if the edge is in the MST and 0 otherwise (in the optimal case)
 </div>
 
-[[Full Writeup]](../../assets/pdf/pgm_final_report.pdf) [[Codebase]](https://github.com/maxwelljones14/DIFUSCO)
+[[Full Writeup]](/assets/pdf/pgm_final_report.pdf) [[Codebase]](https://github.com/maxwelljones14/DIFUSCO)
 
 We build off of [DIFUSCO](https://proceedings.neurips.cc/paper_files/paper/2023/file/0ba520d93c3df592c83a611961314c98-Paper-Conference.pdf), a work by [Zhiqing Sun](https://www.cs.cmu.edu/~zhiqings/) for predicting routes in the traveling salesmen problem using diffusion and graph neural networks. Our goal is to use diffusion and graph neural networks to efficiently solve easier graph problems like minimum spanning tree and shortest path between two points
 
