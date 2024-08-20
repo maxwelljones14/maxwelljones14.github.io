@@ -16,7 +16,7 @@ category: course project
     Screenshot of our overall method. The robot uses markers to predict absolute depth for up to 3 cubes. We then use these absolute depth predictions with a relative monocular depth prediction from <a class="text" href="https://github.com/isl-org/MiDaS">MiDaS</a> to predict absolute depth at every pixel
 </div>
 
-[[Codebase]]("https://github.com/maxwelljones14/Cog_Robo_Final_Project") [[Presentation Slides]](/assets/pdf/cozmo_depth_map_presentation_slides.pdf)
+[[Codebase]](https://github.com/maxwelljones14/Cog_Robo_Final_Project) [[Presentation Slides]](/assets/pdf/cozmo_depth_map_presentation_slides.pdf)
 
 Partner: [Akshath Burra](https://www.linkedin.com/in/arburra/)
 
