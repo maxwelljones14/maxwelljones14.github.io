@@ -1,11 +1,11 @@
 ---
 layout: cv
 permalink: /cv/
-title: cv
+title: CV/Resume
 nav: true
 nav_order: 5
-cv_pdf: example_pdf.pdf
-description: This is a description of the page. You can modify it in '_pages/cv.md'. You can also change or remove the top pdf download button.
+cv_pdf: Maxwell_Jones_Resume.pdf
+description: My Resume/CV. Click the PDF icon for a PDF version. Descriptive CV under construction!
 toc:
   sidebar: left
 ---

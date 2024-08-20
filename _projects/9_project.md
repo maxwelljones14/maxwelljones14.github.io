@@ -3,8 +3,8 @@ layout: page
 title: project 9
 description: another project with an image 🎉
 img: assets/img/6.jpg
-importance: 4
-category: fun
+importance: 
+category: example
 ---
 
 Every project has a beautiful feature showcase page.

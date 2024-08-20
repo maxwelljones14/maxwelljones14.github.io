@@ -1,14 +1,11 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - maxwelljones14
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - maxwelljones14/BattleCode2023
+  - maxwelljones14/DIFUSCO
+  - maxwelljones14/Efficient-SSL 
+  - maxwelljones14/Cog_Robo_Final_Project
+  - maxwelljones14/football_with_linear_algrebra

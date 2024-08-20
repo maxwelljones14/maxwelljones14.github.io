@@ -2,24 +2,26 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a href="https://www.ml.cmu.edu/">ML PhD student</a> @ CMU, former <a href="https://www.ml.cmu.edu/academics/primary-ms-machine-learning-masters.html">MSML</a> Masters and AI + Math Undergrad @ CMU # <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>mjones2 [at] andrew [dot] cmu [dot] edu</p>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I'm currently a first year PhD student at CMU in the Machine Learning Department in the [School of Computer Science](https://www.cs.cmu.edu/) at [Carnegie Mellon University](https://www.cmu.edu/), advised by [Prof. Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/). I'm also a [Rales Fellow](https://www.cmu.edu/graduate/funding/rales/index.html) at CMU in the inagural 2024 cohort. 
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+In the past, I was a Masters of Machine Learning student at CMU and an AI and Math double major at CMU. As a masters student, I was honored to be selected as a [Siebel Scholar](https://csd.cmu.edu/news/five-scs-students-named-2024-siebel-scholars). As an undergrad, I was awarded [The Mark Stehlik Introductory and Service Teaching Award](https://www.cs.cmu.edu/~scsfacts/stehlikaward.html) for my work teaching [discrete mathematics](https://www.math.cmu.edu/~jmackey/151_128/recitations.html).
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+My research interests include generative modeling for vision and visual tasks, as well as multimodal machine learning in the generative modeling space. 
+
+On the fun side, I love sports, and like to play basketball, volleyball, ping pong, and pickleball. I also like doing origami, and I've been folding since I was very young. 
+
+This website is under construction, so please don't mind some of the filler text!

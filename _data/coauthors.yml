@@ -1,34 +1,31 @@
-"adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
+"hall":
+  - firstname: ["Melissa"]
+    url: https://scholar.google.com/citations?user=DcfHZoUAAAAJ&hl=en
 
-"podolsky":
-  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
+"van_der_Maaten":
+  - firstname: ["Laurens"]
+    url: https://lvdmaaten.github.io/
 
-"rosen":
-  - firstname: ["Nathan", "N."]
-    url: https://en.wikipedia.org/wiki/Nathan_Rosen
+"gustafson":
+  - firstname: ["Laura"]
+    url: https://scholar.google.com/citations?user=c8IpF9gAAAAJ&hl=en
 
-"bach":
-  - firstname: ["Johann Sebastian", "J. S."]
-    url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
+"adcock":
+  - firstname: ["Aaron"]
+    url: https://scholar.google.com/citations?user=oa78zHUAAAAJ&hl=en
 
-  - firstname: ["Carl Philipp Emanuel", "C. P. E."]
-    url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
+"wang":
+  - firstname: ["Sheng-Yu"]
+    url: https://peterwang512.github.io/
+  
+"kumari":
+  - firstname: ["Nupur"]
+    url: https://nupurkmr9.github.io/
 
-"przibram":
-  - firstname: ["Karl"]
-    url: https://link.springer.com/article/10.1007/s00016-019-00242-z
+"zhu":
+  - firstname: ["Jun-Yan"]
+    url: https://www.cs.cmu.edu/~junyanz/
 
-"schrodinger":
-  - firstname: ["Erwin"]
-    url: https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger
-
-"lorentz":
-  - firstname: ["Hendrik Antoon"]
-    url: https://en.wikipedia.org/wiki/Hendrik_Lorentz
-
-"planck":
-  - firstname: ["Max"]
-    url: https://en.wikipedia.org/wiki/Max_Planck
+"bau":
+  - firstname: ["David"]
+    url: https://baulab.info/
