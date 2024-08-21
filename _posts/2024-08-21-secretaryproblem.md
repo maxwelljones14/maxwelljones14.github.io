@@ -49,7 +49,7 @@ At this point, the following question is usually asked:
 *What strategy do you use to maximize the chances to hire the best applicant?*
 
 The well known solution to the problem (as $$N$$ goes to infinity) is as follows: 
-- Reject the first $$\frac{N}{e}$$ secretaries where $e$ is Eulers number, and note down the best out of this group as $$\text{init}_{\max}$$
+- Reject the first $$\frac{N}{e}$$ secretaries where $$e$$ is Eulers number, and note down the best out of this group as $$\text{init}_{\max}$$
 - Hire the first secretary after that point that is better than $$\text{init}_{\max}$$
 
  While this may be an interesting question, it falls short of the real world scenario we are trying to model here in our opinion. If the secretaries are randomly distributed, the second best secretary out of the $$N$$ should also be a pretty good hire, and same for the third best. In fact, a strategy that picks the best secretary 10 percent of the time and the worst secretary every other time should really be deemed worse than one that picks the best secretary 9 percent of the time and the second best the other 91 percent. 
@@ -159,16 +159,13 @@ $$
 \end{equation}
 $$
 
-The proof is a little long, but I've provided it in full detail for the curious reader:
-{% details Click here for the full proof %}
+{% details Click here for the full proof (slightly involved) %}
 First, our ugly combinatorial term can actually be simplified as follows:
-
 $$
 \label{app:simplification}
 \begin{equation}
-\label{eq:comb_to_choose}
-    \frac{k(i - 1)\dots(i - (k - 1))((N - k)\dots(1))}{N!} = \frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}
-\end{equation}.
+\frac{k(i - 1)\dots(i - (k - 1))((N - k)\dots(1))}{N!} = \frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}
+\end{equation}
 $$
 {% details Click here for the full subproof of this fact%}
 $$
@@ -182,6 +179,14 @@ $$
 \end{align*}
 $$
 {% enddetails %}
+We're now trying to simplify the prettier equation: 
+
+$$
+\begin{equation} 
+\frac{k}{2} + \sum_{i = k}^{N - 1}\frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}\frac{i + 1 + N}{2}
+\end{equation}
+$$
+
 Next, note that in every assignment, $$\text{init}_{\max}$$ must be a value between $$k$$ and $$N$$. As a result, the sum of probabilities of $$\text{init}_{\max} = i$$ for $$i$$ between $$k$$ and $$N$$ must add to 1. We have that:
 
 $$
@@ -205,12 +210,11 @@ $$
     \frac{N - k}{k} = \sum_{i = k}^{N - 1}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}
 \end{equation}
 $$
-{% details Click here for the full subproof of moving around details%}
+{% details Click here for the full subproof of moving around terms%}
 $$
 \label{subsec_init_proof_second}
 \begin{align*}
-    & 1 =  \sum_{i = k}^N \frac{k(i - 1)\dots(i - (k - 1))((N - k)\dots(1))}{N!} \\
-    & \ \ =  \sum_{i = k}^N \frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}} &&\text{Appendix \ref{subsec_init_proof}}\\
+    & 1 =  \sum_{i = k}^N \frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}} \\
     \implies & \frac{N}{k} = \sum_{i = k}^N\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}} \\
     \implies & \frac{N}{k} = \sum_{i = k}^{N - 1}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}} + 1 \\
     \implies & \frac{N - k}{k} = \sum_{i = k}^{N - 1}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}
@@ -218,7 +222,119 @@ $$
 $$
 {% enddetails %}
 
+Via a similar process where we reject the first $$k + 1$$ secretaries, we arrive at
+
+$$
+\begin{equation}
+    \label{eq:surprise_tool}
+    \frac{N(N - k)}{k + 1} = \sum_{i = k}^{N - 1} i\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}
+\end{equation}
+$$
+
+{% details Click here for fully worked out similar process%}
+Let's consider rejecting the first $$k + 1$$ secretaries, and finding the probability that secretary $$i + 1$$ is the best secretary in this group. We can count the number of ways this happens: 
+
+$$
+\begin{equation}
+    \label{eq:combinatorics_app_1}
+    \underbrace{k + 1}_{\text{put $i + 1$ in the first $k + 1$}}*\underbrace{(i)*\dots*(i - (k - 1))}_{\text{fill other $k$ with secretaries worse than $i + 1$}}*\underbrace{(N - (k + 1))*\dots
+*(1)}_{\text{fill rest}}
+\end{equation}
+$$
+
+Again we can denote the probability of the $$i + 1$$th person being the best in the group as the quotient of this and $$N!$$, yielding:
+
+$$
+\begin{align*}
+    & \frac{(k + 1)(i)\dots(i - (k - 1))(N - (k + 1)))\dots(1)}{N!} \\
+    = & \frac{(k + 1)i}{k(n - k)}\frac{k(i - 1)\dots(i - (k - 1))((N - (k + 1))\dots(1))}{N!} \\
+    = & \frac{(k + 1)i}{k(n - k)} \frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}} && \text{Equation (11)}
+\end{align*}
+$$
+
+Again, since the sum of these probabilities from $$i + 1 = k + 1$$ to $$i + 1 = N$$ covers all possible top rejecting people, we have that:
+
+$$
+\begin{equation}
+    \sum_{i = k}^{N - 1} \frac{(k + 1)i}{k(n - k)} \frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}} = 1
+\end{equation}
+$$
+
+This directly yields the result, or
+
+$$
+\begin{equation}
+    \frac{N(N - k)}{k + 1} = \sum_{i = k}^{N - 1} \frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}
+\end{equation}
+$$
 {% enddetails %}
 
+Putting this all together, we get:
+
+$$
+\begin{align*}
+    & \mathbb{E}[\text{Secretary chosen}] \\
+    = & \frac{k}{2} + \sum_{i = k}^{N - 1}\frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}\frac{i + 1 + N}{2} && \text{Equation (12)}\\
+    = & \frac{k}{2} + \frac{k(N + 1)}{2N} \left(\sum_{i = k}^{N - 1}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}\right) + \frac{k}{2N}\left(\sum_{i = k}^{N - 1}i\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}\right) \\
+    = & \frac{k}{2} + \frac{k(N + 1)}{2N} \left(\frac{N - k}{k}\right) + \frac{k}{2N}\left(\frac{N(N - k)}{k + 1}\right) && \text{Equations (14) and (15)}\\
+    = & \frac{k}{2} + \frac{N - k}{2}\left(\frac{N + 1}{N} + \frac{k}{k + 1}\right)
+\end{align*}
+$$
+
+{% enddetails %}
+
+Using the chain/quotient rules, the derivative with respect to $$k$$ works out to be 
+
+$$
+\begin{equation}
+    \frac{\partial}{\partial k} \mathbb{E}[\text{Secretary chosen}] = \frac{1}{2} + \frac{-1}{2}\left(\frac{N + 1}{N} + \frac{k}{k + 1}\right) + \frac{N - k}{2}\frac{1}{(k + 1)^2}
+\end{equation}
+$$
+
+Finally, we can set this to zero to and solve for $$k$$ to achieve a solution of 
+
+$$
+\begin{equation}
+    k_{\text{opt}} = \sqrt{N} - 1
+\end{equation}
+$$
+
+{% details Click here for fully worked out maxima calculation%}
+$$
+\begin{align*}
+    & \frac{1}{2} + \frac{-1}{2}\left(\frac{N + 1}{N} + \frac{k}{k + 1}\right) + \frac{N - k}{2}\frac{1}{(k + 1)^2} = 0 \\
+    \implies & \frac{N(k + 1)^2 - (N + 1)(k + 1)^2 - Nk(k + 1) + (N - k)N}{2N(k + 1)^2} = 0 \\
+    \implies & N(k + 1)^2 - (N + 1)(k + 1)^2 - Nk(k + 1) + (N - k)N = 0 \\
+    \implies & -(N + 1)k^2 - 2(N + 1)k - (1 - N^2) = 0 \\
+    \implies & (N + 1)k^2 + 2(N + 1)k + (1 - N^2) = 0 \\
+    \implies & k = \frac{-2(N + 1) \pm \sqrt{4(N + 1)^2 - 4(N + 1)(1 - N^2)}}{2(N + 1)} \\
+    \implies & k = \frac{-2(N + 1) \pm 2(N + 1)\sqrt{1 - (1 - N)}}{2(N + 1)} \\
+    \implies & k = -1 \pm \sqrt{N}
+\end{align*}
+$$
+
+{% enddetails %}
+
+Success! we now know that we should only reject the first $$\sqrt{N} - 1$$ secretaries, then pick the next one that is greater than all those we rejected. If this isn't a whole number, we can simply pick the closest integer to $$\sqrt{N} - 1$$<d-footnote>This is a result of the function being concave, see Bearden<d-cite key="bearden2006new"></d-cite> for more.</d-footnote> :smile:
+
+
 ### Visualizations/Intuition
-values
+In the original version of the problem, we had to reject the first $$\frac{N}{e}$$, or $$~34$$ percent of secretaries before beginning the next stage. This means that $$34$$ percent of the time, the top secretary is in the rejection group and the algorithm fails! When optimizing for only the top secretary, we have to pick a random secretary with a relatively low expected score over 1/3 of the time. 
+
+This is more OK when the only goal is to try and maximize the probability of the highest secretary, but severely punishes our formulation where getting the second best secretary or third best is also a win. 
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/secretary_problem.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+Here we visualize the expected value for picking the rejection number at 1 through 100 for $$N = 100$$ as well as the probability of picking the best secretary. As predicted, the highest expected value is at $$k = \sqrt{100} - 1 = 9$$, with an expected secretary score of 91.405, which is pretty good!! At this value, the probability of picking the best secretary is only 21 percent, as opposed to the 36 percent which occurs if we wait 36 people instead of 9. Since we only wait for the first 9 secretaries, our algorithm "fails" and is forced to pick the last secretary only $$9$$ percent of the time.
+
+A nicer formulation of the expected value is as follows:
+
+$$
+\begin{equation}
+    (n + 1)\left(1 - \frac{k}{2n} - \frac{1}{2(k + 1)}\right)
+\end{equation}
+$$
+
+Here, notice that if $$k$$ is too big, the first negative term will reduce the epxected value, while if $$k$$ is too small, the second negative term will reduce the expected value. 
