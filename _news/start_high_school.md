@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-started high school at TJ in Virginia
+started high school at [TJ](https://tjhsst.fcps.edu/) in Virginia
