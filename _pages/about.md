@@ -20,7 +20,7 @@ I'm currently a first year PhD student at CMU in the Machine Learning Department
 
 In the past, I was a Masters of Machine Learning student at CMU and an AI and Math double major at CMU. As a masters student, I was honored to be selected as a [Siebel Scholar](https://csd.cmu.edu/news/five-scs-students-named-2024-siebel-scholars). As an undergrad, I was awarded [The Mark Stehlik Introductory and Service Teaching Award](https://www.cs.cmu.edu/~scsfacts/stehlikaward.html) for my work teaching [discrete mathematics](https://www.math.cmu.edu/~jmackey/151_128/recitations.html).
 
-My research interests include generative modeling for vision and visual tasks, as well as multimodal machine learning in the generative modeling space. 
+My research interests include generative modeling for vision and visual tasks, as well as multimodal machine learning in the generative modeling space. In the past I worked on the intersection of applied and theoretical machine learning.
 
 On the fun side, I love sports, and like to play basketball, volleyball, ping pong, and pickleball. I also like doing origami, and I've been folding since I was very young. 
 
