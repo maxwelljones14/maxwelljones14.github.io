@@ -78,7 +78,7 @@
           "summary": "Generate stories (new story captions and corresponding images) from a single initial story caption/image",
           "startDate": "2024-01-15",
           "endDate": "2024-04-15",
-          "url": "/projects/story_generation/",
+          "url": "/projects/multimodal_project/",
           "highlights": ["predict both descriptive text for image generation and story caption for story text", "Course project for 11-777 Multimodal Machine Learning"]          
         },
         {
