@@ -14455,6 +14455,16 @@ distill-header .nav a {
     }
   }
 
+  function DistillMedia(dom) {
+    const mediaTag = dom.querySelectorAll("@media");
+    if (!mediaTag) {
+      const media = dom.createElement("@media");
+      media.innerHTML = mediaTemplate;
+      const body = dom.querySelector("body");
+      body.appendChild(media);
+    }
+  }
+
   // Copyright 2018 The Distill Template Authors
 
   const extractors = new Map([
@@ -14481,6 +14491,7 @@ distill-header .nav a {
     ["DistillHeader", DistillHeader],
     ["DistillAppendix", DistillAppendix],
     ["DistillFooter", DistillFooter],
+    ["DistillMedia", DistillMedia],
   ]);
 
   /* Exported functions */
