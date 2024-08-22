@@ -23,5 +23,3 @@ In the past, I was a Masters of Machine Learning student at CMU and an AI and Ma
 My research interests include generative modeling for vision and visual tasks, as well as multimodal machine learning in the generative modeling space. In the past I worked on the intersection of applied and theoretical machine learning.
 
 On the fun side, I love sports, and like to play basketball, volleyball, ping pong, and pickleball. I also like doing origami, and I've been folding since I was very young. 
-
-This website is under construction, so please don't mind some of the filler text!
