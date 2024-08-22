@@ -638,6 +638,6 @@ jsonresume:
   - education
   - publications
   - teaching
-  # - projects
+  - projects
   - awards
   # - skills
