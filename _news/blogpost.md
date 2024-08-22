@@ -5,4 +5,5 @@ inline: true
 related_posts: false
 ---
 
-Released first [blog post](/_posts/2024-08-21-secretaryproblem.md) on the secretary problem :party_popper: :party_popper: 
+Released first [blog post](/_posts/2024-08-21-secretaryproblem.md) on the secretary problem 	
+:partying_face: :partying_face:

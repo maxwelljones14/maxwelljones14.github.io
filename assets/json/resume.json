@@ -74,12 +74,12 @@
     ],
     "projects": [
         {
-          "name": "Quantum Computing",
-          "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-          "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-          "startDate": "2018-01-01",
-          "endDate": "2018-01-01",
-          "url": "https://example.com"
+          "name": "MIT Battlecode!",
+          "summary": "Competed on team of 4 in annual strategy-based coding competition run by MIT, January 2021, 2022, 2023",
+          "highlights": ["$2000+ in prize winnings"],
+          "startDate": "2021-01-01",
+          "endDate": "2023-01-31",
+          "url": "https://battlecode.org/"
         }
       ],
     "awards": [
