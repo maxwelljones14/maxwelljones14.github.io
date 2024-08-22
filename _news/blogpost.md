@@ -5,5 +5,5 @@ inline: true
 related_posts: false
 ---
 
-Released first [blog post](/_posts/2024-08-21-secretaryproblem.md) on the secretary problem 	
+Released first [blog post](/blog/2024/secretaryproblem/) on the secretary problem 	
 :partying_face: :partying_face:
