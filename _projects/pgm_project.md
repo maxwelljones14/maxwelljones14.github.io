@@ -28,7 +28,7 @@ We consider random graphs with 50 nodes. Specifically, 50 random points are chos
 ## Implementation Details
 We build off of [DIFUSCO](https://proceedings.neurips.cc/paper_files/paper/2023/file/0ba520d93c3df592c83a611961314c98-Paper-Conference.pdf), a work by [Zhiqing Sun](https://www.cs.cmu.edu/~zhiqings/) for predicting routes in the traveling salesmen problem using diffusion and graph neural networks. Our goal is to use diffusion and graph neural networks to efficiently solve easier graph problems like minimum spanning tree and shortest path between two points
 
-We use [DDIM](https://arxiv.org/abs/2010.02502) for diffusion training, and train an [anisotropic graph neural network](https://graphdeeplearning.github.io/publication/bresson-2018-experimental/) to diffusion random edge probabilites of being in the MST to the true distribution
+We use [DDIM](https://arxiv.org/abs/2010.02502) for diffusion training, and train an [anisotropic graph neural network](https://graphdeeplearning.github.io/publication/bresson-2018-experimental/) to diffuse random edge probabilites of being in the MST to the true distribution
 
 
 ## Results
