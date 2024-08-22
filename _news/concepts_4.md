@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-TA'd for [Concepts of Mathematics](https://www.math.cmu.edu/~jmackey/151_128/welcome.html) (Shadow Council) at CMU, Fall 2023
+TA for [Concepts of Mathematics](https://www.math.cmu.edu/~jmackey/151_128/welcome.html) (Shadow Council) at CMU, Fall 2023

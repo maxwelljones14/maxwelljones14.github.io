@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-TA'd for [Deep Reinforcement Learning](https://cmudeeprl.github.io/703website_f23/) at CMU, Fall 2024
+TA for [Deep Reinforcement Learning](https://cmudeeprl.github.io/703website_f23/) at CMU, Fall 2024

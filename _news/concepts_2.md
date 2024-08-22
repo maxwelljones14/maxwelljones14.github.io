@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-TA'd for [Concepts of Mathematics](https://www.math.cmu.edu/~jmackey/151_128/welcome.html) (Head TA) at CMU, Fall 2021
+TA for [Concepts of Mathematics](https://www.math.cmu.edu/~jmackey/151_128/welcome.html) (Head TA) at CMU, Fall 2021

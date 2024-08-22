@@ -74,12 +74,35 @@
     ],
     "projects": [
         {
+          "name": "Story Generation",
+          "summary": "Generate stories (new story captions and corresponding images) from a single initial story caption/image",
+          "startDate": "2024-01-15",
+          "endDate": "2024-04-15",
+          "url": "/projects/story_generation/",
+          "highlights": ["predict both descriptive text for image generation and story caption for story text", "Course project for 11-777 Multimodal Machine Learning"]          
+        },
+        {
+          "name": "Solving Graph Problems with Diffusion",
+          "summary": "Use Graph Neural Networks and Diffusion to solve graph problems like MST (minimum spanning tree)",
+          "startDate": "2024-01-15",
+          "endDate": "2024-04-15",
+          "url": "/projects/pgm_project/",
+          "highlights": ["predict whether edges are in or out of MST using diffusion, where all edges start with randomized probability of being in MST", "course project for 10-708 Probabilistic Graphical Models"]
+        },
+        {
           "name": "MIT Battlecode!",
           "summary": "Competed on team of 4 in annual strategy-based coding competition run by MIT, January 2021, 2022, 2023",
           "highlights": ["$2000+ in prize winnings"],
           "startDate": "2021-01-01",
           "endDate": "2023-01-31",
           "url": "https://battlecode.org/"
+        },
+        {
+          "name": "Cozmo Depth Map",
+          "summary": "Calculated absolute depth map for Cozmo robot using deep learning and aruco markers",
+          "startDate": "2023-01-15",
+          "endDate": "2023-04-15",
+          "url": "/projects/cozmo_depth_map/"
         }
       ],
     "awards": [
