@@ -55,13 +55,13 @@ The well known solution to the problem (as $$N$$ goes to infinity) is as follows
  While this may be an interesting question, it falls short of the real world scenario we are trying to model here in our opinion. If the secretaries are randomly distributed, the second best secretary out of the $$N$$ should also be a pretty good hire, and same for the third best. In fact, a strategy that picks the best secretary 10 percent of the time and the worst secretary every other time should really be deemed worse than one that picks the best secretary 9 percent of the time and the second best the other 91 percent. 
 
  Our previous musings lead to the idea of trying to maximize the best secretary 
- **_in expectation_**, where the best secretary of the group has the highest value of $$N$$, the second best $$N - 1$$, and so on until the worst secretary with a score of 1. This may yield different results to the more famous setup where the probability of picking the best secretary is maximized. We will call this the **Discrete Expected Secretary Problem**
+ **_in expectation_**, where the best secretary of the group has the highest value of $$N$$, the second best $$N - 1$$, and so on until the worst secretary with a score of 1<d-footnote>A similar problem with expectation was solved by Bearden<d-cite key="bearden2006new"></d-cite>, in which each secretary's score is independently uniformly distributed between 0 and 1. This is a similar, but not identical formulation since ours has exactly 1 person at each score level between 1 and N, which will yield some nice combinatorial results.</d-footnote>. This may yield different results to the more famous setup where the probability of picking the best secretary is maximized. We will call this the **Discrete Expected Secretary Problem**.
 
 ---
 
 ## Solution to the "Discrete Expected Secretary Problem"
 ### Formal Setup/Ideas
-Formally, we will consider a set of $$N$$ secretaries with distinct scores from 1 to $$N$$, and order them randomly<d-footnote>A similar problem with expectation was solved by Bearden<d-cite key="bearden2006new"></d-cite>, in which each secretary's score is independently uniformly distributed between 0 and 1. This is a similar, but not identical formulation since ours has exactly 1 person at each score level between 1 and N, which will yield some nice combinatorial results.</d-footnote>. We will use the strategy of passing on some fixed number $$k$$ secretaries then picking the next one better than all those we passed on, with $$k_{\text{opt}}$$ being the optimal value for highest expected return.
+Formally, we will consider a set of $$N$$ secretaries with distinct scores from 1 to $$N$$, and order them randomly. We will use the strategy of passing on some fixed number $$k$$ secretaries then picking the next one better than all those we passed on, with $$k_{\text{opt}}$$ being the optimal value for highest expected return.
 
 If we can write the expected value in terms of $$k$$, i.e. 
 
@@ -75,7 +75,7 @@ $$
 then we can simply differentiate with respect to $$k$$ and find the max by setting the derivative equal to zero. Let's try that. From here on, $$k$$ represents the number of secretaries we reject in part one of the algorithm.
 
 ### Expectation Calculation
-To tackle this problem, we will use the law of total expectation, and partition our possibilities based on the score of $$\text{init}_{\max}$$, the best secretary from the initial rejected group. Notice that this value must be at least $k$, since the initial group has $k$ secretaries:
+To tackle this problem, we will use the law of total expectation, and partition our possibilities based on the score of $$\text{init}_{\max}$$, the best secretary from the initial rejected group. Notice that this value must be at least $$k$$, since the initial group has $$k$$ secretaries:
 
 $$
 \begin{equation}
@@ -85,8 +85,8 @@ $$
 $$
 
 From here, notice that calculating $$\mathbb{E}[\text{Secretary chosen} | \text{init}_{\max} = i]$$ is relatively easy. 
-- If $$\text{init}_{\max} = N$$, then the best secretary was in the rejecting group, and we are forced to choose the last secretary in the list of $$N$$. The last secretary is distributed randomly between the worst and second best in this case (since the best is in the initial $k$), so the expected value is $$\frac{1 + (N - 1)}{2} = \frac{N}{2}$$
-- If $$\text{init}_{\max} = N$$, then the best secretary was in the rejecting group, and we are forced to choose the last secretary in the list of $$N$$. The last secretary is distributed randomly between the worst and second best in this case (since the best is in the initial $k$), so the expected value is $$\frac{1 + (N - 1)}{2} = \frac{N}{2}$$
+- If $$\text{init}_{\max} = N$$, then the best secretary was in the rejecting group, and we are forced to choose the last secretary in the list of $$N$$. The last secretary is distributed randomly between the worst and second best in this case (since the best is in the initial $$k$$), so the expected value is $$\frac{1 + (N - 1)}{2} = \frac{N}{2}$$
+- If $$\text{init}_{\max} \neq N$$, then the best secretary was not in the rejecting group, and any secretary better than $$\text{init}_{\max}$$ has the same probability of being the first one to be found after all rejections. As a result, the expected value is the average of all of their scores, or $$\frac{(\text{init}_{\max} + 1) + N}{2}$$
 
 These thoughts lead us to the new equation of:
 
