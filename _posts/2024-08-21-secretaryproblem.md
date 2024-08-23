@@ -25,17 +25,17 @@ bibliography: 2024-08-21-secretaryproblem.bib
 # #     for hyperlinks within the post to work correctly.
 # #   - we may want to automate TOC generation in the future using
 # #     jekyll-toc plugin (https://github.com/toshimaru/jekyll-toc).
-toc:
-  - name: Introduction
-  - name: Solution to the "Discrete Expected Secretary Problem"
-    subsections:
-      - name: Formal Setup/Ideas
-      - name: Expectation Calculation
-      - name: Visualizations/Intuition
-#     # if a section has subsections, you can add them as follows:
-#     # subsections:
-#     #   - name: Example Child Subsection 1
-#     #   - name: Example Child Subsection 2
+# toc:
+#   - name: Introduction
+#   - name: Solution to the "Discrete Expected Secretary Problem"
+#     subsections:
+#       - name: Formal Setup/Ideas
+#       - name: Expectation Calculation
+#       - name: Visualizations/Intuition
+# #     # if a section has subsections, you can add them as follows:
+# #     # subsections:
+# #     #   - name: Example Child Subsection 1
+# #     #   - name: Example Child Subsection 2
 ---
 
 ## Introduction

@@ -1,7 +1,7 @@
 ---
 layout: cv
 permalink: /cv/
-title: CV/Resume
+title: cv/resume
 nav: true
 nav_order: 5
 cv_pdf: Maxwell_Jones_Resume.pdf
