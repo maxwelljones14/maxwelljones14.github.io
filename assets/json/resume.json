@@ -140,7 +140,7 @@
         },
         {
           "name": "Carnegie Mellon University",
-          "position": "(Head) Teaching Assistant for 15-151/21-128 discrete math",
+          "position": "(Head) Teaching Assistant for 15-151/21-128 discrete math (4 Years)",
           "url": "https://www.math.cmu.edu/~jmackey/151_128/welcome.html",
           "startDate": "2020-09-01",
           "endDate": "2023-12-15",
@@ -148,7 +148,7 @@
         },
         {
           "name": "Carnegie Mellon University",
-          "position": "Teaching Assistant for 15-251 theoretical computer science",
+          "position": "Teaching Assistant for 15-251 theoretical computer science (3 Years)",
           "url": "https://www.cs251.com/",
           "startDate": "2021-01-15",
           "endDate": "2024-04-15",
@@ -157,7 +157,7 @@
         {
           "name": "Carnegie Mellon University",
           "position": "Teaching Assistant for 10-703 Deep Reinforcement Learning",
-          "url": "https://cmudeeprl.github.io/703website_f23/",
+          "url": "https://cmudeeprl.github.io/703website_f24/",
           "startDate": "2024-09-01",
           "endDate": "2024-12-15",
           "summary": "Teaching assistant for Deep Reinforcement Learning",
