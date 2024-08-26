@@ -122,15 +122,50 @@ $$
 
 What's left is to determine $$\mathbb{P}[\text{init}_{\max} = i]$$ in the other cases, and turn this whole thing into closed form. Here we will turn to combinatorics. 
 
-Note that the total number of ways to arrange $$N$$ secretaries is $$N!$$. Let's now count the number of ways in which $$\text{init}_{\max} = i$$:
+
+Since the secretaries are in a random order, all orderings have the same probability. As a result, we can find $$\mathbb{P}[\text{init}_{\max} = i]$$ for any arbitrary $$i$$ by counting how many orderings have $$i$$ as the best secretary in the first $$k$$ over the total number of secretaries. 
+
+Note that $$\text{init}_{\max} = i$$ for some arbitrary $$i$$ exactly when:
+
+1. The $$i$$th secretary is in the first $$k$$
+2. the $$k - 1$$ other secretaries in the first $$k$$ are worse than secretary $$i$$. 
+
+Let's count the number of valid orderings
 
 $$
 \begin{equation}
-    \label{eq:combinatorics_1}
-    \underbrace{k}_{\text{put $i$ in the first $k$}}*\underbrace{(i - 1)*\dots*(i - (k - 1))}_{\text{fill other $k - 1$ with secretaries worse than $i$}}*\underbrace{(N - k)*\dots
-*(1)}_{\text{fill rest}}
+    \underbrace{k}_{\text{put $i$ in the first $k$}}*\underbrace{\binom{i - 1}{k - 1}}_{\text{choose a group of $k - 1$ secretaries worse than $i$}}*\underbrace{(k - 1)!}_{\text{order secretaries worse than $i$}}*\underbrace{(N - k)!}_{\text{order rest}}
 \end{equation}
 $$
+
+The only difference between a valid ordering and an arbitrary ordering of the $$N$$ secretaries is that for an arbitrary ordering, we can choose any subset to be in the first $$k$$, and we can put element $$i$$ anywhere:
+
+$$
+\begin{equation}
+    \underbrace{N}_{\text{put $i$ somewhere}}*\underbrace{\binom{N - 1}{k - 1}}_{\text{choose any $k - 1$ secretaries for the first $i - 1$ available spots}}*\underbrace{(k - 1)!}_{\text{order these $k - 1$ secretaries}}*\underbrace{(N - k)!}_{\text{order rest}}
+\end{equation}
+$$
+
+From here we can finally calculate the prbability as
+
+$$
+\begin{equation}
+\mathbb{P}[\text{init}_{\max} = i] = \frac{\text{valid orderings}}{\text{total orderings}} = \frac{k \binom{i - 1}{k - 1}(k - 1)!(N - k)!}{N \binom{N - 1}{k - 1}(k - 1)!(N - k)!} = \frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}
+\end{equation}
+$$
+
+From here we can finally fully write the expected value of the secretary chosen from Equation (2) and (3) for an arbitrary stopping point $$k$$ as 
+
+$$
+\begin{equation}
+    \label{eq:first_exp_no_simplify}
+    \frac{k}{2} + \sum_{i = k}^{N - 1}\frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}\frac{i + 1 + N}{2}
+\end{equation}
+$$
+
+<!-- Note that the total number of ways to arrange $$N$$ secretaries is $$N!$$. Let's now count the number of ways in which $$\text{init}_{\max} = i$$:
+
+
 
 Since the secretaries are randomly distributed, each permutation has an equal probability, leading to a result of:
 
@@ -148,7 +183,7 @@ $$
     \label{eq:first_exp_no_simplify}
     \frac{k}{2} + \sum_{i = k}^{N - 1}\frac{k(i - 1)\dots(i - (k - 1))((N - k)\dots(1))}{N!}\frac{i + 1 + N}{2}
 \end{equation}
-$$
+$$ -->
 
 Luckily, the result simplifies nicely into 
 
@@ -160,7 +195,7 @@ $$
 $$
 
 {% details Click here for the full proof (slightly involved) %}
-First, our ugly combinatorial term can actually be simplified as follows:
+<!-- First, our ugly combinatorial term can actually be simplified as follows:
 $$
 \label{app:simplification}
 \begin{equation}
@@ -185,21 +220,15 @@ $$
 \begin{equation} 
 \frac{k}{2} + \sum_{i = k}^{N - 1}\frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}\frac{i + 1 + N}{2}
 \end{equation}
-$$
+$$ -->
 
-Next, note that in every assignment, $$\text{init}_{\max}$$ must be a value between $$k$$ and $$N$$. As a result, the sum of probabilities of $$\text{init}_{\max} = i$$ for $$i$$ between $$k$$ and $$N$$ must add to 1. We have that:
+Note that in every assignment, $$\text{init}_{\max}$$ must be a value between $$k$$ and $$N$$. As a result, the sum of probabilities of $$\text{init}_{\max} = i$$ for $$i$$ between $$k$$ and $$N$$ must add to 1. We have that:
 
 $$
 \begin{equation}
 \label{eq:identity_messy}
-    1 = \sum_{i = k}^N \mathbb{P}[\text{init}_{\max} = i] = \sum_{i = k}^N \frac{k(i - 1)\dots(i - (k - 1))((N - k)\dots(1))}{N!}
+    1 = \sum_{i = k}^N \mathbb{P}[\text{init}_{\max} = i] = \sum_{i = k}^N \frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}
 \end{equation}
-$$
-
-using Equation (11), this yeilds
-
-$$
- 1 = \sum_{i = k}^N \frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}
 $$
 
 moving around some terms, we have that:
@@ -232,23 +261,15 @@ $$
 $$
 
 {% details Click here for fully worked out similar process%}
-Let's consider rejecting the first $$k + 1$$ secretaries, and finding the probability that secretary $$i + 1$$ is the best secretary in this group. We can count the number of ways this happens: 
-
-$$
-\begin{equation}
-    \label{eq:combinatorics_app_1}
-    \underbrace{k + 1}_{\text{put $i + 1$ in the first $k + 1$}}*\underbrace{(i)*\dots*(i - (k - 1))}_{\text{fill other $k$ with secretaries worse than $i + 1$}}*\underbrace{(N - (k + 1))*\dots
-*(1)}_{\text{fill rest}}
-\end{equation}
-$$
-
-Again we can denote the probability of the $$i + 1$$th person being the best in the group as the quotient of this and $$N!$$, yielding:
+Let's consider rejecting the first $$k + 1$$ secretaries, and finding the probability that secretary $$i + 1$$ is the best secretary in this group. We can count the number of ways this happens in the same way as equation 9 to yield: 
 
 $$
 \begin{align*}
-    & \frac{(k + 1)(i)\dots(i - (k - 1))(N - (k + 1)))\dots(1)}{N!} \\
-    = & \frac{(k + 1)i}{k(n - k)}\frac{k(i - 1)\dots(i - (k - 1))((N - (k + 1))\dots(1))}{N!} \\
-    = & \frac{(k + 1)i}{k(n - k)} \frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}} && \text{Equation (11)}
+    \label{eq:combinatorics_app_1}
+    & \mathbb{P}[\text{max out of $k +1$} = i + 1] \\
+    = & \frac{k + 1}{N}\frac{\binom{i}{k}}{\binom{N - 1}{k}} &&\text{same idea as Equation (9)} \\
+    = & \frac{k + 1}{N}\frac{\frac{i}{k}\binom{i - 1}{k - 1}}{\frac{N - k}{k}\binom{N - 1}{k - 1}} &&\text{comb. identities} \\
+    = & \frac{(k + 1)i}{N(N - k)}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}} && \text{Equation (11)}
 \end{align*}
 $$
 
@@ -256,7 +277,7 @@ Again, since the sum of these probabilities from $$i + 1 = k + 1$$ to $$i + 1 = 
 
 $$
 \begin{equation}
-    \sum_{i = k}^{N - 1} \frac{(k + 1)i}{k(n - k)} \frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}} = 1
+    \sum_{i = k}^{N - 1} \frac{(k + 1)i}{N(N - k)}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}} = 1
 \end{equation}
 $$
 
@@ -264,7 +285,7 @@ This directly yields the result, or
 
 $$
 \begin{equation}
-    \frac{N(N - k)}{k + 1} = \sum_{i = k}^{N - 1} \frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}
+    \frac{N(N - k)}{k + 1} = \sum_{i = k}^{N - 1} i\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}
 \end{equation}
 $$
 {% enddetails %}
@@ -274,9 +295,9 @@ Putting this all together, we get:
 $$
 \begin{align*}
     & \mathbb{E}[\text{Secretary chosen}] \\
-    = & \frac{k}{2} + \sum_{i = k}^{N - 1}\frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}\frac{i + 1 + N}{2} && \text{Equation (12)}\\
+    = & \frac{k}{2} + \sum_{i = k}^{N - 1}\frac{k}{N}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}\frac{i + 1 + N}{2} && \text{Equation (10)}\\
     = & \frac{k}{2} + \frac{k(N + 1)}{2N} \left(\sum_{i = k}^{N - 1}\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}\right) + \frac{k}{2N}\left(\sum_{i = k}^{N - 1}i\frac{\binom{i - 1}{k - 1}}{\binom{N - 1}{k - 1}}\right) \\
-    = & \frac{k}{2} + \frac{k(N + 1)}{2N} \left(\frac{N - k}{k}\right) + \frac{k}{2N}\left(\frac{N(N - k)}{k + 1}\right) && \text{Equations (14) and (15)}\\
+    = & \frac{k}{2} + \frac{k(N + 1)}{2N} \left(\frac{N - k}{k}\right) + \frac{k}{2N}\left(\frac{N(N - k)}{k + 1}\right) && \text{Equations (13) and (14)}\\
     = & \frac{k}{2} + \frac{N - k}{2}\left(\frac{N + 1}{N} + \frac{k}{k + 1}\right)
 \end{align*}
 $$

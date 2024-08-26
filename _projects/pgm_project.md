@@ -31,7 +31,7 @@ We build off of [DIFUSCO](https://proceedings.neurips.cc/paper_files/paper/2023/
 We use [DDIM](https://arxiv.org/abs/2010.02502) for diffusion training, and train an [anisotropic graph neural network](https://graphdeeplearning.github.io/publication/bresson-2018-experimental/) to diffuse random edge probabilites of being in the MST to the true distribution
 
 
-## Results
+## Results (refresh page once image is in full view to see gif in full)
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
