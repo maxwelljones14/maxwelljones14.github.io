@@ -1,3 +1,4 @@
+gem 'observer', '~> 0.1'
 source 'https://rubygems.org'
 group :jekyll_plugins do
     gem 'classifier-reborn'
