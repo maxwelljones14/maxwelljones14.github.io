@@ -62,15 +62,23 @@ layout: default
   </header>
 
   <article class="post-content">
-    {% if page.toc and page.toc.beginning %}
-      <div id="table-of-contents">
-        {% toc %}
+    {% if page.redirect and page.redirect contains '://' %}
+      <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">Redirecting...</h4>
+        <p>You are being redirected to: <a href="{{ page.redirect }}" target="_blank">{{ page.redirect }}</a></p>
+        <p class="mb-0">If you are not redirected automatically, please click the link above.</p>
       </div>
-      <hr>
+    {% else %}
+      {% if page.toc and page.toc.beginning %}
+        <div id="table-of-contents">
+          {% toc %}
+        </div>
+        <hr>
+      {% endif %}
+      <div id="markdown-content">
+        {{ content }}
+      </div>
     {% endif %}
-    <div id="markdown-content">
-      {{ content }}
-    </div>
   </article>
 
   {% if page.citation %}
