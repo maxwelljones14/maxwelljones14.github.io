@@ -16,7 +16,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I'm currently a second year PhD student at CMU in the Machine Learning Department in the [School of Computer Science](https://www.cs.cmu.edu/) at [Carnegie Mellon University](https://www.cmu.edu/), advised by [Prof. Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/) and [Prof. Ruslan Salakhutdinov](https://www.cs.cmu.edu/~rsalakhu/). I'm also a [Rales Fellow](https://www.cmu.edu/graduate/funding/rales/index.html) at CMU in the inagural 2024 cohort. 
+I'm currently a second year PhD student at CMU in the Machine Learning Department in the [School of Computer Science](https://www.cs.cmu.edu/) at [Carnegie Mellon University](https://www.cmu.edu/), advised by [Prof. Jun-Yan Zhu](https://www.cs.cmu.edu/~junyanz/) and [Prof. Ruslan Salakhutdinov](https://www.cs.cmu.edu/~rsalakhu/). I'm also a [Rales Fellow](https://www.cmu.edu/graduate/funding/rales/index.html) at CMU in the inagural 2024-2025 cohort, and recently won the MLD TA of the year award for my work TAing [Deep Reinforcement Learning](https://cmudeeprl.github.io/703website_f24/) at CMU. 
 
 In the past, I was a Masters of Machine Learning student at CMU and an AI and Math double major at CMU. As a masters student, I was honored to be selected as a [Siebel Scholar](https://csd.cmu.edu/news/five-scs-students-named-2024-siebel-scholars). As an undergrad, I was awarded [The Mark Stehlik Introductory and Service Teaching Award](https://www.cs.cmu.edu/~scsfacts/stehlikaward.html) for my work teaching [discrete mathematics](https://www.math.cmu.edu/~jmackey/151_128/welcome.html).
 
