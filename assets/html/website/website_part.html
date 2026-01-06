@@ -1,0 +1,35 @@
+<hr style="max-width: 1400px;">
+<div class="container" style="max-width: 1400px; display: flex; justify-content: center;">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center" style="margin-bottom: 30px; margin-top: 10px;">Real Video Editing with Input Video Guidance and Reference Effect Video Guidance</h2>
+            <p style="margin-bottom: 30px; margin-bottom: 30px; text-align: center;">We can use variants of classifier free guidance in the direction of &lt;b&gt;&lt;strong&gt;(left to right)&lt;/strong&gt;&lt;/b&gt; the input video or &lt;b&gt;&lt;strong&gt;(top to bottom)&lt;/strong&gt;&lt;/b&gt; the reference effect video to guide the video editing process when editing real videos. As more input video guidance is applied, the video more closely resembles the input video (i.e. the top right corner of the grid). As more reference effect video guidance is applied, the video more closely resembles the reference effect video (i.e. the bottom left corner of the grid, notice the hair change and the sweater from the reference effect video). By interpolating between these two, we give users more control over the video editing process.</p>
+            <div id="titledgrid" class="containershadow center" style="overflow-x: auto; overflow-y: auto; max-width: 1400px; margin: auto;">
+            <div class="row" style="display: flex; align-items: flex-start; flex-wrap: nowrap;">
+                <div class="column px-4" style="margin: 0; width: 50.000000%; display: block;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Reference Effect Video</div>
+                    </div>
+                </div>
+                <div class="column px-4" style="margin: 0; width: 50.000000%; display: block;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Input Video</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="display: flex; align-items: flex-start;">
+                <div class="column px-4" style="margin: 0; width: 50.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/reference_effect.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+                <div class="column px-4" style="margin: 0; width: 50.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/input.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

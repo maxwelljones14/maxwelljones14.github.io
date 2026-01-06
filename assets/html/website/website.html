@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html class=" w-mod-ix"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style>
+        .wf-force-outline-none[tabindex="-1"]:focus {
+            outline: none;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WNGS4SZ3C7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WNGS4SZ3C7');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Tuning-free Visual Effect Transfer across Videos</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/css.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/Highlight-Clean.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="manifest" href="css/site.webmanifest">
+
+    <meta property="og:site_name" content="RefVFX">
+    <!-- <meta property="og:type" content="video.other"> -->
+    <meta property="og:title" content="Tuning-free Visual Effect Transfer across Videos">
+    <meta property="og:description" content="Tuning-free Visual Effect Transfer across Videos">
+    <!-- <meta property="og:url" content="https://text2cinemagraph.github.io/website/"> -->
+
+    <meta name="description" content="RefVFX">
+    <!-- <meta property="og:url" content="https://text2cinemagraph.github.io/website/"> -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tuning-free Visual Effect Transfer across Videos">
+    <meta property="og:description" content="Tuning-free Visual Effect Transfer across Videos">
+    <!-- <meta property="og:image" content="https://text2cinemagraph.github.io/website/images/teaser.png"> -->
+    <!-- <meta property="og:video" content="https://text2cinemagraph.github.io/website/images/teaser.mp4"> -->
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- <meta property="twitter:url" content="https://text2cinemagraph.github.io/website/"> -->
+    <meta name="twitter:title" content="Tuning-free Visual Effect Transfer across Videos">
+    <meta name="twitter:description" content="Tuning-free Visual Effect Transfer across Videos">
+    <!-- <meta name="twitter:image" content="https://text2cinemagraph.github.io/website/images/teaser.png"> -->
+    <!-- <meta name="twitter:video" content="https://text2cinemagraph.github.io/website/images/teaser.mp4"> -->
+
+
+    <script src="images/video_comparison.js"></script>
+    <script type="module" src="images/model-viewer.min.js"></script>
+
+
+    </head>    <div class="highlight-clean" style="padding-bottom: 20px;">
+        <div class="container" style="padding-bottom: 10px; max-width: 1000px;">
+            <h1 class="text-center"><b>Tuning-free Visual Effect Transfer across Videos</b></h1>
+        </div>
+        <div class="container" style="max-width: 900px;">
+            <div class="row authors" style="padding-bottom: 25px; padding-left: 50px;">
+                <h5 class="text-center"><a class="text-center" href="https://maxwelljon.es/">Maxwell Jones</a><sup style="padding-right: 25px;">1</sup></h5>
+                <h5 class="text-center"><a class="text-center"
+                        href="https://rameenabdal.github.io/">Rameen Abdal</a><sup style="padding-right: 25px;">2</sup></h5>
+                <h5 class="text-center"><a href="https://orpatashnik.github.io/">Or Patashnik</a><sup
+                        style="padding-right: 25px;">2</sup></h5>
+                <h5 class="text-center"><a class="text-center" href="http://www.stulyakov.com/">Sergey
+                        Tulyakov</a><sup style="padding-right: 25px;">2</sup></h5>
+                <h5 class="text-center"><a class="text-center" href="https://www.cs.cmu.edu/~junyanz/">Jun-Yan
+                        Zhu</a><sup style="padding-right: 25px;">1</sup></h5>
+                <h5 class="text-center"><a class="text-center" href="https://www.cs.cmu.edu/~junyanz/">Jackson Wang</a><sup style="padding-right: 25px;">2</sup></h5>
+            </div>
+            <div class="row authors institute">
+                <div class="col-sm-12">
+                    <h4 class="text-center"><sup>1</sup> CMU &nbsp&nbsp <sup>2</sup>Snap Research
+                    </h4>
+                </div>
+            </div>
+            <!-- <div class="row authors institute">
+                <div class="col-sm-12">
+                    <h3 class="text-center"><strong>Anonymous CVPR Submission</strong>
+                    </h3>
+                </div>
+            </div> -->
+        </div>    <hr style="max-width: 1400px;">
+
+        <div class="container" style="max-width: 1400px; display: flex; justify-content: center;">
+            <div xclass="row">
+                <div class="col-md-12">
+                    <!-- <h2 class="text-center" style="margin-bottom: 30px; margin-top: 10px;">Our Results</h2> -->
+
+                    <p></p>
+
+                    <div id="multiconceptscroll" class="containershadow center"
+                        style="overflow-x: auto; overflow-y: auto; max-width: 1400px; margin: auto;">
+                        <div class="row" style="display: flex; align-items: flex-start; flex-wrap: nowrap;">
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <img src="./images/Divider.png" style="width: 100%; height: auto; display: block;" />
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/input_video_0.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/input_video_1.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/input_video_2.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/input_video_3.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="display: flex; align-items: flex-start;">
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/reference_effect_video_0.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/overall_video_0_0.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/overall_video_0_1.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/overall_video_0_2.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/overall_video_0_3.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="display: flex; justify-content: center;">
+                            <div class="column px-4" style="margin: 0; width: 100%;">
+                                <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <details style="width: 100%;">
+                                        <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                        <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">The video opens on a {subject}. A knife, held by a hand, is coming into frame and hovering over the {subject}. The knife then begins cutting into the {subject} to c4k3 cakeify it. As the knife slices the {subject} open, the inside of the {subject} is revealed to be cake with chocolate layers. The knife cuts through and the contents of the {subject} are revealed.</div>
+                                    </details>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="display: flex; align-items: flex-start;">
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/reference_effect_video_1.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/overall_video_1_0.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/overall_video_1_1.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/overall_video_1_2.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/overall_video_1_3.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="display: flex; justify-content: center;">
+                            <div class="column px-4" style="margin: 0; width: 100%;">
+                                <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <details style="width: 100%;">
+                                        <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                        <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">Make it so that the beginning of the scene is unchanged, but during the video a dense, spooky green fog begins to slowly creep in at ground level on the bottom right, spreading outward and enveloping the scene in an eerie, unsettling atmosphere. the fog appears thick and unnatural, with a faint glow that adds to its ominous presence.</div>
+                                    </details>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="display: flex; align-items: flex-start;">
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/reference_effect_video_2.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/overall_video_2_0.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/overall_video_2_1.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/overall_video_2_2.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                            <div class="column px-4" style="margin: 0; width: 20.000000%;">
+                                <div class="row text-center"
+                                    style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                        src="./videos/our_results_image_grid/overall_video_2_3.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="display: flex; justify-content: center;">
+                            <div class="column px-4" style="margin: 0; width: 100%;">
+                                <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                    <details style="width: 100%;">
+                                        <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                        <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">The video begins with a close-up portrait of the asian man, the pu11y puppy effect then begins, as puppies begin to gather and surround the asian man. The asian man interacts with the puppies.</div>
+                                    </details>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p></p>
+                    <p></p>
+                    <br>
+                    <br>
+                    <p style="margin-bottom: 30px; margin-bottom: 30px; text-align: center;">
+                        <b><strong>Each column corresponds to a different input video unseen during training, and each row corresponds to a different reference effect video. Our outputs are shown in the grid above.</strong></b>
+                                        </p>
+                </div>
+            </div>
+        </div>
+        <hr style="max-width: 1400px;">
+    <div class="container" style="max-width: 1400px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center" style="margin-bottom: 30px; margin-top: 10px;">Abstract</h2>
+                <p>
+                    We present <b><strong>RefVFX</strong></b>, a new framework that transfers complex temporal effects from a reference video onto a target
+video or image in a feed-forward manner. While existing methods excel at prompt-based or keyframe-conditioned
+editing, they struggle with dynamic temporal effects such as dynamic lighting changes or character transformations,
+which are difficult to describe via text or static conditions. Transferring a video effect is challenging, as the model
+must integrate the new temporal dynamics with the input video’s existing motion and appearance. To address this,
+we introduce a large-scale dataset of triplets, where each triplet consists of a reference effect video, an input image
+or video, and a corresponding output video depicting the transferred effect. Creating this data is non-trivial, especially
+the video-to-video effect triplets, which do not exist naturally. To generate these, we propose a scalable automated
+pipeline that creates high-quality paired videos designed to preserve the input’s motion and structure while
+transforming it based on some fixed, repeatable effect. We then augment this data with image-to-video effects derived
+from LoRA adapters and code-based temporal effects generated through programmatic composition. Building on our
+new dataset, we train our reference-conditioned model using recent text-to-video backbones. Experimental results
+demonstrate that <b><strong>RefVFX</strong></b> produces visually consistent and temporally coherent edits, generalizes across unseen effect
+categories, and outperforms prompt-only baselines in both quantitative metrics and human preference.
+<br><br>
+
+<b><strong>tldr;</strong></b> We create a model that takes in a reference effect video and an input video or image, and transfers the effect from the reference video to the input. We create a novel dataset of (reference effect video, input video or image, output video) triplets to do this.
+                </p>
+
+                <!-- <p class=" caption text">
+                    <b>
+                        <strong>Please join our <a href="https://discord.gg/ev4uhwGmE3">Modelverse Discord's
+                                custom-diffuson</a> channel if you have questions about our code.</strong>
+                    </b> <br>
+                    <b><strong>In CVPR 2023</strong></b> -->
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="max-width: 1400px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center" style="margin-bottom: 30px; margin-top: 10px;">Method (Sythetic Triplet Dataset Overview)</h2>
+                <p>We illustrate the dataset structure and a subset of representative effects. <b><strong><a href="#lora-based-triplets">Neural Ref Video + First Frame → Video</a></strong></b> denotes LoRA-based image-to-video effects, where videos with the same effect are generated by using the same LoRA adapter across multiple input images to create (Reference Effect, Input Image, Target Video) triplets. <b><strong><a href="#novel-video-to-video-algorithm">Neural Ref Video + Video → Video</a></strong></b> corresponds to our scalable reference–input video pipeline, for which a subset of abbreviated tasks is displayed, creating (Reference Effect, Input Video, Target Video) triplets. <b><strong><a href="#code-based-triplets">Code-Based Ref Video + Input Video → Video</a></strong></b> represents procedurally generated effects, where each combination of effect type (e.g., Glow) and transition pattern (e.g., Fade In) is instantiated with multiple random hyperparameters, each forming a unique effect, creating more (Reference Effect, Input Video, Target Video) Triplets. We train our model with this dataset and the below architecture to produce a Video Editor capable of taking in <i>both</i> a reference effect video and an input video, and outputing a new video where the effect is applied to the input video</p>
+                <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+                    <img src="./images/Teasers/dataset-1.png" alt="Architecture overview" style="width: 100%; height: auto; max-width: 700px; min-width: 200px; display: block; margin: 0 auto;">
+                </div>
+                <p></p>
+                <p></p>
+                <h6 class="caption"></h6>
+
+                <!-- <p class=" caption text">
+                    <b>
+                        <strong>Please join our <a href="https://discord.gg/ev4uhwGmE3">Modelverse Discord's
+                                custom-diffuson</a> channel if you have questions about our code.</strong>
+                    </b> <br>
+                    <b><strong>In CVPR 2023</strong></b> -->
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="max-width: 1400px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center" style="margin-bottom: 30px; margin-top: 10px;">Method (Architecture)</h2>
+                <p><b><strong>(left)</strong></b> Standard Wan Video First–Last Frame to Video (FLF2V) architecture: noisy spatio-temporal latents are channel-wise concatenated with conditioning inputs and a mask, then patchified, embedded, and processed by the diffusion transformer to predict velocity.
+                    <b><strong>(right)</strong></b> In our setup, <span style="color: blue;">input video latents</span> are used as conditioning for the noisy latents, while <span style="color: orange;">reference video latents</span> are concatenated width-wise to both. The latent mask is set to 1 for frames preserved exactly in the output and 0.5 for those to be modified; the reference latent mask is all ones. This design doubles the token count relative to base generation while conditioning on both the reference effect video and input video. Since all three inputs are channel-concatenated before patchification, repeated clean reference latents are merged channel-wise before embedding, ensuring no redundant reference information across tokens.</p>
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <img src="./images/Teasers/architecture_v3.png" alt="Architecture overview" style="width: 90%; height: auto; max-width: 1400px; display: block; margin: 0 auto;">
+                </div>
+                <!-- <p class=" caption text">
+                    <b>
+                        <strong>Please join our <a href="https://discord.gg/ev4uhwGmE3">Modelverse Discord's
+                                custom-diffuson</a> channel if you have questions about our code.</strong>
+                    </b> <br>
+                    <b><strong>In CVPR 2023</strong></b> -->
+
+            </div>
+        </div>
+    </div>
+
+    <hr style="max-width: 1400px;">
+    <div class="container" style="max-width: 1400px; display: flex; justify-content: center;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center" style="margin-bottom: 30px; margin-top: 10px;">Reference Video + Input Video to Video Baseline Comparisons</h2>
+                <p style="margin-bottom: 30px; margin-bottom: 30px; text-align: center;">
+                    We compare our method for reference video + input video to output video to baselines that only take in the input video and a text prompt. 
+                <b><strong>Each column corresponds to a different I2V baseline unseen during training, and each row corresponds to a different reference effect video unseen during training</strong></b>
+                </p>
+                <p></p>
+                <p></p>
+                <div id="titledgrid" class="containershadow center"
+                    style="overflow-x: auto; overflow-y: auto; max-width: 1400px; margin: auto;">
+                    <div class="row" style="display: flex; align-items: flex-start; flex-wrap: nowrap;">
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Reference Effect</div>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Initial Video</div>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Our Method</div>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 16px;">
+                                    <span role="button" aria-label="Previous" onclick="rotateLeft_rot_67930483()" style="cursor: pointer; font-size: 22px; font-weight: bold;">&#x2039;</span>
+                                    <span id="rot_67930483_rot_title" style="min-width: 160px; text-align: center; display: inline-block; white-space: pre-wrap;">(Click < or > to see more baselines)
+Wan VACE First Frame + Pose</span>
+                                    <span role="button" aria-label="Next" onclick="rotateRight_rot_67930483()" style="cursor: pointer; font-size: 22px; font-weight: bold;">&#x203A;</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/v2v_baseline_comparisons/acid_style.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/v2v_baseline_comparisons/acid_initial.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/v2v_baseline_comparisons/acid_our_method.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video id="rot_67930483_r0_k0" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/v2v_baseline_comparisons/acid_pose.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                <video id="rot_67930483_r0_k1" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/v2v_baseline_comparisons/acid_depth.mp4" style="width: 100%; height: auto; display: none;" type="video/mp4"></video>
+                                <video id="rot_67930483_r0_k2" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/v2v_baseline_comparisons/acid_lucy.mp4" style="width: 100%; height: auto; display: none;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">The video starts with a {subject}. The camera does a slight pan forward, and as the camera is panning, the {subject} starts to have an acid affect applied to them, where the screen shimmers and waves and shows multiple separate versions of the scene in reds and blues, overlapping with one another in a wavelike manner</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/v2v_baseline_comparisons/vv7_style.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/v2v_baseline_comparisons/vv7_initial.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/v2v_baseline_comparisons/vv7_our_method.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video id="rot_67930483_r1_k0" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/v2v_baseline_comparisons/vv7_pose.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                <video id="rot_67930483_r1_k1" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/v2v_baseline_comparisons/vv7_depth.mp4" style="width: 100%; height: auto; display: none;" type="video/mp4"></video>
+                                <video id="rot_67930483_r1_k2" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/v2v_baseline_comparisons/vv7_lucy.mp4" style="width: 100%; height: auto; display: none;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">Make it so that the beginning of the scene is unchanged, but during the video The person's body gradually takes on the appearance of carved marble, complete with fine cracks and subtle surface veining.a</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/v2v_baseline_comparisons/vv0_rev_style.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/v2v_baseline_comparisons/vv0_rev_initial.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/v2v_baseline_comparisons/vv0_rev_our_method.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video id="rot_67930483_r2_k0" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/v2v_baseline_comparisons/vv0_rev_pose.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                <video id="rot_67930483_r2_k1" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/v2v_baseline_comparisons/vv0_rev_depth.mp4" style="width: 100%; height: auto; display: none;" type="video/mp4"></video>
+                                <video id="rot_67930483_r2_k2" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/v2v_baseline_comparisons/vv0_rev_lucy.mp4" style="width: 100%; height: auto; display: none;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">Make it so that the beginning of the scene is unchanged, but during the video A miniature red and white hot air balloon drifts lazily across the upper background, tethered to nothing.</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/v2v_baseline_comparisons/motion_style.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/v2v_baseline_comparisons/motion_initial.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/v2v_baseline_comparisons/motion_our_method.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video id="rot_67930483_r3_k0" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/v2v_baseline_comparisons/motion_pose.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                <video id="rot_67930483_r3_k1" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/v2v_baseline_comparisons/motion_depth.mp4" style="width: 100%; height: auto; display: none;" type="video/mp4"></video>
+                                <video id="rot_67930483_r3_k2" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/v2v_baseline_comparisons/motion_lucy.mp4" style="width: 100%; height: auto; display: none;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">Transition between the input woman and an edited version with the following edit: Create a motion blur effect on the woman at an angle of 49 degrees with a strength of 0.51. Transition between frames 11 and 30 using: top right to bottom left diagonal wipe</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                (function() {
+                    var currentIndex_rot_67930483 = 0;
+                    var titles_rot_67930483 = ["(Click < or > to see more baselines)\nWan VACE First Frame + Pose","(Click < or > to see more baselines)\nWan VACE First Frame + Depth","(Click < or > to see more baselines)\nLucy Edit"];
+                    var numRows_rot_67930483 = 4;
+                    function update_rot_67930483() {
+                        var titleEl = document.getElementById("rot_67930483_rot_title");
+                        if (titleEl) { titleEl.textContent = titles_rot_67930483[currentIndex_rot_67930483]; }
+                        for (var r = 0; r < numRows_rot_67930483; r++) {
+                            for (var k = 0; k < titles_rot_67930483.length; k++) {
+                                var elem = document.getElementById("rot_67930483_r" + r + "_k" + k);
+                                if (!elem) continue;
+                                if (k === currentIndex_rot_67930483) {
+                                    elem.style.display = "block";
+                                    if (elem.tagName && elem.tagName.toLowerCase() === "video") { try { elem.play(); } catch (e) {} }
+                                } else {
+                                    elem.style.display = "none";
+                                    if (elem.tagName && elem.tagName.toLowerCase() === "video") { try { elem.pause(); } catch (e) {} }
+                                }
+                            }
+                        }
+                    }
+                    window.rotateLeft_rot_67930483 = function() {
+                        var n = titles_rot_67930483.length;
+                        currentIndex_rot_67930483 = (currentIndex_rot_67930483 - 1 + n) % n;
+                        update_rot_67930483();
+                    };
+                    window.rotateRight_rot_67930483 = function() {
+                        var n = titles_rot_67930483.length;
+                        currentIndex_rot_67930483 = (currentIndex_rot_67930483 + 1) % n;
+                        update_rot_67930483();
+                    };
+                    // Initialize on load
+                    if (document.readyState === "loading") {
+                        document.addEventListener("DOMContentLoaded", update_rot_67930483);
+                    } else {
+                        update_rot_67930483();
+                    }
+                })();
+                </script>
+            </div>
+        </div>
+    </div>    
+    <hr style="max-width: 1400px;">
+    <div class="container" style="max-width: 1400px; display: flex; justify-content: center;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center" style="margin-bottom: 30px; margin-top: 10px;">Reference Video + Image -> Video Baseline Comparisons</h2>
+                <p style="margin-bottom: 30px; margin-bottom: 30px; text-align: center;">
+                    We compare our method for reference video + first frame to output video to baselines that only take in the input video and a text prompt. <b><strong>Each column corresponds to a different I2V baseline unseen during trainig, and each row corresponds to a different reference effect video unseen during training</strong></b>
+                </p>
+                <p></p>
+                <p></p>
+                <div id="titledgrid" class="containershadow center"
+                    style="overflow-x: auto; overflow-y: auto; max-width: 1400px; margin: auto;">
+                    <div class="row" style="display: flex; align-items: flex-start; flex-wrap: nowrap;">
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Reference Effect</div>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Initial Image</div>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Our Method</div>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 16px;">
+                                    <span role="button" aria-label="Previous" onclick="rotateLeft_rot_69223743()" style="cursor: pointer; font-size: 22px; font-weight: bold;">&#x2039;</span>
+                                    <span id="rot_69223743_rot_title" style="min-width: 160px; text-align: center; display: inline-block; white-space: pre-wrap;">(Click < or > to see more baselines)
+Wan 2.1 I2V</span>
+                                    <span role="button" aria-label="Next" onclick="rotateRight_rot_69223743()" style="cursor: pointer; font-size: 22px; font-weight: bold;">&#x203A;</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/i2v_baseline_comparisons/carousel_style.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <img src="./videos/i2v_baseline_comparisons/carousel_initial.jpg" style="width: 100%; height: auto; display: block;" />
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/i2v_baseline_comparisons/carousel_our_method.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video id="rot_69223743_r0_k0" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/i2v_baseline_comparisons/carousel_wan_2_1.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                <video id="rot_69223743_r0_k1" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/i2v_baseline_comparisons/carousel_wan_vace_i2v.mp4" style="width: 100%; height: auto; display: none;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">a photo of a {subject}. The {subject} slowly morphs into a younger version of themselves, and a wooden carousel horse appears underneath the {subject}, and the {subject} is riding it. At the same time, the background morphs into the backgdrop of a spinning carousel in a fair.</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/i2v_baseline_comparisons/star_walk_reversed_style.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <img src="./videos/i2v_baseline_comparisons/star_walk_reversed_initial.jpg" style="width: 100%; height: auto; display: block;" />
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/i2v_baseline_comparisons/star_walk_reversed_our_method.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video id="rot_69223743_r1_k0" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/i2v_baseline_comparisons/star_walk_reversed_wan_2_1.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                <video id="rot_69223743_r1_k1" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/i2v_baseline_comparisons/star_walk_reversed_wan_vace_i2v.mp4" style="width: 100%; height: auto; display: none;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">The video starts with a {subject} with glasses. The camera then slowly zooms out, and a many hands holding microphones enter the frame from both sides, pointed towards the person. The hands with microphones completely fill the frame as the camera continues to zoom out. More people then appear behind the person, walking into the shot from both sides, as if they are a security detail. The new people are dressed in formal wear, and the hands with microphones stay in the foreground as the video ends.</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/i2v_baseline_comparisons/icecream_reversed_style.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <img src="./videos/i2v_baseline_comparisons/icecream_reversed_initial.jpg" style="width: 100%; height: auto; display: block;" />
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/i2v_baseline_comparisons/icecream_reversed_our_method.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video id="rot_69223743_r2_k0" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/i2v_baseline_comparisons/icecream_reversed_wan_2_1.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                <video id="rot_69223743_r2_k1" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/i2v_baseline_comparisons/icecream_reversed_wan_vace_i2v.mp4" style="width: 100%; height: auto; display: none;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">The video starts with a {subject}. As the camera slowly pulls back, the background changes to a colorful, surreal landscape filled with large ice cream cone sculptures. Simultaneously, the {subject} gets covered in a dripping effect from the top down that resembles melting ice cream.</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/i2v_baseline_comparisons/dinosaur_style.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <img src="./videos/i2v_baseline_comparisons/dinosaur_initial.jpg" style="width: 100%; height: auto; display: block;" />
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/i2v_baseline_comparisons/dinosaur_our_method.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video id="rot_69223743_r3_k0" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/i2v_baseline_comparisons/dinosaur_wan_2_1.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                                <video id="rot_69223743_r3_k1" autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/i2v_baseline_comparisons/dinosaur_wan_vace_i2v.mp4" style="width: 100%; height: auto; display: none;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">a photo of a {subject}. The {subject} has a shocked expression on their face, as their backdrop falls away, revealing a jungle background with a dinosaur chasing the {subject} as they run away</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                (function() {
+                    var currentIndex_rot_69223743 = 0;
+                    var titles_rot_69223743 = ["(Click < or > to see more baselines)\nWan 2.1 I2V","(Click < or > to see more baselines)\nWan Vace I2V"];
+                    var numRows_rot_69223743 = 4;
+                    function update_rot_69223743() {
+                        var titleEl = document.getElementById("rot_69223743_rot_title");
+                        if (titleEl) { titleEl.textContent = titles_rot_69223743[currentIndex_rot_69223743]; }
+                        for (var r = 0; r < numRows_rot_69223743; r++) {
+                            for (var k = 0; k < titles_rot_69223743.length; k++) {
+                                var elem = document.getElementById("rot_69223743_r" + r + "_k" + k);
+                                if (!elem) continue;
+                                if (k === currentIndex_rot_69223743) {
+                                    elem.style.display = "block";
+                                    if (elem.tagName && elem.tagName.toLowerCase() === "video") { try { elem.play(); } catch (e) {} }
+                                } else {
+                                    elem.style.display = "none";
+                                    if (elem.tagName && elem.tagName.toLowerCase() === "video") { try { elem.pause(); } catch (e) {} }
+                                }
+                            }
+                        }
+                    }
+                    window.rotateLeft_rot_69223743 = function() {
+                        var n = titles_rot_69223743.length;
+                        currentIndex_rot_69223743 = (currentIndex_rot_69223743 - 1 + n) % n;
+                        update_rot_69223743();
+                    };
+                    window.rotateRight_rot_69223743 = function() {
+                        var n = titles_rot_69223743.length;
+                        currentIndex_rot_69223743 = (currentIndex_rot_69223743 + 1) % n;
+                        update_rot_69223743();
+                    };
+                    // Initialize on load
+                    if (document.readyState === "loading") {
+                        document.addEventListener("DOMContentLoaded", update_rot_69223743);
+                    } else {
+                        update_rot_69223743();
+                    }
+                })();
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <hr style="max-width: 1400px;">
+    <div class="container" style="max-width: 1400px; display: flex; justify-content: center;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center" style="margin-bottom: 30px; margin-top: 10px;">Real Video Editing with Input Video Guidance and Reference Effect Video Guidance</h2>
+                <p style="margin-bottom: 30px; margin-bottom: 30px; text-align: center;">Given a reference effect video and an input video, we can use variants of classifier free guidance in the direction of <b><strong>(left to right of video grid)</strong></b> the input video or <b><strong>(top to bottom of video grid)</strong></b> the reference effect video to guide the video editing process when editing real videos. As more input video guidance is applied, the video more closely resembles the input video (i.e. the top right corner of the grid). As more reference effect video guidance is applied, the video more closely resembles the reference effect video (i.e. the bottom left corner of the grid, notice the hair change and the sweater from the reference effect video). By interpolating between these two, we give users more control over the video editing process.</p>
+                <div id="titledgrid" class="containershadow center" style="overflow-x: auto; overflow-y: auto; max-width: 1400px; margin: auto;">
+                    <div class="row" style="display: flex; align-items: flex-start; flex-wrap: nowrap;">
+                        <div class="column px-4" style="margin: 0; width: 50.000000%; display: block;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Reference Effect Video</div>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 50.000000%; display: block;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Input Video</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 50.000000%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/reference_effect.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 50.000000%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/input.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row" style="display: flex; align-items: flex-start;">
+                    <div class="column px-4" style="margin: 0; width: 100.000000%;">
+                        <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                            <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_grid.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr style="max-width: 1400px;">
+    <div class="container" style="max-width: 1400px;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center" style="margin-bottom: 30px; margin-top: 10px;">Dataset Samples</h2>
+                <p>
+                    In order to train<b><strong>RefVFX</strong></b>, We create a large scale dataset of triplets, where each triplet consists of a reference effect video, an input image or video, and a corresponding output video depicting the transferred effect. We create this dataset using three different methods:
+                    <ul>
+                        <li>Video-to-video effect triplets, which do not exist naturally: We create a custom pipeline for generating text guided reference video + input video to
+video effects. For more details, see Figure 4 of the paper.</li>
+                        <li>Code-based temporal effects generated through programmatic composition: We generate a large scale set of synthetic video to reference video + input video to video
+effects by curating specific code pipelines that take in an input video and output a video. Armed with a specific code based effect and a
+fixed set of hyperparameters, we can apply the exact effect to an arbitrary number of input videos.</li>
+                        <li>Image-to-video effects derived from LoRA adapters. We curate a reference video + image to video dataset
+by collecting Low Rank Adapters (LoRAs) for different Image to Video effects online. For each effect, we can apply its corresponding
+LoRA to two separate images to create a triplet.</li>
+                    </ul>
+                </p>
+
+            </div>
+        </div>
+    </div>    <hr style="max-width: 1400px;">
+    <div class="container" style="max-width: 1400px; display: flex; justify-content: center;">
+        <div class="row">
+            <div class="col-md-12">
+                <p style="margin-bottom: 30px; margin-bottom: 30px; text-align: center;">
+                    <h2 id="novel-video-to-video-algorithm" class="text-center" style="margin-bottom: 30px; margin-top: 10px;">Training Data: Novel Video-to-Video Effect Sythetic Pair Algorithm</h2>
+                    We present a method to generate a pair of videos V and V′ from an effect prompt E, where V is an initial video and V′ is the video with effect E applied. First, an image generation model is used to create an initial image. Next, an image editing model is used to change the pose, camera angle, and facial expression of the image. Finally, this image is again edited to add effect E. The first and second generated images are used with a first last frame model to output video V. Then, we use a conditional video model conditioned on the original first frame, effect edited last frame, <i>and intermediate poses from video V</i> as conditioning to create video V′.
+                </p>
+                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/Teasers/Conditional_Generation_Pairs.mp4" style="width: 100%; height: auto; display: block; margin: 0 auto;" type="video/mp4"></video>
+                <br>
+                <br>
+                <h2 class="text-center" style="margin-bottom: 30px; margin-top: 10px;">Training Data - From Sythetic Pais to Triplets: Novel Video-to-Video Effect Triplet Examples</h2>
+                <p style="margin-bottom: 30px; margin-bottom: 30px; text-align: center;">
+                    We show examples of the novel video-to-video effect triplets from our dataset using our custom, scalable pipeline. To create (Reference Effect Video, Input Video, Output Video) triplets, we use the above algorithm twice with the same reference style text prompt (i.e. make it a painting) and different initial photos and poses. We take the two video pairs (V<sub>input</sub>, V<sub>ref effect</sub>), (V<sub>input 2</sub>, V<sub>input 2 ref effect</sub>), and remove the initial video from the first pair, leaving a (Reference Effect Video, Input Video, Output Video) triplet. <b><strong>Each row corresponds to a different novel video-to-video effect triplet from our dataset</strong></b>
+                </p>
+                <p></p>
+                <p></p>
+                <div id="titledgrid" class="containershadow center"
+                    style="overflow-x: auto; overflow-y: auto; max-width: 1400px; margin: auto;">
+                    <div class="row" style="display: flex; align-items: flex-start; flex-wrap: nowrap;">
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Reference Effect</div>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Input Video</div>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Target Video</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/004071_output_fire_suit.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/004019_input_fire.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/004019_output_fire.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">Make it so that the beginning of the scene is unchanged, but during the video a business suit slowly catches fire, flames licking at the fabric, but the person remains perfectly calm, standing composed as the fire continues to spread across their clothing.</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/reference_pizza_cape.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/004677_input_pizza_cape.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/004677_output_pizza_cape.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">Make it so that the beginning of the scene is unchanged, but during the video a long, dramatic opera cape made entirely of pizza slices slowly materializes around their shoulders, flowing dramatically as if it were a traditional cloak, transforming their appearance into a whimsical and surreal fashion statement.</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/Blizzard_008029_output.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/008027_input_blizzard.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/008027_output_blizzard.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">Make it so that the beginning of the scene is unchanged, but during the video a full-blown blizzard erupts, with strong winds sweeping heavy snow across the scene, drastically reducing visibility and creating a chaotic, white-out effect.</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/reference_dali.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/input_dali.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/output_dali.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">Make it so that the beginning of the scene is unchanged, but during the video the environment slowly begins to melt, transforming into a surreal, dreamlike landscape reminiscent of a dali painting, with soft, flowing edges and distorted, melting forms.</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    <hr style="max-width: 1400px;">
+    <div class="container" style="max-width: 1400px; display: flex; justify-content: center;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="code-based-triplets" class="text-center" style="margin-bottom: 30px; margin-top: 10px;">Training Data: Code-Based Reference Video + Input Video to Video Triplet Examples</h2>
+                <p style="margin-bottom: 30px; margin-bottom: 30px; text-align: center;">
+                    We show examples of the code effects triplets from our dataset. For each triplet, we use the same code to transform two input videos into videos with the same effect. We use one of these as the reference effect video, and the other input output pair as the input video and target video, correspondingly. <b><strong>Each row corresponds to a different code-based effect triplet from our dataset</strong></b>
+                </p>
+                <p></p>
+                <p></p>
+                <div id="titledgrid" class="containershadow center"
+                    style="overflow-x: auto; overflow-y: auto; max-width: 1400px; margin: auto;">
+                    <div class="row" style="display: flex; align-items: flex-start; flex-wrap: nowrap;">
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Reference Effect</div>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Input Video</div>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Target Video</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/reference_posterize_first_33_frames.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/input_posterize_first_33_frames.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/output_posterize_first_33_frames.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">Keep the woman unchanged. Transition the between the input video and an edited version of the input video with the following editing instruction: Posterize the rest of the video with a color palette of Rich Loam, Burnt Sienna, Goldenrod, Parchment. Transition between frames 2 and 11 using the following temporal effect: bottom right to top left diagonal wipe</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/733z9UW5_foreground_photocopy_contrast_3.33_strength_0.74_effect_diamond_out_softness_0.03_start_frame_5_end_frame_25_output_first_33_frames.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/0L7Dfx0y_foreground_photocopy_contrast_3.33_strength_0.74_effect_diamond_out_softness_0.03_start_frame_5_end_frame_25_input_first_33_frames.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/0L7Dfx0y_foreground_photocopy_contrast_3.33_strength_0.74_effect_diamond_out_softness_0.03_start_frame_5_end_frame_25_output_first_33_frames.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">Transition the between the input person and an edited version of the input person with the following editing instruction: Create a photocopy effect on the person with a contrast of 3.33 and a strength of 0.74. Transition between frames 5 and 25 using the following temporal effect: diamond out with center (0.25, 0.74)</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/B1TNRER6_foreground_dither_size_16_steps_2_effect_diag_br_tl_softness_0.03_start_frame_9_end_frame_25_output_first_33_frames.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/aMChq7eh_foreground_dither_size_16_steps_2_effect_diag_br_tl_softness_0.03_start_frame_9_end_frame_25_input_first_33_frames.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/aMChq7eh_foreground_dither_size_16_steps_2_effect_diag_br_tl_softness_0.03_start_frame_9_end_frame_25_output_first_33_frames.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">Transition the between the input person and an edited version of the input person with the following editing instruction: Create a retro, dithered effect on the person with a pixel block size of 16 and using 2 color steps per channel.. Transition between frames 9 and 25 using the following temporal effect: bottom right to top left diagonal wipe</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/MrQRJvkR_background_cc_ball_action_grid_spacing_10_ball_color__183, 78, 47__effect_circle_out_softness_0.02_start_frame_22_end_frame_30_output_first_33_frames.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/7XhF7DfD_background_cc_ball_action_grid_spacing_10_ball_color__183, 78, 47__effect_circle_out_softness_0.02_start_frame_22_end_frame_30_input_first_33_frames.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/7XhF7DfD_background_cc_ball_action_grid_spacing_10_ball_color__183, 78, 47__effect_circle_out_softness_0.02_start_frame_22_end_frame_30_output_first_33_frames.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">Keep the woman unchanged. Transition the between the input video and an edited version of the input video with the following editing instruction: Create a CC Ball Action effect on the rest of the video with a grid spacing of 10 and ball color of light Red. Transition between frames 22 and 30 using the following temporal effect: circle out with center (0.49, 0.13)</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    <hr style="max-width: 1400px;">
+    <div class="container" style="max-width: 1400px; display: flex; justify-content: center;">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="lora-based-triplets" class="text-center" style="margin-bottom: 30px; margin-top: 10px;">Training Data: LoRA-Based Reference Video + First Frame to Video Triplet Examples</h2>
+                <p style="margin-bottom: 30px; margin-bottom: 30px; text-align: center;">
+                    We show examples of the LoRA-Based effects triplets from our dataset. For each triplet, we use the same LoRA adapters to generate the reference effect video and target video from their corresponding input frames. <b><strong>Each row corresponds to a different LoRA-based effect triplet from our dataset</strong></b>
+                </p>
+                <p></p>
+                <p></p>
+                <div id="titledgrid" class="containershadow center"
+                    style="overflow-x: auto; overflow-y: auto; max-width: 1400px; margin: auto;">
+                    <div class="row" style="display: flex; align-items: flex-start; flex-wrap: nowrap;">
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Reference Effect</div>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Input Image</div>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div style="font-size: 16px; margin-top: 5px; font-weight: bold;">Target Video</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/mona_lisa_059308_output.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <img src="./videos/triplet_examples/mona_lisa_first_frame.jpg" style="width: 100%; height: auto; display: block;" />
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/mona_lisa.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">The video starts with an image of a black man. The m0n4 Mona Lisa transformation begins as a dark sheet seems to wrap around the black man, and when the image resolves, the black man is depicted as a Mona Lisa version of itself. The Mona Lisa version sits in a chair with a backdrop featuring a landscape painting.</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/samurai_transformation_002809_output.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <img src="./videos/triplet_examples/samurai_340875_first_frame.jpg" style="width: 100%; height: auto; display: block;" />
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/samurai_340875_output.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">The video begins with a black man. The black man begins the 54mur41 samurai transformation, and becomes a samurai. The black man is wearing a traditional samurai outfit, and is holding a katana. The background behind the black man is a misty mountainous landscape.</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/284273_output_squish.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <img src="./videos/triplet_examples/284402_output_squish_first_frame.jpg" style="width: 100%; height: auto; display: block;" />
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/284402_output_squish.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">In the video, a miniature black man is presented. The black man is held in a person's hands. The person then presses on the black man, causing a sq41sh squish effect. The person keeps pressing down on the black man, further showing the sq41sh squish effect.</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; align-items: flex-start;">
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/114662_output_robot_face.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <img src="./videos/triplet_examples/397946_output_robot_face_first_frame.jpg" style="width: 100%; height: auto; display: block;" />
+                            </div>
+                        </div>
+                        <div class="column px-4" style="margin: 0; width: 33.333333%;">
+                            <div class="row text-center"
+                                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <video autoplay="autoplay" controls="controls" loop="loop" muted="muted"
+                                    src="./videos/triplet_examples/397946_output_robot_face.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="display: flex; justify-content: center;">
+                        <div class="column px-4" style="margin: 0; width: 100%;">
+                            <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <details style="width: 100%;">
+                                    <summary style="cursor: pointer; font-family: Chalkduster; font-size: 16px; margin-top: 5px; text-align: center;">See prompt</summary>
+                                    <div style="font-family: Chalkduster; font-size: 16px; margin-top: 5px; white-space: pre-wrap; text-align: center;">A latino man in a natural setting. The r8b8t1c robotic face reveal starts with subtle movements, then lines appear on their face, their expression shifting as the metallic, robotic visage takes form, revealing the interior mechanism.</div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<div class="container" style="max-width: 1400px; display: flex; justify-content: center;">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center" style="margin-bottom: 30px; margin-top: 10px;">Real Video Editing with Input Video Guidance and Reference Effect Video Guidance</h2>
+            <p style="margin-bottom: 30px; margin-bottom: 30px; text-align: center;">beep boop</p>
+            <div id="titledgrid" class="containershadow center" style="overflow-x: auto; overflow-y: auto; max-width: 1400px; margin: auto;">
+            <div class="row" style="display: flex; align-items: flex-start;">
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_0_0.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_1_0.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_2_0.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_3_0.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="display: flex; align-items: flex-start;">
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_0_1.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_1_1.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_2_1.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_3_1.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="display: flex; align-items: flex-start;">
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_0_2.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_1_2.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_2_2.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_3_2.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="display: flex; align-items: flex-start;">
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_0_3.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_1_3.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_2_3.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+                <div class="column px-4" style="margin: 0; width: 25.000000%;">
+                    <div class="row text-center" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <video autoplay="autoplay" controls="controls" loop="loop" muted="muted" src="./videos/hulk_videos/hulk_3_3.mp4" style="width: 100%; height: auto; display: block;" type="video/mp4"></video>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    </html>
