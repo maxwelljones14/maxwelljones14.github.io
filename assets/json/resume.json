@@ -19,6 +19,15 @@
             "institution": "Carnegie Mellon University",
             "location": "Pittsburgh, PA",
             "url": "https://www.ml.cmu.edu/",
+            "area": "PhD in Machine Learning",
+            "studyType": "PhD",
+            "startDate": "2024-08-01",
+            "endDate": "Present"
+          },
+        {
+            "institution": "Carnegie Mellon University",
+            "location": "Pittsburgh, PA",
+            "url": "https://www.ml.cmu.edu/",
             "area": "Masters of Science in Machine Learning",
             "studyType": "M.S.",
             "startDate": "2023-08-01",
@@ -70,6 +79,22 @@
         "endDate": "2022-08-13",
         "summary": "Worked at Meta (Formerly Facebook) on FAIR, working on bias amplification",
         "highlights": ["Work accepted to CVPR TSRML Workshop"]
+      },
+      {
+        "name": "Carnegie Mellon University",
+        "position": "Research Assistant",
+        "url": "https://www.cs.cmu.edu/",
+        "startDate": "2023-05-01",
+        "endDate": "2023-08-01",
+        "summary": "Worked at Carnegie Mellon University in the Generative Intelligence Lab on Generative Models for Vision"
+      },
+      {
+        "name": "Snap Research",
+        "position": "Research Intern",
+        "url": "https://research.snap.com/",
+        "startDate": "2025-05-01",
+        "endDate": "2025-08-01",
+        "summary": "Worked at Snap Research on Refence Based Visual Effect Transfer"
       }
     ],
     "projects": [
