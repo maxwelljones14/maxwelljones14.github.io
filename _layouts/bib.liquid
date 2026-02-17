@@ -2,7 +2,7 @@
 ---
 <div class="row">
   {% if site.enable_publication_thumbnails %}
-    <div class="col col-sm-2 abbr">
+    <div class="col col-sm-4 abbr">
       {%- if entry.abbr -%}
         {%- if site.data.venues[entry.abbr] -%}
           {% assign venue_style = null %}
@@ -28,13 +28,16 @@
       {% if entry.preview %}
         {% if entry.preview contains '://' %}
           <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
+        {% elsif entry.preview contains '.mov' or entry.preview contains '.mp4' or entry.preview contains '.webm' or entry.preview contains '.ogg' %}
+          {% assign video_preview_path = entry.preview | prepend: '/assets/video/' %}
+          {% include video.liquid path=video_preview_path class="preview z-depth-1 rounded img-fluid" width="100%" autoplay=true loop=true muted=true %}
         {% else %}
           {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
           {%
             include figure.liquid
             loading="eager"
             path=entry_path
-            sizes = "200px"
+            sizes = "400px"
             class="preview z-depth-1 rounded"
             zoomable=true
             alt=entry.preview

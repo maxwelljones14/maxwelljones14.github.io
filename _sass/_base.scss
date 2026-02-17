@@ -693,6 +693,17 @@ footer.sticky-bottom {
       margin-bottom: 1rem;
 
       .preview {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+
+        video {
+          max-width: 100%;
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          display: block;
+        }
       }
 
       .abbr {

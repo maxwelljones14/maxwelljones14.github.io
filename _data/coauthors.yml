@@ -33,3 +33,23 @@
 "bau":
   - firstname: ["David"]
     url: https://baulab.info/
+
+"abdal":
+  - firstname: ["Rameen"]
+    url: https://rameenabdal.github.io/
+
+"patashnik":
+  - firstname: ["Or"]
+    url: https://orpatashnik.github.io/
+
+"salakhutdinov":
+  - firstname: ["Ruslan"]
+    url: https://www.cs.cmu.edu/~rsalakhu/
+
+"tulyakov":
+  - firstname: ["Sergey"]
+    url: https://stulyakov.com/
+
+"wang":
+  - firstname: ["Kuan-Chieh_Jackson"]
+    url: https://wangkua1.github.io/
