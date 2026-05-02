@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "Split the image into a 2 by 2 grid of 4 equal tiles. Randomly shuffle the tile positions and arrange on a black canvas with small gaps, and each tile slightly randomly rotated. The result should look like a scrambled puzzle of the original."
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  }
+]

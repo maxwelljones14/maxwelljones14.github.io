@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "Decompose the scene into four discrete depth layers \u2014 (1) table net/foreground, (2) player and ball, (3) barriers and spectators, (4) far background \u2014 and apply a distinct color grade to each layer independently (cool blue tint on layer 1, warm orange on layer 2, desaturated green on layer 3, deep purple on layer 4)."
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  }
+]

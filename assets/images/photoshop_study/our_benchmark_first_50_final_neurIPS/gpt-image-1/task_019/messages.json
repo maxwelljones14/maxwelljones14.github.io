@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "Desaturate everything except red \u2014 preserve all red hues while converting all other colors to grayscale."
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  }
+]

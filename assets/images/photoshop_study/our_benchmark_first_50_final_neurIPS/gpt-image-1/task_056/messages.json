@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "replace the horse with brown cow\r\nadd a bell on the neck of the cow\r\nchange the color of the bell to gold"
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "agent_type": "image_generation",
+  "model": "gpt-image-1",
+  "query": "Add cinematic 2.39:1 letterbox bars and an editable, layered title treatment with subtle finishing effects (vignette, grain, shadow) while keeping edits non\u2011destructive and organized.",
+  "initial_image_path": "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/data/our_benchmark_first_50_final_neurIPS/00022.png",
+  "output_dir": "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/results/image_generation/our_benchmark_first_50_final_neurIPS/gpt-image-1/task_022",
+  "agent_config": {
+    "max_attempts": 1
+  }
+}

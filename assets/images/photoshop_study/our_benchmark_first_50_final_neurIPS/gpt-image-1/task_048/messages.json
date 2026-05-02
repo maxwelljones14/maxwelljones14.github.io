@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "Create a Text masked by image (image-in-text) effect with the word 'DREAM'."
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  }
+]

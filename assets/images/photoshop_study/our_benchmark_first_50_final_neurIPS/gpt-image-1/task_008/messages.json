@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "Create a vertically aligned stack of exactly 10 coins on the tabletop, totaling 20 mm height (10 \u00d7 2 mm), with realistic inter-coin contact and grounded shadows."
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "Take all 4 headshots, and put them in a single row, with the background being a fixed light gray color."
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  }
+]

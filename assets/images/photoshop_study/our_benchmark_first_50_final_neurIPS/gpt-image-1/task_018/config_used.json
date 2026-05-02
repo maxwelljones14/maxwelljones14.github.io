@@ -1,0 +1,10 @@
+{
+  "agent_type": "image_generation",
+  "model": "gpt-image-1",
+  "query": "Add film-like grain matching ISO 800 (full-frame look) with separate luminance and chroma grain and tone-aware distribution.",
+  "initial_image_path": "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/data/our_benchmark_first_50_final_neurIPS/00018.png",
+  "output_dir": "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/results/image_generation/our_benchmark_first_50_final_neurIPS/gpt-image-1/task_018",
+  "agent_config": {
+    "max_attempts": 1
+  }
+}

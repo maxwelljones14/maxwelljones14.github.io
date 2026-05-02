@@ -1,0 +1,10 @@
+{
+  "agent_type": "image_generation",
+  "model": "gpt-image-1",
+  "query": "Arrange Sword_A and Sword_B in an X at the center with Sword_B visibly on top at the crossing.",
+  "initial_image_path": "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/data/our_benchmark_first_50_final_neurIPS/00011.png",
+  "output_dir": "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/results/image_generation/our_benchmark_first_50_final_neurIPS/gpt-image-1/task_011",
+  "agent_config": {
+    "max_attempts": 1
+  }
+}

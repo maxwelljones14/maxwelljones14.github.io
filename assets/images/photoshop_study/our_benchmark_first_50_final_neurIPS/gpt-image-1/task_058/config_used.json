@@ -1,0 +1,10 @@
+{
+  "agent_type": "image_generation",
+  "model": "gpt-image-1",
+  "query": "Colorize the image naturally, change the background to a vibrant garden, brighten the lighting to strong sunlight levels, and add a bright blue butterfly on the dog's nose.",
+  "initial_image_path": "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/data/our_benchmark_first_50_final_neurIPS/00058.png",
+  "output_dir": "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/results/image_generation/our_benchmark_first_50_final_neurIPS/gpt-image-1/task_058",
+  "agent_config": {
+    "max_attempts": 1
+  }
+}

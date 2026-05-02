@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "add brown sandbag on the street to the left of the 'WATER ON PAVEMENT' sign\r\nAdd a small fence in front of the brown sandbags\r\nchange the color of the fence to white"
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  }
+]

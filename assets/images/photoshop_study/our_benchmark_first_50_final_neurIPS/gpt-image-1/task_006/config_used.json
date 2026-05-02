@@ -1,0 +1,10 @@
+{
+  "agent_type": "image_generation",
+  "model": "gpt-image-1",
+  "query": "Replace the sky with a dusk (blue-hour) sky and relight the exterior house so lighting, shadows and reflections read consistently with blue-hour conditions.",
+  "initial_image_path": "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/data/our_benchmark_first_50_final_neurIPS/00006.png",
+  "output_dir": "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/results/image_generation/our_benchmark_first_50_final_neurIPS/gpt-image-1/task_006",
+  "agent_config": {
+    "max_attempts": 1
+  }
+}

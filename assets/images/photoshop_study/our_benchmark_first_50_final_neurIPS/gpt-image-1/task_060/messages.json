@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "Remove the person on the far right of the image and place a lit candle on the counter."
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  }
+]

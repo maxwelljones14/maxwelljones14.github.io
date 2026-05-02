@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "Colorize the image naturally, change the background to a vibrant garden, brighten the lighting to strong sunlight levels, and add a bright blue butterfly on the dog's nose."
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  }
+]

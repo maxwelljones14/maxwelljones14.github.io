@@ -1,0 +1,14 @@
+{
+  "agent_type": "image_generation",
+  "model": "gpt-image-1",
+  "query": "Create a triptych that clearly shows the causal chain A \u2192 B \u2192 C with directional connectors, motion indication, and geometry-following contact shadows.",
+  "initial_image_path": [
+    "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/data/our_benchmark_first_50_final_neurIPS/00042_part_1.png",
+    "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/data/our_benchmark_first_50_final_neurIPS/00042_part_2.png",
+    "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/data/our_benchmark_first_50_final_neurIPS/00042_part_3.png"
+  ],
+  "output_dir": "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/results/image_generation/our_benchmark_first_50_final_neurIPS/gpt-image-1/task_042",
+  "agent_config": {
+    "max_attempts": 1
+  }
+}

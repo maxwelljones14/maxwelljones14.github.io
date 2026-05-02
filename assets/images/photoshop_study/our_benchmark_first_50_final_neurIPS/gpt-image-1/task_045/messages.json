@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "Create five side-by-side contrast-curve variants from baseline to extreme while keeping skin tones natural and preserving highlight roll-off where possible."
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  }
+]

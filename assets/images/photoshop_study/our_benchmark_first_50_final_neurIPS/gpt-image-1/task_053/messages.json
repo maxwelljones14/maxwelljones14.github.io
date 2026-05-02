@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "Move the two people towards the center so that they are closer together, while keeping the left person in front of the right person."
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  }
+]

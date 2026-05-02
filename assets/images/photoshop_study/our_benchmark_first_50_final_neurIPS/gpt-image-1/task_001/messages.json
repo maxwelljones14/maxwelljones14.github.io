@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "Recolor the hoodie fabric to the exact target color RGB: 143, 130, 224 while preserving all fabric texture, weave, folds, shadows and highlights; do not alter logos, hardware, patches or tags."
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  }
+]

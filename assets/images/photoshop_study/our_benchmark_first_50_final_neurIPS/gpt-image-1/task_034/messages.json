@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "Change the font of 'Fulton Street Station' to Helvetica, keeping the same size and color."
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  }
+]

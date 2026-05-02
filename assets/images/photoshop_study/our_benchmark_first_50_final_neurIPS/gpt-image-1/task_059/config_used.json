@@ -1,0 +1,10 @@
+{
+  "agent_type": "image_generation",
+  "model": "gpt-image-1",
+  "query": "Transform the scene into an enchanted forest setting with no visible fences. Replace the brown horse on the left with a white unicorn surrounded by sparkling particles. Change the remaining horse's coat to a silver-grey hue and place a small floating light orb near the unicorn.",
+  "initial_image_path": "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/data/our_benchmark_first_50_final_neurIPS/00059.png",
+  "output_dir": "/Users/mjones2/Desktop/Github/PhotoshopMCP/PhotoshopCodingAgents/results/image_generation/our_benchmark_first_50_final_neurIPS/gpt-image-1/task_059",
+  "agent_config": {
+    "max_attempts": 1
+  }
+}
