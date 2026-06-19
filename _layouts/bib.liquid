@@ -250,6 +250,13 @@
           <a href="{{ entry.poster | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Poster</a>
         {% endif %}
       {% endif %}
+      {% if entry.dataset %}
+        {% if entry.dataset contains '://' %}
+          <a href="{{ entry.dataset }}" class="btn btn-sm z-depth-0" role="button">dataset</a>
+        {% else %}
+          <a href="{{ entry.dataset | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">Dataset</a>
+        {% endif %}
+      {% endif %}
       {% if entry.slides %}
         {% if entry.slides contains '://' %}
           <a href="{{ entry.slides }}" class="btn btn-sm z-depth-0" role="button">Slides</a>
