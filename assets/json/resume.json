@@ -95,6 +95,14 @@
         "startDate": "2025-05-01",
         "endDate": "2025-08-01",
         "summary": "Worked at Snap Research on Refence Based Visual Effect Transfer"
+      },
+      {
+        "name": "Adobe Research",
+        "position": "Research Intern",
+        "url": "https://research.adobe.com/",
+        "startDate": "2026-05-01",
+        "endDate": "2026-08-01",
+        "summary": "Worked at Adobe Research on Video Controllability and Editing"
       }
     ],
     "teaching": [
