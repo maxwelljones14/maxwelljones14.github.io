@@ -68,7 +68,15 @@
       {% elsif site.lazy_loading_images %}
         loading="lazy"
       {% endif %}
-      onerror="this.onerror=null; $('.responsive-img-srcset').remove();"
+      {% comment %}
+        Fall back to the original image when the generated .webp variants are
+        missing. Vanilla JS on purpose: this is an inline attribute, so it can
+        fire while the page is still parsing -- long before the jQuery tag near
+        the end of <body> has run. The jQuery version threw "$ is not defined"
+        once per broken image and then never removed the dead <source>, so the
+        fallback silently didn't work either.
+      {% endcomment %}
+      onerror="this.onerror=null; var p=this.parentNode; if(p){var s=p.querySelectorAll('source.responsive-img-srcset'); for(var i=0;i<s.length;i++){s[i].parentNode.removeChild(s[i]);} } this.src=this.src;"
     >
   </picture>
 

@@ -41,6 +41,13 @@ jobs:
               "giscus.repo": "${{ github.repository }}",
               "baseurl": ""
             }
+      - name: Install ImageMagick 🖼️
+        # _config.yml sets imagemagick.enabled, and jekyll-imagemagick shells out
+        # to `convert` to build the responsive -480/-800/-1400.webp variants that
+        # figure.liquid references. The runner has no ImageMagick, so without this
+        # every variant 404s: broken images, plus figure.liquid's jQuery onerror
+        # handler firing before jQuery has loaded ("$ is not defined").
+        run: sudo apt-get update -qq && sudo apt-get install -y --no-install-recommends imagemagick
       - name: Install and Build 🔧
         run: |
           pip3 install --upgrade jupyter
