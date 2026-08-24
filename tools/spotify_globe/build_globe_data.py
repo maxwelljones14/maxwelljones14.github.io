@@ -5,7 +5,9 @@ Step 3 of 3: turn located artists into everything the globe needs.
 Outputs into assets/json/spotify_globe/:
     globe_data.json    city points + per-region counts + distribution stats
     countries.geojson  simplified world borders
-    states.geojson     admin-1 borders, ONLY for countries you have artists in
+    states_us.geojson     US admin-1 borders (always loaded by the page)
+    states_world.geojson  the rest, lazy-loaded only if the state layer is
+                          switched to "all states"
 
 Design note on weighting
 ------------------------
@@ -51,6 +53,10 @@ SIMPLIFY_STATE = 0.06
 # pure page weight -- with real data, dropping the 1-state countries cut the
 # admin-1 payload by more than half.
 MIN_STATES_FOR_ADMIN1 = 2
+
+# The page shows US states by default, so admin-1 geometry ships as two files:
+# the US one always loads, the rest of the world only if asked for.
+US_ISO = "USA"
 
 
 # -- timespans --------------------------------------------------------------
@@ -584,10 +590,16 @@ def main():
 
     # only ship admin-1 shapes for the countries selected above
     wanted = admin1_countries
+    # Only ship geometry for states that actually have artists in some span.
+    # An empty state is never drawn (a transparent cap would punch a hole
+    # through the country fill), so its geometry is pure page weight.
     out_states = []
     for feat in states_fc["features"]:
         p = feat["properties"]
         if p.get("adm0_a3") not in wanted:
+            continue
+        sid_check = p.get("iso_3166_2") or f"{p.get('adm0_a3')}-{p.get('name')}"
+        if sid_check not in state_rows:
             continue
         sid = p.get("iso_3166_2") or f"{p.get('adm0_a3')}-{p.get('name')}"
         slimmed = slim(
@@ -606,9 +618,17 @@ def main():
         if slimmed:
             out_states.append(slimmed)
 
+    # The page defaults to showing US states only, so the admin-1 geometry is
+    # split in two: the US file always loads, the rest of the world is fetched
+    # lazily and only if someone actually switches the state layer to "all".
+    # That keeps ~200 KB gzipped off the default page load.
+    us_states = [f for f in out_states if f["properties"].get("iso") == US_ISO]
+    world_states = [f for f in out_states if f["properties"].get("iso") != US_ISO]
+
     for fname, feats in (
         ("countries.geojson", out_countries),
-        ("states.geojson", out_states),
+        ("states_us.geojson", us_states),
+        ("states_world.geojson", world_states),
     ):
         (OUT_DIR / fname).write_text(
             json.dumps(

@@ -105,7 +105,8 @@ inherits all of it. It holds only public facts about artists already named in
 | `assets/css/spotify_globe.css` | Styles, with its own theme-aware tokens |
 | `assets/json/spotify_globe/globe_data.json` | Counts, artist table, per-span stats (~21 KB gzipped) |
 | `assets/json/spotify_globe/countries.geojson` | World borders (~59 KB gzipped) |
-| `assets/json/spotify_globe/states.geojson` | Admin-1, only where it earns its weight (~250 KB gzipped) |
+| `assets/json/spotify_globe/states_us.geojson` | US admin-1, always loaded (~15 KB gzipped) |
+| `assets/json/spotify_globe/states_world.geojson` | The rest, lazy-loaded on demand (~24 KB gzipped) |
 | `_pages/hobbies.md` | New "Music" section |
 | `_globe_test.html` | Local dev harness, not published |
 
@@ -162,11 +163,22 @@ Kansas that also wrongly credited Kansas on the state layer. The `region` tier
 is deliberately just those four names: they have no major same-named city,
 whereas demoting "New York" or "Texas" would delete real clusters.
 
-**Admin-1 geometry only ships where it earns its weight.** `MIN_STATES_FOR_ADMIN1
-= 2`: a country with artists in a single state learns nothing from state borders,
-and the geometry is pure page weight. Dropping the 29 single-state countries took
-the admin-1 payload from 582 KB to 250 KB gzipped while still covering 112 of 141
-populated states.
+**Admin-1 geometry only ships where it earns its weight**, via three filters
+that between them took the state payload from 582 KB gzipped to 15 KB on the
+default load:
+
+1. `MIN_STATES_FOR_ADMIN1 = 2` — a country with artists in a single state learns
+   nothing from state borders. Drops 29 countries.
+2. Only states that actually have artists are emitted at all. 804 features → 113.
+3. The result is split into `states_us.geojson` (always loaded) and
+   `states_world.geojson` (fetched only when the state layer is switched to
+   "all states"), because the page defaults to US-only.
+
+**The state layer is a three-way control, not a checkbox** — "all states",
+"US only" (default), "off". US-only is the default because 65% of the artists
+are American, so state detail is genuinely informative there and mostly noise
+elsewhere; plenty of countries have artists in two or three regions, which the
+country fill already conveys.
 
 **Empty states fall through to their parent country.** The state layer covers
 the country layer, so without this the countries with admin-1 shapes could never
@@ -205,6 +217,13 @@ returns **403** as of the Feb 2026 API, and the payload moved from
 `item.track` to `item.item`. Both key names are read as a fallback. Album tracks
 are *not* renamed — `/albums/{id}/tracks` is still correct and `/items` 404s
 there — and liked songs still use `item.track`. Don't "fix" them to match.
+
+**A transparent polygon still occludes what's under it.** three.js writes depth
+for a fully transparent cap, so an "invisible" state sitting at a higher
+altitude than its country punches a dark hole through the country fill. Empty
+regions must be left out of the layer entirely, not painted `rgba(0,0,0,0)`.
+This showed up as black rectangles across the western US the moment the default
+view centred on North America.
 
 **Keep the JS to ES2017-era syntax.** `jekyll-minifier` runs it through the
 `uglifier` gem, whose bundled uglify-js predates optional chaining: a single
@@ -372,7 +391,8 @@ _config.yml                                  assets/css/spotify_globe.css
 _pages/hobbies.md                            assets/js/spotify_globe.js
 assets/js/theme.js   <- site-wide dark       assets/json/spotify_globe/countries.geojson
 purgecss.config.js                           assets/json/spotify_globe/globe_data.json
-                                             assets/json/spotify_globe/states.geojson
+                                             assets/json/spotify_globe/states_us.geojson
+                                             assets/json/spotify_globe/states_world.geojson
 tools/spotify_globe/OVERVIEW.md              tools/spotify_globe/import_extended_history.py
 tools/spotify_globe/README.md                tools/spotify_globe/make_sample_data.py
 tools/spotify_globe/build_globe_data.py      tools/spotify_globe/overrides.json

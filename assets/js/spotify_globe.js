@@ -24,6 +24,23 @@
   const GLOBE_LIB =
     "https://cdn.jsdelivr.net/npm/globe.gl@2.46.2/dist/globe.gl.min.js";
 
+  /* -- state layer modes ---------------------------------------------------
+   * The admin-1 layer is all-or-nothing per country in the data file, but not
+   * every country benefits from it on screen. Default to US-only: that is where
+   * the overwhelming majority of the artists are, so state detail is genuinely
+   * informative there and mostly noise elsewhere (many countries have artists
+   * in just two or three regions, which the country fill already conveys).
+   */
+  const STATES_ALL = "all";
+  const STATES_US = "us";
+  const STATES_NONE = "none";
+  const STATE_MODES = [
+    { value: STATES_ALL, label: "all states" },
+    { value: STATES_US, label: "US only" },
+    { value: STATES_NONE, label: "off" },
+  ];
+  const US_ISO = "USA";
+
   /* -- tunables ----------------------------------------------------------- *
    * curve: how a raw artist count becomes a 0..1 intensity.
    *   linear -- v / max. Honest, but one big city flattens everything else.
@@ -49,7 +66,7 @@
   const DEFAULTS = {
     regions: { curve: "gamma", gamma: 0.35, floor: 0.14, clipPct: 100 },
     cities: { curve: "gamma", gamma: 0.45, floor: 0.22, clipPct: 100 },
-    show: { countries: true, states: true, cities: true },
+    show: { countries: true, states: STATES_US, cities: true },
     autoRotate: true,
   };
 
@@ -197,7 +214,10 @@
           return r.json();
         }),
         fetch(`${DATA_DIR}/countries.geojson`).then((r) => r.json()),
-        fetch(`${DATA_DIR}/states.geojson`).then((r) => r.json()),
+        // Only the US admin-1 shapes up front (~32 KB gzipped). The rest of the
+        // world is another ~217 KB that the default view never draws, so it is
+        // fetched on demand -- see loadWorldStates().
+        fetch(`${DATA_DIR}/states_us.geojson`).then((r) => r.json()),
       ]);
       data = d;
       countriesGeo = c;
@@ -251,20 +271,78 @@
       f.properties.layer = "country";
       return f;
     });
-    const stateFeatures = (statesGeo.features || []).map((f) => {
-      f.properties.row = stateCounts[f.properties.id];
-      f.properties.layer = "state";
-      return f;
-    });
+    function prepStates(fc) {
+      return (fc.features || []).map((f) => {
+        f.properties.row = stateCounts[f.properties.id];
+        f.properties.layer = "state";
+        return f;
+      });
+    }
+    // starts as US-only; grows once the rest of the world is fetched
+    let stateFeatures = prepStates(statesGeo);
+
+    /**
+     * Fetch the non-US admin-1 geometry, once. Resolves to true if the layer is
+     * usable afterwards, false if the fetch failed (in which case the caller
+     * falls back rather than leaving the user on a silently empty layer).
+     */
+    let worldStates = null; // null = not requested yet
+    function loadWorldStates() {
+      if (worldStates) return worldStates;
+      worldStates = fetch(`${DATA_DIR}/states_world.geojson`)
+        .then((r) => {
+          if (!r.ok) throw new Error("states_world.geojson");
+          return r.json();
+        })
+        .then((fc) => {
+          stateFeatures = stateFeatures.concat(prepStates(fc));
+          return true;
+        })
+        .catch(() => {
+          worldStates = null; // allow a retry on the next attempt
+          return false;
+        });
+      return worldStates;
+    }
+
+    /**
+     * Is this state polygon drawn right now?
+     *
+     * Note the artist-count test. A state with nothing in it must be left out
+     * of the layer entirely, not merely painted transparent: three.js still
+     * writes depth for a fully transparent cap, so an "invisible" state at a
+     * higher altitude than its country punches a dark hole through the country
+     * fill beneath it. Empty regions therefore hover as their country, which is
+     * what you want anyway.
+     */
+    function stateShown(f) {
+      if (cfg.show.states === STATES_NONE) return false;
+      // STATES_US: the geometry carries the parent country's ISO code
+      if (cfg.show.states === STATES_US && f.properties.iso !== US_ISO) return false;
+      return nOf(f.properties.row) > 0;
+    }
+
+    /** The same test, against a row in globe_data.states. */
+    function stateRowShown(row) {
+      if (cfg.show.states === STATES_NONE) return false;
+      if (cfg.show.states === STATES_ALL) return true;
+      return row && row.iso === US_ISO;
+    }
 
     // Each layer gets its own scale, rebuilt when the span or the knobs change.
     let scales = {};
     let visibleCities = [];
+    let visibleStateFeatures = [];
     function rebuildScales() {
       visibleCities = allCities.filter((c) => nOf(c) > 0);
+      visibleStateFeatures = stateFeatures.filter(stateShown);
+      // Normalise the state ramp over the states actually on screen. In US-only
+      // mode the worldwide distribution would waste most of the ramp on regions
+      // nobody can see.
+      const stateVals = Object.values(stateCounts).filter(stateRowShown).map(nOf);
       scales = {
         country: makeScale(Object.values(countryCounts).map(nOf), cfg.regions),
-        state: makeScale(Object.values(stateCounts).map(nOf), cfg.regions),
+        state: makeScale(stateVals, cfg.regions),
         city: makeScale(visibleCities.map(nOf), cfg.cities),
       };
     }
@@ -278,7 +356,7 @@
     function polygons() {
       const out = [];
       if (cfg.show.countries) out.push(...countryFeatures);
-      if (cfg.show.states) out.push(...stateFeatures);
+      out.push(...visibleStateFeatures);
       return out;
     }
 
@@ -491,6 +569,18 @@
 
     function refresh() {
       rebuildScales();
+      // A pinned state can be hidden out from under the panel by switching the
+      // state-layer mode, which would leave the detail stuck on a region that
+      // is no longer drawn.
+      if (
+        pinned &&
+        pinned.kind === "region" &&
+        pinned.obj.properties.layer === "state" &&
+        !stateShown(pinned.obj)
+      ) {
+        pinned = null;
+        showDetail(null, null);
+      }
       globe
         .polygonsData(polygons())
         .polygonCapColor(polyCap)
@@ -602,7 +692,7 @@
     renderTable();
 
     // -- tuning panel ------------------------------------------------------
-    buildTuner(mount, cfg, refresh, globe);
+    buildTuner(mount, cfg, refresh, globe, loadWorldStates);
     status("");
   }
 
@@ -611,7 +701,7 @@
    * clicked -- this exists so the scale can be dialled in against real numbers
    * and then baked into DEFAULTS, not as a permanent visitor-facing feature.
    */
-  function buildTuner(mount, cfg, refresh, globe) {
+  function buildTuner(mount, cfg, refresh, globe, loadWorldStates) {
     const panel = mount.querySelector(".sg-tuner");
     const toggle = mount.querySelector(".sg-tune-toggle");
     if (!panel || !toggle) return;
@@ -656,7 +746,7 @@
       ${group("cities", "cities")}
       <fieldset class="sg-fs">
         <legend>layers</legend>
-        ${["countries", "states", "cities"]
+        ${["countries", "cities"]
           .map(
             (l) => `<label class="sg-check"><input type="checkbox" data-k="show.${l}"
                 ${cfg.show[l] ? "checked" : ""}> ${l}</label>`
@@ -664,6 +754,16 @@
           .join("")}
         <label class="sg-check"><input type="checkbox" data-k="autoRotate"
           ${cfg.autoRotate ? "checked" : ""}> auto-rotate</label>
+        <label>states
+          <select data-k="show.states">
+            ${STATE_MODES.map(
+              (m) =>
+                `<option value="${m.value}"${
+                  cfg.show.states === m.value ? " selected" : ""
+                }>${m.label}</option>`
+            ).join("")}
+          </select>
+        </label>
         <button type="button" class="sg-copy">copy config</button>
       </fieldset>`;
 
@@ -684,6 +784,20 @@
       const out = el.parentElement.querySelector("output");
       if (out) out.textContent = val;
       if (path === "autoRotate") globe.controls().autoRotate = val;
+
+      // "all states" needs geometry that isn't on the page yet
+      if (path === "show.states" && val === STATES_ALL) {
+        el.disabled = true;
+        loadWorldStates().then((ok) => {
+          el.disabled = false;
+          if (!ok) {
+            cfg.show.states = STATES_US; // don't strand the user on an empty layer
+            el.value = STATES_US;
+          }
+          refresh();
+        });
+        return;
+      }
       refresh();
     });
 
