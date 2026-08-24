@@ -693,7 +693,11 @@
         null,
         2
       );
-      navigator.clipboard?.writeText(text);
+      // Written long-hand on purpose: this file is minified at build time by
+      // jekyll-minifier -> uglifier, whose bundled uglify-js predates optional
+      // chaining and dies with "Unexpected token: punc (.)" on `?.`, failing
+      // the whole deploy. Keep this file to ES2017-era syntax.
+      if (navigator.clipboard) navigator.clipboard.writeText(text);
       ev.target.textContent = "copied ✓";
       setTimeout(() => (ev.target.textContent = "copy config"), 1600);
     });

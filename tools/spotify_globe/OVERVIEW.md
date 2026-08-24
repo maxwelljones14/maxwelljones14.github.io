@@ -206,6 +206,14 @@ returns **403** as of the Feb 2026 API, and the payload moved from
 are *not* renamed — `/albums/{id}/tracks` is still correct and `/items` 404s
 there — and liked songs still use `item.track`. Don't "fix" them to match.
 
+**Keep the JS to ES2017-era syntax.** `jekyll-minifier` runs it through the
+`uglifier` gem, whose bundled uglify-js predates optional chaining: a single
+`navigator.clipboard?.writeText()` failed the entire deploy with
+`Unexpected token: punc (.)`. Nothing else in the file tripped it — the parser
+reached line 696 before dying — but avoid `?.`, `??` and anything newer. Check
+with `acorn.parse(src, {ecmaVersion: 2017})` before pushing; the CI minifier is
+the only thing that will tell you otherwise, and only after a failed deploy.
+
 **Adding a scope invalidates the cached token.** A refresh keeps the old,
 narrower grant, so the new endpoints 403 with no obvious cause. `get_token()`
 stores `granted_scopes` and forces a fresh browser authorization when `SCOPES`
