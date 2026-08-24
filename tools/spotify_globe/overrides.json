@@ -1,0 +1,9 @@
+{
+  "_comment": "Manual hometown fixes, keyed by Spotify artist ID. These always win over the automatic MusicBrainz/Wikidata lookup. enrich_hometowns.py prints ready-to-paste stubs for anything it could not resolve.",
+  "_example__delete_me": {
+    "place": "Toronto",
+    "country": "Canada",
+    "lat": 43.6532,
+    "lon": -79.3832
+  }
+}

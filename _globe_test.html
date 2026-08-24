@@ -1,0 +1,74 @@
+<!doctype html>
+<!-- Local harness for developing the globe outside Jekyll.
+     Underscore prefix keeps Jekyll from publishing it.
+     Serve the repo root and open http://127.0.0.1:8123/_globe_test.html -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>globe harness</title>
+    <link rel="stylesheet" href="/assets/css/spotify_globe.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 2rem;
+        font: 16px/1.5 system-ui, sans-serif;
+        background: #fff;
+        color: #111;
+      }
+      :root[data-theme="dark"] body {
+        background: #1c1c1d;
+        color: #f0f0f0;
+      }
+      .bar {
+        margin-bottom: 1rem;
+      }
+      #err {
+        white-space: pre-wrap;
+        font: 12px/1.4 monospace;
+        color: #b00;
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bar">
+      <button onclick="document.documentElement.setAttribute('data-theme','light')">light</button>
+      <button onclick="document.documentElement.setAttribute('data-theme','dark')">dark</button>
+    </div>
+
+    <div class="sg-wrap" id="spotify-globe">
+      <div class="sg-spans"></div>
+      <div class="sg-main">
+        <div class="sg-stage"><span class="sg-status">loading…</span></div>
+        <aside class="sg-detail" aria-live="polite"></aside>
+      </div>
+      <div class="sg-legend"></div>
+      <p class="sg-caption"></p>
+      <details class="sg-details" open>
+        <summary>See the numbers</summary>
+        <table class="sg-table">
+          <thead>
+            <tr><th>City</th><th>Country</th><th class="sg-num">Artists</th><th>Who</th></tr>
+          </thead>
+          <tbody class="sg-table-body"></tbody>
+        </table>
+      </details>
+      <button type="button" class="sg-tune-toggle" aria-expanded="false">tune scale</button>
+      <div class="sg-tuner" hidden></div>
+    </div>
+
+    <div id="err"></div>
+    <script>
+      // surface anything that goes wrong so the headless screenshot shows it
+      const errBox = document.getElementById("err");
+      window.addEventListener("error", (e) => {
+        errBox.textContent += "ERROR: " + e.message + "\n";
+      });
+      window.addEventListener("unhandledrejection", (e) => {
+        errBox.textContent += "REJECTION: " + (e.reason && e.reason.message) + "\n";
+      });
+    </script>
+    <script src="/assets/js/spotify_globe.js"></script>
+  </body>
+</html>

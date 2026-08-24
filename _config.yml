@@ -246,6 +246,8 @@ exclude:
   - purgecss.config.js
   - README.md
   - readme_preview/
+  - tools/ # local-only build scripts for the hobbies globe
+  - _globe_test.html # local harness for the globe (Jekyll skips _* anyway)
   - vendor
 keep_files:
   - CNAME

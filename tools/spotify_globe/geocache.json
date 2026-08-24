@@ -1,0 +1,5710 @@
+{
+  "2U2PNHpVgh96ofQdrEpjOR": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "5IbEL2xjRtKsunfmsahLuO": {
+    "place": "New York",
+    "country": "United States",
+    "lat": 40.712777777,
+    "lon": -74.006111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d993169f-2033-4810-bae8-564d4aab89cd"
+  },
+  "17lzZA2AlOHwCwFALHttmp": {
+    "place": "College Park",
+    "country": "United States",
+    "lat": 33.6483,
+    "lon": -84.4561,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "dff0d392-4cd5-4052-9fbb-f485df3891e5"
+  },
+  "1URnnhqYAYcrqrcwql10ft": {
+    "place": "Plaistow",
+    "country": "United States",
+    "lat": 51.5243,
+    "lon": 0.0245,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "37b2cb82-ef79-4d46-a184-a549450aa231"
+  },
+  "6pJt7KgHpBZz8EsWRMP7gj": {
+    "place": "Moscow",
+    "country": "Moscow",
+    "lat": 55.750555555,
+    "lon": 37.6175,
+    "source": "musicbrainz:name-search",
+    "mbid": "462242d2-b14d-4a64-9956-a7c995e5da1d"
+  },
+  "4JhbRL6zaItAyzqx4gHTqz": {
+    "place": "Brooklyn",
+    "country": "United States",
+    "lat": 40.650833333,
+    "lon": -73.949722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b0704195-0cd1-46a0-98a1-59f45114c387"
+  },
+  "6fWVd57NKTalqvmjRd2t8Z": {
+    "place": "San Francisco",
+    "country": "United States",
+    "lat": 37.775,
+    "lon": -122.419444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0fe5df51-ba65-4784-ba85-7d024a107a8a"
+  },
+  "1ZwdS5xdxEREPySFridCfh": {
+    "place": "East Harlem",
+    "country": "United States",
+    "lat": 40.798611111,
+    "lon": -73.941666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "382f1005-e9ab-4684-afd4-0bdae4ee37f2"
+  },
+  "2GRDbUJRZwKzeiwxrjJdmQ": {
+    "place": "Philadelphia",
+    "country": "United States",
+    "lat": 39.952777777,
+    "lon": -75.163611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a46875f6-dd94-464a-b3da-761e5fddbe92"
+  },
+  "0bBz5bRBkExaej2HxtVfCw": {
+    "place": "Cambridge",
+    "country": "Cambridge",
+    "lat": 43.358333333,
+    "lon": -80.313888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "bbd1e260-e399-4e91-84eb-ac4c38861d94"
+  },
+  "0FWzNDaEu9jdgcYTbcOa4F": {
+    "place": "Boulder",
+    "country": "United States",
+    "lat": 40.019444444,
+    "lon": -105.292777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "125948ec-7f91-4d1a-8b83-accbf50fae3d"
+  },
+  "3q7HBObVc0L8jNeTe5Gofh": {
+    "place": "South Jamaica",
+    "country": "United States",
+    "lat": 40.6809,
+    "lon": -73.7919,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8e68819d-71be-4e7d-b41d-f1df81b01d3f"
+  },
+  "7gZfnEnfiaHzxARJ2LeXrf": {
+    "place": "Bushwick",
+    "country": "United States",
+    "lat": 40.694166666,
+    "lon": -73.918611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2282c539-05a2-477c-82b7-fe40798d37f3"
+  },
+  "1AhjOkOLkbHUfcHDSErXQs": {
+    "place": "New York",
+    "country": "United States",
+    "lat": 40.712777777,
+    "lon": -74.006111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f3463d81-f100-478e-b7ba-3710c6eac781"
+  },
+  "0ceH34CATvfgphxnLRWFkm": {
+    "place": "Orlando",
+    "country": "United States",
+    "lat": 28.533611111,
+    "lon": -81.386666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e44aa1c2-c4ea-4dae-a9c5-36fd9fd22d09"
+  },
+  "31W5EY0aAly4Qieq6OFu6I": {
+    "place": "The Bronx",
+    "country": "United States",
+    "lat": 40.846666666,
+    "lon": -73.873333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c1708d03-8a66-46eb-848e-fe0d233ffb39"
+  },
+  "5dHt1vcEm9qb8fCyLcB3HL": {
+    "place": "Harlem",
+    "country": "United States",
+    "lat": 40.809033333,
+    "lon": -73.948372222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8ab5d936-49d1-415e-92c8-151e0e7dd912"
+  },
+  "13ubrt8QOOCPljQ2FL1Kca": {
+    "place": "Harlem",
+    "country": "United States",
+    "lat": 40.809033333,
+    "lon": -73.948372222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "25b7b584-d952-4662-a8b9-dd8cdfbfeb64"
+  },
+  "2rGz2sXoY0L69GeP0bAxP0": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "7BMccF0hQFBpP6417k1OtQ": {
+    "place": "Flushing",
+    "country": "New York",
+    "lat": 40.76583,
+    "lon": -73.833084,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "031bc934-28c9-491a-8648-c078450187dc"
+  },
+  "72kqSqk124Vnl1wtT6q9Fh": {
+    "place": "Miami",
+    "country": "United States",
+    "lat": 25.783333333,
+    "lon": -80.216666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "239c8eea-895e-4b6f-bfd5-3e51a61230df"
+  },
+  "4dpARuHxo51G3z768sgnrY": {
+    "place": "Tottenham",
+    "country": "United Kingdom",
+    "lat": 51.5975,
+    "lon": -0.068055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "cc2c9c3c-b7bc-4b8b-84d8-4fbd8779e493"
+  },
+  "4D75GcNG95ebPtNvoNVXhz": {
+    "place": "Spijkenisse",
+    "country": "Netherlands",
+    "lat": 51.833333333,
+    "lon": 4.316666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a3ee920f-4e7f-4993-8aca-4b8538cfaa4a"
+  },
+  "6SWohEYYTym0RIBxvoh6wt": {
+    "place": "Brooklyn",
+    "country": "United States",
+    "lat": 40.650833333,
+    "lon": -73.949722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "04c464f3-cdae-4b43-9d0e-e972316f6b1e"
+  },
+  "2PJEagPIxaBugeMjIyKVXF": {
+    "place": "Manchester",
+    "country": "Manchester",
+    "lat": 53.466666666,
+    "lon": -2.233333333,
+    "source": "musicbrainz:name-search",
+    "mbid": "57dd4661-9f78-4442-8836-482fab983008"
+  },
+  "4Xi6LSfFqv26XgP9NKN26U": {
+    "place": "Brixton",
+    "country": "Ladbroke Grove",
+    "lat": 51.4575,
+    "lon": -0.1175,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b8638bdc-728d-4d43-a908-7be7db29073b"
+  },
+  "36gl2NBJNRaQakdS4fTKGW": {
+    "place": "Nigeria",
+    "country": "Nigeria",
+    "lat": 9.0,
+    "lon": 8.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "bd85017e-b0f0-444b-8be1-ec3b855cd2aa"
+  },
+  "1EgCxqT8GgE5oXX3PkeGhq": {
+    "place": "Lagos",
+    "country": null,
+    "lat": 6.456111111,
+    "lon": 3.393611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "14749a40-7b34-410d-b3df-6d81e1c5e5c6"
+  },
+  "0z4gvV4rjIZ9wHck67ucSV": {
+    "place": "St. Louis",
+    "country": "Senegal",
+    "lat": 38.626388888,
+    "lon": -90.199444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1138a764-2212-4d0a-b02d-0dc14df91e08"
+  },
+  "5Tf4EH8tDvznnjULcFxkIl": {
+    "place": "Southwark",
+    "country": "United Kingdom",
+    "lat": 51.503333333,
+    "lon": -0.080555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e8c8a3c3-29b6-421e-b977-fb6796231d41"
+  },
+  "0BmLNz4nSLfoWYW1cYsElL": {
+    "place": "Constanța",
+    "country": "Romania",
+    "lat": 44.27,
+    "lon": 28.31,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "70e6fee5-36b1-4cdb-b573-2132f9566dad"
+  },
+  "3DiDSECUqqY1AuBP8qtaIa": {
+    "place": "Manhattan",
+    "country": "United States",
+    "lat": 40.728333333,
+    "lon": -73.994166666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8ef1df30-ae4f-4dbd-9351-1a32b208a01e"
+  },
+  "55an3Vk7Cg1cgUxbLiX93Q": {
+    "place": "London",
+    "country": "London",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:name-search",
+    "mbid": "85b8f111-ff01-49d0-80b7-ad8ce2e10245"
+  },
+  "46gyXjRIvN1NL1eCB8GBxo": {
+    "place": "Towson",
+    "country": "United States",
+    "lat": 39.393055555,
+    "lon": -76.609444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "62162215-b023-4f0e-84bd-1e9412d5b32c"
+  },
+  "3kzwYV3OCB010YfXMF0Avt": {
+    "place": "Toronto",
+    "country": "Canada",
+    "lat": 43.670277777,
+    "lon": -79.386666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "99450990-b24e-4132-bb68-235f8c3e2564"
+  },
+  "4vpGVGgxSDcCTmqYbsOnsn": {
+    "place": "Austin",
+    "country": "United States",
+    "lat": 30.3,
+    "lon": -97.733333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "edf4954c-019c-4b09-ba81-c56ec3d859f9"
+  },
+  "0MlOPi3zIDMVrfA9R04Fe3": {
+    "place": "Boston",
+    "country": "United States",
+    "lat": 42.360277777,
+    "lon": -71.057777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "9ce0515d-cc88-4df6-8a2e-d231c13cb2c2"
+  },
+  "3Gm5F95VdRxW3mqCn8RPBJ": {
+    "place": "Portland",
+    "country": "United States",
+    "lat": 45.515,
+    "lon": -122.679166666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "12398bf3-1b99-47b7-930c-f3956773f35a"
+  },
+  "0GxSAKOw8AV0JsEQ0HYY4b": {
+    "place": "Omaha",
+    "country": "United States",
+    "lat": 41.258611111,
+    "lon": -95.9375,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "4de7282d-4879-41d2-91e4-98a9b0ae333c"
+  },
+  "4DROs1Ye9DiLY3X8L7xvl8": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "6hb3ftxbKAFsOiNCdFbyzJ": {
+    "place": "Milano",
+    "country": "Italy",
+    "lat": 45.466944444,
+    "lon": 9.19,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b40485de-f5d2-445c-8b26-259115c289f3"
+  },
+  "2oX42qP5ineK3hrhBECLmj": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "9e60ea29-9607-4f7d-aa96-2092ef41f0d3"
+  },
+  "3eLgh6OisMjiR9tWPyZCp5": {
+    "place": "United Kingdom",
+    "country": "United Kingdom",
+    "lat": 54.6,
+    "lon": -2.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "3618cecd-0c7d-4573-8155-a962a1c1fcdf"
+  },
+  "2ev6Cd0yJVCcpf2zezEQ8Z": {
+    "place": "Canada",
+    "country": "Canada",
+    "lat": 56.0,
+    "lon": -109.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "42616833-1821-4b46-9c4e-7ec3831cf4a7"
+  },
+  "6kjHzrDbM9PN2TBFDaTZHs": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "66CXWjxzNUsdJxJ2JdwvnR": {
+    "place": "Boca Raton",
+    "country": "United States",
+    "lat": 26.368611111,
+    "lon": -80.1,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387"
+  },
+  "0vRvGUQVUjytro0xpb26bs": {
+    "place": "Hagerstown",
+    "country": "United States",
+    "lat": 39.642777777,
+    "lon": -77.72,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "aa4296e3-f61c-46b5-b4fa-abce5bb62ffb"
+  },
+  "4kIwETcbpuFgRukE8o7Opx": {
+    "place": "London",
+    "country": "United Kingdom",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:name-search",
+    "mbid": "6e8e3717-a62d-4a3f-886d-6a4e82507930"
+  },
+  "7m0BsF0t3K9WQFgKoPejfk": {
+    "place": "Brighton",
+    "country": "United Kingdom",
+    "lat": 50.820833333,
+    "lon": -0.1375,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "76b1feba-3611-431a-8448-3111f81438d4"
+  },
+  "0PlJKkYgy1TSV15E2cHefn": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "1vCWHaC5f2uS3yhpwWbIA6": {
+    "place": "Stockholm",
+    "country": "Sweden",
+    "lat": 59.329444444,
+    "lon": 18.068611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c85cfd6b-b1e9-4a50-bd55-eb725f04f7d5"
+  },
+  "0p4nmQO2msCgU4IF37Wi3j": {
+    "place": "Belleville",
+    "country": "Canada",
+    "lat": 44.166666666,
+    "lon": -77.383333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0103c1cc-4a09-4a5d-a344-56ad99a77193"
+  },
+  "7IlRNXHjoOCgEAWN5qYksg": {
+    "place": "Bamako",
+    "country": "France",
+    "lat": 12.645833333,
+    "lon": -7.992222222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "cf580d82-3f3e-4b86-8874-7e0fbe794f01"
+  },
+  "27mFvqQj8KpjmdKIqcw1mG": {
+    "place": "Ann Arbor",
+    "country": "Ann Arbor",
+    "lat": 42.281388888,
+    "lon": -83.748333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "eb4d0e06-6a69-4f5e-994c-68bcf08acb23"
+  },
+  "7HqrSDuI9lHuH1CDismTFg": {
+    "place": "Brooklyn",
+    "country": "United States",
+    "lat": 40.650833333,
+    "lon": -73.949722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0506bf37-90d7-4654-9585-b4800dc945d5"
+  },
+  "0D98V0wg9XOFT6flzCNZGP": {
+    "place": "Oakland",
+    "country": "United States",
+    "lat": 37.8,
+    "lon": -122.25,
+    "source": "musicbrainz:name-search",
+    "mbid": "5976d284-8940-48c0-9e97-7570babffb80"
+  },
+  "5ndkK3dpZLKtBklKjxNQwT": {
+    "place": "Winston-Salem",
+    "country": "United States",
+    "lat": 36.1025,
+    "lon": -80.260555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "94c338ff-1985-4429-9dc8-997b61bb5932"
+  },
+  "725KKhVCSCQbYkZBptBTfg": {
+    "place": "Singapore",
+    "country": "Italy",
+    "lat": 1.3,
+    "lon": 103.8,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8ea67ba3-0045-4af4-b467-119b56554b84"
+  },
+  "5SXuuuRpukkTvsLuUknva1": {
+    "place": "Carson",
+    "country": "United States",
+    "lat": 33.839722222,
+    "lon": -118.259722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "81d12ca7-5b89-4d21-8736-860b7400b4eb"
+  },
+  "1J1pGfTqp5ReVIX8Z1Wzsg": {
+    "place": "Chicago",
+    "country": "Chicago",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "df033c30-93af-439f-9124-431b00c392a8"
+  },
+  "4q3ewBCX7sLwd24euuV69X": {
+    "place": "San Juan",
+    "country": "Puerto Rico",
+    "lat": 18.465277777,
+    "lon": -66.116666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "89aa5ecb-59ad-46f5-b3eb-2d424e941f19"
+  },
+  "0fs8oBR1rx7JIXZi75h7Uu": {
+    "place": "Manhattan Beach",
+    "country": "United States",
+    "lat": 33.888888888,
+    "lon": -118.405277777,
+    "source": "wikidata-spotify-id"
+  },
+  "7IbXxNkLl9vxmHl9I02cZC": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "6h5EZQ3OJCVadk8yOKSUPx": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "0CqfkYr7CBuSySa4wUBChE": {
+    "place": "United Kingdom",
+    "country": "United Kingdom",
+    "lat": 54.6,
+    "lon": -2.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "171e11df-9bb8-43e7-96ec-a0b523a7d1fa"
+  },
+  "7FBDXY8U17aasVTH3rgxbS": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "73b8e2c9-967b-45a5-8894-fa2298a191ec"
+  },
+  "3alW3LYQS8K29z8C8NSLIX": {
+    "place": "Brooklyn",
+    "country": "United States",
+    "lat": 40.650833333,
+    "lon": -73.949722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7bb60591-46f3-4147-b692-1814a87e832e"
+  },
+  "70gP6Ry4Uo0Yx6uzPIdaiJ": {
+    "place": "Paris",
+    "country": "United States",
+    "lat": 48.856666666,
+    "lon": 2.352222222,
+    "source": "musicbrainz:name-search",
+    "mbid": "3ba54400-4c97-450f-b108-bcd90b9b2b76"
+  },
+  "7EQ0qTo7fWT7DPxmxtSYEc": {
+    "place": "London",
+    "country": "United Kingdom",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7808accb-6395-4b25-858c-678bbb73896b"
+  },
+  "4GvEc3ANtPPjt1ZJllr5Zl": {
+    "place": "Dearborn",
+    "country": "United States",
+    "lat": 42.311330555,
+    "lon": -83.213480555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "edf81f9b-d3f0-4d57-9636-d08e851b1640"
+  },
+  "1bwUhKRmEkOZ1wuTnV9XjC": {
+    "place": "Brooklyn",
+    "country": "United States",
+    "lat": 40.650833333,
+    "lon": -73.949722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "3df3818e-7984-4c62-bee3-81f95f8c6651"
+  },
+  "53loJtHWjCG1TyKarW2mzk": {
+    "place": "Douala",
+    "country": "France",
+    "lat": 4.05,
+    "lon": 9.7,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f4fdde1f-d1c7-46fd-8b01-451af64ad964"
+  },
+  "7uaRq4n32htpYq2fe7Uduw": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "0tAl0sGxLq4qkokhuFMLC7": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "2GYIFLUsVVHPPUzOfJndRh": {
+    "place": "London",
+    "country": "United Kingdom",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "wikidata-spotify-id"
+  },
+  "6veh5zbFpm31XsPdjBgPER": {
+    "place": "Medford",
+    "country": "United States",
+    "lat": 42.418333333,
+    "lon": -71.106666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2c3ddff8-0de5-412a-8f0c-8925f84d5a9a"
+  },
+  "0CKa42Jqrc9fSFbDjePaXP": {
+    "place": "Meridian",
+    "country": "United States",
+    "lat": 32.364305555,
+    "lon": -88.703666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7e966957-9b0b-4e19-b8a0-4206535d8052"
+  },
+  "0c173mlxpT3dSFRgMO8XPh": {
+    "place": "Santa Monica",
+    "country": "United States",
+    "lat": 34.021944444,
+    "lon": -118.481388888,
+    "source": "musicbrainz:name-search",
+    "mbid": "942a9807-9c1a-4a0e-a285-1fde2c5be9d1"
+  },
+  "7mnAzEmgquhrVtGob81SmO": {
+    "place": "Croydon",
+    "country": "United Kingdom",
+    "lat": 51.371111111,
+    "lon": -0.098888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a5430dfe-fb73-4fed-bfb6-8368b007e0d3"
+  },
+  "0GWCNkPi54upO9WLlwjAHd": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "94785e0f-81be-4360-a9e1-a00df5dc8bc6"
+  },
+  "3PGiywHOqNwJ1bv4S3fgZF": {
+    "place": "Birmingham",
+    "country": "Birmingham",
+    "lat": 33.5175,
+    "lon": -86.809444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f3fd02be-3323-40ce-9453-6d09a6ef11c3"
+  },
+  "6qxpnaukVayrQn6ViNvu9I": {
+    "place": "Dallas",
+    "country": "Dallas",
+    "lat": 32.779166666,
+    "lon": -96.808888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d25f6294-686a-4569-b1b9-fe64bfef2519"
+  },
+  "6qqNVTkY8uBg9cP3Jd7DAH": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f4abc0b5-3f7a-4eff-8f78-ac078dbce533"
+  },
+  "60rpJ9SgigSd16DOAG7GSa": {
+    "place": "Flatwoods",
+    "country": "United States",
+    "lat": 38.5231,
+    "lon": -82.7194,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "63e8d6f9-e247-45c9-aaf2-e079cddbdd54"
+  },
+  "1ZN1c1qWEGZNX1pGeKCPpf": {
+    "place": "Lansing",
+    "country": "United States",
+    "lat": 42.7335,
+    "lon": -84.5467,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "640db492-34c4-47df-be14-96e2cd4b9fe4"
+  },
+  "1yxSLGMDHlW21z4YXirZDS": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d5be5333-4171-427e-8e12-732087c6b78e"
+  },
+  "5FxsPS1K61fHEVB3FNZw6Y": {
+    "place": "London",
+    "country": "London",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5678e96a-8b2b-4332-a257-c8055d35d09b"
+  },
+  "7hdf9DSpgCpqVh03Ql1LKe": {
+    "place": "South Africa",
+    "country": "South Africa",
+    "lat": -29.0,
+    "lon": 24.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a07fb11c-2a01-4f17-abd1-f1cf4319f2ee"
+  },
+  "4TEJudQY2pXxVHPE3gD2EU": {
+    "place": "Memphis",
+    "country": "United States",
+    "lat": 35.146111111,
+    "lon": -90.051944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a62e2b14-812a-41a1-884d-5a138705ad2d"
+  },
+  "00tVTdpEhQQw1bqdu8RCx2": {
+    "place": "Stony Brook",
+    "country": "United States",
+    "lat": 40.906388888,
+    "lon": -73.128333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c7423e0c-ab3e-4ab4-be10-cdff5a9d3062"
+  },
+  "3Fl1V19tmjt57oBdxXKAjJ": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "664bd251-a22c-4ab9-a4f7-25da4b14f9fc"
+  },
+  "7MhMgCo0Bl0Kukl93PZbYS": {
+    "place": "London",
+    "country": "United Kingdom",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ba853904-ae25-4ebb-89d6-c44cfbd71bd2"
+  },
+  "34Y0ldeyUv7jBvukWOGASO": {
+    "place": "Miami",
+    "country": "Flatbush",
+    "lat": 25.783333333,
+    "lon": -80.216666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "4ec3b7d8-efbb-4672-8067-5e72bd8dba3e"
+  },
+  "58wXmynHaAWI5hwlPZP3qL": {
+    "place": "Boulogne-Billancourt",
+    "country": "France",
+    "lat": 48.835277777,
+    "lon": 2.241388888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "785c0e9c-89f6-4bf4-8296-443a46632d62"
+  },
+  "6Mm2g25BTeJ6BICPFWGkPg": {
+    "place": "France",
+    "country": "France",
+    "lat": 47.0,
+    "lon": 2.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5ed3a20b-5502-4fa4-8b1b-192aad588942"
+  },
+  "1WDkNp8Duv9QhO246S4dDa": {
+    "place": "France",
+    "country": "France",
+    "lat": 47.0,
+    "lon": 2.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6de232bb-7125-4fe2-8c2f-40ed96820aff"
+  },
+  "7rzCmTlsErSE6pVWeGRmhh": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "26dSoYclwsYLMAKD3tpOr4": {
+    "place": "McComb",
+    "country": "United States",
+    "lat": 31.243777777,
+    "lon": -90.453166666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "45a663b5-b1cb-4a91-bff6-2bef7bbfdd76"
+  },
+  "0du5cEVh5yTK9QJze8zA0C": {
+    "place": "Honolulu",
+    "country": "United States",
+    "lat": 21.304722222,
+    "lon": -157.857222222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+  },
+  "2EMAnMvWE2eb56ToJVfCWs": {
+    "place": "Louisville",
+    "country": "United States",
+    "lat": 38.256111111,
+    "lon": -85.751388888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d8fd8d9b-473b-4f06-83c8-869b1bb9de89"
+  },
+  "6PDLwWvgYNMfBRLqC1h5cJ": {
+    "place": "Compton",
+    "country": "United States",
+    "lat": 33.896666666,
+    "lon": -118.225,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "20533bc5-fbc5-4d69-9e83-db3f17ce6e49"
+  },
+  "3wcj11K77LjEY1PkEazffa": {
+    "place": "Port Harcourt",
+    "country": "Nigeria",
+    "lat": 4.765466,
+    "lon": 7.016316,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "78a19169-ac75-4868-b504-7e2e073118e0"
+  },
+  "1YfEcTuGvBQ8xSD1f53UnK": {
+    "place": "Brooklyn",
+    "country": "United States",
+    "lat": 40.650833333,
+    "lon": -73.949722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "10a9ff92-9637-4498-afea-7044b2ab0dc0"
+  },
+  "1KP6TWI40m7p3QBTU6u2xo": {
+    "place": "Grand Haven",
+    "country": "United States",
+    "lat": 43.063055555,
+    "lon": -86.228333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b2befbb4-c585-4b05-8efa-3deebc8e1385"
+  },
+  "5z5Wgdaa8Z16FrWxXdmXCT": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "0HkcYmcjrBR3SCw9Ld5VZk": {
+    "place": "Calumet City",
+    "country": "United States",
+    "lat": 41.6095242,
+    "lon": -87.5384287,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2d4a0012-7364-40e5-b57f-ad2d4f51a30a"
+  },
+  "7CajNmpbOovFoOoasH2HaY": {
+    "place": "Dumfries",
+    "country": "Scotland",
+    "lat": 55.066666666,
+    "lon": -3.616666666,
+    "source": "musicbrainz:name-search",
+    "mbid": "8dd98bdc-80ec-4e93-8509-2f46bafc09a7"
+  },
+  "4gwpcMTbLWtBUlOijbVpuu": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "119a2c67-e6d6-41cf-a58c-c51b75c80daa"
+  },
+  "5SulO4l40qDuV9zUGLZx7n": {
+    "place": "Salerno",
+    "country": "Italy",
+    "lat": 40.680555555,
+    "lon": 14.759444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8f7dfba6-e258-4db2-a5c2-c998a02438af"
+  },
+  "4kYSro6naA4h99UJvo89HB": {
+    "place": "The Bronx",
+    "country": "United States",
+    "lat": 40.846666666,
+    "lon": -73.873333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2f3c4d70-0462-40da-bba3-0aec5772c556"
+  },
+  "7CCjtD0hCK005Bvg2WG1a7": {
+    "place": "Guatemala City",
+    "country": "United States",
+    "lat": 14.641666666,
+    "lon": -90.513333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "da9bd8dc-b9e7-4231-8545-aeab88b67187"
+  },
+  "29PgYEggDV3cDP9QYTogwv": {
+    "place": "Meta",
+    "country": "Colombia",
+    "lat": 3.463055561,
+    "lon": -73.708888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "468be9aa-67bc-4ed1-b84d-9f4f20128f07"
+  },
+  "0N0d3kjwdY2h7UVuTdJGfp": {
+    "place": "Bonn",
+    "country": "Germany",
+    "lat": 50.735277777,
+    "lon": 7.102222222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "04af2581-6692-4f14-a7fe-151a36f20368"
+  },
+  "0uFc6StTmJBvdHPZFDkdJy": {
+    "place": "Inglewood",
+    "country": "United States",
+    "lat": 33.9575,
+    "lon": -118.346111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "67c6a1f0-7910-4c52-a651-2b7ec819e647"
+  },
+  "4OzONVh5F2liF1rpmhWdeV": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "5H4yInM5zmHqpKIoMNAx4r": {
+    "place": "Shepherd's Bush",
+    "country": "England",
+    "lat": 51.5042,
+    "lon": -0.2207,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b0337af1-8d93-4671-b6c9-ba306bf942bf"
+  },
+  "6RuutbNl5ny8LAf1uSK3fS": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b9b3ce10-3e78-4a47-9b12-9450bd59e49f"
+  },
+  "1anyVhU62p31KFi8MEzkbf": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "373a4c98-a46b-48e4-86ec-f6ca65b4f438"
+  },
+  "0Kx87QsaBtn8yASx9p3Ybc": {
+    "place": "Germany",
+    "country": "Germany",
+    "lat": 51.0,
+    "lon": 10.0,
+    "source": "musicbrainz:name-search",
+    "mbid": "9f95b766-08a7-4301-bc06-168cb8faec7b"
+  },
+  "25uiPmTg16RbhZWAqwLBy5": {
+    "place": "Cambridge",
+    "country": "England",
+    "lat": 52.208055555,
+    "lon": 0.1225,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "260b6184-8828-48eb-945c-bc4cb6fc34ca"
+  },
+  "0KF35OGFXQttk0yWReabtG": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "15iVAtD3s3FsQR4w1v6M0P": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "9118f524-be76-4eaf-875c-ccf15e2a2ad6"
+  },
+  "73sIBHcqh3Z3NyqHKZ7FOL": {
+    "place": "Edwards Air Force Base",
+    "country": "United States",
+    "lat": 34.923890144,
+    "lon": -117.891256356,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7fb57fba-a6ef-44c2-abab-2fa3bdee607e"
+  },
+  "7bXgB6jMjp9ATFy66eO08Z": {
+    "place": "Tappahannock",
+    "country": "United States",
+    "lat": 37.9222,
+    "lon": -76.8631,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c234fa42-e6a6-443e-937e-2f4b073538a3"
+  },
+  "0F3maSKfGGVtfATaAyeyPG": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d6cb8700-8c8b-490a-800e-cfc1ae69d454"
+  },
+  "0LQoZQIV0mIs0y0XQb0Sw2": {
+    "place": "Exeter",
+    "country": "United Kingdom",
+    "lat": 50.725555555,
+    "lon": -3.526944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "98d1ec5a-dd97-4c0b-9c83-7928aac89bca"
+  },
+  "1l7ZsJRRS8wlW3WfJfPfNS": {
+    "place": "Staten Island",
+    "country": "United States",
+    "lat": 40.571944444,
+    "lon": -74.146944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b202beb7-99bd-47e7-8b72-195c8d72ebdd"
+  },
+  "048LktY5zMnakWq7PTtFrz": {
+    "place": "Kaduna",
+    "country": "Nigeria",
+    "lat": 10.333333333,
+    "lon": 7.75,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "eb1febcf-9902-4962-9dc4-8fe4d7fc25b4"
+  },
+  "5vSQUyT33qxr1xAX2Tkf3A": {
+    "place": "Nutley",
+    "country": "United States",
+    "lat": 40.819722222,
+    "lon": -74.158888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "772a0eb3-fe31-4a08-b583-690296f44900"
+  },
+  "3ipd8nun05nkBToP5CjVHg": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "4ygR3mAG9AsBRVKIlmFYP1": {
+    "place": "London",
+    "country": null,
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ab0a0678-9abc-4c3b-aadf-4d665b9cbf55"
+  },
+  "6MDME20pz9RveH9rEXvrOM": {
+    "place": "Cambridge",
+    "country": "United Kingdom",
+    "lat": 52.208055555,
+    "lon": 0.1225,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "dacc2d64-7e59-42a8-87a9-10c53919aff2"
+  },
+  "6AMd49uBDJfhf30Ak2QR5s": {
+    "place": "New Jersey",
+    "country": "United States",
+    "lat": 40.0,
+    "lon": -74.5,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e1115c6a-6705-4d17-bbf2-0efd2ef1bbb2"
+  },
+  "6aZyMrc4doVtZyKNilOmwu": {
+    "place": "Malibu",
+    "country": "United States",
+    "lat": 34.035,
+    "lon": -118.695,
+    "source": "musicbrainz:name-search",
+    "mbid": "efc8a006-d0c6-4a9b-8cb1-91ca770fa2b9"
+  },
+  "7fObcBw9VM3x7ntWKCYl0z": {
+    "place": "Jackson Heights",
+    "country": "United States",
+    "lat": 40.751389,
+    "lon": -73.886944,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d71c2b20-616a-4bb8-a848-e6edac412c3b"
+  },
+  "4gzpq5DPGxSnKTe4SA8HAU": {
+    "place": "London",
+    "country": "United Kingdom",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "cc197bad-dc9c-440d-a5b5-d52ba2e14234"
+  },
+  "1iJdyDcY98X3GMnUesl7tf": {
+    "place": "St. Louis",
+    "country": "United States",
+    "lat": 38.626388888,
+    "lon": -90.199444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7229223d-9600-4e80-807e-34646cf9ba37"
+  },
+  "5zixe6AbgXPqt4c1uSl94L": {
+    "place": "Toronto",
+    "country": "Canada",
+    "lat": 43.670277777,
+    "lon": -79.386666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8715eeb9-9c4e-4295-aab6-a086bd83d6f4"
+  },
+  "3y24n3XhZ96wgwRXjvS17T": {
+    "place": "Monessen",
+    "country": "United States",
+    "lat": 40.1542,
+    "lon": -79.8828,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "cc30e630-8c75-4d78-b205-8e2edc6bdaa7"
+  },
+  "0huGjMyP507tBCARyzSkrv": {
+    "place": "Raleigh",
+    "country": "United States",
+    "lat": 35.78,
+    "lon": -78.64,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "994a4bd6-584e-40c8-a8d7-5fdc3b6db8b2"
+  },
+  "4vQLu6vYK0hp8k0fsAzsU8": {
+    "place": "Long Island City",
+    "country": "Queensbridge",
+    "lat": 40.750422222,
+    "lon": -73.948136111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6e437c13-304a-4b5e-afd0-ec9540c96c9d"
+  },
+  "7BAaznGSsqcksud4R5ou5z": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "10ae95fd-6e01-48ec-8108-d49fedcc259f"
+  },
+  "1MlPgLXb3K58qQLfg88lUZ": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:name-search",
+    "mbid": "55f9cd57-e761-4495-84f7-85b274666662"
+  },
+  "3Oim8XBPbznAa8Jj8QzNc8": {
+    "place": "Manhattan",
+    "country": "United States",
+    "lat": 40.728333333,
+    "lon": -73.994166666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "4c671d5a-7027-4398-8055-03e61d1a3967"
+  },
+  "1MVnyuEGQxpIwxOtlThiaL": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "5VadK1havLhK1OpKYsXv9y": {
+    "place": "Lewisham",
+    "country": "United Kingdom",
+    "lat": 51.445277777,
+    "lon": -0.020277777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "3325cdfa-8efc-4662-b3df-c094b78b9da8"
+  },
+  "3Q8Ow3li2nXzZhRPHMwR7h": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "6qGobCRXLoUuJ0LoH6zKQV": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "4r63FhuTkUYltbVAg5TQnk": {
+    "place": "Cleveland",
+    "country": "United States",
+    "lat": 41.499166666,
+    "lon": -81.694722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "87ae83df-6173-40cc-a0f2-bad543faa6aa"
+  },
+  "4sbXXFzEWJY2zsZjelerjX": {
+    "place": "Bobigny",
+    "country": "France",
+    "lat": 48.909722222,
+    "lon": 2.438611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ecca82a9-0b5f-4b01-86aa-6b9fe62b09fe"
+  },
+  "41LfjfTCcTCUdykJqNyFw8": {
+    "place": "Atlanta",
+    "country": "Atlanta",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1d77e146-b983-469b-9cd7-b59bc8ceb2d9"
+  },
+  "4tZwfgrHOc3mvqYlEYSvVi": {
+    "place": "Paris",
+    "country": "France",
+    "lat": 48.856666666,
+    "lon": 2.352222222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "056e4f3e-d505-4dad-8ec1-d04f521cbb56"
+  },
+  "2UwqpfQtNuhBwviIC0f2ie": {
+    "place": "Kinshasa",
+    "country": "Belgium",
+    "lat": -4.321944444,
+    "lon": 15.311944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "71ff695e-896a-4043-aea4-93eadde08d09"
+  },
+  "7aA592KWirLsnfb5ulGWvU": {
+    "place": "Detroit",
+    "country": "United States",
+    "lat": 42.331666666,
+    "lon": -83.0475,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "960afc67-9c21-46dd-9c7f-ff2b509e3150"
+  },
+  "4e5oZygHeeRoTXc00gYWiu": {
+    "place": "Orlando",
+    "country": "Orlando",
+    "lat": 28.533611111,
+    "lon": -81.386666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d768a82a-07c2-4854-ae03-d3fa4f33a30b"
+  },
+  "4q6hTJmeYXCwp0ivdtoSWA": {
+    "place": "United Kingdom",
+    "country": "United Kingdom",
+    "lat": 54.6,
+    "lon": -2.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "9eae7149-852d-49e9-8c44-e5469fed242b"
+  },
+  "77tT1kLj6mCWtFNqiOmP9H": {
+    "place": "Philadelphia",
+    "country": "United States",
+    "lat": 39.952777777,
+    "lon": -75.163611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "debabff3-2559-46e5-862d-ef2a906d7010"
+  },
+  "6Ip8FS7vWT1uKkJSweANQK": {
+    "place": "Brixton",
+    "country": "United Kingdom",
+    "lat": 51.4575,
+    "lon": -0.1175,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f93bac9e-b20a-403e-abc9-06a2fc151df1"
+  },
+  "1Cs0zKBU1kc0i8ypK3B9ai": {
+    "place": "Paris",
+    "country": "France",
+    "lat": 48.856666666,
+    "lon": 2.352222222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "302bd7b9-d012-4360-897a-93b00c855680"
+  },
+  "507suKa0eqRZtZdfBTlSTR": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "4o3KrdNrP5TODhuOesqHfR": {
+    "place": "Phoenix",
+    "country": "Phoenix",
+    "lat": 33.448333333,
+    "lon": -112.073888888,
+    "source": "musicbrainz:name-search",
+    "mbid": "36ee77a5-94dd-47ab-87e9-15247870c1f7"
+  },
+  "0WK3H9OErSn5zKOkOV5egm": {
+    "place": "Pontiac",
+    "country": "Los Angeles",
+    "lat": 42.646111111,
+    "lon": -83.2925,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6b8275bf-566f-4da0-9472-6e4e3aa5441e"
+  },
+  "58ICshZ0AgBMNJiLHK3U8l": {
+    "place": "United Kingdom",
+    "country": "United Kingdom",
+    "lat": 54.6,
+    "lon": -2.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "eb6af86f-4533-4198-b557-596a87eff3e0"
+  },
+  "6fxyWrfmjcbj5d12gXeiNV": {
+    "place": "Carol City",
+    "country": "United States",
+    "lat": 25.940649,
+    "lon": -80.245604,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5f95440d-7737-4a36-9bcf-c05337f7129b"
+  },
+  "7pFeBzX627ff0VnN6bxPR4": {
+    "place": "Brooklyn",
+    "country": "United States",
+    "lat": 40.650833333,
+    "lon": -73.949722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "05b75ee5-98cd-430e-b1ec-ec0f61fdabda"
+  },
+  "7Ip2u3e5Nv6fFb5xyIHxEE": {
+    "place": "Tracy",
+    "country": "United States",
+    "lat": 37.738055555,
+    "lon": -121.433888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7cc04f00-4c8f-40ea-894c-5f65777b3575"
+  },
+  "3cAisWS37sGCCtRgWfvrod": {
+    "place": "Dar es Salaam",
+    "country": "Tanzania",
+    "lat": -6.816111111,
+    "lon": 39.280277777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a4dd4cc7-576d-4126-9780-75a48741234e"
+  },
+  "18MFcGBHtyW0mU3ufcm0X1": {
+    "place": "Passaic",
+    "country": "United States",
+    "lat": 40.8575,
+    "lon": -74.128888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5958a781-1fa5-4d4f-a027-9caba2943eaf"
+  },
+  "0SVbeXuRTG8bc7NJ33JYB6": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "47rT8CoKTbr0S945AGgATQ": {
+    "place": "United Kingdom",
+    "country": "United Kingdom",
+    "lat": 54.6,
+    "lon": -2.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1f90e7b7-1d92-4f02-bcb1-0b0dbdfeb383"
+  },
+  "6nS5roXSAGhTGr34W6n7Et": {
+    "place": "Reigate",
+    "country": "United Kingdom",
+    "lat": 51.237644444,
+    "lon": -0.205833333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ae65c507-d9a0-4d42-9a6c-2b1f82158b9f"
+  },
+  "7s9RlIaxnp2ytBSby8anas": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "5DIxbeHID0GVBPT07FHZC0": {
+    "place": "Brazil",
+    "country": "Brazil",
+    "lat": -14.0,
+    "lon": -53.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0978c564-5ebb-4ad6-bef9-4c72ed18c9e4"
+  },
+  "28EzVLPJYFV94rWxZVK6zd": {
+    "place": "Brazil",
+    "country": "Brazil",
+    "lat": -14.0,
+    "lon": -53.0,
+    "source": "musicbrainz:name-search",
+    "mbid": "9aa4a2a6-0374-47e1-946c-dec35b2403c1"
+  },
+  "0rb23mC6LLZ3o15qcdSzjx": {
+    "place": "Brazil",
+    "country": "Brazil",
+    "lat": -14.0,
+    "lon": -53.0,
+    "source": "musicbrainz:name-search",
+    "mbid": "9d9213e7-4250-41ed-9e54-77f1119ba856"
+  },
+  "0QHgL1lAIqAw0HtD7YldmP": {
+    "place": "New Orleans",
+    "country": "United States",
+    "lat": 29.976111111,
+    "lon": -90.078333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "081a2d60-9791-4e05-a075-f1890355eeee"
+  },
+  "6WIjKbyqeO9MkfNMFJsF50": {
+    "place": "Brazil",
+    "country": "Brazil",
+    "lat": -14.0,
+    "lon": -53.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "bddfcd08-b81b-4065-b242-19db45fc8ac9"
+  },
+  "6GEykX11lQqp92UVOQQCC7": {
+    "place": "Houston",
+    "country": "United States",
+    "lat": 29.762777777,
+    "lon": -95.383055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "084e06f5-3c82-4b71-bd94-dd69e7bd515e"
+  },
+  "1m7LSAMIB1BErIHYSOn32W": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "540vIaP2JwjQb9dm3aArA4": {
+    "place": "Paris",
+    "country": "France",
+    "lat": 48.856666666,
+    "lon": 2.352222222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "31445b1e-96f3-4c7f-84ec-dd02e647e690"
+  },
+  "3JrsRa8z1Pngkkf4pDrokD": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "2nRKgPUikjmFOJ1UBmh8Fy": {
+    "place": "Brazil",
+    "country": "Brazil",
+    "lat": -14.0,
+    "lon": -53.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6f4087c6-7961-4b2f-b941-015c735d8cc7"
+  },
+  "6T5tfhQCknKG4UnH90qGnz": {
+    "place": "San Francisco",
+    "country": "United States",
+    "lat": 37.775,
+    "lon": -122.419444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b02dc689-7859-461d-b70e-9fe1f64fddce"
+  },
+  "4E2rKHVDssGJm2SCDOMMJB": {
+    "place": "Tampa",
+    "country": "United States",
+    "lat": 27.9475,
+    "lon": -82.458611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "9f75277c-b283-4846-ac8c-f932255cd0ac"
+  },
+  "5cj0lLjcoR7YOSnhnX0Po5": {
+    "place": "Tarzana",
+    "country": "United States",
+    "lat": 34.17333,
+    "lon": -118.55306,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5df62a88-cac9-490a-b62c-c7c88f4020f4"
+  },
+  "32vWCbZh0xZ4o9gkz4PsEU": {
+    "place": "Locust Ridge",
+    "country": "United States",
+    "lat": 38.99194444,
+    "lon": -84.00722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1d543e07-d0d2-4834-a8db-d65c50c2a856"
+  },
+  "4Gso3d4CscCijv0lmajZWs": {
+    "place": "Houston",
+    "country": "United States",
+    "lat": 29.762777777,
+    "lon": -95.383055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a0723a3c-4135-438e-85c5-012712144ede"
+  },
+  "6qMGjGD3lmDJtzALZ8uS2z": {
+    "place": "Zimbabwe",
+    "country": "Zimbabwe",
+    "lat": -19.0,
+    "lon": 30.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "4bbbd265-0669-4f37-b18a-1519642bfed6"
+  },
+  "4Al9wqYpl2Yi1XfUrDrZmS": {
+    "place": "Tottenham",
+    "country": "Tottenham",
+    "lat": 51.5975,
+    "lon": -0.068055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a7a800cd-730b-48ce-8134-97c4b6ae9dfe"
+  },
+  "6DPYiyq5kWVQS4RGwxzPC7": {
+    "place": "Compton",
+    "country": "United States",
+    "lat": 33.896666666,
+    "lon": -118.225,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5f6ab597-f57a-40da-be9e-adad48708203"
+  },
+  "3TVXtAsR1Inumwj472S9r4": {
+    "place": "Toronto",
+    "country": "Canada",
+    "lat": 43.670277777,
+    "lon": -79.386666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "9fff2f8a-21e6-47de-a2b8-7f449929d43f"
+  },
+  "5M0lbkGluOPXLeFjApw8r8": {
+    "place": "Neustadt an der Weinstraße",
+    "country": "United States",
+    "lat": 49.353621,
+    "lon": 8.13607,
+    "source": "musicbrainz:name-search",
+    "mbid": "6247d69d-426f-440f-97e0-74a9a0b00358"
+  },
+  "1iNqsUDUraNWrj00bqssQG": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f7a94446-aa3f-41e6-b3d0-46dd695d7d6e"
+  },
+  "6kZWqUZqptyxb8Ki5DyBAg": {
+    "place": "Croydon",
+    "country": "Croydon",
+    "lat": 51.371111111,
+    "lon": -0.098888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2b8d5a80-545f-4ea5-a591-81a9f8732316"
+  },
+  "6M2wZ9GZgrQXHCFfjv46we": {
+    "place": "London",
+    "country": "United Kingdom",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6f1a58bf-9b1b-49cf-a44a-6cefad7ae04f"
+  },
+  "2tPR06hLUvH5aIY3JXNIxY": {
+    "place": "Birmingham",
+    "country": "London",
+    "lat": 52.48,
+    "lon": -1.9025,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7fcc7fcb-616e-4833-9d5a-fe5dd0ac5c28"
+  },
+  "7u6LfVyYpEzMpHLL7jTyvU": {
+    "place": "Detroit",
+    "country": "United States",
+    "lat": 42.331666666,
+    "lon": -83.0475,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "808c1fbb-ccfb-4b15-a541-72bec155e696"
+  },
+  "0UAfgrYSLcjHNocndTNjhH": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "1dfpwerOGBId6qD7LVwpoB": {
+    "place": "Romania",
+    "country": "Romania",
+    "lat": 46.0,
+    "lon": 25.0,
+    "source": "musicbrainz:name-search",
+    "mbid": "ea237f37-9a67-4026-babc-c7366f7df0b4"
+  },
+  "3crnzLy8R4lVwaigKEOz7V": {
+    "place": "Vallejo",
+    "country": "United States",
+    "lat": 38.104088,
+    "lon": -122.256638,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a449973b-074b-4cf0-a4d6-f11fa2d1073f"
+  },
+  "3A5tHz1SfngyOZM2gItYKu": {
+    "place": "Chicago",
+    "country": "Santa Monica",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8b22acd6-20e6-4463-a75c-c14b5cfdb666"
+  },
+  "7B4hKK0S9QYnaoqa9OuwgX": {
+    "place": "Compton",
+    "country": "United States",
+    "lat": 33.896666666,
+    "lon": -118.225,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c3009d7a-51ac-4c9c-888a-04f5c3c4be0c"
+  },
+  "1PbBg2aYjWLKRk84zJK15x": {
+    "place": "Toluca Lake",
+    "country": "Los Angeles",
+    "lat": 34.1475,
+    "lon": -118.351388888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "53317371-09a4-4bf4-a832-22a9c6704be2"
+  },
+  "6BRxQ8cD3eqnrVj6WKDok8": {
+    "place": "Montgomery County",
+    "country": "Montgomery",
+    "lat": 34.535555555,
+    "lon": -93.664444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b16c0872-31a7-4db9-8569-0e3146fcecfc"
+  },
+  "0X2BH1fck6amBIoJhDVmmJ": {
+    "place": "Hereford",
+    "country": "United Kingdom",
+    "lat": 52.056388888,
+    "lon": -2.716111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "33ca19f4-18c8-4411-98df-ac23890ce9f5"
+  },
+  "3PhoLpVuITZKcymswpck5b": {
+    "place": "Pinner",
+    "country": "United Kingdom",
+    "lat": 51.5932,
+    "lon": -0.3894,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b83bc61f-8451-4a5d-8b8e-7e9ed295e822"
+  },
+  "7dGJo4pcD2V6oG8kP0tJRR": {
+    "place": "St. Joseph",
+    "country": "United States",
+    "lat": 39.768611111,
+    "lon": -94.846638888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b95ce3ff-3d05-4e87-9e01-c97b66af13d4"
+  },
+  "3xLU748QxpTmIVaiNXXg0P": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "0Rq2hV3S3O4JMWbL2B510w": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "322b62f3-ffbb-455d-af90-3f7c38baa01f"
+  },
+  "6PAt558ZEZl0DmdXlnjMgD": {
+    "place": "Ripley",
+    "country": "United Kingdom",
+    "lat": 51.297861111,
+    "lon": -0.4881,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "618b6900-0618-4f1e-b835-bccb17f84294"
+  },
+  "1f2Bnuuv7FxEx2x8iiEBzR": {
+    "place": "Vancouver",
+    "country": "Vancouver",
+    "lat": 49.260833333,
+    "lon": -123.113888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b488337f-b6e0-4170-a1c9-b2f139dd61b2"
+  },
+  "3fhMfkPPzksWuw0hEm4ldm": {
+    "place": "Milano",
+    "country": "Italy",
+    "lat": 45.466944444,
+    "lon": 9.19,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "52689f06-8030-460d-bf80-c5a1cda2640f"
+  },
+  "5T0MSzX9RC5NA6gAI6irSn": {
+    "place": "Hammersmith",
+    "country": "United Kingdom",
+    "lat": 51.4928,
+    "lon": -0.2229,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "4c7a5854-6b75-4623-a684-6a3d785d9015"
+  },
+  "0LyP0Zn0mXLb65AgGOS6EY": {
+    "place": "Pembroke Pines",
+    "country": "United States",
+    "lat": 26.0125,
+    "lon": -80.313611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "79db1a62-d707-46ac-8132-4965035fc63a"
+  },
+  "2uDaDi5TsgEtUBCPRx7mlp": {
+    "place": "California",
+    "country": "California",
+    "lat": 37.0,
+    "lon": -120.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "cbded507-9e22-489e-a7b8-e950062795ea"
+  },
+  "6c2i4ZVTRCYns5ywTK4B6v": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "4UXqAaa6dQYAk18Lv7PEgX": {
+    "place": "Wilmette",
+    "country": "United States",
+    "lat": 42.077222222,
+    "lon": -87.723611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "516cef4d-0718-4007-9939-f9b38af3f784"
+  },
+  "0WOxhx4hikIsyF3CRPLC8W": {
+    "place": "Chicago",
+    "country": "Chicago",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c34cfbd6-1df2-4865-96d9-e3bb4fe0577d"
+  },
+  "698hF4vcwHwPy8ltmXermq": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6bd5655c-b7fe-48ee-8925-c2d2d8798618"
+  },
+  "0lVH4ReyYkoPMxFDzCQSgO": {
+    "place": "United Kingdom",
+    "country": "United Kingdom",
+    "lat": 54.6,
+    "lon": -2.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "051e531e-a5a1-4c78-abab-eb867318f69d"
+  },
+  "3r17AfJCCUqC9Lf0OAc73G": {
+    "place": "Hacienda Heights",
+    "country": "United States",
+    "lat": 34.000555555,
+    "lon": -117.969444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1c46e82f-4764-4d82-a33b-5d5aee5e2881"
+  },
+  "6PXS4YHDkKvl1wkIl4V8DL": {
+    "place": "Paterson",
+    "country": "United States",
+    "lat": 40.916666666,
+    "lon": -74.172222222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e3492ea0-5997-4241-a7bf-2fd7fb1bfad1"
+  },
+  "4fCdQD5D2T7BRESZrYaCFu": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "14CHVeJGrR5xgUGQFV5BVM": {
+    "place": "Brooklyn",
+    "country": "Brooklyn",
+    "lat": 40.650833333,
+    "lon": -73.949722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2b4d4837-37d1-4a1b-b670-324d9a094112"
+  },
+  "6wZXpugmBbTg3lqKupAEEX": {
+    "place": "Hertfordshire",
+    "country": "Hertfordshire",
+    "lat": 51.9,
+    "lon": -0.2,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d8e6bec9-b595-42a5-ac51-2f11ecc6bc4a"
+  },
+  "2HUwZ0kumzCSlhFcjFZfpp": {
+    "place": "Canarsie",
+    "country": "United States",
+    "lat": 40.643666666,
+    "lon": -73.900666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ab0a4c4f-3e0d-4681-b480-c05575a4919a"
+  },
+  "0jnsk9HBra6NMjO2oANoPY": {
+    "place": "Carol City",
+    "country": "United States",
+    "lat": 25.940649,
+    "lon": -80.245604,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "4593d49a-7f67-46ba-9ec0-126bd676286f"
+  },
+  "3b8QkneNDz4JHKKKlLgYZg": {
+    "place": "Nashville",
+    "country": "United States",
+    "lat": 36.162222222,
+    "lon": -86.774444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c16817df-0160-490d-a437-c128cbca9218"
+  },
+  "79mgHJytm385Muv7GfaneD": {
+    "place": "Jacksonville",
+    "country": "Jacksonville",
+    "lat": 30.316666666,
+    "lon": -81.65,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "dcb4e094-5d93-4e3f-9a3c-e4fdeb78d1aa"
+  },
+  "7gP3bB2nilZXLfPHJhMdvc": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e0e1a584-dd0a-4bd1-88d1-c4c62895039d"
+  },
+  "1pgtr4nhBQjp9oCUBPyYWh": {
+    "place": "New York",
+    "country": "United States",
+    "lat": 40.712777777,
+    "lon": -74.006111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0f82d6b5-12fb-4569-b047-a00194f572a7"
+  },
+  "7qRll6DYV06u2VuRPAVqug": {
+    "place": "Southampton",
+    "country": "United Kingdom",
+    "lat": 50.906666666,
+    "lon": -1.404444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "19fccfa3-84ad-42b2-b52d-d5d9a5a6046e"
+  },
+  "1wvlC6NwleHt1iRD6d5X2C": {
+    "place": "Brooklyn",
+    "country": "United States",
+    "lat": 40.650833333,
+    "lon": -73.949722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "9a0038da-314c-4cfa-a320-9a620d20cf34"
+  },
+  "2h93pZq0e7k5yf4dywlkpM": {
+    "place": "Long Beach",
+    "country": "United States",
+    "lat": 33.768055555,
+    "lon": -118.195555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e520459c-dff4-491d-a6e4-c97be35e0044"
+  },
+  "1Mxqyy3pSjf8kZZL4QVxS0": {
+    "place": "Hoboken",
+    "country": "United States",
+    "lat": 40.745,
+    "lon": -74.0325,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "197450cd-0124-4164-b723-3c22dd16494d"
+  },
+  "0dlDsD7y6ccmDm8tuWCU6F": {
+    "place": "Oshawa",
+    "country": "Canada",
+    "lat": 43.9,
+    "lon": -78.85,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a40ea317-e531-428a-909b-da1e68700573"
+  },
+  "6vXTefBL93Dj5IqAWq6OTv": {
+    "place": "Rabat",
+    "country": "United States",
+    "lat": 34.021111111,
+    "lon": -6.841388888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "45dc5f07-6609-4760-a933-8c9e0f858d05"
+  },
+  "7mZLd5IhBmpt8X6SYCC3FI": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "2uaGbYYR6MVKSR371T3a7p": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "2lumbRIs61wTw0biiIAUDI": {
+    "place": "Miami",
+    "country": "Miami",
+    "lat": 25.783333333,
+    "lon": -80.216666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "63acdbdf-3997-430e-94ca-448d392aa8bc"
+  },
+  "5nCi3BB41mBaMH9gfr6Su0": {
+    "place": "New York",
+    "country": "United States",
+    "lat": 40.712777777,
+    "lon": -74.006111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "136c4166-85b3-4994-aa04-59857c434199"
+  },
+  "1RyvyyTE3xzB2ZywiAwp0i": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "48262e82-db9f-4a92-b650-dfef979b73ec"
+  },
+  "5Z5jUyiNvFaqp0EVyLNf0p": {
+    "place": "Bloomington",
+    "country": "United States",
+    "lat": 40.484166666,
+    "lon": -88.993611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a9c09984-73c2-41fb-bef9-a2c26106dd61"
+  },
+  "02kJSzxNuaWGqwubyUba0Z": {
+    "place": "Oakland",
+    "country": "United States",
+    "lat": 37.8,
+    "lon": -122.25,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "db48610c-6d8f-4d10-90ca-c4d14bb1a8b1"
+  },
+  "1Dd5Qya57By748IUoqlmJK": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "5nSyzKNTWxcPgzFMASd617": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "3egWSWp7Y4FyCKIyvXbw7L": {
+    "place": "Milano",
+    "country": "Italy",
+    "lat": 45.466944444,
+    "lon": 9.19,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "cb0e7751-ef0c-48b4-9cf6-2d3d41f976b1"
+  },
+  "3sC3sCpqSYClSdKez9Rs6k": {
+    "place": "Milano",
+    "country": "Italy",
+    "lat": 45.466944444,
+    "lon": 9.19,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ed6a8545-e789-46d1-ba27-3efe552e4e8f"
+  },
+  "1Bo8Afb2Qbjs4x6kJHyjle": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "3f7c8b63-471b-4fd8-962c-6a9de83649b6"
+  },
+  "4yvcSjfu4PC0CYQyLy4wSq": {
+    "place": "Oxford",
+    "country": "United Kingdom",
+    "lat": 51.751944444,
+    "lon": -1.257777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "20395131-fbde-43ce-b141-b700cfdae99c"
+  },
+  "5SbkVQYYzlw1kte75QIabH": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a47c3aa2-7d87-475c-a2c7-1e2047dafb09"
+  },
+  "2kMzxA8edU05hvMFU493zJ": {
+    "place": "Melbourne",
+    "country": "Melbourne",
+    "lat": -37.814166666,
+    "lon": 144.963055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8d8de78f-8097-4e10-9d37-bf9b4aef614f"
+  },
+  "3AA28KZvwAUcZuOKwyblJQ": {
+    "place": "Essex",
+    "country": "England",
+    "lat": 51.75,
+    "lon": 0.583333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e21857d5-3256-4547-afb3-4b6ded592596"
+  },
+  "2AsusXITU8P25dlRNhcAbG": {
+    "place": "Brugge",
+    "country": "Australia",
+    "lat": 51.208888888,
+    "lon": 3.224166666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6f6fd596-76e0-4b82-aa37-f558ac2d337b"
+  },
+  "7oPftvlwr6VrsViSDV7fJY": {
+    "place": "Berkeley",
+    "country": "United States",
+    "lat": 37.870277777,
+    "lon": -122.268055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "084308bd-1654-436f-ba03-df6697104e19"
+  },
+  "4PCeJ2EIn3YtzYYRsHHWyy": {
+    "place": "United Kingdom",
+    "country": "United Kingdom",
+    "lat": 54.6,
+    "lon": -2.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "18270c16-dab7-43d9-b70c-29c7dd026039"
+  },
+  "3kVUvbeRdcrqQ3oHk5hPdx": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d8e41375-bd8d-4e39-9da7-f0c171e97086"
+  },
+  "4zKNSiS1LD7OT0z3hTqRE8": {
+    "place": "Mexico",
+    "country": "Mexico",
+    "lat": 23.0,
+    "lon": -102.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "47cd0780-e87b-4d9b-807d-34f4e1d5ecb7"
+  },
+  "0NcPKaSNIHAM2RfioH9vMT": {
+    "place": "Oakland",
+    "country": "United States",
+    "lat": 37.8,
+    "lon": -122.25,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "453c9a64-4ff6-4c3b-9621-a73a6574f5be"
+  },
+  "13y7CgLHjMVRMDqxdx0Xdo": {
+    "place": "Bessemer",
+    "country": "United States",
+    "lat": 33.4017766,
+    "lon": -86.954437,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "36494952-f434-45d8-a958-8b4acdbcf8a8"
+  },
+  "2hlmm7s2ICUX0LVIhVFlZQ": {
+    "place": "College Park",
+    "country": "United States",
+    "lat": 33.6483,
+    "lon": -84.4561,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "100b8734-f4f0-4536-9960-47f7c59d1b4c"
+  },
+  "3qm84nBOXUEQ2vnTfUTTFC": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "eeb1195b-f213-4ce1-b28c-8565211f8e43"
+  },
+  "4yiQZ8tQPux8cPriYMWUFP": {
+    "place": "Fullerton",
+    "country": "United States",
+    "lat": 33.88,
+    "lon": -117.928611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2e41ae9c-afd2-4f20-8f1e-17281ce9b472"
+  },
+  "4IJczjB0fJ04gs4uvP0Fli": {
+    "place": "Geneva",
+    "country": "United States",
+    "lat": 42.878888888,
+    "lon": -76.993055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f4d4b515-0b74-423f-a161-db184330c37c"
+  },
+  "3Y7RZ31TRPVadSFVy1o8os": {
+    "place": "Vallejo",
+    "country": "United States",
+    "lat": 38.104088,
+    "lon": -122.256638,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "93998e01-ff53-4af7-ba2a-5674adcdf21e"
+  },
+  "6KImCVD70vtIoJWnq6nGn3": {
+    "place": "Redditch",
+    "country": "England",
+    "lat": 52.306944444,
+    "lon": -1.949166666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7eb1ce54-a355-41f9-8d68-e018b096d427"
+  },
+  "6Rx1JKzBrSzoKQtmbVmBnM": {
+    "place": "Meridian",
+    "country": "United States",
+    "lat": 32.364305555,
+    "lon": -88.703666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b4b5b5a7-feff-47d0-9458-83d0d135a692"
+  },
+  "6UCQYrcJ6wab6gnQ89OJFh": {
+    "place": "Tottenham",
+    "country": "United Kingdom",
+    "lat": 51.5975,
+    "lon": -0.068055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2e2c71a6-1ac8-4442-ba00-c4dea71abd64"
+  },
+  "77mJc3M7ZT5oOVM7gNdXim": {
+    "place": "Liverpool",
+    "country": "United Kingdom",
+    "lat": 53.407222222,
+    "lon": -2.991666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "da357978-095d-4621-a7ee-2c0f336c5e8a"
+  },
+  "3np2OYRZAgI4e6lxeGmGr8": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "fb92ed16-0b0d-409b-99d3-f939422fda07"
+  },
+  "6jTnHxhb6cDCaCu4rdvsQ0": {
+    "place": "Nashville",
+    "country": "United States",
+    "lat": 36.162222222,
+    "lon": -86.774444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "20aee940-3b65-4d04-8768-9a5918db2973"
+  },
+  "47hkgwnnlluE8suPZiPclc": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "2FXC3k01G6Gw61bmprjgqS": {
+    "place": "Bray",
+    "country": "Ireland",
+    "lat": 53.201388888,
+    "lon": -6.110833333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b4691384-50c3-4afd-9988-51d3ec5db65d"
+  },
+  "2bPgXWPfsRSVwpc0SAdgpu": {
+    "place": "Chicago",
+    "country": "Chicago",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c1a969bc-0d50-4189-9bdd-689eaac3be0d"
+  },
+  "3LZZPxNDGDFVSIPqf4JuEf": {
+    "place": "The Bronx",
+    "country": "United States",
+    "lat": 40.846666666,
+    "lon": -73.873333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6f2c949d-9540-4421-bf02-27ae27e00e33"
+  },
+  "5yG7ZAZafVaAlMTeBybKAL": {
+    "place": "Sydney",
+    "country": "United States",
+    "lat": -33.867777777,
+    "lon": 151.21,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "3a052c99-8c18-484a-8beb-9873b4fb3106"
+  },
+  "5YneEA2nLtAhkD5t2769lZ": {
+    "place": "Kanagawa",
+    "country": "Japan",
+    "lat": 35.44775,
+    "lon": 139.642527777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "18191eea-369f-42e8-96ab-c1c24e4d0011"
+  },
+  "550Zxz0BTZi3yd8gX9QINw": {
+    "place": "United Kingdom",
+    "country": "United Kingdom",
+    "lat": 54.6,
+    "lon": -2.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "24e64b1b-010e-40a5-a6cc-355727406ad5"
+  },
+  "45eNHdiiabvmbp4erw26rg": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5f43abf6-92a5-468a-a633-b73f94627972"
+  },
+  "3aGFCoR8xGN6DKwvdzeSja": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "047c7563-6c32-4619-a0b6-1dcf218b3e1b"
+  },
+  "53XhwfbYqKCa1cC15pYq2q": {
+    "place": "Las Vegas",
+    "country": "United States",
+    "lat": 36.167222222,
+    "lon": -115.148611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "012151a8-0f9a-44c9-997f-ebd68b5389f9"
+  },
+  "5rGrDvrLOV2VV8SCFVGWlj": {
+    "place": "Kazakhstan",
+    "country": null,
+    "lat": 48.0,
+    "lon": 68.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "23c723b3-f54f-4634-83dc-b2989d05ae88"
+  },
+  "0ZxU7DuBVZHQw0CajOsUov": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "0FEJqmeLRzsXj8hgcZaAyB": {
+    "place": "Paris",
+    "country": "France",
+    "lat": 48.856666666,
+    "lon": 2.352222222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "eee14992-d2ab-4c46-b1e2-51080504ba50"
+  },
+  "0Wyrazm79L95goA5Cn7mJe": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "6MPCFvOQv5cIGfw3jODMF0": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "72f8d4f4-a167-4b66-8b65-46fe0a07f63b"
+  },
+  "0V5bkwV2Bd90bMLMc8JFeS": {
+    "place": "Cincinnati",
+    "country": "United States",
+    "lat": 39.1,
+    "lon": -84.5125,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d7defc5c-2869-40f0-9d56-2a0292aaeba5"
+  },
+  "1v73SfOVR7QnGw7FEnhe5Z": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "5tKXB9uuebKE34yowVaU3C": {
+    "place": "British Virgin Islands",
+    "country": "British Virgin Islands",
+    "lat": 18.445,
+    "lon": -64.54,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "3bf30073-ce4e-4207-88d2-ad83677b0387"
+  },
+  "74rg4Lwrhj429pM3H43D8Y": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "7hEx96iG0onkUQZh1hsXS0": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "6l3HvQ5sa6mXTsMTB19rO5": {
+    "place": "Frankfurt am Main",
+    "country": "United States",
+    "lat": 50.110555555,
+    "lon": 8.682222222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "875203e1-8e58-4b86-8dcb-7190faf411c5"
+  },
+  "0hKpvarswO34Ks5iPNmEXn": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2f39cc02-3dbb-4529-ab02-51aadbe7e4e1"
+  },
+  "0vaKiuLwFJLVU664A8GTjE": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f09efc2c-210d-4a94-909a-20a233a75ec6"
+  },
+  "3ZC37cLCAetsWdXQFRJVcG": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "2LIk90788K0zvyj2JJVwkJ": {
+    "place": "Louisville",
+    "country": "United States",
+    "lat": 38.256111111,
+    "lon": -85.751388888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "134cb0bc-06fa-42f7-8078-b0c858349975"
+  },
+  "0QWrMNukfcVOmgEU0FEDyD": {
+    "place": "London",
+    "country": "United Kingdom",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1df15ee0-b52b-4315-9cb9-bc5a27a685e9"
+  },
+  "5pnbUBPifNnlusY8kTBivi": {
+    "place": "Yonkers",
+    "country": "United States",
+    "lat": 40.941388888,
+    "lon": -73.864444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "83735edd-f2a3-41d0-a31d-652bc3cadb3e"
+  },
+  "7LnaAXbDVIL75IVPnndf7w": {
+    "place": "Texas",
+    "country": "United States",
+    "lat": 31.0,
+    "lon": -100.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "15a5da16-8b89-4047-aefe-81473c97b5b2"
+  },
+  "4H3e5t5utgPvj6Nsuda5QF": {
+    "place": "New York",
+    "country": "United States",
+    "lat": 40.712777777,
+    "lon": -74.006111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0de620fe-8d4d-4be0-b6ae-2669ef948b2e"
+  },
+  "0xYYMypmsbvrRolxW1OyeL": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "25pd339V2rRJo84USlcSRP": {
+    "place": "Fairfield",
+    "country": "United States",
+    "lat": 38.257777777,
+    "lon": -122.054166666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "db3de4ac-af35-49b1-92c1-10a932c7ef59"
+  },
+  "1GZUXd4w6cHTfoqHMrbMDZ": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "28ExwzUQsvgJooOI0X1mr3": {
+    "place": "Watts, Los Angeles",
+    "country": "United States",
+    "lat": 33.941666666,
+    "lon": -118.241666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "9880800a-f6f8-4f8f-a00e-b4b664776c0c"
+  },
+  "4pADjHPWyrlAF0FA7joK2H": {
+    "place": "Hounslow",
+    "country": "United Kingdom",
+    "lat": 51.473611111,
+    "lon": -0.365555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e03cf5b6-d2ec-4465-adee-226b518bcfcd"
+  },
+  "0BKx4UjPvXVGY15u0xFbbi": {
+    "place": "Coventry",
+    "country": "Coventry",
+    "lat": 52.416666666,
+    "lon": -1.516666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "bce2c380-ef99-4c34-80dc-ad04b490d3b1"
+  },
+  "3nFkdlSjzX9mRTtwJOzDYB": {
+    "place": "Brooklyn",
+    "country": "United States",
+    "lat": 40.650833333,
+    "lon": -73.949722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f82bcf78-5b69-4622-a5ef-73800768d9ac"
+  },
+  "13eBAN8IqzICKLq1BzGmqj": {
+    "place": "Amsterdam",
+    "country": "United Kingdom",
+    "lat": 52.366666666,
+    "lon": 4.883333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1aeda4ac-abb1-4dab-9f50-23828cf56d5d"
+  },
+  "4yBK75WVCQXej1p04GWqxH": {
+    "place": "Columbia",
+    "country": "United States",
+    "lat": 34.000555555,
+    "lon": -81.044166666,
+    "source": "musicbrainz:name-search",
+    "mbid": "dcad99e7-3c3e-4c78-bf8a-68203e17da48"
+  },
+  "2DlGxzQSjYe5N6G9nkYghR": {
+    "place": "The Bronx",
+    "country": "United States",
+    "lat": 40.846666666,
+    "lon": -73.873333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f0602f55-1770-483d-89bd-4bae0d0ac086"
+  },
+  "3KV3p5EY4AvKxOlhGHORLg": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1c009a08-74d1-4682-bc56-8bfbe9e66b62"
+  },
+  "4ScCswdRlyA23odg9thgIO": {
+    "place": "Muswell Hill",
+    "country": "United Kingdom",
+    "lat": 51.592,
+    "lon": -0.143,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "89ccd7c3-b4f8-45a6-a53f-e903eaaf96be"
+  },
+  "2gsggkzM5R49q6jpPvazou": {
+    "place": "London",
+    "country": "United Kingdom",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d24fb461-dee8-41fc-bb15-2f13bb2644a6"
+  },
+  "6U3ybJ9UHNKEdsH7ktGBZ7": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d616b606-cf6a-4b6e-ab0f-e253b8db6610"
+  },
+  "2q5vFLZus8uaVSzmIwH4Tz": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "1Fmb52lZ6Jv7FMWXXTPO3K": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "46e63d3b-d91b-4791-bb73-e9f638a45ea0"
+  },
+  "5OSxNS2UGq8dW38T57o78l": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6d09039b-3e1f-49ef-b8e3-b8b7267a8578"
+  },
+  "2P5sC9cVZDToPxyomzF1UH": {
+    "place": "Flatbush",
+    "country": "United States",
+    "lat": 40.640416666,
+    "lon": -73.962083333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "9757ae7d-44b1-4d63-81ce-b463fe27b9ae"
+  },
+  "1ewyVtTZBqFYWIcepopRhp": {
+    "place": "Chicago",
+    "country": "Chicago",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "4fb6cf2d-9524-4580-b351-73d0f1d6c559"
+  },
+  "0qpRQJnULShIWFKhcW5pce": {
+    "place": "The Bronx",
+    "country": "San Diego",
+    "lat": 40.846666666,
+    "lon": -73.873333333,
+    "source": "musicbrainz:name-search",
+    "mbid": "f0f0373a-143d-4b81-b3bf-7d8138e0c86c"
+  },
+  "5y2Xq6xcjJb2jVM54GHK3t": {
+    "place": "Springfield",
+    "country": "United States",
+    "lat": 39.926944444,
+    "lon": -83.804166666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "75a72702-a5ef-4513-bca5-c5b944903546"
+  },
+  "34v5MVKeQnIo0CWYMbbrPf": {
+    "place": "Settle",
+    "country": "England",
+    "lat": 54.072130555,
+    "lon": -2.281888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "589ef702-7f3a-4a1c-8f2c-4727005cfc0e"
+  },
+  "3MZsBdqDrRTJihTHQrO6Dq": {
+    "place": "Osaka",
+    "country": "United States",
+    "lat": 34.69375,
+    "lon": 135.502111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8264722b-df00-467a-858e-5c97cda169c9"
+  },
+  "1I8A3N4AgFS3geeMC8uh8I": {
+    "place": "Manchester",
+    "country": "United Kingdom",
+    "lat": 53.466666666,
+    "lon": -2.233333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ecffc56a-0aa1-44b0-8205-2dbf353ddbd6"
+  },
+  "7KkqUt65v6LMtR369OQ6FB": {
+    "place": "Lancaster",
+    "country": "United States",
+    "lat": 40.039722222,
+    "lon": -76.304444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f2e11566-b21e-4387-b7f6-e1c24d46fbde"
+  },
+  "3JzGBxl3Es2esakXzcIgre": {
+    "place": "Hollywood",
+    "country": "United States",
+    "lat": 26.021388888,
+    "lon": -80.175,
+    "source": "musicbrainz:name-search",
+    "mbid": "fde548d0-4dc4-4331-8f1c-ca342911e5ea"
+  },
+  "6C1ohJrd5VydigQtaGy5Wa": {
+    "place": "Worcester",
+    "country": "United States",
+    "lat": 42.271388888,
+    "lon": -71.798888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "cb862d76-90a8-4733-b8f6-69240d60d805"
+  },
+  "2V0DROfM2ieFSOcA3SHJLD": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "4MCBfE4596Uoi2O4DtmEMz": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "4e4ebde4-0c56-4dec-844b-6c73adcdd92d"
+  },
+  "5gCRApTajqwbnHHPbr2Fpi": {
+    "place": "Memphis",
+    "country": "United States",
+    "lat": 35.146111111,
+    "lon": -90.051944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c45d161f-83ce-4464-ba41-44202e6916d9"
+  },
+  "1uNFoZAHBGtllmzznpCI3s": {
+    "place": "London",
+    "country": "Canada",
+    "lat": 42.9837,
+    "lon": -81.2497,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e0140a67-e4d1-4f13-8a01-364355bee46e"
+  },
+  "4cI6V9bpNAORC3HFI0g2lQ": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "7atuUUktuP1wDbkkgdNvxI": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "31TPClRtHm23RisEBtV3X7": {
+    "place": "Memphis",
+    "country": "United States",
+    "lat": 35.146111111,
+    "lon": -90.051944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "596ffa74-3d08-44ef-b113-765d43d12738"
+  },
+  "39XT9gMoNmMCOlvTTR273m": {
+    "place": "Lambeth",
+    "country": "Lambeth",
+    "lat": 51.460833333,
+    "lon": -0.116388888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e26aebea-e2f4-48c6-ac42-b4ef54d2e787"
+  },
+  "3XVpDdKav6C6zwlDXPhMEO": {
+    "place": "Oakland",
+    "country": "Oakland",
+    "lat": 37.8,
+    "lon": -122.25,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c344fb50-2f55-4dd3-879b-b07f0e5387e1"
+  },
+  "5K4W6rqBFWDnAN6FQUkS6x": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "164f0d73-1234-4e2c-8743-d77bf2191051"
+  },
+  "6jJ0s89eD6GaHleKKya26X": {
+    "place": "Santa Barbara",
+    "country": "United States",
+    "lat": 34.425833333,
+    "lon": -119.714166666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "122d63fc-8671-43e4-9752-34e846d62a9c"
+  },
+  "2AMeiDbfU2vonrTkpXDKUu": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0c6b2d2b-4086-45db-b135-0ebbcd1dfc49"
+  },
+  "2YZyLoL8N0Wb9xBt1NhZWg": {
+    "place": "Compton",
+    "country": "United States",
+    "lat": 33.896666666,
+    "lon": -118.225,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "381086ea-f511-4aba-bdf9-71c753dc5077"
+  },
+  "4mwdnO2jZrMmMVrjcHsZBv": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "42c5e9b5-5cff-41fc-aca7-fb0bcf555bc7"
+  },
+  "25LwfL24bJhvRjU2lXRvBA": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c3983700-6eba-4f8b-904d-db83cf502a74"
+  },
+  "6LqNN22kT3074XbTVUrhzX": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "fab34286-b8e1-4879-bce3-194e1358fbd2"
+  },
+  "5oqdjNuVZvyprDl56zhQnd": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "1gPhS1zisyXr5dHTYZyiMe": {
+    "place": "New Orleans",
+    "country": "United States",
+    "lat": 29.976111111,
+    "lon": -90.078333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0c41b966-12e8-4c9b-87ea-af47798987b6"
+  },
+  "66N2tY3w6pwH2otV7Yj1AI": {
+    "place": "Indiana",
+    "country": "United States",
+    "lat": 39.933333333,
+    "lon": -86.216666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "4f86ce01-a09f-48c9-a844-e404db553d56"
+  },
+  "2uZFsNbB1f3SyXLRivOOVn": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "4doF7iUbcwrZw9NckgwxML": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "3SENePgknpJt3DvLK2JAfZ": {
+    "place": "San Pedro Sula",
+    "country": "Honduras",
+    "lat": 15.505322222,
+    "lon": -88.025083333,
+    "source": "musicbrainz:name-search",
+    "mbid": "40f50d95-7dab-4ba3-a750-db8e236efcfd"
+  },
+  "0fA0VVWsXO9YnASrzqfmYu": {
+    "place": "Cleveland",
+    "country": "United States",
+    "lat": 41.499166666,
+    "lon": -81.694722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e0e1db18-f7ba-4dee-95ff-7ae8cf545460"
+  },
+  "7IWshUcKfJyDWrbiF2XT8J": {
+    "place": "South Korea",
+    "country": "South Korea",
+    "lat": 36.0,
+    "lon": 128.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "767638aa-d3f1-49ab-8112-348ac99b82eb"
+  },
+  "5i9Q4OA4ZTX4vLqjd3vdTG": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "7FGjkq9WfrRmBFL64ST0p9": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "6hk7Yq1DU9QcCCrz9uc0Ti": {
+    "place": "Hamilton",
+    "country": "United States",
+    "lat": -37.783333333,
+    "lon": 175.283333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "fad2875e-ba81-4637-b859-4684622dcb1c"
+  },
+  "6QtgPSJPSzcnn7dPZ4VINp": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a542a08c-9434-4028-8da5-3120c4fdd3fb"
+  },
+  "24PJqH46WhB0pUB7NlsFna": {
+    "place": "Long Beach",
+    "country": "United States",
+    "lat": 33.768055555,
+    "lon": -118.195555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1c1b0fbf-f123-4fa9-9a51-4777107d6ae2"
+  },
+  "6W4vm8P3JFQboO4cvHeqaa": {
+    "place": "Kilburn",
+    "country": "London",
+    "lat": 51.5366,
+    "lon": -0.2039,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "43806ec0-bc26-4df7-8c41-8341d2354c9c"
+  },
+  "46SHBwWsqBkxI7EeeBEQG7": {
+    "place": "Pompano Beach",
+    "country": "United States",
+    "lat": 26.234722222,
+    "lon": -80.125555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5ec1ecc6-4535-4911-a27a-e26343f4a189"
+  },
+  "7LrpwfLMdOAKHweJNTMokT": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "6NyJIFHAePjHR1pFxwisqz": {
+    "place": "Philadelphia",
+    "country": "United States",
+    "lat": 39.952777777,
+    "lon": -75.163611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "9034f787-3e79-44fe-89c1-8a082d556eec"
+  },
+  "7AP5AMBQvTzTBB7IUSVLzO": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "4qBgvVog0wzW75IQ48mU7v": {
+    "place": "Northridge",
+    "country": "United States",
+    "lat": 34.22833,
+    "lon": -118.53583,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "95373e26-9262-4449-bcfe-7e753226ddf4"
+  },
+  "2LhsePRtgCo4THVKULQBL7": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "773c48db-eb0c-491f-9a36-633d72dcee8d"
+  },
+  "1HY2Jd0NmPuamShAr6KMms": {
+    "place": "Upper East Side",
+    "country": "United States",
+    "lat": 40.769166666,
+    "lon": -73.965555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "650e7db6-b795-4eb5-a702-5ea2fc46c848"
+  },
+  "2gHai7NC9sxohnDRREYWMf": {
+    "place": "Brazil",
+    "country": "Brazil",
+    "lat": -14.0,
+    "lon": -53.0,
+    "source": "musicbrainz:name-search",
+    "mbid": "13f1951e-3dfa-4ce4-a44b-9be18dfbb296"
+  },
+  "5rwUYLyUq8gBsVaOUcUxpE": {
+    "place": "Italy",
+    "country": "Italy",
+    "lat": 42.5,
+    "lon": 12.5,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "cf8e5830-85d0-4afe-92ac-9582eca437bd"
+  },
+  "0jdNdfi4vAuVi7a6cPDFBM": {
+    "place": "Scampia",
+    "country": "Italy",
+    "lat": 40.9,
+    "lon": 14.24,
+    "source": "wikidata-spotify-id"
+  },
+  "5jh9MxZHFQTWLAjljNXERO": {
+    "place": "Lambeth",
+    "country": "Lambeth",
+    "lat": 51.460833333,
+    "lon": -0.116388888,
+    "source": "musicbrainz:name-search",
+    "mbid": "ae9d8ead-0041-487a-ac4a-82758e495273"
+  },
+  "3cR4rhS2hBWqI7rJEBacvN": {
+    "place": "Queens",
+    "country": "United States",
+    "lat": 40.713611111,
+    "lon": -73.828055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "36f83895-5a69-47c1-a4a2-e2449acbf64a"
+  },
+  "0bxqbGrU4OdgDQNGs9DYp4": {
+    "place": "Washington, D.C.",
+    "country": "Washington, D.C.",
+    "lat": 38.895,
+    "lon": -77.036666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "179212ad-7e51-48c8-a648-f031ec1d337d"
+  },
+  "5f7VJjfbwm532GiveGC0ZK": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d42a5768-ada1-4fb6-85fd-f61aba6264e0"
+  },
+  "1mmlWsyPJvvxMdabcGJjRn": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c0447783-456f-4c3a-8470-8f46b5fea993"
+  },
+  "1tqhsYv8yBBdwANFNzHtcr": {
+    "place": "Cheltenham",
+    "country": "United States",
+    "lat": 40.060833333,
+    "lon": -75.094166666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "3268f062-6e76-480a-a384-e1dd2a276afb"
+  },
+  "3hcs9uc56yIGFCSy9leWe7": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c9cd225b-4883-428e-82c2-73e0b6282fb6"
+  },
+  "3L9H8JLE3geanQX6Na5iJU": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "7sfl4Xt5KmfyDs2T3SVSMK": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a95384b1-6aec-468c-ae0d-8c6daf87c4c2"
+  },
+  "5zctI4wO9XSKS8XwcnqEHk": {
+    "place": "Seattle",
+    "country": "United States",
+    "lat": 47.605,
+    "lon": -122.33,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "330e00e4-7991-4b47-b2be-3881aa5afed6"
+  },
+  "7jVv8c5Fj3E9VhNjxT4snq": {
+    "place": "Georgia",
+    "country": "United States",
+    "lat": 33.0,
+    "lon": -83.5,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0b30341b-b59d-4979-8130-b66c0e475321"
+  },
+  "2kCcBybjl3SAtIcwdWpUe3": {
+    "place": "Allentown",
+    "country": "United States",
+    "lat": 40.6,
+    "lon": -75.483333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "92da4329-77a4-425c-8e92-4280110cace9"
+  },
+  "3wyVrVrFCkukjdVIdirGVY": {
+    "place": "Miami",
+    "country": "United States",
+    "lat": 25.783333333,
+    "lon": -80.216666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "65a01fd2-35fb-4817-90d5-ab5506b21161"
+  },
+  "1bPxKZtCdjB1aj1csBJpdS": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "9172ba7f-5912-474a-99d3-33d01ed082d3"
+  },
+  "7d3WFRME3vBY2cgoP38RDo": {
+    "place": "Chambersburg",
+    "country": "United States",
+    "lat": 39.93472,
+    "lon": -77.65611,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8328b279-1863-487b-976a-58a62b85220a"
+  },
+  "4Ga1P7PMIsmqEZqhYZQgDo": {
+    "place": "Queens",
+    "country": "United States",
+    "lat": 40.713611111,
+    "lon": -73.828055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e6fdf3f9-8077-4126-b0cf-94da9a8b627e"
+  },
+  "6jGMq4yGs7aQzuGsMgVgZR": {
+    "place": "The Bronx",
+    "country": "United States",
+    "lat": 40.846666666,
+    "lon": -73.873333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d44b92db-dd49-4636-abe8-7c381f90b7aa"
+  },
+  "4O15NlyKLIASxsJ0PrXPfz": {
+    "place": "Francisville",
+    "country": "United States",
+    "lat": 39.9704,
+    "lon": -75.1669,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8837b875-3689-4646-b3fd-d8b53815c7a8"
+  },
+  "55Aa2cqylxrFIXC767Z865": {
+    "place": "New Orleans",
+    "country": "United States",
+    "lat": 29.976111111,
+    "lon": -90.078333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ac9a487a-d9d2-4f27-bb23-0f4686488345"
+  },
+  "3EXdLajEO02ziZ90P90bSW": {
+    "place": "Redlands",
+    "country": "United States",
+    "lat": 34.054722222,
+    "lon": -117.1825,
+    "source": "musicbrainz:name-search",
+    "mbid": "986e466c-7efb-49cc-8034-d05a4af5ab75"
+  },
+  "6icQOAFXDZKsumw3YXyusw": {
+    "place": "Mableton",
+    "country": "United States",
+    "lat": 33.818333333,
+    "lon": -84.576111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a668565b-41b8-44a8-9d5c-8e609dbf69fc"
+  },
+  "0lwRI7lvmlRY5DiA5Xa6wQ": {
+    "place": "Minneapolis",
+    "country": "United States",
+    "lat": 44.981944444,
+    "lon": -93.269166666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "9f47e427-c31c-49fe-90d6-92ab6029d405"
+  },
+  "4xRYI6VqpkE3UwrDrAZL8L": {
+    "place": "Gaithersburg",
+    "country": "United States",
+    "lat": 39.1399187,
+    "lon": -77.1929215,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "713e751f-3ddb-4b77-b3b1-9e6f2e953ad5"
+  },
+  "163tK9Wjr9P9DmM0AVK7lm": {
+    "place": "Takapuna",
+    "country": "New Zealand",
+    "lat": -36.787,
+    "lon": 174.772,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8e494408-8620-4c6a-82c2-c2ca4a1e4f12"
+  },
+  "5VNMclLseLzRnVhvkrqdpn": {
+    "place": "Kennington",
+    "country": "United Kingdom",
+    "lat": 51.4813,
+    "lon": -0.1197,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ba15cb04-ec8f-4ae7-b761-5477d063a69c"
+  },
+  "19eLuQmk9aCobbVDHc6eek": {
+    "place": "New Orleans",
+    "country": "United States",
+    "lat": 29.976111111,
+    "lon": -90.078333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "eea8a864-fcda-4602-9569-38ab446decd6"
+  },
+  "0t4VVR2T9Sb0z3NdDdEU6S": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "0wHeZY93Ede0g1jXaWsiFS": {
+    "place": "Orlando",
+    "country": "Orlando",
+    "lat": 28.533611111,
+    "lon": -81.386666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a435f72b-fcb2-4d78-b6cb-7162168cc50f"
+  },
+  "2XkasFKl5fRYNJSktZL0ZX": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "3ipn9JLAPI5GUEo4y4jcoi": {
+    "place": "Champaign",
+    "country": "United States",
+    "lat": 40.116388888,
+    "lon": -88.243611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0638ba22-040f-438d-83a5-9b670c4adaf5"
+  },
+  "24CgJHK6T7C5OmUbiLLMjJ": {
+    "place": "St. Louis",
+    "country": "United States",
+    "lat": 38.626388888,
+    "lon": -90.199444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "37b6dba0-cfa2-431f-9bd6-333557457d0d"
+  },
+  "01QTIT5P1pFP3QnnFSdsJf": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "cf15719f-51f9-4db8-a15d-5eed9664ce69"
+  },
+  "75WcpJKWXBV3o3cfluWapK": {
+    "place": "Charlotte",
+    "country": "United States",
+    "lat": 35.226944444,
+    "lon": -80.843333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8fa1953e-ed99-40d4-a396-a18e4717192e"
+  },
+  "0wSIyRIXxXiOBCIV0TyXZH": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "0QJIPDAEDILuo8AIq3pMuU": {
+    "place": "Hounslow",
+    "country": "England",
+    "lat": 51.4668,
+    "lon": -0.3507,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7cf0ea9d-86b9-4dad-ba9e-2355a64899ea"
+  },
+  "5ZD4VhNTUEnEBTlWQPeyzq": {
+    "place": "Handsworth",
+    "country": "Birmingham",
+    "lat": 52.5124,
+    "lon": -1.94986,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7910b19a-b724-40e4-b4e3-b90282685829"
+  },
+  "601bmA9VRZnMVclsxG7W6T": {
+    "place": "United Kingdom",
+    "country": "United Kingdom",
+    "lat": 54.6,
+    "lon": -2.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "eb5a9b0b-75e9-43a6-8910-09623deeb8db"
+  },
+  "3Sz7ZnJQBIHsXLUSo0OQtM": {
+    "place": "Duncan",
+    "country": "Canada",
+    "lat": 48.778611111,
+    "lon": -123.708055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f2492c31-54a8-4347-a1fc-f81f72873bbf"
+  },
+  "4LLpKhyESsyAXpc4laK94U": {
+    "place": "Pittsburgh",
+    "country": "United States",
+    "lat": 40.441666666,
+    "lon": -80.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a0e8a1b1-5f8f-475a-a253-17415c17d0ff"
+  },
+  "3JhNCzhSMTxs9WLGJJxWOY": {
+    "place": "Seattle",
+    "country": "United States",
+    "lat": 47.605,
+    "lon": -122.33,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b6d7ec94-830c-44dd-b699-ce66556b7e55"
+  },
+  "6WLvgbfYXQPO396oJEYCsi": {
+    "place": "Seattle",
+    "country": "United States",
+    "lat": 47.605,
+    "lon": -122.33,
+    "source": "musicbrainz:name-search",
+    "mbid": "97b226c8-7140-4da3-91ac-15e62e131a81"
+  },
+  "5SyGEPymt1G2uto47tVWvZ": {
+    "place": "Honolulu",
+    "country": "United States",
+    "lat": 21.304722222,
+    "lon": -157.857222222,
+    "source": "musicbrainz:name-search",
+    "mbid": "01667dde-e5fd-4748-9986-ac623e4e9d65"
+  },
+  "0DxeaLnv6SyYk2DOqkLO8c": {
+    "place": "Toronto",
+    "country": "Canada",
+    "lat": 43.670277777,
+    "lon": -79.386666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "53fa616a-e2b4-4982-bef8-6362b44054f0"
+  },
+  "16rCzZOMQX7P8Kmn5YKexI": {
+    "place": "Leicester",
+    "country": "United Kingdom",
+    "lat": 52.636111111,
+    "lon": -1.133055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5751a689-8b70-4ba0-a9e6-f8a10f4f8531"
+  },
+  "738wLrAtLtCtFOLvQBXOXp": {
+    "place": "Los Angeles",
+    "country": "Jamaica",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "75be165a-ad83-4d12-bd28-f589a15c479f"
+  },
+  "6AeHcNxdFsYI8WQE1f0YVw": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "4iHNK0tOyZPYnBU7nGAgpQ": {
+    "place": "Huntington",
+    "country": "United States",
+    "lat": 40.868055555,
+    "lon": -73.426111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "494e8d09-f85b-4543-892f-a5096aed1cd4"
+  },
+  "5HFSWl4JPwju06kHxukvTe": {
+    "place": "Flint",
+    "country": "Atlanta",
+    "lat": 43.018888888,
+    "lon": -83.693333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "454968c8-be98-42c5-96b5-06bd4588f1f5"
+  },
+  "04gDigrS5kc9YWfZHwBETP": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0ab49580-c84f-44d4-875f-d83760ea2cfe"
+  },
+  "64KEffDW9EtZ1y2vBYgq8T": {
+    "place": "Philadelphia",
+    "country": "United States",
+    "lat": 39.952777777,
+    "lon": -75.163611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "301b45a4-b8b9-410e-8344-4b4eaf96691a"
+  },
+  "60d24wfXkVzDSfLS6hyCjZ": {
+    "place": "Amstelveen",
+    "country": "Netherlands",
+    "lat": 52.301944444,
+    "lon": 4.858055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "3e1f2ee4-16be-4406-bf18-6173840cf2b1"
+  },
+  "1mU61l2mcjEFraXZLpvVMo": {
+    "place": "Nassau County",
+    "country": "United States",
+    "lat": 40.747222222,
+    "lon": -73.638055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f387841c-9bc7-47e9-b78b-6fb7834ac71f"
+  },
+  "36CUTsdtNgCwMq6zKD1l8I": {
+    "place": "Cali",
+    "country": "Colombia",
+    "lat": 3.44,
+    "lon": -76.519722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b26fbf03-064d-477d-8452-61c587ce82f7"
+  },
+  "3l4fsEzoeabsET7ddv0lZW": {
+    "place": "Brazil",
+    "country": "Brazil",
+    "lat": -14.0,
+    "lon": -53.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b8e5cd31-41e0-4699-998e-9c378b8126ae"
+  },
+  "4XqfpACObRB5AsBcUYjL8X": {
+    "place": "Compton",
+    "country": "United States",
+    "lat": 33.896666666,
+    "lon": -118.225,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "103555b8-ae47-4e99-8fc3-e31bdfd7854e"
+  },
+  "6fOyYqdh6p0ZWLs9zUDoyt": {
+    "place": "Brazil",
+    "country": "Brazil",
+    "lat": -14.0,
+    "lon": -53.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "46030fba-7deb-4968-9b6c-a348727d1606"
+  },
+  "1P2tOPRmSa1XzEdtIEYA9W": {
+    "place": "Brazil",
+    "country": "Brazil",
+    "lat": -14.0,
+    "lon": -53.0,
+    "source": "musicbrainz:name-search",
+    "mbid": "3be5377a-59c0-435b-a1b9-876e6ed8108a"
+  },
+  "6Ka3TKKRqhWwbmuxjhrmo6": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "0lHB0Qc4pmD5RkTLlHeESo": {
+    "place": "Brazil",
+    "country": "Brazil",
+    "lat": -14.0,
+    "lon": -53.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8444766a-cced-4a94-abcc-baf67ea97b03"
+  },
+  "0guw2RGoUqaWKpoCY5DzWY": {
+    "place": "Brazil",
+    "country": "Brazil",
+    "lat": -14.0,
+    "lon": -53.0,
+    "source": "musicbrainz:name-search",
+    "mbid": "f95b8900-a54b-481d-90a7-cd98903b6991"
+  },
+  "1CbQrKvCpEnekM3QMGJtXK": {
+    "place": "Brazil",
+    "country": "Brazil",
+    "lat": -14.0,
+    "lon": -53.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2a7cca2c-d462-4762-bff9-069047f2720a"
+  },
+  "7mnSf7ctK2nPCEI781P1wU": {
+    "place": "Igarapava",
+    "country": "Igarapava",
+    "lat": -20.038333333,
+    "lon": -47.746944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1ba2da8a-d890-45f9-b726-13c1755637e8"
+  },
+  "7rnLNmWx3ibYo5uQcghVgQ": {
+    "place": "Brazil",
+    "country": "Brazil",
+    "lat": -14.0,
+    "lon": -53.0,
+    "source": "musicbrainz:name-search",
+    "mbid": "db215da6-43be-44b4-a2ed-82f889c458a0"
+  },
+  "75i9GaW2MJUgt4BkdUnuUY": {
+    "place": "Brazil",
+    "country": "Brazil",
+    "lat": -14.0,
+    "lon": -53.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "de5497bc-1323-46eb-a869-ef6c42c19e0c"
+  },
+  "66y9wEcA9aucJ69FTYYbGb": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "147EV9TBf4KgDU75GHwZgJ": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "20sxb77xiYeusSH8cVdatc": {
+    "place": "Philadelphia",
+    "country": "United States",
+    "lat": 39.952777777,
+    "lon": -75.163611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "31bcadcc-e1da-4cad-bec8-2f4f1d41b095"
+  },
+  "181bsRPaVXVlUKXrxwZfHK": {
+    "place": "San Antonio",
+    "country": "United States",
+    "lat": 29.425,
+    "lon": -98.493888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ee27b2d8-648c-4a9d-a68c-e55066959975"
+  },
+  "3zmfs9cQwzJl575W1ZYXeT": {
+    "place": "Montréal",
+    "country": "Canada",
+    "lat": 45.5033426,
+    "lon": -73.5868411,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "25ab7547-a4d2-480b-b028-c7f3497bc858"
+  },
+  "0iEtIxbK0KxaSlF7G42ZOp": {
+    "place": "St. Louis",
+    "country": "United States",
+    "lat": 38.626388888,
+    "lon": -90.199444444,
+    "source": "musicbrainz:name-search",
+    "mbid": "59db3d82-86ea-451f-881f-dffc8ec387c9"
+  },
+  "7vXwfZyDp3spzIVNXDaTPN": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:name-search",
+    "mbid": "ab7ebf8c-059f-4071-93b1-dd3ae80d60b2"
+  },
+  "30C5wgn4celhRP3Tytv7R6": {
+    "place": "Fort Campbell",
+    "country": "United States",
+    "lat": 36.65,
+    "lon": -87.4667,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6ce817bd-600d-494d-bd53-2a5f770cf0c6"
+  },
+  "6VT2NY7yKIBZY370a3ocN0": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "3fMbdgg4jU18AjLCKBhRSm": {
+    "place": "Gary",
+    "country": "United States",
+    "lat": 41.580833333,
+    "lon": -87.345555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f27ec8db-af05-4f36-916e-3d57f91ecf5e"
+  },
+  "5DpvZ03jfjI0H6XgLZOri3": {
+    "place": "Los Angeles",
+    "country": "Los Angeles",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:name-search",
+    "mbid": "128e1f3c-a110-4320-8202-4ad997f0a6d0"
+  },
+  "1CDmkNCsL8VMJ5nhkGqvVN": {
+    "place": "London",
+    "country": "United Kingdom",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "wikidata-spotify-id"
+  },
+  "07MX7XJsNTn8JlgEcbZ7Fd": {
+    "place": "London",
+    "country": "London",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5ee638df-7734-4fb8-9ec0-d0d288d687c9"
+  },
+  "6oMuImdp5ZcFhWP0ESe6mG": {
+    "place": "Lawrenceville",
+    "country": "United States",
+    "lat": 33.9531,
+    "lon": -83.9925,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0221734a-35a8-40f7-b5c5-2f61a200bc7c"
+  },
+  "2KsP6tYLJlTBvSUxnwlVWa": {
+    "place": "Detroit",
+    "country": "United States",
+    "lat": 42.331666666,
+    "lon": -83.0475,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5b64e344-b2fb-47bd-bd7b-4c793b17d472"
+  },
+  "3tqosLbNFNekyZyO2KJ6qd": {
+    "place": "Long Beach",
+    "country": "Long Beach",
+    "lat": 33.768055555,
+    "lon": -118.195555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8911ac2e-7747-484e-ac4e-f7518b5e7fee"
+  },
+  "0NWbwDZY1VkRqFafuQm6wk": {
+    "place": "Marietta",
+    "country": "United States",
+    "lat": 33.953333333,
+    "lon": -84.540555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5a2071aa-0787-49fb-931c-fa85ba86e681"
+  },
+  "6XL0ccCMbBM5fyz8t68HRF": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "1hzfo8twXdOegF3xireCYs": {
+    "place": "Kassel",
+    "country": "Germany",
+    "lat": 51.315777777,
+    "lon": 9.497916666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6d230d98-fb8d-4421-a6e8-daca4e55d53e"
+  },
+  "6O2zJ0tId7g07yzHtX0yap": {
+    "place": "Queensbridge",
+    "country": "Queensbridge",
+    "lat": 40.755194444,
+    "lon": -73.945333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d75d1f08-bbb8-4eae-9877-399ca9121197"
+  },
+  "3Rx4PJ7SP6unkOk5elPUK7": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "71d92684-2b02-40f8-9f2a-6c222662cd08"
+  },
+  "3tJoFztHeIJkJWMrx0td2f": {
+    "place": "Memphis",
+    "country": "United States",
+    "lat": 35.146111111,
+    "lon": -90.051944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8971fa37-c402-474a-b897-e2bbc145b59d"
+  },
+  "74dMZMvy8P27oPqnprnvBb": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:name-search",
+    "mbid": "77aaa290-b59a-4ed3-b573-42b87394aca1"
+  },
+  "1Wnfj5qZsp8nPsGBBRRa4W": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "98c34ec8-4216-43b0-80f9-dae3eedabe63"
+  },
+  "4TAoP0f9OuWZUesao43xUW": {
+    "place": "Port Harcourt",
+    "country": "Nigeria",
+    "lat": 4.765466,
+    "lon": 7.016316,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "72adb13a-800e-44b5-9aef-5c7d8cb6a2d7"
+  },
+  "33W1pnW9zScZtYTnAoWnOT": {
+    "place": "Zoetermeer",
+    "country": "Netherlands",
+    "lat": 52.061111111,
+    "lon": 4.493333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "9bb64b8f-d7a4-4fc0-954f-9c9e9d7b3bc3"
+  },
+  "5Q81rlcTFh3k6DQJXPdsot": {
+    "place": "Guernsey",
+    "country": "United Kingdom",
+    "lat": 49.45,
+    "lon": -2.583333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d2a76e1b-cecc-4500-b445-d55591821cd3"
+  },
+  "1zkKkDDra0jlsiJYz57P3P": {
+    "place": "Toronto",
+    "country": "Canada",
+    "lat": 43.670277777,
+    "lon": -79.386666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "987c5b70-b132-483f-8e0f-7bca4dca617f"
+  },
+  "0YinUQ50QDB7ZxSCLyQ40k": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0612bcce-e351-40be-b3d7-2bb5e1c23479"
+  },
+  "0bdfiayQAKewqEvaU6rXCv": {
+    "place": "Odense",
+    "country": "Denmark",
+    "lat": 55.4,
+    "lon": 10.383333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "3ab2ee23-1c2f-458c-9c8c-ca4844729120"
+  },
+  "4EnEZVjo3w1cwcQYePccay": {
+    "place": "Compton",
+    "country": "United States",
+    "lat": 33.896666666,
+    "lon": -118.225,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "3a54bffa-2314-44a2-927b-60144119c780"
+  },
+  "6W5uA6CNMf3hd2j4a2XWCx": {
+    "place": "Marseille",
+    "country": "France",
+    "lat": 43.296666666,
+    "lon": 5.376388888,
+    "source": "wikidata-spotify-id"
+  },
+  "20qISvAhX20dpIbOOzGK3q": {
+    "place": "Brooklyn",
+    "country": "United States",
+    "lat": 40.650833333,
+    "lon": -73.949722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "cfbc0924-0035-4d6c-8197-f024653af823"
+  },
+  "1Oa0bMld0A3u5OTYfMzp5h": {
+    "place": "Long Beach",
+    "country": "United States",
+    "lat": 33.768055555,
+    "lon": -118.195555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "405528df-2632-4730-80fc-83e775a97651"
+  },
+  "3C1TdpEowpf6AMf7PycuWy": {
+    "place": "Chesapeake",
+    "country": "United States",
+    "lat": 36.767398,
+    "lon": -76.287405,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "eed37141-af0b-45b1-ab26-f018f3962b67"
+  },
+  "7rkW85dBwwrJtlHRDkJDAC": {
+    "place": "Toronto",
+    "country": "Canada",
+    "lat": 43.670277777,
+    "lon": -79.386666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "418fe547-4bec-48fe-8df0-ed25e27f4570"
+  },
+  "1ruutHJcECI7cos2n5TqpO": {
+    "place": "New Jersey",
+    "country": "United States",
+    "lat": 40.0,
+    "lon": -74.5,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "276d7d13-c0c4-4e67-a165-8e3764e4a2f3"
+  },
+  "21E3waRsmPlU7jZsS13rcj": {
+    "place": "Camden",
+    "country": "United States",
+    "lat": 33.570833333,
+    "lon": -92.835,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a4a01f5d-18e7-4571-8c3a-76ec0e24e2d7"
+  },
+  "5lCY3tqdQxbeg5igSlObaT": {
+    "place": "New York",
+    "country": "United States",
+    "lat": 40.712777777,
+    "lon": -74.006111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e22391dd-9c76-4f02-88b5-35d699967868"
+  },
+  "2jw70GZXlAI8QzWeY2bgRc": {
+    "place": "Victoria",
+    "country": "Canada",
+    "lat": 48.422151,
+    "lon": -123.3657,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "13655113-cd16-4b43-9dca-cadbbf26ee05"
+  },
+  "3DHtfeD4PsmR9YGhCP4VF7": {
+    "place": "Manchester",
+    "country": "United Kingdom",
+    "lat": 53.466666666,
+    "lon": -2.233333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d2a36c92-546b-4b81-b31b-23e21d2ea6ee"
+  },
+  "0RpddSzUHfncUWNJXKOsjy": {
+    "place": "Provo",
+    "country": "United States",
+    "lat": 40.233888888,
+    "lon": -111.658611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "16243662-8538-4746-a0fb-0d15b5828b8e"
+  },
+  "0hCNtLu0JehylgoiP8L4Gh": {
+    "place": "Saint James",
+    "country": "United States",
+    "lat": 10.6736,
+    "lon": -61.5338,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1036b808-f58c-4a3e-b461-a2c4492ecf1b"
+  },
+  "0hg7f8uBuc9xVn9y7xjsNC": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:name-search",
+    "mbid": "bfd38dfc-e6a8-4a07-889c-93ae590b2832"
+  },
+  "0awl5piYwO0CDTHEkCjUhn": {
+    "place": "Oslo",
+    "country": "Norway",
+    "lat": 59.913333333,
+    "lon": 10.738888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f8e8de78-2131-4e96-8829-ba3614f48a48"
+  },
+  "2kxP07DLgs4xlWz8YHlvfh": {
+    "place": "Jakarta",
+    "country": "Indonesia",
+    "lat": -6.175277777,
+    "lon": 106.826944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0073a9e6-b4e5-454d-8d5c-1a0058b40ab5"
+  },
+  "3yDIp0kaq9EFKe07X1X2rz": {
+    "place": "New York",
+    "country": "United States",
+    "lat": 40.712777777,
+    "lon": -74.006111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c6d571dd-c0ae-4ac8-9500-780b1b9b25e5"
+  },
+  "6Te49r3A6f5BiIgBRxH7FH": {
+    "place": "Longjumeau",
+    "country": "France",
+    "lat": 48.696944444,
+    "lon": 2.295555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "41fe37a6-f4bb-4340-9c14-e2c8e5d854f1"
+  },
+  "6olE6TJLqED3rqDCT0FyPh": {
+    "place": "Aberdeen",
+    "country": "United States",
+    "lat": 46.975361111,
+    "lon": -123.815722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5b11f4ce-a62d-471e-81fc-a69a8278c7da"
+  },
+  "7CUFPNi1TU8RowpnFRSsZV": {
+    "place": "Villeneuve-Saint-Georges",
+    "country": "France",
+    "lat": 48.7325,
+    "lon": 2.449722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e369e789-6f07-4ce8-a70f-e136bc57bf3b"
+  },
+  "0ErzCpIMyLcjPiwT4elrtZ": {
+    "place": "Memphis",
+    "country": "United States",
+    "lat": 35.146111111,
+    "lon": -90.051944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2873b450-13c6-4ca1-8ca3-646c25af3202"
+  },
+  "3YSYh7GHgZo7UkjmFNejQY": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "0umhtjpC8x3Dg7UXDNUzmX": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "32zeX1IoVKAGWMyy1isKUq": {
+    "place": "San Francisco",
+    "country": "United States",
+    "lat": 37.775,
+    "lon": -122.419444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7abcc817-ab8a-4095-9295-83aa5c11c3a1"
+  },
+  "7oQbpJRZC7Y73CZRV4OFOK": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "31Ua7zSTJxegjyd49ujbSA": {
+    "place": "London",
+    "country": "London",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "855741dc-331e-44f2-8da1-3868f5c548da"
+  },
+  "1Zatb2YN4erBOoSivOXc0o": {
+    "place": "Long Beach",
+    "country": "United States",
+    "lat": 33.768055555,
+    "lon": -118.195555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f3c48d53-8dfe-435f-84e6-1756754c4687"
+  },
+  "66Ok6bgC570sHkw08N20pZ": {
+    "place": "Madagascar",
+    "country": "Paris",
+    "lat": -20.0,
+    "lon": 47.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "66ffca84-c76f-416b-9371-89ccb7bb9da6"
+  },
+  "5zfEatKLDdRkgbw6sdLBAQ": {
+    "place": "London",
+    "country": "London",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "187bbdde-343a-4978-9cb4-08df62e18986"
+  },
+  "0koPE9U3b5XYArKa7R2TLm": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "4DdkRBBYG6Yk9Ka8tdJ9BW": {
+    "place": "Lawrenceville",
+    "country": "United States",
+    "lat": 33.9531,
+    "lon": -83.9925,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "92631c53-91ed-48f5-a09d-a104ba69cdc7"
+  },
+  "0nvvVQhPQGkYTJlThLbJeu": {
+    "place": "College Park",
+    "country": "Atlanta",
+    "lat": 33.6483,
+    "lon": -84.4561,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c2fc8cb1-a723-4709-9b33-c582dabddab0"
+  },
+  "2Go6wC0GsnkVeRoVwh8rqX": {
+    "place": "Guantánamo",
+    "country": "United States",
+    "lat": 20.138333,
+    "lon": -75.206111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "839896cf-32a5-4321-b898-1c3355019537"
+  },
+  "1McMsnEElThX1knmY4oliG": {
+    "place": "Murrieta",
+    "country": "United States",
+    "lat": 33.569444444,
+    "lon": -117.2025,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6925db17-f35e-42f3-a4eb-84ee6bf5d4b0"
+  },
+  "4AK6F7OLvEQ5QYCBNiQWHq": {
+    "place": "Wembley",
+    "country": "England",
+    "lat": 51.556,
+    "lon": -0.3042,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1a425bbd-cca4-4b2c-aeb7-71cb176c828a"
+  },
+  "5Pwc4xIPtQLFEnJriah9YJ": {
+    "place": "Colorado Springs",
+    "country": "United States",
+    "lat": 38.863333333,
+    "lon": -104.791944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c33c2065-b1c3-4406-b066-d33a9e2ea71a"
+  },
+  "3UUJfRbrA2nTbcg4i0MOwu": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "3AFt30387waHIjjDL63XeI": {
+    "place": "Sakarya",
+    "country": "Istanbul",
+    "lat": 40.697222222,
+    "lon": 30.456666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d3e52049-23fc-4e3c-9fe7-5cd996651e38"
+  },
+  "1G9G7WwrXka3Z1r7aIDjI7": {
+    "place": "East Point",
+    "country": "United States",
+    "lat": 33.6761,
+    "lon": -84.4514,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "73fdb566-a9b1-494c-9f32-51768ec9fd27"
+  },
+  "2jp3Fk52x0HbymU0lNYbSC": {
+    "place": "Montclair",
+    "country": "United States",
+    "lat": 40.8244,
+    "lon": -74.2123,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "60f063f4-0ad9-4070-9801-3cf017728c44"
+  },
+  "07QEuhtrNmmZ0zEcqE9SF6": {
+    "place": "Owatonna",
+    "country": "United States",
+    "lat": 44.084288888,
+    "lon": -93.226,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ad279295-653f-42e1-9aaa-b731df2e78ba"
+  },
+  "1KCSPY1glIKqW2TotWuXOR": {
+    "place": "Doylestown",
+    "country": "United States",
+    "lat": 40.3128,
+    "lon": -75.1289,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f4d5cc07-3bc9-4836-9b15-88a08359bc63"
+  },
+  "290nCNEce1y6rfoJiO2rK7": {
+    "place": "Slough",
+    "country": "Coventry",
+    "lat": 51.509722222,
+    "lon": -0.593055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "03100b87-7d27-4d56-b049-2007599656cc"
+  },
+  "20JZFwl6HVl6yg8a4H3ZqK": {
+    "place": "Las Vegas",
+    "country": "United States",
+    "lat": 36.167222222,
+    "lon": -115.148611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b9472588-93f3-4922-a1a2-74082cdf9ce8"
+  },
+  "74XFHRwlV6OrjEM0A2NCMF": {
+    "place": "Franklin",
+    "country": "United States",
+    "lat": 35.929166666,
+    "lon": -86.8575,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "44cf61b8-5197-448a-b82b-cef6ee89fac5"
+  },
+  "2HPaUgqeutzr3jx5a9WyDV": {
+    "place": "Mississauga",
+    "country": "Canada",
+    "lat": 43.6,
+    "lon": -79.65,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f23ef341-33bd-47c1-b83c-846a78581f05"
+  },
+  "4STHEaNw4mPZ2tzheohgXB": {
+    "place": "Walton",
+    "country": "United Kingdom",
+    "lat": 53.443,
+    "lon": -2.955,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ba550d0e-adac-4864-b88b-407cab5e76af"
+  },
+  "6fC2AcsQtd9h4BWELbbire": {
+    "place": "Vancouver",
+    "country": "Canada",
+    "lat": 49.260833333,
+    "lon": -123.113888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1888892a-06b7-4bbd-b0a1-3ffde01e4094"
+  },
+  "6kSSIddrp6LMEAUfbiacVv": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:name-search",
+    "mbid": "a90ed21a-3701-4dd6-a58b-ec41b31e3893"
+  },
+  "2RdwBSPQiwcmiDo9kixcl8": {
+    "place": "Virginia Beach",
+    "country": "United States",
+    "lat": 36.8506,
+    "lon": -75.9779,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "149f91ef-1287-46da-9a8e-87fee02f1471"
+  },
+  "2OEGI2wrCVmvavKEOMlccy": {
+    "place": "Libertyville",
+    "country": "United States",
+    "lat": 42.284222,
+    "lon": -87.960673,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e98fc8a6-f523-462a-b221-b55d935f19d8"
+  },
+  "0FTrIsp2Mg7Bkf8eXQrISa": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "0TnOYISbd1XYRBk9myaseg": {
+    "place": "Miami",
+    "country": "United States",
+    "lat": 25.783333333,
+    "lon": -80.216666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d262ea27-3ffe-40f7-b922-85c42d625e67"
+  },
+  "1g1yxsNVPhMUl9GrMjEb2o": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "49576e42-fbbd-4d73-968d-93c8dcf7f065"
+  },
+  "699OTQXzgjhIYAHMy9RyPD": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2baf3276-ed6a-4349-8d2e-f4601e7b2167"
+  },
+  "21WS9wngs9AqFckK7yYJPM": {
+    "place": "Philadelphia",
+    "country": "United States",
+    "lat": 39.952777777,
+    "lon": -75.163611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "aa5a6061-e60d-4a58-b9f6-c09de390bb2d"
+  },
+  "6AgTAQt8XS6jRWi4sX7w49": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7e1e5648-1d6a-4248-975a-98603e781848"
+  },
+  "0eDvMgVFoNV3TpwtrVCoTj": {
+    "place": "Canarsie",
+    "country": "United States",
+    "lat": 40.643666666,
+    "lon": -73.900666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "253c9ae7-850b-46be-8fbb-65e9fa621058"
+  },
+  "3fyhhXHbGVLuSHFk2SYx4I": {
+    "place": "Philadelphia",
+    "country": null,
+    "lat": 39.952777777,
+    "lon": -75.163611111,
+    "source": "musicbrainz:name-search",
+    "mbid": "7d9daa0a-ddc9-46f6-ad3a-18b7083c423c"
+  },
+  "246dkjvS1zLTtiykXe5h60": {
+    "place": "Syracuse",
+    "country": "United States",
+    "lat": 43.046899,
+    "lon": -76.144423,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b1e26560-60e5-4236-bbdb-9aa5a8d5ee19"
+  },
+  "395CLKcOZHqmhBxRbR92Te": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "56g4P11Gxl7nROZBbm8X3F": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "1ycQaIpZn0FKwQ1zHjLD3o": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "0ONHkAv9pCAFxb0zJwDNTy": {
+    "place": "The Bronx",
+    "country": "United States",
+    "lat": 40.846666666,
+    "lon": -73.873333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "14ecd19f-7121-4192-8549-e5056241a42f"
+  },
+  "0VRj0yCOv2FXJNP47XQnx5": {
+    "place": "Lawrenceville",
+    "country": "United States",
+    "lat": 33.9531,
+    "lon": -83.9925,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6143403a-df6c-429e-8ee6-ef869896b0da"
+  },
+  "7iZtZyCzp3LItcw1wtPI3D": {
+    "place": "Tupelo",
+    "country": "United States",
+    "lat": 34.257611111,
+    "lon": -88.703388888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c78c3026-426b-4580-ab23-08490bb8b515"
+  },
+  "080kPbQFzomkrfHW8U4XkZ": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "3PyWEKLWI0vHPmoNrIX0QE": {
+    "place": "Wyandanch",
+    "country": "United States",
+    "lat": 40.747222222,
+    "lon": -73.368333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2792b097-0b1d-4c50-97f6-f7f097f86438"
+  },
+  "7hMnoA1WJfsJdnAYURhnQw": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "0VG8uPYk0ymnDxundrTGZK": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "0a1gHP0HAqALbEyxaD5Ngn": {
+    "place": "Columbus",
+    "country": "United States",
+    "lat": 39.962222222,
+    "lon": -83.000555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6e0ae159-8449-4262-bba5-18ec87fa529f"
+  },
+  "4e0nWw2r4BoQSKPQ2zpU13": {
+    "place": "Washington",
+    "country": "Seattle",
+    "lat": 47.5,
+    "lon": -120.5,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6c7f57c4-8f11-4c59-9d63-bca189f343c1"
+  },
+  "7G9dCn1mqomAa0ucJoBm6J": {
+    "place": "Tanzania",
+    "country": "Tanzania",
+    "lat": -6.306944444,
+    "lon": 34.853888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1e8ae15c-2bdb-4542-a9a2-cc91de0b80b0"
+  },
+  "0L8ExT028jH3ddEcZwqJJ5": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8bfac288-ccc5-448d-9573-c33ea2aa5c30"
+  },
+  "07V3atNq2TyPNDYmzp6Dyy": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "94e2f6fe-37ab-4e1f-b145-26cb80069503"
+  },
+  "46pWGuE3dSwY3bMMXGBvVS": {
+    "place": "Nigeria",
+    "country": "Nigeria",
+    "lat": 9.0,
+    "lon": 8.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "720c46ba-a0e4-4b58-aee2-3bd70c70901f"
+  },
+  "65s98MYZ4xFpgKlUYS5XKw": {
+    "place": "San Pedro",
+    "country": "United States",
+    "lat": 33.74,
+    "lon": -118.29,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "afa8adf8-d1a8-42f1-b936-a1029bc7faa9"
+  },
+  "2s0yxtiHiyGe6CY4mbDYFi": {
+    "place": "Paterson",
+    "country": "United States",
+    "lat": 40.916666666,
+    "lon": -74.172222222,
+    "source": "musicbrainz:name-search",
+    "mbid": "5bb2d44b-cc7a-4f41-8f0b-e62626d0c4b9"
+  },
+  "39mHYiNmLR7p8PXNG8Wll6": {
+    "place": "Castle Hill",
+    "country": "United States",
+    "lat": 40.8177,
+    "lon": -73.8507,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1e882508-f664-4abb-919a-8e266f2fad63"
+  },
+  "5VJN4jB6PqqEg4kJiAj6Eu": {
+    "place": "San Jose",
+    "country": "United States",
+    "lat": 37.304166666,
+    "lon": -121.872777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "323ea2bd-a27e-414a-ba40-2727bf3a37e1"
+  },
+  "5GcWBUX00IPuWVGMIRK1sS": {
+    "place": "San Juan",
+    "country": "Puerto Rico",
+    "lat": 18.465277777,
+    "lon": -66.116666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b38a00f2-3746-4e9e-93de-8257ca5b1680"
+  },
+  "6QkS4Qp5FcvhbTL2MHl9yE": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "2as15AH2BTrPk8v4gyElmr": {
+    "place": "Santa Monica",
+    "country": "United States",
+    "lat": 34.021944444,
+    "lon": -118.481388888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c919a8e7-e4cf-407f-ac87-f4a670a01cf9"
+  },
+  "2IDLDx25HU1nQMKde4n61a": {
+    "place": "Jakarta",
+    "country": "Indonesia",
+    "lat": -6.175277777,
+    "lon": 106.826944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "49d67664-6962-4f69-adc4-f52208c78dd2"
+  },
+  "5pU9lKGn9IUnVvOCONrcIS": {
+    "place": "New Orleans",
+    "country": "United States",
+    "lat": 29.976111111,
+    "lon": -90.078333333,
+    "source": "musicbrainz:name-search",
+    "mbid": "02339890-0761-44b8-88f6-90977faf9ee5"
+  },
+  "5lHRUCqkQZCIWeX7xG4sYT": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d9547d08-4c2e-47fc-9451-b8e3f889716e"
+  },
+  "1pPmIToKXyGdsCF6LmqLmI": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6d063567-dbf9-4b2a-bd11-1a4450cd93ca"
+  },
+  "6WgNboUpl48GJJuQxdUqrM": {
+    "place": "Kaduna",
+    "country": "Nigeria",
+    "lat": 10.333333333,
+    "lon": 7.75,
+    "source": "musicbrainz:name-search",
+    "mbid": "735ec2d1-7e99-421f-b709-06a6c547b2c5"
+  },
+  "1sBkRIssrMs1AbVkOJbc7a": {
+    "place": "Clarksdale",
+    "country": "Miami",
+    "lat": 34.200638888,
+    "lon": -90.570222222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "13bcb2bb-db37-4397-baf5-e0f085be2d64"
+  },
+  "0OJan6sabxPrcFtfpu9Xt3": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "2OaHYHb2XcFPvqL3VsyPzU": {
+    "place": "Largo",
+    "country": "United States",
+    "lat": 38.8769,
+    "lon": -76.8306,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f7d8f1ce-6a72-422a-b746-22137b3a05d0"
+  },
+  "5pKCCKE2ajJHZ9KAiaK11H": {
+    "place": "Saint Michael",
+    "country": "United States",
+    "lat": 13.118055555,
+    "lon": -59.603055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "73e5e69d-3554-40d8-8516-00cb38737a1c"
+  },
+  "3mLdH6xxrscTf2poCN9Kzy": {
+    "place": "Goiânia",
+    "country": "Brazil",
+    "lat": -16.680555555,
+    "lon": -49.256388888,
+    "source": "musicbrainz:name-search",
+    "mbid": "a97922fb-b081-4791-a498-893872c79a1e"
+  },
+  "4LAz9VRX8Nat9kvIzgkg2v": {
+    "place": "Manhattan",
+    "country": "United States",
+    "lat": 40.728333333,
+    "lon": -73.994166666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "87b6344f-c874-49ce-a8b3-e467ed6e05d0"
+  },
+  "056KMTw6IztdQjBmFfVyO3": {
+    "place": "Milano",
+    "country": "Italy",
+    "lat": 45.466944444,
+    "lon": 9.19,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2de1d7dd-a48d-4078-95c0-357c57aa5d40"
+  },
+  "5tLx2xpkiHdzvX9CIymCfR": {
+    "place": "Manhattan",
+    "country": "United States",
+    "lat": 40.728333333,
+    "lon": -73.994166666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a600d81b-3e61-4fcf-82d8-8f466061c317"
+  },
+  "3t5xRXzsuZmMDkQzgOX35S": {
+    "place": "Osnabrück",
+    "country": "Germany",
+    "lat": 52.278888888,
+    "lon": 8.043055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "163218c2-9e0f-4d2d-aecb-ebbdef6aab70"
+  },
+  "757aE44tKEUQEqRuT6GnEB": {
+    "place": "Compton",
+    "country": "United States",
+    "lat": 33.896666666,
+    "lon": -118.225,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5721c227-4caf-48b1-bbfc-1a4ed3276963"
+  },
+  "3TKCdsX8yNNoiC1gesn6or": {
+    "place": "Camden",
+    "country": "Miami",
+    "lat": 39.9368,
+    "lon": -75.1066,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "93c1cee4-2604-4cd2-8d72-8bc59aa9f6c2"
+  },
+  "3DvBdTdxzVtwQGY7IZTyvE": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "1dgdvbogmctybPrGEcnYf6": {
+    "place": "London",
+    "country": "London",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e2d1f228-3aff-4e6d-8932-032f4036131b"
+  },
+  "6jsjhAEteAlY0vCiLvMLBA": {
+    "place": "Montgomeryville",
+    "country": "United States",
+    "lat": 40.2503,
+    "lon": -75.2378,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b5d9d6e4-7105-44dc-98bc-b751c3b0f5f4"
+  },
+  "5JOIrGvup0vD5VjodB62Ui": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "2WzaAvm2bBCf4pEhyuDgCY": {
+    "place": "Edmonton",
+    "country": "Canada",
+    "lat": 53.533333333,
+    "lon": -113.5,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "fa44d136-fa40-4187-b522-8e262b41ac7a"
+  },
+  "4VylF3B1rKCL5tdOJ8VL8o": {
+    "place": "United Kingdom",
+    "country": "United Kingdom",
+    "lat": 54.6,
+    "lon": -2.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d1578646-0f73-4211-a768-78edc2559c76"
+  },
+  "1fctva4kpRbg2k3v7kwRuS": {
+    "place": "Kingston",
+    "country": "Jamaica",
+    "lat": 17.966666666,
+    "lon": -76.8,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "28050b85-76f1-49a6-9879-4074bf186f49"
+  },
+  "4myTppRgh0rojLxx8RycOp": {
+    "place": "Spokane",
+    "country": "United States",
+    "lat": 47.657194444,
+    "lon": -117.4235,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c01560d1-6f69-48cf-a3c6-c94b65f099b1"
+  },
+  "4we5S2VLjgY9KzIzApL1KI": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0bc6d6e7-0858-4b73-a079-7aa681095f98"
+  },
+  "71jSVPQ6yskfyvWeiwvT5s": {
+    "place": "Zimbabwe",
+    "country": "Zimbabwe",
+    "lat": -19.0,
+    "lon": 30.0,
+    "source": "wikidata-spotify-id"
+  },
+  "0H39MdGGX6dbnnQPt6NQkZ": {
+    "place": "Brooklyn",
+    "country": "Guyana",
+    "lat": 40.650833333,
+    "lon": -73.949722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0f16ba6c-1874-42b9-b7a6-e060c2be454e"
+  },
+  "2kucQ9jQwuD8jWdtR9Ef38": {
+    "place": "Cedartown",
+    "country": "United States",
+    "lat": 34.015277777,
+    "lon": -85.253888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b27229bb-5669-4e98-b4ce-0158b2451fe8"
+  },
+  "2wY79sveU1sp5g7SokKOiI": {
+    "place": "London",
+    "country": "United Kingdom",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5a85c140-dcf9-4dd2-b2c8-aff0471549f3"
+  },
+  "4p07QU02SrLsaORo25h2Lg": {
+    "place": "Boynton Beach",
+    "country": "United States",
+    "lat": 26.528055555,
+    "lon": -80.076388888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "3ee95be0-a86c-4354-938d-faff8aec4e2d"
+  },
+  "2Sqr0DXoaYABbjBo9HaMkM": {
+    "place": "Eureka",
+    "country": "United States",
+    "lat": 40.801944444,
+    "lon": -124.163611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e54be6b7-5c26-4b47-bb3f-c137429b9b55"
+  },
+  "01DTVE3KmoPogPZaOvMqO8": {
+    "place": "Ghana",
+    "country": "Ghana",
+    "lat": 7.9465,
+    "lon": -1.0232,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6f937dd2-1aa8-49ce-9052-8127714db3d2"
+  },
+  "4xnihxcoXWK3UqryOSnbw5": {
+    "place": "Boston",
+    "country": "United States",
+    "lat": 42.360277777,
+    "lon": -71.057777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "98c09f94-10b5-426c-b27a-44345bb54528"
+  },
+  "6rYogEVj60BCIsLukpAnwr": {
+    "place": "Wolverhampton",
+    "country": "United Kingdom",
+    "lat": 52.584166666,
+    "lon": -2.125277777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f03c0c1d-eca8-4386-bdf7-566b6f950c3a"
+  },
+  "0dkGWfQ3rOJjx6udgfHZL5": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "6S0dmVVn4udvppDhZIWxCr": {
+    "place": "Miami",
+    "country": "Jamaica",
+    "lat": 25.783333333,
+    "lon": -80.216666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f7eb3be3-1065-4a53-94d4-e2d0c15c0b33"
+  },
+  "1jIVEaq8GmqMYb8nFNAZgb": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "06bDwgCHeMAwhgI8il4Y5k": {
+    "place": "Tampa",
+    "country": "United States",
+    "lat": 27.9475,
+    "lon": -82.458611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "823ed9ad-3412-47dc-9caf-b7be02121fcf"
+  },
+  "23TFHmajVfBtlRx5MXqgoz": {
+    "place": "Sesto San Giovanni",
+    "country": "Italy",
+    "lat": 45.533333333,
+    "lon": 9.233333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2380d705-1af6-4fab-b408-d9c095806a46"
+  },
+  "0EmeFodog0BfCgMzAIvKQp": {
+    "place": "Barranquilla",
+    "country": "Colombia",
+    "lat": 10.983333333,
+    "lon": -74.801944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "bf24ca37-25f4-4e34-9aec-460b94364cfc"
+  },
+  "2RDOrhPqAM4jzTRCEb19qX": {
+    "place": "Harlem",
+    "country": "United States",
+    "lat": 40.809033333,
+    "lon": -73.948372222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "07ab04d4-bdbc-4c93-bfb2-457693a4ff94"
+  },
+  "1tG7s7S4sq2eFFW0QZyLbm": {
+    "place": "Brooklyn",
+    "country": "Flatbush",
+    "lat": 40.650833333,
+    "lon": -73.949722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c5ced819-24a0-4ed0-a301-c3609427416e"
+  },
+  "6ohkL1JgD0Ggj2mfte1lJ1": {
+    "place": "New York",
+    "country": "United States",
+    "lat": 40.712777777,
+    "lon": -74.006111111,
+    "source": "musicbrainz:name-search",
+    "mbid": "55b98ea0-48f3-4a50-afcd-154312457463"
+  },
+  "1DvtabXAjfrMihPP6JQdHs": {
+    "place": "Washington, D.C.",
+    "country": "United States",
+    "lat": 38.895,
+    "lon": -77.036666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "21354007-a91f-4460-934d-12d389de3a2a"
+  },
+  "5WUlDfRSoLAfcVSX1WnrxN": {
+    "place": "Adelaide",
+    "country": "Australia",
+    "lat": -34.9275,
+    "lon": 138.6,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2f548675-008d-4332-876c-108b0c7ab9c5"
+  },
+  "04AIS3XqFcq2k8w3Tx4AmU": {
+    "place": "Brazzaville",
+    "country": null,
+    "lat": -4.269444444,
+    "lon": 15.271111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "72606edb-f2e5-4a30-be77-5c98d891f9dc"
+  },
+  "4xko5t5site4jVwopoCF21": {
+    "place": "Dallas",
+    "country": "United States",
+    "lat": 32.779166666,
+    "lon": -96.808888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e4a68340-a3a9-413f-ad26-70f2b25f5206"
+  },
+  "2p1fiYHYiXz9qi0JJyxBzN": {
+    "place": "Tottenham",
+    "country": "United Kingdom",
+    "lat": 51.5975,
+    "lon": -0.068055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "38474d18-9204-4f60-a137-1fcc6750b869"
+  },
+  "2rhFzFmezpnW82MNqEKVry": {
+    "place": "Fort Lauderdale",
+    "country": "United States",
+    "lat": 26.135833333,
+    "lon": -80.141944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "faf916e0-ffc5-4345-a10b-b79ed8c9b8f6"
+  },
+  "4YWK3hXt1QRAw2rNBao55d": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "4gB2Nnsapxi4chX9f5zgku": {
+    "place": "Atlanta",
+    "country": "Atlanta",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "49d548aa-5417-4a4d-8d1d-58dad2103bd2"
+  },
+  "6EPlBSH2RSiettczlz7ihV": {
+    "place": "Jamaica",
+    "country": "United States",
+    "lat": 18.18,
+    "lon": -77.4,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "13108baf-5129-47b5-a174-5f720012155a"
+  },
+  "3r1XkJ7vCs8kHBSzGvPLdP": {
+    "place": "Northampton",
+    "country": "United Kingdom",
+    "lat": 52.233333333,
+    "lon": -0.9,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "333e76b4-9606-4fd3-bcb3-8e7660bb4d96"
+  },
+  "21dooacK2WGBB5amYvKyfM": {
+    "place": "Chicago",
+    "country": "Miami",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5a42040d-2ae5-4e2a-a362-22e7b19d993c"
+  },
+  "4QkSD9TRUnMtI8Fq1jXJJe": {
+    "place": "Baltimore",
+    "country": "United States",
+    "lat": 39.286388888,
+    "lon": -76.615,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "86cd4d38-857c-42bd-a5da-9acedcab1e01"
+  },
+  "7hJcb9fa4alzcOq3EaNPoG": {
+    "place": "Long Beach",
+    "country": "United States",
+    "lat": 33.768055555,
+    "lon": -118.195555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f90e8b26-9e52-4669-a5c9-e28529c47894"
+  },
+  "1YXg2Chm7UfZAUAkjJEpqK": {
+    "place": "Memphis",
+    "country": "United States",
+    "lat": 35.146111111,
+    "lon": -90.051944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b3e80856-2629-4267-afd4-e4b559ce9d43"
+  },
+  "4wXchxfTTggLtzkoUhO86Q": {
+    "place": "Zurich",
+    "country": "United States",
+    "lat": 47.374444444,
+    "lon": 8.541111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "84803b1d-dcb3-490d-9af5-debbba64a011"
+  },
+  "6aq8T2RcspxVOGgMrTzjWc": {
+    "place": "Leeds",
+    "country": "United Kingdom",
+    "lat": 53.7975,
+    "lon": -1.543611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7fb50287-029d-47cc-825a-235ca28024b2"
+  },
+  "3xByNj8XW17oW0wsJhgzYL": {
+    "place": "Sacramento",
+    "country": "United States",
+    "lat": 38.575277777,
+    "lon": -121.486111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "bd0f203c-6d4b-4c44-89d1-63be9c60acc3"
+  },
+  "6GMYJwaziB4ekv1Y6wCDWS": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "29eead4d-3793-4625-8727-c03edbb38b8b"
+  },
+  "4yLuE0l9rK7fqijTb7BPh9": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:name-search",
+    "mbid": "4739c6c3-cf8a-4f07-9c7b-5745d683c1d4"
+  },
+  "7l3VDav1Nb5OZWUxMFiSqW": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "3KuLo66B73btyQpdXlkqFx": {
+    "place": "The Bronx",
+    "country": "Columbia",
+    "lat": 40.846666666,
+    "lon": -73.873333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8787bb21-9985-4d5f-a73f-d9b63e06ea70"
+  },
+  "50DbCckCwUGuAvBlktc1VS": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "2NZN0JDhWXmMmhSXTbhm1h": {
+    "place": "United Kingdom",
+    "country": "United Kingdom",
+    "lat": 54.6,
+    "lon": -2.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "982cdff9-6f1b-432a-8846-1de5d9dae429"
+  },
+  "5PYToRCsrnvikZg3yl2JMr": {
+    "place": "Neuquén",
+    "country": "United States",
+    "lat": -38.951833333,
+    "lon": -68.059194444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6dca439d-0612-4c83-bf00-52747922fe62"
+  },
+  "0bFPzYoInpRUHOgTCt1o3P": {
+    "place": "Denmark",
+    "country": "Denmark",
+    "lat": 56.0,
+    "lon": 10.0,
+    "source": "musicbrainz:name-search",
+    "mbid": "2db114fe-eb0f-4b9e-b03b-6fd86e74ae9c"
+  },
+  "2SrSdSvpminqmStGELCSNd": {
+    "place": "Thornton Heath",
+    "country": "United Kingdom",
+    "lat": 51.4002,
+    "lon": -0.1086,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "67fd5116-7a49-4abf-a34f-b08774128a7a"
+  },
+  "5dVdVMgyzM03JGEkjYoHKS": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "44IvvHRk2XF243QLA2VOa8": {
+    "place": "Charlotte",
+    "country": "United States",
+    "lat": 35.226944444,
+    "lon": -80.843333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0c5b959e-eaf6-4382-9e63-ecd2c67f85ab"
+  },
+  "1gl0S9pS0Zw0qfa14rDD3D": {
+    "place": "Reno",
+    "country": "United States",
+    "lat": 39.526111111,
+    "lon": -119.8125,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "89ea85c2-c90a-46ea-93db-9bed95d5c8f8"
+  },
+  "4ETSs924pXMzjIeD6E9b4u": {
+    "place": "College Station",
+    "country": "United States",
+    "lat": 30.601388888,
+    "lon": -96.314444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7442fbfa-00ad-4e3b-8f45-9d2c62786eed"
+  },
+  "1zNqQNIdeOUZHb8zbZRFMX": {
+    "place": "Inglewood",
+    "country": "United States",
+    "lat": 33.9575,
+    "lon": -118.346111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a17ce9c3-8f6f-4dcc-a1b7-2a04ab9e31f0"
+  },
+  "2yPprAQlrIQWu60g09B9MZ": {
+    "place": "Greenwich",
+    "country": "United Kingdom",
+    "lat": 51.48,
+    "lon": 0.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "59466d51-6806-41d2-86cc-2cb33630bb39"
+  },
+  "1lE6SEy8f84Zhjvp7r8yTD": {
+    "place": "Harvey",
+    "country": "United States",
+    "lat": 41.61,
+    "lon": -87.646666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "16eb7e6c-2eb8-400c-97d5-33891fa3303e"
+  },
+  "3aQeKQSyrW4qWr35idm0cy": {
+    "place": "Tallahassee",
+    "country": "United States",
+    "lat": 30.438333333,
+    "lon": -84.280555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ce55e49a-32f4-4757-9849-bf04d06d5fcc"
+  },
+  "4MIULe6tfg2loNzBy5B9eu": {
+    "place": "Abilene",
+    "country": null,
+    "lat": 32.446388888,
+    "lon": -99.745555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ddc0f0fe-1011-41ca-a09e-348912684011"
+  },
+  "4OBJLual30L7gRl5UkeRcT": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f7ba7fbe-c6bd-4ac0-bee9-c25c558d7d62"
+  },
+  "6MF9fzBmfXghAz953czmBC": {
+    "place": "Brent",
+    "country": "United Kingdom",
+    "lat": 51.558888888,
+    "lon": -0.281111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ba7d2626-38ce-4859-8495-bdb5732715c4"
+  },
+  "3StB6ddX8vfwCGVD9HlNUw": {
+    "place": "New York",
+    "country": "New York",
+    "lat": 40.712777777,
+    "lon": -74.006111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "dbd2759a-2717-4984-9ede-cb0a0f4d2693"
+  },
+  "3EW0kQ1skZiK1NHg3Spt9J": {
+    "place": "Lawrenceville",
+    "country": "Atlanta",
+    "lat": 33.9531,
+    "lon": -83.9925,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "70f5bb6e-9b87-4500-9c9f-2e1d373d07da"
+  },
+  "5RZCkYxaMvpxxzVf0Ocykd": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "43s6uFZrdusv7ggmDSpO41": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "19e8fc83-5f47-405d-b2b0-23b07d7b08a2"
+  },
+  "45dkTj5sMRSjrmBSBeiHym": {
+    "place": "Calgary",
+    "country": "Canada",
+    "lat": 51.0475,
+    "lon": -114.0625,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f9133869-f87c-459c-9aa7-2f176cda7e06"
+  },
+  "5xkFVS6IwwgHEAaRzXc9U3": {
+    "place": "Memphis",
+    "country": "United States",
+    "lat": 35.146111111,
+    "lon": -90.051944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e5d70460-7057-4cbe-9c07-11ca2dac975c"
+  },
+  "2ODbg2404zUzTi02qIPEjB": {
+    "place": "Los Angeles County",
+    "country": "United States",
+    "lat": 34.05,
+    "lon": -118.25,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "3bafaf0d-e3bc-40b1-8100-5e38ba8cbba7"
+  },
+  "06HL4z0CvFAxyc27GXpf02": {
+    "place": "West Reading",
+    "country": "United States",
+    "lat": 40.3342,
+    "lon": -75.9467,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "20244d07-534f-4eff-b4d4-930878889970"
+  },
+  "7iJl63aJyNd8C6NZlMv6kp": {
+    "place": "Rio de Janeiro",
+    "country": "Brazil",
+    "lat": -22.911111111,
+    "lon": -43.205555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "19f1392d-7ea5-4417-b38a-15e82c8ee055"
+  },
+  "6AUl0ykLLpvTktob97x9hO": {
+    "place": "Detroit",
+    "country": "Detroit",
+    "lat": 42.331666666,
+    "lon": -83.0475,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "babeb28b-5142-4af9-a3c5-9987315f1fc3"
+  },
+  "0aDlKdF22vK6yut113KJix": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "6IhG3Yxm3UW98jhyBvrIut": {
+    "place": "Bauchi",
+    "country": "Nigeria",
+    "lat": 10.306666666,
+    "lon": 9.8125,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "bae7ed12-9906-4390-8aaa-ed0ef4387e17"
+  },
+  "38H4NMFqlcJ9rcFltYS2oK": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "3vAaWhdBR38Q02ohXqaNHT": {
+    "place": "Stillwater",
+    "country": "United States",
+    "lat": 36.113444444,
+    "lon": -97.058638888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "09885b8e-f235-4b80-a02a-055539493173"
+  },
+  "3ICflSq6ZgYAIrm2CTkfVP": {
+    "place": "Newcastle upon Tyne",
+    "country": "United Kingdom",
+    "lat": 54.977777777,
+    "lon": -1.613333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "4d8afa16-4018-4ca8-8b5e-ede8f9314562"
+  },
+  "3oDbviiivRWhXwIE8hxkVV": {
+    "place": "Hawthorne",
+    "country": "United States",
+    "lat": 33.917214,
+    "lon": -118.348607,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ebfc1398-8d96-47e3-82c3-f782abcdb13d"
+  },
+  "3WrFJ7ztbogyGnTHbHJFl2": {
+    "place": "Liverpool",
+    "country": "United Kingdom",
+    "lat": 53.407222222,
+    "lon": -2.991666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d"
+  },
+  "7C64wNX3howEFZjAYRKsfP": {
+    "place": "Berkeley",
+    "country": "United States",
+    "lat": 37.870277777,
+    "lon": -122.268055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "50d9d3ee-8947-4079-9d73-b01dd3e71d8a"
+  },
+  "69GGBxA162lTqCwzJG5jLp": {
+    "place": "New York",
+    "country": "United States",
+    "lat": 40.712777777,
+    "lon": -74.006111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "91a81925-92f9-4fc9-b897-93cf01226282"
+  },
+  "7mymzY5YnLV2oMFxgnN3x2": {
+    "place": "Portland",
+    "country": "United States",
+    "lat": 45.515,
+    "lon": -122.679166666,
+    "source": "musicbrainz:name-search",
+    "mbid": "e54fd7fe-6c6f-48bd-90e0-14a6b6023d1b"
+  },
+  "47PlThLkeouzT58n1Urjdm": {
+    "place": "Hamburg",
+    "country": "Hamburg",
+    "lat": 53.55,
+    "lon": 10.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "aa188fc4-a497-41e9-818e-0f44070188a7"
+  },
+  "0C0XlULifJtAgn6ZNCW2eu": {
+    "place": "Las Vegas",
+    "country": "United States",
+    "lat": 36.167222222,
+    "lon": -115.148611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "95e1ead9-4d31-4808-a7ac-32c3614c116b"
+  },
+  "0I6yADrmeyvw66g7yjkqIF": {
+    "place": "Israel",
+    "country": "Israel",
+    "lat": 31.0,
+    "lon": 35.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "3f6ee55e-d523-4dd8-a027-7a6af9909ae1"
+  },
+  "1bs7HoMkSyQwcobCpE9KpN": {
+    "place": "New York",
+    "country": "United States",
+    "lat": 40.712777777,
+    "lon": -74.006111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ff294730-0315-440d-a543-54005779c15b"
+  },
+  "2sSGPbdZJkaSE2AbcGOACx": {
+    "place": "Los Angeles",
+    "country": "Los Angeles",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7a3970c9-ecd8-4eee-a267-4d8c77d97ff3"
+  },
+  "5me0Irg2ANcsgc93uaYrpb": {
+    "place": "Clinton Hill",
+    "country": "United States",
+    "lat": 40.689722222,
+    "lon": -73.965277777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d5d97b2b-b83b-4976-814a-056d9076c8c3"
+  },
+  "6wPhSqRtPu1UhRCDX5yaDJ": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1fda852b-92e9-4562-82fa-c52820a77b23"
+  },
+  "0epOFNiUfyON9EYx7Tpr6V": {
+    "place": "New York",
+    "country": "United States",
+    "lat": 40.712777777,
+    "lon": -74.006111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f181961b-20f7-459e-89de-920ef03c7ed0"
+  },
+  "7bkdi7f1mxyYxWcBlwON4s": {
+    "place": "Poland",
+    "country": "Poland",
+    "lat": 52.0,
+    "lon": 19.0,
+    "source": "musicbrainz:name-search",
+    "mbid": "d1a1547d-6406-4f06-a520-b9af80c168a0"
+  },
+  "2NhdGz9EDv2FeUw6udu2g1": {
+    "place": "England",
+    "country": "United Kingdom",
+    "lat": 53.0,
+    "lon": -1.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "bcb16f22-b064-4b80-b3a3-c824bccdbab1"
+  },
+  "1Xyo4u8uXC1ZmMpatF05PJ": {
+    "place": "Scarborough",
+    "country": "Canada",
+    "lat": 43.7737,
+    "lon": -79.2446,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c8b03190-306c-4120-bb0b-6f2ebfc06ea9"
+  },
+  "4frXpPxQQZwbCu3eTGnZEw": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "044fd265-79dd-43eb-afc4-8b20becf7e17"
+  },
+  "0D3h8NZqNp7BN97JwtV6eW": {
+    "place": "Gyumri",
+    "country": "Armenia",
+    "lat": 40.783333333,
+    "lon": 43.833333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "c57e3280-5182-42a5-812b-02659a079c44"
+  },
+  "5Y5TRrQiqgUO4S36tzjIRZ": {
+    "place": "Norfolk",
+    "country": "United States",
+    "lat": 36.846944444,
+    "lon": -76.285277777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "daa09819-5da5-4c7a-8bef-eb372bb27ff1"
+  },
+  "7b79bQFziJFedJb75k6hFt": {
+    "place": "London",
+    "country": "London",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "016fcdc6-e7fa-4272-a28d-f54d890ac771"
+  },
+  "2o5jDhtHVPhrJdv3cEQ99Z": {
+    "place": "Breda",
+    "country": "Netherlands",
+    "lat": 51.588888888,
+    "lon": 4.775833333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "aabb1d9f-be12-45b3-a84d-a1fc3e8181fd"
+  },
+  "4Uwx6qzRn0kA9sz6cCDpBO": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "1WaFQSHVGZQJTbf0BdxdNo": {
+    "place": "Woodbridge",
+    "country": "Los Angeles",
+    "lat": 38.6436,
+    "lon": -77.2608,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "741a6c80-2d6e-4522-9de4-e070798a2d30"
+  },
+  "2jku7tDXc6XoB6MO2hFuqg": {
+    "place": "Brampton",
+    "country": "Canada",
+    "lat": 43.683333333,
+    "lon": -79.766666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "5b8ec72b-9e39-4a06-a2bf-964166b92a71"
+  },
+  "0PFtn5NtBbbUNbU9EAmIWF": {
+    "place": "Van Nuys",
+    "country": "United States",
+    "lat": 34.1833,
+    "lon": -118.4333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "aab5c954-cabe-432e-899e-1c4f99757327"
+  },
+  "3FUY2gzHeIiaesXtOAdB7A": {
+    "place": "San Francisco",
+    "country": "United States",
+    "lat": 37.775,
+    "lon": -122.419444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "bfd5aec5-62a2-4560-a316-7c46c17babda"
+  },
+  "6z1cicLMt9XArxN10q7m8a": {
+    "place": "Decatur",
+    "country": "United States",
+    "lat": 33.7714,
+    "lon": -84.2978,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "53423220-42b5-4082-a374-417ce6f8a919"
+  },
+  "0Y5tJX1MQlPlqiwlOH1tJY": {
+    "place": "Houston",
+    "country": "United States",
+    "lat": 29.762777777,
+    "lon": -95.383055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e4a51f17-a57b-47b1-b37b-f552d0f8e9e6"
+  },
+  "6Xgp2XMz1fhVYe7i6yNAax": {
+    "place": "Canton",
+    "country": "United States",
+    "lat": 40.798611111,
+    "lon": -81.375,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "8032cf05-d916-4b2a-9c53-6e75d4a24bd8"
+  },
+  "0701LAQrkY5Il5vt06uNnC": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "2a57e5ef-2e62-4827-b667-14da58e3a1f4"
+  },
+  "3YQKmKGau1PzlVlkL1iodx": {
+    "place": "Columbus",
+    "country": "United States",
+    "lat": 39.962222222,
+    "lon": -83.000555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a6c6897a-7415-4f8d-b5a5-3a5e05f3be67"
+  },
+  "6vbY3hOaCAhC7VjucswgdS": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "0bc858a1-3573-4216-9423-c96dd8c72919"
+  },
+  "7c0XG5cIJTrrAgEC3ULPiq": {
+    "place": "Los Angeles",
+    "country": "United States",
+    "lat": 34.05223,
+    "lon": -118.24368,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "7bd66c18-cb33-49aa-9279-140acedbdb49"
+  },
+  "4V8LLVI7PbaPR0K2TGSxFF": {
+    "place": "Hawthorne",
+    "country": "United States",
+    "lat": 33.917214,
+    "lon": -118.348607,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f6beac20-5dfe-4d1f-ae02-0b0a740aafd6"
+  },
+  "3Fdm9TFJQCLmC3AWMuGExi": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "4bafe97c-81d4-4a8e-b54b-7f6e60ea7abe"
+  },
+  "2DnqqkzzDKm3vAoyHtn8So": {
+    "place": "Mount Clemens",
+    "country": "United States",
+    "lat": 42.597222222,
+    "lon": -82.878055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1a02e1e4-000e-46fa-83de-f3a36674e4fc"
+  },
+  "3iAhNz3e31lBuXYOsqGsf3": {
+    "place": "Homerton",
+    "country": "London",
+    "lat": 51.552119444,
+    "lon": -0.047038888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a688dc7a-c743-4ec2-9355-c3dcdb30bf0e"
+  },
+  "23zg3TcAtWQy7J6upgbUnj": {
+    "place": "Dallas",
+    "country": "United States",
+    "lat": 32.779166666,
+    "lon": -96.808888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "3414d446-735a-443c-931f-10634f57e5b9"
+  },
+  "10exVja0key0uqUkk6LJRT": {
+    "place": "Melbourne",
+    "country": "Australia",
+    "lat": -37.814166666,
+    "lon": 144.963055555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "df36f6db-5987-46ed-9d02-0cf36ed4e060"
+  },
+  "20NU8K8QcJxokUZjtuK7mF": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "4eYnorQRhVHT2KBl2UyHHd": {
+    "place": "Orléans",
+    "country": "France",
+    "lat": 47.902222222,
+    "lon": 1.904166666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "02f5184f-f0fa-4088-aba7-cd0f3bf01b05"
+  },
+  "0cwmNvclzPd8mQnoHuIksj": {
+    "place": "Rotterdam",
+    "country": "Netherlands",
+    "lat": 51.92,
+    "lon": 4.48,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "90c7177f-4be5-413d-aabd-d228934c2b9b"
+  },
+  "3GkacjWbGO4lgUKJD6c0N4": {
+    "place": "United Arab Emirates",
+    "country": "United Arab Emirates",
+    "lat": 24.4,
+    "lon": 54.3,
+    "source": "musicbrainz:name-search",
+    "mbid": "59b43d9b-2508-4659-b00f-aed5adf1de09"
+  },
+  "68kEuyFKyqrdQQLLsmiatm": {
+    "place": "Long Beach",
+    "country": "United States",
+    "lat": 33.768055555,
+    "lon": -118.195555555,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "78e854b8-9713-4ff2-9218-6b3784893bff"
+  },
+  "6DIS6PRrLS3wbnZsf7vYic": {
+    "place": "Cincinnati",
+    "country": "United States",
+    "lat": 39.1,
+    "lon": -84.5125,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d4aad415-9cd0-4845-9b05-0416fdcc9fc4"
+  },
+  "4qcKNkdxUidhvUByB2eQ6g": {
+    "place": "Indonesia",
+    "country": "Indonesia",
+    "lat": -2.0,
+    "lon": 118.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f2a2b82b-5d6c-467b-a87f-d17478964ac4"
+  },
+  "4rN9gEi2IbnV59Tm4kid4c": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "3ao3jf5d70Tf4fPh2bnXVl": {
+    "place": "Bradenton",
+    "country": "United States",
+    "lat": 27.483333333,
+    "lon": -82.583333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6ec79457-b06b-4e3b-83f9-9b26fc7a99bc"
+  },
+  "0Pb8ZfFfE2O0pvsFdwVUYl": {
+    "place": "La Habra",
+    "country": null,
+    "lat": 33.931944444,
+    "lon": -117.946111111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "71a9a982-da3e-4742-bce9-39246ea772bf"
+  },
+  "0HjYETXAvcL6mzaKjAmH2K": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "6PjV05LlULv9XmFu7HeAia": {
+    "place": "Lexington",
+    "country": "United States",
+    "lat": 38.049722222,
+    "lon": -84.458611111,
+    "source": "wikidata-spotify-id"
+  },
+  "1vb1XqzyNMQ16BqbxRz5BV": {
+    "place": "The Bronx",
+    "country": "United States",
+    "lat": 40.846666666,
+    "lon": -73.873333333,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "317606b4-e0c2-48fe-bcfc-a7e7547d968e"
+  },
+  "085pc2PYOi8bGKj0PNjekA": {
+    "place": "Boyle Heights",
+    "country": "United States",
+    "lat": 34.03389,
+    "lon": -118.20444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "d574c9bd-46f6-440a-8d6a-8412a283eeb1"
+  },
+  "2DXl094mXreySYE0IiT2uL": {
+    "place": "Brooklyn",
+    "country": "United States",
+    "lat": 40.650833333,
+    "lon": -73.949722222,
+    "source": "musicbrainz:name-search",
+    "mbid": "b74984f3-24d4-48d6-b157-4bac91f9b897"
+  },
+  "1XNVFs9EIrPqDsmARzDKR7": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "137W8MRPWKqSmrBGDBFSop": {
+    "place": "Minot",
+    "country": "United States",
+    "lat": 48.2325,
+    "lon": -101.296277777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f5dfa020-ad69-41cd-b3d4-fd7af0414e94"
+  },
+  "7aBzpmFXB4WWpPl2F7RjBe": {
+    "place": "Croix-des-Bouquets",
+    "country": "United States",
+    "lat": 18.576111111,
+    "lon": -72.226944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "4f29ecd7-21a5-4c03-b9ba-d0cfe9488f8c"
+  },
+  "1cyidXIhLIwg1WAEm7rJQP": {
+    "place": "Landover",
+    "country": "United States",
+    "lat": 38.9339,
+    "lon": -76.8967,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f1897f54-c8e9-4cc7-a77c-83febe8df183"
+  },
+  "15UsOTVnJzReFVN1VCnxy4": {
+    "place": "Plantation",
+    "country": "United States",
+    "lat": 26.124444444,
+    "lon": -80.249444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "61af87f4-16ee-4431-8504-cc06187079fb"
+  },
+  "0hV7aHlpeyGVh6bhaghVTJ": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "4tujQJicOnuZRLiBFdp3Ou": {
+    "place": "Detroit",
+    "country": "United States",
+    "lat": 42.331666666,
+    "lon": -83.0475,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "9e839dc3-55f3-4492-ad0e-a1a2e84275e2"
+  },
+  "1SsVqqC31h54Hg08g7uQhM": {
+    "place": "South Korea",
+    "country": "South Korea",
+    "lat": 36.0,
+    "lon": 128.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b1c58e6a-2e9a-4502-8724-5571b47292ad"
+  },
+  "0Y30TbA4p8SAfCzy2AFBa8": {
+    "place": "San Juan",
+    "country": "Puerto Rico",
+    "lat": 18.465277777,
+    "lon": -66.116666666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "87295375-9be1-40f1-b151-3b5cd47befdb"
+  },
+  "3gGUMEwIX6XodWsYEvKSal": {
+    "place": "Birmingham",
+    "country": "United States",
+    "lat": 33.5175,
+    "lon": -86.809444444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "e3928973-a746-401b-ad79-0b27a9f4ed7d"
+  },
+  "1MUPBuckdoveSDQgvkm9jC": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "5zqRdlPXeCIuxgaPimSKXj": {
+    "place": "Lagos",
+    "country": "Lagos",
+    "lat": 6.456111111,
+    "lon": 3.393611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "59e42031-8153-471a-a375-9b3183cc89a0"
+  },
+  "3qiHUAX7zY4Qnjx8TNUzVx": {
+    "place": "Irvine",
+    "country": "United States",
+    "lat": 33.684166666,
+    "lon": -117.7925,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "9e6a6a2f-f696-4cc0-87f1-e4f712e46802"
+  },
+  "68DWke2VjdDmA75aJX5C57": {
+    "place": "Gadsden",
+    "country": "United States",
+    "lat": 34.010147,
+    "lon": -86.010356,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "13513a8a-e9a8-4367-b9e4-410fef5bed3a"
+  },
+  "5Berubt6ysOy2LCMyqhmXP": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "93cc3f11-751a-48d4-aaaf-ebad6cd0526d"
+  },
+  "0A0FS04o6zMoto8OKPsDwY": {
+    "place": "Compton",
+    "country": "United States",
+    "lat": 33.896666666,
+    "lon": -118.225,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6b1cf581-17a9-42c3-927b-d1e2797b1695"
+  },
+  "1cNDP5yjU5vjeR8qMf4grg": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "59d6cea7-3771-4ce6-8c02-395ac5ba927a"
+  },
+  "6Ha4aES39QiVjR0L2lwuwq": {
+    "place": "Memphis",
+    "country": "United States",
+    "lat": 35.146111111,
+    "lon": -90.051944444,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "b02ec63e-e78d-43e5-a594-462e95036e8d"
+  },
+  "64tJ2EAv1R6UaZqc4iOCyj": {
+    "place": "Japan",
+    "country": "Japan",
+    "lat": 35.0,
+    "lon": 136.0,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "df6c619f-4334-43e2-8b6a-4a32af1e4f85"
+  },
+  "3HiuzBlSW7pGDXlSFMhO2g": {
+    "place": "Chicago",
+    "country": "United States",
+    "lat": 41.881944444,
+    "lon": -87.627777777,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "3f334aae-57d4-4787-a048-beec335d47e0"
+  },
+  "7LvoDJUNGnOrPdGRzVtOJ9": {
+    "place": "Brooklyn",
+    "country": "United States",
+    "lat": 40.650833333,
+    "lon": -73.949722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "1d6b30fe-1565-4a6c-b9e7-3ffa76f6514f"
+  },
+  "5yPzzu25VzEk8qrGTLIrE1": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "79c9b9a6-4b78-4738-8b81-95b066321ea9"
+  },
+  "1xr2G8Hlx4QWmT9HaUbmoO": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "f9788bf2-2317-4a9c-9649-6e168d2249e0"
+  },
+  "6M6XXCcO5gI68XpIlrUL3Z": {
+    "place": "Nottingham",
+    "country": "Nottingham",
+    "lat": 52.955,
+    "lon": -1.149166666,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "6e3dad50-bc58-4050-9b54-94670e3c0bd3"
+  },
+  "50co4Is1HCEo8bhOyUWKpn": {
+    "place": "Atlanta",
+    "country": "United States",
+    "lat": 33.754444444,
+    "lon": -84.389722222,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "800760de-bdf8-43a2-8fe0-44a2401a5515"
+  },
+  "7wlFDEWiM5OoIAt8RSli8b": {
+    "place": "Baton Rouge",
+    "country": "United States",
+    "lat": 30.4475,
+    "lon": -91.178611111,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "127d8614-0876-4408-886c-6f110b047a78"
+  },
+  "79TnwjflPC7KqP9O4pXpDQ": {
+    "place": null,
+    "country": null,
+    "lat": null,
+    "lon": null,
+    "source": "unresolved"
+  },
+  "6gtIvaBCrswcltfMt67LMn": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "ee1be612-25a0-4268-9536-3145f06e7f12"
+  },
+  "5AbLpsnTQVNB3OEadYiVrK": {
+    "place": "London",
+    "country": "London",
+    "lat": 51.507222222,
+    "lon": -0.1275,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "eb07b315-9399-4e4c-8c16-3e97ec66d1ce"
+  },
+  "3qBKjEOanahMxlRojwCzhI": {
+    "place": "Bakersfield",
+    "country": null,
+    "lat": 35.373333333,
+    "lon": -119.018888888,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "870df552-bcb0-46a6-b17b-f5f04ff04936"
+  },
+  "3Elp2e4JVkT08bnUbE1AZw": {
+    "place": "United States",
+    "country": "United States",
+    "lat": 39.828175,
+    "lon": -98.5795,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "a43ff6aa-ae9d-46b2-9808-412ea51ff8d4"
+  },
+  "2qxJFvFYMEDqd7ui6kSAcq": {
+    "place": "Saratov",
+    "country": "Germany",
+    "lat": 51.53,
+    "lon": 46.035,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "56c4b861-0922-4c3a-a9b9-3bfcb00f8274"
+  },
+  "6R2AgShAYIEOkulvSSant5": {
+    "place": "Beijing",
+    "country": "Beijing",
+    "lat": 39.90403,
+    "lon": 116.407526,
+    "source": "musicbrainz:spotify-relation",
+    "mbid": "386e91eb-04a4-4e0c-af69-976976d884d4"
+  }
+}

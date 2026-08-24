@@ -44,6 +44,38 @@ I've been teaching origami since I was in middle school. Here are some pics of m
     From left to right: "Me in 8th grade teaching origami to kids in South Carolina", "Me in 9th grade teaching origami to kids in Kenya", "Me in 10th grade teaching origami to kids in Myanmar"
 </div>
 
+# Music
+
+I wondered where the music I listen to actually comes from, so I pulled my
+Spotify library, looked up every artist's hometown, and put it on a globe.
+Cities glow orange; states and countries pick up colour from the artists inside
+them. Drag to spin it, hover anything for the details.
+
+<link rel="stylesheet" href="{{ '/assets/css/spotify_globe.css' | relative_url }}">
+
+<div class="sg-wrap" id="spotify-globe">
+  <div class="sg-spans"></div>
+  <div class="sg-main">
+    <div class="sg-stage"><span class="sg-status">loading…</span></div>
+    <aside class="sg-detail" aria-live="polite"></aside>
+  </div>
+  <div class="sg-legend"></div>
+  <p class="sg-caption"></p>
+  <details class="sg-details">
+    <summary>See the numbers</summary>
+    <table class="sg-table">
+      <thead>
+        <tr><th>City</th><th>Country</th><th class="sg-num">Artists</th><th>Who</th></tr>
+      </thead>
+      <tbody class="sg-table-body"></tbody>
+    </table>
+  </details>
+  <button type="button" class="sg-tune-toggle" aria-expanded="false">tune scale</button>
+  <div class="sg-tuner" hidden></div>
+</div>
+
+<script src="{{ '/assets/js/spotify_globe.js' | relative_url }}" defer></script>
+
 # Basketball
 
 I've been playing basketball since around second grade, and I currently play club

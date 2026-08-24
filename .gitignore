@@ -16,3 +16,10 @@ Dockerfile
 Gemfile.lock
 Dockerfile
 Dockerfile
+
+# spotify globe pipeline: local-only inputs and credentials
+tools/spotify_globe/.env
+tools/spotify_globe/data/
+tools/spotify_globe/geo_src/
+__pycache__/
+*.pyc
