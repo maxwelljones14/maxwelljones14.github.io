@@ -1,5 +1,18 @@
 {% assign img_path = include.path | remove: '.jpg' | remove: '.jpeg' | remove: '.png' | remove: '.tiff' | remove: '.gif' %}
 
+{% comment %}
+  Only advertise .webp variants for formats jekyll-imagemagick is actually
+  configured to convert. `.gif` is commented out of site.imagemagick.input_formats
+  (animated GIFs don't survive the conversion), so emitting a <source> for one
+  points the browser at files that were never generated -- a guaranteed 404 that
+  only the onerror fallback rescues.
+{% endcomment %}
+{% assign img_ext = include.path | split: '.' | last | prepend: '.' | downcase %}
+{% assign responsive_ok = false %}
+{% if site.imagemagick.enabled and site.imagemagick.input_formats contains img_ext %}
+  {% assign responsive_ok = true %}
+{% endif %}
+
 <figure
   {% if include.slot %}
     slot="{{ include.slot }}"
@@ -11,7 +24,7 @@
       See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
       https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
     -->
-    {% if site.imagemagick.enabled %}
+    {% if responsive_ok %}
       <source
         class="responsive-img-srcset"
         srcset="{% for i in site.imagemagick.widths %}{{ img_path | relative_url }}-{{ i }}.webp {{i}}w,{% endfor %}"
