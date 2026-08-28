@@ -41,6 +41,9 @@
   ];
   const US_ISO = "USA";
 
+  // globe.gl draws the sphere at radius 100; altitude = distance / radius - 1
+  const GLOBE_R = 100;
+
   /* -- tunables ----------------------------------------------------------- *
    * curve: how a raw artist count becomes a 0..1 intensity.
    *   linear -- v / max. Honest, but one big city flattens everything else.
@@ -553,6 +556,83 @@
     stage.addEventListener("pointerup", () => {
       if (cfg.autoRotate) globe.controls().autoRotate = true;
     });
+
+    /* -- zoom ---------------------------------------------------------------
+     * Bounds first. OrbitControls defaults let you dolly out to distance 10000
+     * (altitude ~99), which on a stray two-finger swipe leaves the globe a dot
+     * in the middle of the canvas with no obvious way back. globe.gl's globe
+     * radius is 100 and altitude = distance / radius - 1.
+     */
+    const ZOOM_MIN = 0.18; // close enough to read city labels
+    const ZOOM_MAX = 3.2; // whole globe, comfortably framed
+    globe.controls().minDistance = GLOBE_R * (1 + ZOOM_MIN);
+    globe.controls().maxDistance = GLOBE_R * (1 + ZOOM_MAX);
+
+    function zoomTo(alt, ms) {
+      globe.pointOfView(
+        { altitude: Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, alt)) },
+        ms == null ? 180 : ms
+      );
+    }
+    function zoomBy(factor) {
+      zoomTo(globe.pointOfView().altitude * factor);
+    }
+
+    /* Safari's pinch problem.
+     *
+     * Chromium honours `touch-action: none` on the canvas, so OrbitControls
+     * receives the two-finger stream and pinch-to-zoom works. iOS Safari does
+     * not: pinch is a browser-level gesture there, `touch-action` does not
+     * suppress it, and once Safari claims the gesture it stops delivering the
+     * second pointer -- so the *page* zooms and the globe never moves.
+     *
+     * Safari signals this through the non-standard gesture* events, which are
+     * both how we stop the page zoom and how we drive the globe instead.
+     * Chromium and Firefox never fire them, so their working path is untouched.
+     * The maxTouchPoints guard keeps desktop Safari out of it: a trackpad pinch
+     * there also fires gesture* events, but OrbitControls already handles that
+     * via ctrl+wheel and would otherwise zoom twice.
+     */
+    let gestureStartAlt = null;
+    const touchDevice = (navigator.maxTouchPoints || 0) > 0;
+    stage.addEventListener("gesturestart", (ev) => {
+      ev.preventDefault();
+      gestureStartAlt = globe.pointOfView().altitude;
+      globe.controls().autoRotate = false;
+    }, { passive: false });
+    stage.addEventListener("gesturechange", (ev) => {
+      ev.preventDefault();
+      if (gestureStartAlt == null || !touchDevice) return;
+      // ev.scale is cumulative from gesturestart; >1 means fingers spread
+      zoomTo(gestureStartAlt / Math.max(ev.scale || 1, 0.05), 0);
+    }, { passive: false });
+    stage.addEventListener("gestureend", (ev) => {
+      ev.preventDefault();
+      gestureStartAlt = null;
+      if (cfg.autoRotate) globe.controls().autoRotate = true;
+    }, { passive: false });
+
+    /* Explicit zoom buttons. Gesture support varies across mobile browsers in
+     * ways that cannot all be verified, and these also help anyone who does not
+     * realise the globe responds to scroll.
+     */
+    const zoomUI = document.createElement("div");
+    zoomUI.className = "sg-zoom";
+    zoomUI.setAttribute("role", "group");
+    zoomUI.setAttribute("aria-label", "Zoom the globe");
+    zoomUI.innerHTML =
+      `<button type="button" class="sg-zoom-btn" data-z="in" aria-label="Zoom in">+</button>` +
+      `<button type="button" class="sg-zoom-btn" data-z="out" aria-label="Zoom out">&minus;</button>`;
+    zoomUI.addEventListener("click", (ev) => {
+      const btn = ev.target.closest(".sg-zoom-btn");
+      if (btn) zoomBy(btn.dataset.z === "in" ? 0.65 : 1 / 0.65);
+    });
+    // The buttons sit inside .sg-stage, so their pointer events would otherwise
+    // bubble to the stage's spin handlers and restart rotation on every tap.
+    ["pointerdown", "pointerup"].forEach((t) =>
+      zoomUI.addEventListener(t, (ev) => ev.stopPropagation())
+    );
+    stage.appendChild(zoomUI);
 
     function resize() {
       const w = stage.clientWidth || mount.clientWidth;

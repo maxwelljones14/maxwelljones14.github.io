@@ -18,6 +18,7 @@ A rotating globe on `/hobbies` showing where the artists you listen to are from.
 - **Search** — type a city, state or country; the globe flies there and pins its
   artist list. Picking a country also brings up its states.
 - **Spin toggle** — auto-rotation on/off, visible next to the search box.
+- **Zoom** — scroll or pinch, plus explicit +/− buttons on the globe.
 - **Hover panel** — hovering any city, state or country lists *every* artist
   from there with the number of their songs in your library. Click to pin.
 - **Follows the site theme**, which now defaults to dark.
