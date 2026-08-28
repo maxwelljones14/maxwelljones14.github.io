@@ -14,6 +14,11 @@
   --sg-accent: var(--global-theme-color, #2a78d6);
 
   margin: 1.5rem 0 2rem;
+  /* al-folio's navbar is `fixed-top` and 57px tall, so anything scrolled flush
+     to the top of the viewport lands underneath it. Without this, the toolbar
+     -- search box and spin toggle -- ends up behind the navbar and unclickable
+     after an anchor jump or scrollIntoView. */
+  scroll-margin-top: 72px;
 }
 
 @media (prefers-color-scheme: dark) {
