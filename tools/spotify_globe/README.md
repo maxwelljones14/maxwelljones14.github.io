@@ -122,6 +122,19 @@ Each span normalises its colour scale against its own distribution, so a
 four-week view (18 artists) is just as readable as an all-time view whose top
 country holds 402.
 
+## Search and spin
+
+The toolbar above the globe has a search box and a spin checkbox.
+
+Search covers cities, states and countries at once, limited to places with
+artists in the active timespan. It folds case and accents (`sao paulo` finds
+*São Paulo*) and ranks by match quality then artist count, so `london` puts
+London UK above London, Canada. Arrow keys and Enter work.
+
+Selecting a result flies there, pins the artist panel, and stops the spin.
+Selecting a country also brings up its states, fetching `states_world.geojson`
+first if that country isn't the US.
+
 ## Hovering
 
 Hovering a city, state or country fills the panel beside the globe with **every**

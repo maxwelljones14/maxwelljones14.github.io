@@ -15,6 +15,9 @@ A rotating globe on `/hobbies` showing where the artists you listen to are from.
 - **State and country fills** (blue) shaded by artist count. States are drawn on
   top of countries, so the US/UK/Canada get real within-country detail.
 - **Timespan toggle** — all time (default), ~1 year, ~6 months, ~4 weeks.
+- **Search** — type a city, state or country; the globe flies there and pins its
+  artist list. Picking a country also brings up its states.
+- **Spin toggle** — auto-rotation on/off, visible next to the search box.
 - **Hover panel** — hovering any city, state or country lists *every* artist
   from there with the number of their songs in your library. Click to pin.
 - **Follows the site theme**, which now defaults to dark.
@@ -228,10 +231,18 @@ view centred on North America.
 **Keep the JS to ES2017-era syntax.** `jekyll-minifier` runs it through the
 `uglifier` gem, whose bundled uglify-js predates optional chaining: a single
 `navigator.clipboard?.writeText()` failed the entire deploy with
-`Unexpected token: punc (.)`. Nothing else in the file tripped it — the parser
-reached line 696 before dying — but avoid `?.`, `??` and anything newer. Check
-with `acorn.parse(src, {ecmaVersion: 2017})` before pushing; the CI minifier is
-the only thing that will tell you otherwise, and only after a failed deploy.
+`Unexpected token: punc (.)`. Avoid `?.`, `??` and anything newer.
+
+Don't guess at what it accepts — **uglify-js 3.12.8 reproduces the CI parser**
+(it rejects `?.` exactly like the deploy did, while accepting `const`, arrows,
+template literals and `async`/`await`). Before pushing a JS change:
+
+```bash
+npx uglify-js@3.12.8 assets/js/spotify_globe.js -o /dev/null
+```
+
+Silence means the deploy will survive. `acorn.parse(src, {ecmaVersion: 2017})`
+is a decent second opinion but does not model this specific minifier.
 
 **Adding a scope invalidates the cached token.** A refresh keeps the old,
 narrower grant, so the new endpoints 403 with no obvious cause. `get_token()`

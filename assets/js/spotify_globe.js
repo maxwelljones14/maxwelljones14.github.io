@@ -190,6 +190,21 @@
     });
   }
 
+  /**
+   * Casefold and strip accents, so "sao paulo" matches "São Paulo" and
+   * "dusseldorf" matches "Düsseldorf". Falls back gracefully on engines
+   * without Unicode property escapes in normalize.
+   */
+  function foldText(s) {
+    let out = String(s == null ? "" : s).toLowerCase();
+    try {
+      out = out.normalize("NFD").replace(/[̀-ͯ]/g, "");
+    } catch (e) {
+      /* normalize is universally supported; this is belt and braces */
+    }
+    return out.trim();
+  }
+
   function esc(s) {
     return String(s == null ? "" : s).replace(
       /[&<>"']/g,
@@ -429,44 +444,50 @@
           &middot; ${pinned ? "pinned, click the globe to release" : "click to pin"}</p>`;
     }
 
-    function showDetail(kind, obj) {
-      if (!detail) return;
-      const spanLabel = (SPANS.find((s) => s.key === span) || {}).label || span;
+    /**
+     * Normalise anything selectable -- a city point, a hovered polygon, or a
+     * search hit -- into { title, where, row }, so one renderer serves all
+     * three entry points.
+     */
+    function describe(kind, obj) {
+      if (!obj) return null;
+      if (kind === "city") return { title: obj.place, where: obj.country, row: obj };
+      const r = resolveRegion(obj);
+      return { title: r.title, where: r.where, row: r.row };
+    }
 
-      if (!obj) {
-        detail.innerHTML = `<p class="sg-detail-empty">Hover a country, state or
-          city to see every artist from there.</p>`;
+    function showDetail(desc) {
+      if (!detail) return;
+      if (!desc || !desc.row) {
+        detail.innerHTML = `<p class="sg-detail-empty">Hover or search a country,
+          state or city to see every artist from there.</p>`;
         detail.classList.remove("is-pinned");
         return;
       }
-      const resolved = kind === "city" ? null : resolveRegion(obj);
-      const row = kind === "city" ? obj : resolved.row;
-      const list = artistsOf(row);
+      const list = artistsOf(desc.row);
       if (!list.length) return;
 
-      const title = kind === "city" ? obj.place : resolved.title;
-      const where = kind === "city" ? obj.country : resolved.where;
+      const spanLabel = (SPANS.find((s) => s.key === span) || {}).label || span;
       const subtitle =
         `${list.length} artist${list.length === 1 ? "" : "s"}` +
-        (where ? ` · ${where}` : "") +
+        (desc.where ? ` · ${desc.where}` : "") +
         ` · ${spanLabel}`;
 
-      detail.innerHTML = detailHTML(title, subtitle, list);
+      detail.innerHTML = detailHTML(desc.title, subtitle, list);
       detail.classList.toggle("is-pinned", !!pinned);
     }
 
     function hoverHandler(kind) {
       return (obj) => {
         if (pinned) return;
-        showDetail(kind, obj || null);
+        showDetail(describe(kind, obj));
       };
     }
     function clickHandler(kind) {
       return (obj) => {
-        const same =
-          pinned && pinned.kind === kind && pinned.obj === obj;
-        pinned = same || !obj ? null : { kind, obj };
-        showDetail(kind, pinned ? pinned.obj : obj || null);
+        const same = pinned && pinned.kind === kind && pinned.obj === obj;
+        pinned = same || !obj ? null : { kind, obj, desc: describe(kind, obj) };
+        showDetail(pinned ? pinned.desc : describe(kind, obj));
       };
     }
 
@@ -500,7 +521,7 @@
       .onPointHover(hoverHandler("city"))
       .onPointClick(clickHandler("city"));
 
-    showDetail(null, null); // start with the empty prompt
+    showDetail(null); // start with the empty prompt
 
     // A plain coloured sphere, not a photo of Earth -- satellite imagery
     // competes with the data for attention and wrecks the colour scale.
@@ -574,12 +595,13 @@
       // is no longer drawn.
       if (
         pinned &&
+        pinned.obj &&
         pinned.kind === "region" &&
         pinned.obj.properties.layer === "state" &&
         !stateShown(pinned.obj)
       ) {
         pinned = null;
-        showDetail(null, null);
+        showDetail(null);
       }
       globe
         .polygonsData(polygons())
@@ -600,7 +622,15 @@
       if (pinned && !nOf(pinned.kind === "city" ? pinned.obj : resolveRegion(pinned.obj).row)) {
         pinned = null;
       }
-      showDetail(pinned ? pinned.kind : null, pinned ? pinned.obj : null);
+      rebuildSearchIndex();
+      closeResults();
+      // a pin survives a span change, but its artist list must be re-read
+      if (pinned) {
+        // a search pin has no polygon behind it; re-read its row for the span
+        if (pinned.obj) pinned.desc = describe(pinned.kind, pinned.obj);
+        else if (!nOf(pinned.desc.row)) pinned = null;
+      }
+      showDetail(pinned ? pinned.desc : null);
       mount.querySelectorAll(".sg-span-btn").forEach((btn) => {
         const on = btn.dataset.span === span;
         btn.classList.toggle("is-active", on);
@@ -625,6 +655,224 @@
         const btn = ev.target.closest(".sg-span-btn");
         if (btn) setSpan(btn.dataset.span);
       });
+    }
+
+    /* -- search -------------------------------------------------------------
+     * One flat index over cities, states and countries. It is rebuilt whenever
+     * the timespan changes, because a place with no artists in the active span
+     * has nothing to show and shouldn't be offered.
+     */
+    let searchIndex = [];
+    function rebuildSearchIndex() {
+      const idx = [];
+      allCities.forEach((c) => {
+        if (nOf(c) > 0) {
+          idx.push({ kind: "city", name: c.place || "", where: c.country || "",
+                     lat: c.lat, lon: c.lon, row: c, alt: 1.05 });
+        }
+      });
+      Object.keys(stateCounts).forEach((sid) => {
+        const r = stateCounts[sid];
+        if (nOf(r) > 0 && r.lat != null) {
+          idx.push({ kind: "state", name: r.name || sid, where: r.country || "",
+                     lat: r.lat, lon: r.lon, row: r, iso: r.iso, alt: 1.5 });
+        }
+      });
+      Object.keys(countryCounts).forEach((iso) => {
+        const r = countryCounts[iso];
+        if (nOf(r) > 0 && r.lat != null) {
+          idx.push({ kind: "country", name: r.name || iso, where: "",
+                     lat: r.lat, lon: r.lon, row: r, iso: iso, alt: 1.9 });
+        }
+      });
+      idx.forEach((e) => {
+        e.key = foldText(e.name);
+        e.whereKey = foldText(e.where);
+        e.count = nOf(e.row);
+      });
+      searchIndex = idx;
+    }
+    rebuildSearchIndex();
+
+    /** Countries whose admin-1 shapes exist in the data (US file + world file). */
+    const countriesWithStates = new Set(
+      Object.keys(stateCounts)
+        .map((sid) => stateCounts[sid].iso)
+        .filter(Boolean)
+    );
+
+    function searchFor(qRaw) {
+      const q = foldText(qRaw);
+      if (q.length < 2) return [];
+      const hits = [];
+      for (const e of searchIndex) {
+        // rank: name prefix beats name substring beats a match on the parent
+        let rank = -1;
+        if (e.key.startsWith(q)) rank = 0;
+        else if (e.key.indexOf(q) !== -1) rank = 1;
+        else if (e.whereKey.indexOf(q) === 0) rank = 2;
+        if (rank >= 0) hits.push({ e, rank });
+      }
+      hits.sort(
+        (a, b) =>
+          a.rank - b.rank ||
+          b.e.count - a.e.count ||
+          a.e.name.length - b.e.name.length
+      );
+      return hits.slice(0, 8).map((h) => h.e);
+    }
+
+    const searchWrap = mount.querySelector(".sg-search");
+    const searchInput = mount.querySelector(".sg-search-input");
+    const searchList = mount.querySelector(".sg-search-results");
+    let activeHit = -1;
+    let currentHits = [];
+
+    function closeResults() {
+      if (!searchList) return;
+      searchList.hidden = true;
+      searchList.innerHTML = "";
+      activeHit = -1;
+      currentHits = [];
+      if (searchInput) searchInput.setAttribute("aria-expanded", "false");
+    }
+
+    function renderResults(hits) {
+      if (!searchList) return;
+      currentHits = hits;
+      activeHit = -1;
+      if (!hits.length) {
+        searchList.innerHTML = `<li class="sg-search-empty">no match in this timespan</li>`;
+        searchList.hidden = false;
+        searchInput.setAttribute("aria-expanded", "true");
+        return;
+      }
+      searchList.innerHTML = hits
+        .map(
+          (e, i) =>
+            `<li role="option" id="sg-hit-${i}" data-i="${i}" aria-selected="false">
+               <span class="sg-hit-kind">${e.kind}</span>
+               <span class="sg-hit-name">${esc(e.name)}</span>
+               ${e.where ? `<span class="sg-hit-where">${esc(e.where)}</span>` : ""}
+               <span class="sg-hit-n">${e.count}</span>
+             </li>`
+        )
+        .join("");
+      searchList.hidden = false;
+      searchInput.setAttribute("aria-expanded", "true");
+    }
+
+    function highlight(i) {
+      const items = searchList ? searchList.querySelectorAll("li[data-i]") : [];
+      items.forEach((el, k) => {
+        const on = k === i;
+        el.classList.toggle("is-active", on);
+        el.setAttribute("aria-selected", String(on));
+      });
+      activeHit = i;
+      if (searchInput) {
+        searchInput.setAttribute("aria-activedescendant", i >= 0 ? `sg-hit-${i}` : "");
+      }
+      if (items[i]) items[i].scrollIntoView({ block: "nearest" });
+    }
+
+    /**
+     * Fly to a search hit and pin its artist list.
+     *
+     * Picking a country also brings up its states when the data has them, which
+     * is the point of searching a country rather than just hovering it. That can
+     * mean fetching the rest-of-world geometry and switching the state layer, so
+     * this is async.
+     */
+    async function gotoHit(e) {
+      if (!e) return;
+
+      // spinning would immediately carry the target back off screen
+      setSpin(false);
+
+      const wantStates =
+        (e.kind === "country" && countriesWithStates.has(e.iso)) ||
+        e.kind === "state";
+      if (wantStates) {
+        const iso = e.iso || (e.row && e.row.iso);
+        const needWorld = iso !== US_ISO;
+        if (cfg.show.states === STATES_NONE || (needWorld && cfg.show.states === STATES_US)) {
+          const ok = needWorld ? await loadWorldStates() : true;
+          if (ok) {
+            cfg.show.states = needWorld ? STATES_ALL : STATES_US;
+            syncTuner();
+          }
+        }
+      }
+
+      refresh();
+      globe.pointOfView({ lat: e.lat, lng: e.lon, altitude: e.alt }, 900);
+
+      pinned = { kind: e.kind === "city" ? "city" : "region", obj: null,
+                 desc: { title: e.name, where: e.where, row: e.row } };
+      showDetail(pinned.desc);
+
+      if (searchInput) searchInput.value = e.name;
+      closeResults();
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener("input", () => {
+        const v = searchInput.value.trim();
+        if (v.length < 2) return closeResults();
+        renderResults(searchFor(v));
+      });
+      searchInput.addEventListener("keydown", (ev) => {
+        if (ev.key === "Escape") return closeResults();
+        if (!currentHits.length) return;
+        if (ev.key === "ArrowDown") {
+          ev.preventDefault();
+          highlight((activeHit + 1) % currentHits.length);
+        } else if (ev.key === "ArrowUp") {
+          ev.preventDefault();
+          highlight((activeHit - 1 + currentHits.length) % currentHits.length);
+        } else if (ev.key === "Enter") {
+          ev.preventDefault();
+          gotoHit(currentHits[activeHit >= 0 ? activeHit : 0]);
+        }
+      });
+      searchInput.addEventListener("focus", () => {
+        const v = searchInput.value.trim();
+        if (v.length >= 2) renderResults(searchFor(v));
+      });
+    }
+    if (searchList) {
+      searchList.addEventListener("mousedown", (ev) => {
+        // mousedown, not click: blur would close the list first
+        const li = ev.target.closest("li[data-i]");
+        if (li) {
+          ev.preventDefault();
+          gotoHit(currentHits[+li.dataset.i]);
+        }
+      });
+    }
+    document.addEventListener("click", (ev) => {
+      if (searchWrap && !searchWrap.contains(ev.target)) closeResults();
+    });
+
+    // -- spin toggle (the visible one; the tuner has a mirror of it) --------
+    const spinToggle = mount.querySelector(".sg-spin-toggle");
+    function setSpin(on) {
+      cfg.autoRotate = on;
+      globe.controls().autoRotate = on;
+      if (spinToggle) spinToggle.checked = on;
+      syncTuner();
+    }
+    /** Keep the tuning panel's copy of the shared state honest. */
+    function syncTuner() {
+      const t = mount.querySelector('.sg-tuner input[data-k="autoRotate"]');
+      if (t) t.checked = cfg.autoRotate;
+      const s = mount.querySelector('.sg-tuner select[data-k="show.states"]');
+      if (s) s.value = cfg.show.states;
+    }
+    if (spinToggle) {
+      spinToggle.checked = cfg.autoRotate;
+      spinToggle.addEventListener("change", () => setSpin(spinToggle.checked));
     }
 
     // -- legend ------------------------------------------------------------
@@ -692,7 +940,7 @@
     renderTable();
 
     // -- tuning panel ------------------------------------------------------
-    buildTuner(mount, cfg, refresh, globe, loadWorldStates);
+    buildTuner(mount, cfg, refresh, globe, loadWorldStates, setSpin);
     status("");
   }
 
@@ -701,7 +949,7 @@
    * clicked -- this exists so the scale can be dialled in against real numbers
    * and then baked into DEFAULTS, not as a permanent visitor-facing feature.
    */
-  function buildTuner(mount, cfg, refresh, globe, loadWorldStates) {
+  function buildTuner(mount, cfg, refresh, globe, loadWorldStates, onAutoRotate) {
     const panel = mount.querySelector(".sg-tuner");
     const toggle = mount.querySelector(".sg-tune-toggle");
     if (!panel || !toggle) return;
@@ -783,7 +1031,7 @@
 
       const out = el.parentElement.querySelector("output");
       if (out) out.textContent = val;
-      if (path === "autoRotate") globe.controls().autoRotate = val;
+      if (path === "autoRotate") onAutoRotate(val);
 
       // "all states" needs geometry that isn't on the page yet
       if (path === "show.states" && val === STATES_ALL) {

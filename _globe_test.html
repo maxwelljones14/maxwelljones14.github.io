@@ -38,7 +38,20 @@
     </div>
 
     <div class="sg-wrap" id="spotify-globe">
-      <div class="sg-spans"></div>
+      <div class="sg-toolbar">
+        <div class="sg-spans"></div>
+        <div class="sg-tools">
+          <div class="sg-search">
+            <input type="search" class="sg-search-input" autocomplete="off"
+                   placeholder="Search a city, state or country…"
+                   aria-label="Search for a city, state or country"
+                   role="combobox" aria-expanded="false" aria-autocomplete="list"
+                   aria-controls="sg-search-results">
+            <ul class="sg-search-results" id="sg-search-results" role="listbox" hidden></ul>
+          </div>
+          <label class="sg-spin"><input type="checkbox" class="sg-spin-toggle" checked> spin</label>
+        </div>
+      </div>
       <div class="sg-main">
         <div class="sg-stage"><span class="sg-status">loading…</span></div>
         <aside class="sg-detail" aria-live="polite"></aside>

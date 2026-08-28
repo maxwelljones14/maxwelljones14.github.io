@@ -151,6 +151,24 @@ def precision_of(place: str | None, country_names: set) -> str:
     return "city"
 
 
+def rep_point(geom) -> tuple[float, float] | None:
+    """
+    A (lat, lon) guaranteed to sit inside the shape.
+
+    representative_point() rather than centroid() because a centroid can fall
+    outside a concave or multipart shape -- the centroid of the USA lands in the
+    Pacific once Alaska and Hawaii are in the mix. For multipart geometry, use
+    the largest part, so a country flies to its mainland rather than an island.
+    """
+    try:
+        if isinstance(geom, MultiPolygon):
+            geom = max(geom.geoms, key=lambda g: g.area)
+        pt = geom.representative_point()
+        return round(pt.y, 4), round(pt.x, 4)
+    except Exception:
+        return None
+
+
 def songs_of(artist: dict) -> int:
     """
     How many distinct songs by this artist are in the library.
@@ -389,13 +407,37 @@ def main():
         )
     city_rows.sort(key=lambda c: -c["spans"].get(ALL_SPAN, {}).get("c", 0))
 
+    # A point to fly the camera to when a region is picked from the page's
+    # search box. Cities already have real coordinates; regions need one derived
+    # from their geometry.
+    country_pt, country_name = {}, {}
+    for geom, props in zip(country_geoms, country_props):
+        iso = props.get("ISO_A3") or props.get("ADM0_A3")
+        if iso and iso != "-99":
+            country_pt[iso] = rep_point(geom)
+            country_name[iso] = props.get("ADMIN") or props.get("NAME")
+    state_pt = {}
+    for geom, props in zip(state_geoms, state_props):
+        sid = props.get("iso_3166_2") or f"{props.get('adm0_a3')}-{props.get('name')}"
+        state_pt[sid] = rep_point(geom)
+
+    def with_point(row, pt):
+        if pt:
+            row["lat"], row["lon"] = pt
+        return row
+
     country_rows = {
-        iso: {"spans": pack(by_span)}
+        iso: with_point(
+            {"name": country_name.get(iso, iso), "spans": pack(by_span)},
+            country_pt.get(iso),
+        )
         for iso, by_span in country_counts.items()
         if pack(by_span)
     }
     state_rows = {
-        sid: {**state_meta.get(sid, {}), "spans": pack(by_span)}
+        sid: with_point(
+            {**state_meta.get(sid, {}), "spans": pack(by_span)}, state_pt.get(sid)
+        )
         for sid, by_span in state_counts.items()
         if pack(by_span)
     }

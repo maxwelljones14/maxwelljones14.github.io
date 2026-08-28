@@ -49,12 +49,28 @@ I've been teaching origami since I was in middle school. Here are some pics of m
 I wondered where the music I listen to actually comes from, so I pulled my
 Spotify library, looked up every artist's hometown, and put it on a globe.
 Cities glow orange; states and countries pick up colour from the artists inside
-them. Drag to spin it, hover anything for the details.
+them. Drag to spin it, hover anything for the details, or search for a place to
+fly straight to it.
 
 <link rel="stylesheet" href="{{ '/assets/css/spotify_globe.css' | relative_url }}">
 
 <div class="sg-wrap" id="spotify-globe">
-  <div class="sg-spans"></div>
+  <div class="sg-toolbar">
+    <div class="sg-spans"></div>
+    <div class="sg-tools">
+      <div class="sg-search">
+        <input type="search" class="sg-search-input" autocomplete="off"
+               placeholder="Search a city, state or country…"
+               aria-label="Search for a city, state or country"
+               role="combobox" aria-expanded="false" aria-autocomplete="list"
+               aria-controls="sg-search-results">
+        <ul class="sg-search-results" id="sg-search-results" role="listbox" hidden></ul>
+      </div>
+      <label class="sg-spin">
+        <input type="checkbox" class="sg-spin-toggle" checked> spin
+      </label>
+    </div>
+  </div>
   <div class="sg-main">
     <div class="sg-stage"><span class="sg-status">loading…</span></div>
     <aside class="sg-detail" aria-live="polite"></aside>
