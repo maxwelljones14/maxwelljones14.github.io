@@ -309,20 +309,50 @@ only one. There's no quota extension to request.
 
 ---
 
+## 6b. Linking straight to the globe
+
+Two anchors exist on the hobbies page, both verified to land clear of the
+fixed navbar:
+
+| Link | Lands on |
+|---|---|
+| `https://maxwelljon.es/hobbies/#music` | the Music heading and its intro text |
+| `https://maxwelljon.es/hobbies/#spotify-globe` | the globe itself, toolbar first |
+
+`#music` is kramdown's auto-generated id for the `# Music` heading;
+`#spotify-globe` is the component's own wrapper, which carries the
+`scroll-margin-top` that clears the navbar.
+
 ## 7. Optional: real play counts
 
 Request the export at <https://www.spotify.com/account/privacy> → tick
 **Extended streaming history** → submit. It's free and arrives by email in
 **5–30 days**, so request it now even if you don't use it yet.
 
+**Tick "Extended streaming history", not "Account data".** They are separate
+checkboxes. Account data is a one-year summary with different field names; the
+importer now detects it and tells you to request the other one rather than
+silently reporting zero plays for everybody.
+
 When it lands, unzip it and run this *between* steps 1 and 2 of the pipeline:
 
 ```bash
 python3 import_extended_history.py ~/Downloads/my_spotify_data
+python3 enrich_hometowns.py && python3 build_globe_data.py
 ```
 
 The panel's per-artist number switches from "songs in my library" to lifetime
-plays automatically.
+plays automatically (`song_metric` in the JSON drives the label).
+
+**The path is dry-run tested**, against a synthetic export built from real
+artist names: plays imported, `song_metric` flipped to `plays`, and the hover
+lists re-sorted. That rehearsal caught two bugs worth knowing about:
+
+- The panel would have *displayed* play counts while still being *sorted* by
+  song counts — a list of zeros in an order the reader cannot see. Sorting now
+  uses `display_metric()`, the single function that decides what gets printed.
+- The wrong export produced a silent 0-match run that still set
+  `has_play_counts: true` and zeroed every artist. It now refuses to write.
 
 ---
 

@@ -182,6 +182,20 @@ def songs_of(artist: dict) -> int:
     return artist.get("saved_tracks", 0)
 
 
+def display_metric(artist: dict, has_plays: bool) -> int:
+    """
+    The number the hover panel prints beside an artist.
+
+    Must be the same value the lists are sorted by. Sorting by songs while
+    displaying plays produced a panel full of zeros in an order the reader
+    could not see -- caught by dry-running import_extended_history.py against a
+    synthetic export before the real one arrived.
+    """
+    if has_plays:
+        return int(artist.get("plays") or 0)
+    return songs_of(artist)
+
+
 def affinity(artist: dict) -> float:
     """
     A 0..1-ish 'how much do I like them' score.
@@ -332,7 +346,7 @@ def main():
         entry = {
             "idx": len(artist_table) - 1,
             "affinity": affinity(artist),
-            "songs": songs_of(artist),
+            "metric": display_metric(artist, has_plays),
         }
 
         grain = precision_of(artist.get("place"), country_names)
@@ -372,17 +386,16 @@ def main():
         into artist_table -- the hover panel shows all of them, so nothing is
         truncated here.
 
-        Ordered by song count, then by affinity as a tie-break. Sorting by
-        affinity alone (which is what this used to do) made the panel look
-        broken: it prints the song count beside each name, and a visible number
-        column in non-monotonic order reads as a bug even when the hidden
-        ordering is meaningful.
+        Ordered by whatever the panel actually displays -- play counts once the
+        GDPR export has been imported, distinct songs otherwise -- with affinity
+        as the tie-break. A visible number column in non-monotonic order reads
+        as a bug even when the hidden ordering is meaningful.
         """
         out = {}
         for span, entries in by_span.items():
             if not entries:
                 continue
-            ranked = sorted(entries, key=lambda a: (-a["songs"], -a["affinity"]))
+            ranked = sorted(entries, key=lambda a: (-a["metric"], -a["affinity"]))
             out[span] = {
                 "c": len(ranked),
                 "a": round(sum(a["affinity"] for a in ranked), 3),

@@ -67,7 +67,7 @@ def main():
 
     plays = defaultdict(int)
     ms_total = defaultdict(int)
-    entries = skipped = 0
+    entries = skipped = basic_format_rows = 0
 
     for path in files:
         try:
@@ -79,6 +79,13 @@ def main():
         for row in rows:
             name = row.get("master_metadata_album_artist_name")
             ms = row.get("ms_played") or 0
+            # Spotify offers two exports. "Account data" gives a 1-year summary
+            # with artistName/msPlayed; only "Extended streaming history" has
+            # the lifetime data and the fields below. Detect the wrong one
+            # rather than silently reporting zero plays for everybody.
+            if name is None and ("artistName" in row or "msPlayed" in row):
+                basic_format_rows += 1
+                continue
             if not name:
                 continue  # podcasts and local files have no artist
             entries += 1
@@ -88,6 +95,16 @@ def main():
             key = norm(name)
             plays[key] += 1
             ms_total[key] += ms
+
+    if basic_format_rows and not entries:
+        sys.exit(
+            f"\nThis looks like the *basic* account-data export "
+            f"({basic_format_rows} rows with artistName/msPlayed).\n"
+            "It only covers the last year and has no per-play detail.\n\n"
+            "Request 'Extended streaming history' instead at\n"
+            "  https://www.spotify.com/account/privacy\n"
+            "It is a separate checkbox and takes longer to arrive."
+        )
 
     print(f"Read {len(files)} file(s), {entries} music entries, "
           f"{skipped} under {args.min_ms}ms")
@@ -108,10 +125,18 @@ def main():
             artist["plays"] = 0
             artist["ms_played"] = 0
 
+    total = len(payload["artists"])
+    if not matched:
+        sys.exit(
+            f"\nMatched 0 of {total} library artists against "
+            f"{len(plays)} artists in the history -- refusing to write.\n"
+            "Nothing has been changed. Check that the folder is the unzipped\n"
+            "'Extended streaming history' export."
+        )
+
     payload["has_play_counts"] = True
     RAW.write_text(json.dumps(payload, indent=2, ensure_ascii=False))
 
-    total = len(payload["artists"])
     print(f"\nMatched {matched}/{total} of your library artists to the history.")
 
     top = sorted(payload["artists"], key=lambda a: -(a.get("plays") or 0))[:10]
