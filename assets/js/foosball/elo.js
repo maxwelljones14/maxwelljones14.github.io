@@ -49,7 +49,44 @@
     return { ratings: ratings, records: records, history: history, changes: changes };
   }
 
-  var api = { START: START, K: K, expected: expected, replay: replay };
+  // Card stats from one player's history (as returned by replay): peak rating,
+  // current win/loss streak, and the opponent who has beaten them most.
+  function stats(hist) {
+    hist = hist || [];
+    var peak = START;
+    var vs = {};
+    hist.forEach(function (h) {
+      if (h.after > peak) peak = h.after;
+      var o = vs[h.opponent] || (vs[h.opponent] = { uid: h.opponent, wins: 0, losses: 0, last: 0 });
+      if (h.won) o.wins++;
+      else o.losses++;
+      o.last = h.game.playedAt;
+    });
+
+    var streak = null;
+    for (var i = hist.length - 1; i >= 0; i--) {
+      if (!streak) streak = { won: hist[i].won, count: 0 };
+      if (hist[i].won !== streak.won) break;
+      streak.count++;
+    }
+
+    // Most losses to them; then the more lopsided record; then the most recent.
+    var nemesis = null;
+    Object.keys(vs).forEach(function (uid) {
+      var o = vs[uid];
+      if (!o.losses) return;
+      if (!nemesis
+          || o.losses > nemesis.losses
+          || (o.losses === nemesis.losses && o.wins < nemesis.wins)
+          || (o.losses === nemesis.losses && o.wins === nemesis.wins && o.last > nemesis.last)) {
+        nemesis = o;
+      }
+    });
+
+    return { peak: peak, streak: streak, nemesis: nemesis };
+  }
+
+  var api = { START: START, K: K, expected: expected, replay: replay, stats: stats };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.FoosElo = api;
 })(this);

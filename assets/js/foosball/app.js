@@ -245,6 +245,7 @@
       el.innerHTML = '<div class="fb-profile"></div><div class="fb-edit"></div><h3>Games</h3><div class="fb-history"></div>';
       var canEdit = state.user && (state.user.uid === uid || isAdmin());
       if (canEdit && state.players[uid]) mountProfileForm(el.querySelector(".fb-edit"), uid);
+      tiltCard(el.querySelector(".fb-profile"));
     },
     update: function (el, uid) {
       var p = state.players[uid];
@@ -257,15 +258,7 @@
       var editBox = el.querySelector(".fb-edit");
       if (!editBox.firstChild && state.user && (state.user.uid === uid || isAdmin())) mountProfileForm(editBox, uid);
 
-      var r = record(uid);
-      var rank = ranked().indexOf(uid) + 1;
-      box.innerHTML = '<div class="fb-profile-head">' + avatar(uid, 128) + "<div>" +
-        "<h2>" + esc(p.displayName) + "</h2>" +
-        (p.nickname ? "<p><em>&ldquo;" + esc(p.nickname) + "&rdquo;</em></p>" : "") +
-        "<p><strong>Elo " + rating(uid) + "</strong> · rank " + rank + " of " + Object.keys(state.players).length +
-        " · " + r.wins + "–" + r.losses + "</p></div></div>" +
-        "<h3>Strengths</h3><p class=\"fb-pre\">" + (esc(p.strengths) || "<em>—</em>") + "</p>" +
-        "<h3>Weaknesses</h3><p class=\"fb-pre\">" + (esc(p.weaknesses) || "<em>—</em>") + "</p>";
+      box.innerHTML = playerCard(uid);
 
       var hist = (state.elo.history[uid] || []).slice().reverse();
       el.querySelector(".fb-history").innerHTML = hist.length
@@ -282,6 +275,56 @@
         : "<p>No confirmed games yet.</p>";
     },
   };
+
+  // The profile as a trading card: photo, rating, record, peak, streak, nemesis.
+  function playerCard(uid) {
+    var p = state.players[uid];
+    var r = record(uid);
+    var s = FoosElo.stats(state.elo.history[uid]);
+    var photo = p.photo && p.photo.indexOf("data:image/jpeg;base64,") === 0
+      ? '<img src="' + p.photo + '" alt="">'
+      : '<span class="fb-card-initials">' + esc(p.displayName.split(/\s+/).map(function (w) { return w.charAt(0); }).join("").slice(0, 2).toUpperCase()) + "</span>";
+    var streak = s.streak ? (s.streak.won ? "W" : "L") + s.streak.count : "—";
+    var nemesis = s.nemesis ? playerLink(s.nemesis.uid) + ' <span class="fb-muted">' + s.nemesis.wins + "–" + s.nemesis.losses + "</span>" : "—";
+    function stat(label, value) {
+      return "<div><dt>" + label + "</dt><dd>" + value + "</dd></div>";
+    }
+    function blurb(label, text) {
+      return "<h4>" + label + '</h4><p class="fb-pre">' + (esc(text) || "—") + "</p>";
+    }
+    return '<div class="fb-card"><div class="fb-card-shine"></div><div class="fb-card-glare"></div>' +
+      '<div class="fb-card-top"><span class="fb-card-name">' + esc(p.displayName) + "</span>" +
+      '<span class="fb-card-elo">' + rating(uid) + "<small>ELO</small></span></div>" +
+      '<div class="fb-card-photo">' + photo + "</div>" +
+      (p.nickname ? '<div class="fb-card-nick">&ldquo;' + esc(p.nickname) + "&rdquo;</div>" : "") +
+      '<dl class="fb-card-stats">' +
+      stat("Rank", "#" + (ranked().indexOf(uid) + 1) + '<span class="fb-muted">/' + Object.keys(state.players).length + "</span>") +
+      stat("Record", r.wins + "–" + r.losses) +
+      stat("Peak", Math.round(s.peak)) +
+      stat("Streak", streak) +
+      '<div class="fb-card-nemesis"><dt>Nemesis</dt><dd>' + nemesis + "</dd></div></dl>" +
+      '<div class="fb-card-text">' + blurb("Strengths", p.strengths) + blurb("Weaknesses", p.weaknesses) + "</div></div>";
+  }
+
+  // Tilt and shine follow the pointer. The variables live on the container, so
+  // they survive the card being re-rendered by a live data update.
+  function tiltCard(box) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    box.addEventListener("pointermove", function (e) {
+      var card = box.querySelector(".fb-card");
+      if (!card || e.pointerType === "touch") return;
+      var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width;
+      var y = (e.clientY - r.top) / r.height;
+      if (x < 0 || x > 1 || y < 0 || y > 1) return box.classList.remove("fb-tilting");
+      box.classList.add("fb-tilting");
+      box.style.setProperty("--mx", (x * 100).toFixed(1) + "%");
+      box.style.setProperty("--my", (y * 100).toFixed(1) + "%");
+      box.style.setProperty("--rx", ((0.5 - y) * 16).toFixed(2) + "deg");
+      box.style.setProperty("--ry", ((x - 0.5) * 20).toFixed(2) + "deg");
+    });
+    box.addEventListener("pointerleave", function () { box.classList.remove("fb-tilting"); });
+  }
 
   function mountProfileForm(box, uid) {
     var p = state.players[uid];
@@ -551,6 +594,13 @@
     state.elo = FoosElo.replay(state.confirmed);
     renderNav();
     refresh();
+    // Faces for the table at the top of the page (table.js), best-ranked first.
+    document.dispatchEvent(new CustomEvent("foos:players", {
+      detail: ranked().map(function (uid) {
+        var photo = state.players[uid].photo;
+        return { uid: uid, photo: photo && photo.indexOf("data:image/jpeg;base64,") === 0 ? photo : "" };
+      }),
+    }));
   }
 
   db.collection("players").onSnapshot(function (snap) {
