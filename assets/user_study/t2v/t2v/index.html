@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Does the video show the actions?</title>
+<link rel="stylesheet" href="../static/study.css?v=89cf80f4a7">
+</head>
+<body>
+<div id="app">
+  <header id="topbar" hidden>
+    <div id="instrLine" class="instr-line"></div>
+    <div class="progress" aria-live="polite">
+      <span id="progressText"></span>
+      <div class="bar"><div id="progressFill"></div></div>
+    </div>
+    <button id="btnInstructions" class="btn btn-secondary" type="button">Instructions</button>
+  </header>
+
+  <section id="screenConsent" class="screen card-screen">
+    <div class="card">
+      <h1>Does the video show the actions?</h1>
+      <div class="criteria consent-criteria"><h2>What you will judge</h2><p>Each task shows one AI-generated video and a list of actions. For each action, answer <b>Yes</b> if it is clearly and fully shown in the video, and <b>No</b> if it is missing, only partly shown, unclear, out of place, or done wrongly.</p></div>
+      <div class="consent">
+<p><b>This is a research study.</b></p>
+<ul>
+ <li>You will watch 27 short, silent videos (or pairs of videos) and answer yes/no questions about each one. It takes about 20 minutes. Please use a desktop or laptop computer.</li>
+ <li>Participation is voluntary. You can withdraw at any time by closing this page and returning the study
+     on Prolific.</li>
+ <li>Your responses are anonymous and will be used for an academic research paper.</li>
+</ul>
+<p>By clicking <b>I agree</b> you confirm that you are 18 or older and agree to take part.</p>
+</div>
+      <div class="actions">
+        <button id="btnDecline" class="btn btn-secondary" type="button">I do not agree</button>
+        <button id="btnAgree" class="btn btn-primary" type="button">I agree</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="screenTask" class="screen" hidden>
+    <div id="taskGrid" class="task layout-single">
+      <div id="mediaArea" class="media-area"></div>
+      <div id="checkArea" class="check-area">
+        <p id="checkHeading" class="check-heading" hidden></p>
+        <ul id="checklist" class="checklist"></ul>
+        <div class="submit-row">
+          <div id="gateMsg" class="gate-msg"></div>
+          <button id="btnSubmit" class="btn btn-primary" type="button" disabled>Submit</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="screenMessage" class="screen card-screen" hidden>
+    <div class="card">
+      <h1 id="msgHeading"></h1>
+      <div id="msgBody"></div>
+    </div>
+  </section>
+
+  <div id="instrModal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="instrTitle">
+    <div class="modal-box">
+      <div class="modal-cols">
+        <div class="instr-text">
+          <h2 id="instrTitle">Instructions</h2>
+          <div id="instrCriteria" class="criteria"></div>
+          <ul id="instrRules"></ul>
+        </div>
+        <div class="instr-example">
+          <h3>Worked example</h3>
+          <div id="exRequest" class="request-box" hidden></div>
+          <div id="exMedia" class="ex-media"></div>
+          <ul id="exChecklist" class="checklist ex-checklist"></ul>
+          <p id="exNote" class="ex-note"></p>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <div id="exGateMsg" class="gate-msg"></div>
+        <button id="btnCloseInstr" class="btn btn-primary" type="button">Start the tasks</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>window.PAGE = {"checklist_heading": "For each item below, select whether the action is clearly and fully shown in the video:", "choices": [["yes", "Yes"], ["no", "No"]], "criteria": "\u003cp\u003eEach task shows one AI-generated video and a list of actions. For each action, answer \u003cb\u003eYes\u003c/b\u003e if it is clearly and fully shown in the video, and \u003cb\u003eNo\u003c/b\u003e if it is missing, only partly shown, unclear, out of place, or done wrongly.\u003c/p\u003e", "example": {"checklist": [{"answer": "yes", "options": [["yes", "Yes"], ["no", "No"]], "text": "The dachshund walks across the rug toward the green ottoman", "why": "Clearly and fully shown."}, {"answer": "yes", "options": [["yes", "Yes"], ["no", "No"]], "text": "The dachshund jumps up onto the green ottoman", "why": "Clearly shown."}, {"answer": "yes", "options": [["yes", "Yes"], ["no", "No"]], "text": "The dachshund sits down on top of the ottoman", "why": "It sits on the ottoman, facing the camera, until the end."}, {"answer": "no", "options": [["yes", "Yes"], ["no", "No"]], "text": "The dachshund jumps up onto the grey sofa", "why": "It jumps onto the ottoman, not the sofa: only partly right, so No."}], "layout": "single", "media": [{"label": "Video", "role": "video", "src": "../media/e413c4c607e4eb9e.mp4", "type": "video"}], "note": "The dog jumps onto the ottoman in front of the sofa, never onto the sofa itself - only partly right, so that item is No.", "request": "", "request_steps": []}, "instruction_line": "Click Play and watch the video. For each action, answer Yes only if it is clearly and fully shown.", "params": {"prolific_pid": "", "study_id": "", "session_id": ""}, "prolific": true, "request_label": "Request", "resume": false, "rules": ["Click \u003cb\u003ePlay\u003c/b\u003e to start. Submit unlocks once every video has played to the end and every question is answered. Use \u003ci\u003eReplay\u003c/i\u003e or the slider to look again.", "Ignore image quality (blur, small glitches) unless it stops you from answering.", "You can reopen these instructions with the \u003ci\u003eInstructions\u003c/i\u003e button (top right)."], "study": "t2v", "title": "Does the video show the actions?"};</script>
+<script src="../static/config.js?v=91de256245"></script>
+<script src="../static/pvs_core.js?v=c8c201c209"></script>
+<script src="../static/pvs_static.js?v=4f6d7dc817"></script>
+<script src="../static/study.js?v=3aab1dab94"></script>
+</body>
+</html>
