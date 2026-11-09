@@ -1,4 +1,4 @@
----
+cap---
 layout: post
 date: 2026-05-26 12:00:00-0500
 inline: true
