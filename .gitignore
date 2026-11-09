@@ -23,3 +23,6 @@ tools/spotify_globe/data/
 tools/spotify_globe/geo_src/
 __pycache__/
 *.pyc
+
+# foosball ladder: emulator logs
+tools/foosball/*-debug.log

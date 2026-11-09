@@ -7,8 +7,9 @@ module.exports = {
     // The hometown globe builds most of its DOM at runtime, so its classes
     // never appear in the generated HTML. Keep the whole sg- namespace, plus
     // the canvas element globe.gl injects.
-    standard: ["canvas"],
-    deep: [/^sg-/],
-    greedy: [/^sg-/],
+    // The foosball ladder (fb-) is likewise rendered entirely from JS.
+    standard: ["canvas", "foosball"],
+    deep: [/^sg-/, /^fb-/],
+    greedy: [/^sg-/, /^fb-/],
   },
 };
