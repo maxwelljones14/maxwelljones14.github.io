@@ -100,9 +100,20 @@
     return (r >= 0 ? "+" : "") + r;
   }
 
-  // Players ranked by rating; ties go to whoever has played more.
+  // Nobody has a real rating until their first confirmed game.
+  function played(uid) {
+    var r = record(uid);
+    return r.wins + r.losses > 0;
+  }
+
+  function eloText(uid) {
+    return played(uid) ? String(rating(uid)) : "—";
+  }
+
+  // Players ranked by rating, with those who haven't played yet at the bottom.
   function ranked() {
     return Object.keys(state.players).sort(function (a, b) {
+      if (played(a) !== played(b)) return played(a) ? -1 : 1;
       var d = rating(b) - rating(a);
       if (d) return d;
       var ga = record(a).wins + record(a).losses;
@@ -210,8 +221,8 @@
         '<th class="fb-num">Elo</th><th class="fb-num">W–L</th><th class="fb-num">Games</th></tr></thead><tbody>' +
         uids.map(function (u, i) {
           var r = record(u);
-          return "<tr><td>" + (i + 1) + "</td><td>" + avatar(u, 32) + "</td><td>" + playerLink(u) + "</td>" +
-            '<td class="fb-num">' + rating(u) + '</td><td class="fb-num">' + r.wins + "–" + r.losses + "</td>" +
+          return "<tr><td>" + (played(u) ? i + 1 : "—") + "</td><td>" + avatar(u, 32) + "</td><td>" + playerLink(u) + "</td>" +
+            '<td class="fb-num">' + eloText(u) + '</td><td class="fb-num">' + r.wins + "–" + r.losses + "</td>" +
             '<td class="fb-num">' + (r.wins + r.losses) + "</td></tr>";
         }).join("") + "</tbody></table>";
     },
@@ -294,13 +305,15 @@
     }
     return '<div class="fb-card"><div class="fb-card-shine"></div><div class="fb-card-glare"></div>' +
       '<div class="fb-card-top"><span class="fb-card-name">' + esc(p.displayName) + "</span>" +
-      '<span class="fb-card-elo">' + rating(uid) + "<small>ELO</small></span></div>" +
+      '<span class="fb-card-elo">' + eloText(uid) + "<small>ELO</small></span></div>" +
       '<div class="fb-card-photo">' + photo + "</div>" +
       (p.nickname ? '<div class="fb-card-nick">&ldquo;' + esc(p.nickname) + "&rdquo;</div>" : "") +
       '<dl class="fb-card-stats">' +
-      stat("Rank", "#" + (ranked().indexOf(uid) + 1) + '<span class="fb-muted">/' + Object.keys(state.players).length + "</span>") +
+      stat("Rank", played(uid)
+        ? "#" + (ranked().indexOf(uid) + 1) + '<span class="fb-muted">/' + Object.keys(state.players).filter(played).length + "</span>"
+        : "—") +
       stat("Record", r.wins + "–" + r.losses) +
-      stat("Peak", Math.round(s.peak)) +
+      stat("Peak", played(uid) ? Math.round(s.peak) : "—") +
       stat("Streak", streak) +
       '<div class="fb-card-nemesis"><dt>Nemesis</dt><dd>' + nemesis + "</dd></div></dl>" +
       '<div class="fb-card-text">' + blurb("Strengths", p.strengths) + blurb("Weaknesses", p.weaknesses) + "</div></div>";
