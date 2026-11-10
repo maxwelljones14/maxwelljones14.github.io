@@ -4,7 +4,9 @@
    * Recorded mode (PVS_STATIC.script_url set AND the URL carries PROLIFIC_PID): calls go to the Google Apps
      Script web app (Code.gs), one POST per call, body JSON as text/plain (no CORS preflight). Event flushes are
      buffered and ride along with the next call (Apps Script allows ~30 concurrent executions, so the 10 s
-     heartbeat of the Flask app would be the main load); on page hide they are sent at once with sendBeacon.
+     heartbeat of the Flask app would be the main load); a tab switch keeps them buffered (the next submit needs
+     the `ended` events), and only page unload sends them at once with sendBeacon. Every call is retried while
+     the backend is busy, errors or hangs (see post()).
    * Preview mode (otherwise): PVSCore runs in this tab over the public ../data/<study>.json (no completion codes,
      no gold answers), the participant ID is a TEST_ one, and nothing is sent anywhere. */
 (function () {
@@ -75,22 +77,34 @@
   try { P.resume = !!localStorage.getItem(resumeKey); } catch (e) { P.resume = false; }
   var pending = [];  // event batches not sent yet
 
-  async function post(msg) {
-    var body = JSON.stringify(msg);
+  // A busy lock (503 "busy"), an Apps Script error page (not JSON), a network error or a request that hangs
+  // (aborted after request_timeout_ms) are all retried with the same body until retry_budget_ms has passed;
+  // onRetry(attempt, reason) lets the page say so. A retried submit that did land answers not_current_task,
+  // which study.js handles by loading the current task.
+  var TIMEOUT_MS = C.request_timeout_ms || 45000, BUDGET_MS = C.retry_budget_ms || 600000;
+
+  async function post(msg, onRetry) {
+    var body = JSON.stringify(msg), t0 = Date.now(), last = null;
     for (var attempt = 0; ; attempt++) {
+      var ctl = window.AbortController ? new AbortController() : null;
+      var timer = ctl ? setTimeout(function () { ctl.abort(); }, TIMEOUT_MS) : null;
       try {
         var r = await fetch(C.script_url, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" },
-                                            body: body, redirect: "follow" });
+                                            body: body, redirect: "follow", signal: ctl ? ctl.signal : undefined });
         var res = await r.json();
-        if (res && res.status === 503 && res.data && res.data.error === "busy" && attempt < 6) {
-          await sleep(1000 + 1500 * attempt);  // backend lock contended: retry the same request
-          continue;
-        }
-        return res;
+        if (!(res && res.status === 503 && res.data && res.data.error === "busy")) return res;
+        last = res;
       } catch (err) {
-        if (attempt >= 3) throw err;
-        await sleep(1000 * (attempt + 1));
+        last = err;
+      } finally {
+        if (timer) clearTimeout(timer);
       }
+      if (Date.now() - t0 >= BUDGET_MS) {
+        if (last instanceof Error) throw last;
+        return last;
+      }
+      if (onRetry) { try { onRetry(attempt + 1, last instanceof Error ? "network" : "busy"); } catch (e) { /* UI only */ } }
+      await sleep(Math.min(1000 + 1500 * attempt, 8000));
     }
   }
 
@@ -98,26 +112,31 @@
 
   window.PVS_TRANSPORT = {
     mode: "remote",
-    api: async function (path, body) {
+    api: async function (path, body, method, opts) {
       var r = route(path);
       var msg = { action: r.action, study: r.study, token: r.token, body: body || {} };
       if (r.action === "start") msg.body = Object.assign({}, msg.body, { user_agent: navigator.userAgent });
       if (r.token) msg.events = takePending();
       var res;
-      try { res = await post(msg); }
+      try { res = await post(msg, opts && opts.onRetry); }
       catch (err) { if (msg.events) pending = msg.events.concat(pending); throw err; }
       if (r.action === "start" && res.status === 200) {
         try { localStorage.setItem(resumeKey, res.data.token); } catch (e) { /* private mode: no resume */ }
       }
       return { ok: res.status >= 200 && res.status < 300, status: res.status, data: res.data || {} };
     },
-    events: function (token, events, useBeacon) {
+    // why: "hidden" (tab switch) keeps the batch for the next call, so a busy backend cannot drop the `ended`
+    // events that the next submit needs; "unload" (pagehide) or the end screen sends at once with sendBeacon.
+    events: function (token, events, useBeacon, why) {
       pending = pending.concat(events);
-      if (!useBeacon && pending.length < 300) return;  // sent with the next call
-      var msg = JSON.stringify({ action: "events", token: token, events: takePending() });
+      if (why === "hidden" || (!useBeacon && pending.length < 300)) return;  // sent with the next call
+      var batch = takePending(), msg = JSON.stringify({ action: "events", token: token, events: batch });
       if (useBeacon && navigator.sendBeacon && navigator.sendBeacon(C.script_url, new Blob([msg], { type: "text/plain" }))) return;
       fetch(C.script_url, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: msg,
-                            keepalive: true }).catch(function () {});
+                            keepalive: true })
+        .then(function (r) { return r.json(); })
+        .then(function (res) { if (!res || res.status !== 200) throw new Error("events not stored"); })
+        .catch(function () { pending = batch.concat(pending); });
     }
   };
 })();
