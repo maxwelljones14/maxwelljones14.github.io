@@ -24,6 +24,9 @@
     [0.57, 1, 5], [0.7, 0, 3], [0.83, 1, 2], [0.95, 1, 1],
   ];
   var SPACING = { 1: 0, 2: 0.36, 3: 0.3, 5: 0.19 }; // gap between men, fraction of field height
+  // Game clock relative to real time. The pointer's pull and the post-goal pause
+  // are scaled to cancel it out, so only the table's own play slows down.
+  var SPEED = 0.5;
   var KICK_TIME = 0.16;
   var STUN_TIME = 0.35; // after a kick the pointer briefly loses the ball
 
@@ -130,8 +133,10 @@
     // Pointer pulls the ball like a stiff spring, unless a kick just knocked it loose.
     ball.stun = Math.max(0, ball.stun - dt);
     if (pointer.active && ball.stun === 0) {
-      ball.vx += ((pointer.x - ball.x) * 90 - ball.vx * 12) * dt;
-      ball.vy += ((pointer.y - ball.y) * 90 - ball.vy * 12) * dt;
+      var k = 90 / (SPEED * SPEED);
+      var c = 12 / SPEED;
+      ball.vx += ((pointer.x - ball.x) * k - ball.vx * c) * dt;
+      ball.vy += ((pointer.y - ball.y) * k - ball.vy * c) * dt;
     }
     var fr = Math.exp(-0.7 * dt);
     ball.vx *= fr;
@@ -232,7 +237,7 @@
 
   function goal(team) {
     score[team]++;
-    freeze = 1.3;
+    freeze = 1.3 * SPEED; // in game time; 1.3s real, matching the banner
     ball.vx = ball.vy = 0;
     if (scoreEl) scoreEl.textContent = TEAM[0].name + " " + score[0] + " : " + score[1] + " " + TEAM[1].name;
     var banner = document.createElement("div");
@@ -379,7 +384,7 @@
 
   function frame(now) {
     if (!running) return;
-    var dt = Math.min((now - last) / 1000, 1 / 30);
+    var dt = Math.min((now - last) / 1000, 1 / 30) * SPEED;
     last = now;
     // Two substeps keep a fast ball from tunnelling through the men.
     step(dt / 2);
