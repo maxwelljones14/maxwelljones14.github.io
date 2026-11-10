@@ -1,22 +1,24 @@
 rules_version = '2';
 
-// Foosball ladder. Everything is publicly readable; only verified @andrew.cmu.edu
-// Google accounts can write. Elo is never stored -- the page replays confirmed
+// Foosball ladder. Profiles and games are publicly readable; anyone signed in
+// with a verified email can join and write. Email addresses live apart in
+// /emails, readable only by their owner and the admin. Elo is never stored -- the page replays confirmed
 // games -- so these rules only need to keep the game list honest:
 //   * a player can report a game they were in, but it starts out pending;
 //   * only the *other* player can confirm (or reject) it;
-//   * the admin can add already-confirmed games and fix anything.
+//   * the admin can add already-confirmed games, fix anything, and delete players.
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    function isCmu() {
+    // Google sign-in and email-link sign-in both prove the address is theirs.
+    function isUser() {
       return request.auth != null
-        && request.auth.token.email_verified == true
-        && request.auth.token.email.matches('.*@andrew[.]cmu[.]edu');
+        && request.auth.token.email is string
+        && request.auth.token.email_verified == true;
     }
 
     function isAdmin() {
-      return isCmu() && request.auth.token.email == 'mjones2@andrew.cmu.edu';
+      return isUser() && request.auth.token.email == 'mjones2@andrew.cmu.edu';
     }
 
     function playerExists(uid) {
@@ -37,19 +39,28 @@ service cloud.firestore {
     match /players/{uid} {
       allow read: if true;
 
-      allow create: if isCmu()
+      allow create: if isUser()
         && request.auth.uid == uid
         && request.resource.data.keys().hasOnly(
-             ['email', 'displayName', 'nickname', 'photo', 'strengths', 'weaknesses', 'createdAt'])
-        && request.resource.data.email == request.auth.token.email
+             ['displayName', 'nickname', 'photo', 'strengths', 'weaknesses', 'createdAt'])
         && request.resource.data.createdAt == request.time
         && validProfile(request.resource.data);
 
-      allow update: if (isCmu() && request.auth.uid == uid || isAdmin())
+      allow update: if (isUser() && request.auth.uid == uid || isAdmin())
         && request.resource.data.diff(resource.data).affectedKeys().hasOnly(
              ['displayName', 'nickname', 'photo', 'strengths', 'weaknesses'])
         && validProfile(request.resource.data);
 
+      allow delete: if isAdmin();
+    }
+
+    // Kept out of the public profile so people's addresses can't be scraped.
+    match /emails/{uid} {
+      allow read: if isUser() && request.auth.uid == uid || isAdmin();
+      allow create, update: if isUser()
+        && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['email'])
+        && request.resource.data.email == request.auth.token.email;
       allow delete: if isAdmin();
     }
 
@@ -88,7 +99,7 @@ service cloud.firestore {
         && request.resource.data.reportedBy == request.auth.uid;
 
       // A player reporting their own game: always pending, stamped with server time.
-      allow create: if isCmu()
+      allow create: if isUser()
         && validGame(request.resource.data)
         && request.resource.data.reportedBy == request.auth.uid
         && request.auth.uid in [request.resource.data.playerA, request.resource.data.playerB]
@@ -98,7 +109,7 @@ service cloud.firestore {
         && request.resource.data.byAdmin == false;
 
       // The opponent confirms or rejects; nothing else about the game can change.
-      allow update: if isCmu()
+      allow update: if isUser()
         && resource.data.status == 'pending'
         && request.auth.uid in [resource.data.playerA, resource.data.playerB]
         && request.auth.uid != resource.data.reportedBy
@@ -112,7 +123,7 @@ service cloud.firestore {
 
       // The reporter can withdraw a game that never counted; the admin can delete anything.
       allow delete: if isAdmin()
-        || (isCmu() && resource.data.reportedBy == request.auth.uid
+        || (isUser() && resource.data.reportedBy == request.auth.uid
             && resource.data.status != 'confirmed');
     }
   }

@@ -30,11 +30,12 @@
     confirmed: [], // confirmed games
     mine: {}, // id -> game, every game I'm in (any status)
     all: [], // every game, admin only
+    emails: {}, // uid -> email, admin only
     elo: FoosElo.replay([]),
     loaded: { players: false, games: false },
   };
   var unsubMine = [];
-  var unsubAll = null;
+  var unsubAdmin = [];
 
   function isAdmin() {
     return !!state.user && state.user.email === cfg.adminEmail;
@@ -63,11 +64,6 @@
     var p = state.players[uid];
     if (!p) return "(deleted player)";
     return p.nickname ? p.displayName + ' "' + p.nickname + '"' : p.displayName;
-  }
-
-  function andrewId(uid) {
-    var p = state.players[uid];
-    return p && p.email ? p.email.split("@")[0] : "";
   }
 
   function playerLink(uid) {
@@ -127,13 +123,17 @@
   }
 
   // Fill a <select> with players, keeping the current choice across re-renders.
+  // Players who share a name get a short id so they can be told apart.
   function fillPlayerSelect(sel, excludeUid) {
     var keep = sel.value;
     var uids = Object.keys(state.players)
       .filter(function (u) { return u !== excludeUid; })
       .sort(function (a, b) { return nameOf(a).localeCompare(nameOf(b)); });
+    var seen = {};
+    uids.forEach(function (u) { seen[nameOf(u)] = (seen[nameOf(u)] || 0) + 1; });
     sel.innerHTML = '<option value="">— pick a player —</option>' + uids.map(function (u) {
-      return '<option value="' + esc(u) + '">' + esc(nameOf(u)) + " (" + esc(andrewId(u)) + ")</option>";
+      var tag = seen[nameOf(u)] > 1 ? " #" + u.slice(0, 4) : "";
+      return '<option value="' + esc(u) + '">' + esc(nameOf(u) + tag) + "</option>";
     }).join("");
     sel.value = keep;
   }
@@ -203,7 +203,7 @@
       var box = el.querySelector(".fb-board");
       var uids = ranked();
       if (!uids.length) {
-        box.innerHTML = "<p>No players yet. Sign in with your Andrew account to be the first.</p>";
+        box.innerHTML = "<p>No players yet. Sign in to be the first.</p>";
         return;
       }
       box.innerHTML = '<table class="fb-table"><thead><tr><th>#</th><th></th><th>Player</th>' +
@@ -364,7 +364,7 @@
   }
 
   function signInPrompt(el, what) {
-    el.innerHTML = "<p>Sign in with your Andrew account to " + what + ".</p>";
+    el.innerHTML = "<p>Sign in to " + what + ".</p>";
   }
 
   views.report = {
@@ -461,6 +461,7 @@
         '<label>B <input name="scoreB" type="number" min="0" max="99"></label></fieldset>' +
         '<label>Played at <input name="when" type="datetime-local"></label>' +
         '<button type="submit">Add game</button></form>' +
+        "<h2>Players</h2><p>Deleting a player also deletes all their games.</p><div class=\"fb-admin-players\"></div>" +
         "<h2>All games</h2><div class=\"fb-all\"></div>";
       var f = el.querySelector("form");
       f.addEventListener("submit", function (e) {
@@ -499,6 +500,15 @@
       if (!isAdmin()) return;
       fillPlayerSelect(el.querySelector("select[name=a]"));
       fillPlayerSelect(el.querySelector("select[name=b]"));
+      var uids = Object.keys(state.players).sort(function (a, b) { return nameOf(a).localeCompare(nameOf(b)); });
+      el.querySelector(".fb-admin-players").innerHTML = uids.length
+        ? '<table class="fb-table"><thead><tr><th></th><th>Player</th><th>Email</th><th class="fb-num">Games</th><th></th></tr></thead><tbody>' +
+          uids.map(function (u) {
+            return "<tr><td>" + avatar(u, 28) + "</td><td>" + playerLink(u) + "</td><td>" + esc(state.emails[u] || "") +
+              '</td><td class="fb-num">' + gamesOf(u).length + "</td>" +
+              '<td><button data-act="delete-player" data-id="' + esc(u) + '">Delete</button></td></tr>';
+          }).join("") + "</tbody></table>"
+        : "<p>No players yet.</p>";
       var games = state.all.slice().sort(function (a, b) { return b.playedAt - a.playedAt; });
       el.querySelector(".fb-all").innerHTML = games.length
         ? '<table class="fb-table"><thead><tr><th>When</th><th>A</th><th>B</th><th>Winner</th><th>Score</th><th>Status</th><th></th></tr></thead><tbody>' +
@@ -512,10 +522,36 @@
     },
   };
 
-  // Buttons in the game lists, handled once for the whole view.
+  // Every game a player is in, whatever its status (admin only: needs state.all).
+  function gamesOf(uid) {
+    return state.all.filter(function (g) { return g.playerA === uid || g.playerB === uid; });
+  }
+
+  // A player's games go with them, so nothing they were in keeps counting.
+  function deletePlayer(uid) {
+    var games = gamesOf(uid);
+    if (!window.confirm("Delete " + nameOf(uid) + " and their " + games.length + " game(s)? Everyone's Elo will be recomputed.")) {
+      return null;
+    }
+    var batch = db.batch();
+    games.forEach(function (g) { batch.delete(db.collection("games").doc(g.id)); });
+    batch.delete(db.collection("players").doc(uid));
+    batch.delete(db.collection("emails").doc(uid));
+    return batch.commit().then(function () { showFlash("Player deleted."); });
+  }
+
+  // Buttons in the game and player lists, handled once for the whole view.
   view.addEventListener("click", function (e) {
     var btn = e.target.closest("button[data-act]");
     if (!btn) return;
+    if (btn.getAttribute("data-act") === "delete-player") {
+      var del = deletePlayer(btn.getAttribute("data-id"));
+      if (del) {
+        btn.disabled = true;
+        del.catch(fail);
+      }
+      return;
+    }
     var ref = db.collection("games").doc(btn.getAttribute("data-id"));
     var act = btn.getAttribute("data-act");
     var p;
@@ -573,20 +609,51 @@
     if (isAdmin()) links.push(["#/admin", "Admin"]);
     nav.innerHTML = links.map(function (l) { return '<a href="' + l[0] + '">' + esc(l[1]) + "</a>"; }).join(" · ");
 
+    // Only redrawn when sign-in state changes, so live updates don't wipe a half-typed email.
+    var who = state.user ? state.user.uid : "";
+    if (authBox.getAttribute("data-who") === who && authBox.firstChild) return;
+    authBox.setAttribute("data-who", who);
     authBox.innerHTML = state.user
       ? "Signed in as " + esc(state.user.email) + ' <button type="button" class="fb-signout">Sign out</button>'
-      : '<button type="button" class="fb-signin">Sign in with Andrew account</button>';
+      : '<button type="button" class="fb-signin">Sign in with Google</button>' +
+        '<form class="fb-linkform"><input type="email" name="email" required placeholder="or any email" aria-label="Email address">' +
+        '<button type="submit">Email me a sign-in link</button></form>';
   }
+
+  var LINK_EMAIL_KEY = "foosLinkEmail";
 
   authBox.addEventListener("click", function (e) {
     if (e.target.classList.contains("fb-signin")) {
       var provider = new firebase.auth.GoogleAuthProvider();
-      provider.setCustomParameters({ hd: cfg.emailDomain, prompt: "select_account" });
+      provider.setCustomParameters({ prompt: "select_account" });
       auth.signInWithPopup(provider).catch(fail);
     } else if (e.target.classList.contains("fb-signout")) {
       auth.signOut();
     }
   });
+
+  authBox.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = e.target.email.value.trim();
+    auth.sendSignInLinkToEmail(email, { url: location.origin + location.pathname, handleCodeInApp: true }).then(function () {
+      try { localStorage.setItem(LINK_EMAIL_KEY, email); } catch (err) { /* private mode: we'll ask again */ }
+      e.target.reset();
+      showFlash("Sign-in link sent to " + email + ". Open it on this device to finish signing in.");
+    }).catch(fail);
+  });
+
+  // Landing here from an emailed sign-in link.
+  if (auth.isSignInWithEmailLink(location.href)) {
+    var linkEmail = null;
+    try { linkEmail = localStorage.getItem(LINK_EMAIL_KEY); } catch (err) { /* ignore */ }
+    if (!linkEmail) linkEmail = window.prompt("Confirm the email address you signed in with:");
+    if (linkEmail) {
+      auth.signInWithEmailLink(linkEmail, location.href).then(function () {
+        try { localStorage.removeItem(LINK_EMAIL_KEY); } catch (err) { /* ignore */ }
+        history.replaceState(null, "", location.pathname + location.hash);
+      }).catch(fail);
+    }
+  }
 
   // ---- data ----------------------------------------------------------------
 
@@ -630,29 +697,38 @@
     unsubMine = [listen("playerA", "A"), listen("playerB", "B")];
   }
 
-  function watchAll() {
-    unsubAll = db.collection("games").onSnapshot(function (snap) {
-      state.all = snap.docs.map(gameFromDoc);
-      recompute();
-    }, fail);
+  function watchAdmin() {
+    unsubAdmin = [
+      db.collection("games").onSnapshot(function (snap) {
+        state.all = snap.docs.map(gameFromDoc);
+        recompute();
+      }, fail),
+      db.collection("emails").onSnapshot(function (snap) {
+        var emails = {};
+        snap.forEach(function (doc) { emails[doc.id] = doc.data().email; });
+        state.emails = emails;
+        recompute();
+      }, fail),
+    ];
   }
 
   function stopWatching() {
-    unsubMine.forEach(function (u) { u(); });
+    unsubMine.concat(unsubAdmin).forEach(function (u) { u(); });
     unsubMine = [];
-    if (unsubAll) unsubAll();
-    unsubAll = null;
+    unsubAdmin = [];
     state.mine = {};
     state.all = [];
+    state.emails = {};
   }
 
-  // First sign-in creates the player doc from the Google profile.
+  // First sign-in creates the public player doc. The email goes in a separate
+  // doc that only the player and the admin can read.
   function ensurePlayer(user) {
     var ref = db.collection("players").doc(user.uid);
+    db.collection("emails").doc(user.uid).set({ email: user.email }).catch(fail);
     return ref.get().then(function (doc) {
       if (doc.exists) return;
       return ref.set({
-        email: user.email,
         displayName: (user.displayName || user.email.split("@")[0]).slice(0, 60),
         nickname: "",
         photo: "",
@@ -665,16 +741,11 @@
 
   auth.onAuthStateChanged(function (user) {
     stopWatching();
-    if (user && !(user.email || "").toLowerCase().endsWith("@" + cfg.emailDomain)) {
-      auth.signOut();
-      showFlash("Please sign in with your @" + cfg.emailDomain + " account.", true);
-      user = null;
-    }
     state.user = user;
     if (user) {
       ensurePlayer(user).catch(fail);
       watchMine(user.uid);
-      if (isAdmin()) watchAll();
+      if (isAdmin()) watchAdmin();
     }
     navigate(true);
   });

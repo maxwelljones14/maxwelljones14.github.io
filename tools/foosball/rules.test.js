@@ -11,10 +11,10 @@ const tokens = {
   carol: { email: "carol@andrew.cmu.edu", email_verified: true },
   [ADMIN]: { email: "mjones2@andrew.cmu.edu", email_verified: true },
   gmail: { email: "eve@gmail.com", email_verified: true },
+  unverified: { email: "mallory@example.com", email_verified: false },
 };
 
 const profile = (uid) => ({
-  email: tokens[uid].email,
   displayName: uid,
   nickname: "",
   photo: "",
@@ -60,8 +60,10 @@ async function check(name, fn) {
   const anon = env.unauthenticatedContext().firestore();
 
   // Players
-  await check("non-CMU account can't create a player", () => assertFails(setDoc(doc(as("gmail"), "players/gmail"), profile("gmail"))));
-  for (const u of ["alice", "bob", "carol", ADMIN]) {
+  await check("unverified email can't create a player", () =>
+    assertFails(setDoc(doc(as("unverified"), "players/unverified"), profile("unverified"))));
+  await check("signed-out can't create a player", () => assertFails(setDoc(doc(anon, "players/x"), profile("alice"))));
+  for (const u of ["alice", "bob", "carol", ADMIN, "gmail"]) {
     await check(u + " creates own player doc", () => assertSucceeds(setDoc(doc(as(u), "players/" + u), profile(u))));
   }
   await check("can't create someone else's player doc", () =>
@@ -70,7 +72,16 @@ async function check(name, fn) {
   await check("owner edits profile", () =>
     assertSucceeds(updateDoc(doc(as("alice"), "players/alice"), { nickname: "Ace", strengths: "spinning" })));
   await check("can't edit someone else's profile", () => assertFails(updateDoc(doc(as("bob"), "players/alice"), { nickname: "lol" })));
-  await check("can't change own email", () => assertFails(updateDoc(doc(as("alice"), "players/alice"), { email: "x@andrew.cmu.edu" })));
+  await check("player docs can't hold an email", () => assertFails(updateDoc(doc(as("alice"), "players/alice"), { email: "x@andrew.cmu.edu" })));
+
+  // Emails are private.
+  await check("player saves own email", () => assertSucceeds(setDoc(doc(as("gmail"), "emails/gmail"), { email: "eve@gmail.com" })));
+  await check("can't save a different email", () => assertFails(setDoc(doc(as("alice"), "emails/alice"), { email: "x@y.com" })));
+  await check("can't save someone else's email", () => assertFails(setDoc(doc(as("alice"), "emails/gmail"), { email: "alice@andrew.cmu.edu" })));
+  await check("owner reads own email", () => assertSucceeds(getDoc(doc(as("gmail"), "emails/gmail"))));
+  await check("other players can't read emails", () => assertFails(getDoc(doc(as("alice"), "emails/gmail"))));
+  await check("signed-out can't read emails", () => assertFails(getDoc(doc(anon, "emails/gmail"))));
+  await check("admin reads any email", () => assertSucceeds(getDoc(doc(as(ADMIN), "emails/gmail"))));
   await check("photo must be a jpeg data URL", () =>
     assertFails(updateDoc(doc(as("alice"), "players/alice"), { photo: "javascript:alert(1)" })));
   await check("jpeg data URL photo ok", () =>
@@ -126,7 +137,16 @@ async function check(name, fn) {
              playedAt: Timestamp.fromMillis(1e12), confirmedAt: serverTimestamp(), scoreA: null, scoreB: null })));
   });
   await check("admin deletes any game", () => assertSucceeds(deleteDoc(ref(ADMIN, g1.id))));
+  await check("non-gmail-domain player can report", async () => {
+    await assertSucceeds(addDoc(collection(as("gmail"), "games"),
+      game({ playerA: "gmail", reportedBy: "gmail", winner: "gmail" })));
+  });
   await check("non-admin can't delete a player", () => assertFails(deleteDoc(doc(as("alice"), "players/bob"))));
+  await check("non-admin can't delete an email", () => assertFails(deleteDoc(doc(as("alice"), "emails/gmail"))));
+  await check("admin deletes a player and their email", async () => {
+    await assertSucceeds(deleteDoc(doc(as(ADMIN), "players/gmail")));
+    await assertSucceeds(deleteDoc(doc(as(ADMIN), "emails/gmail")));
+  });
 
   await env.cleanup();
   console.log(failures ? failures + " rules test(s) failed" : "rules tests passed");

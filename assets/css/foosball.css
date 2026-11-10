@@ -1,5 +1,8 @@
 /* Foosball ladder: bare-bones layout only; styling comes later. */
 #foosball .fb-bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; margin-bottom: 1rem; }
+#foosball .fb-auth { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
+#foosball .fb-linkform { display: flex; gap: 0.3rem; }
+#foosball .fb-linkform input { min-width: 0; width: 11rem; }
 #foosball .fb-flash { padding: 0.5rem 0.75rem; border: 1px solid var(--global-divider-color); border-radius: 4px; }
 #foosball .fb-error { color: #c0392b; border-color: #c0392b; }
 #foosball .fb-table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
