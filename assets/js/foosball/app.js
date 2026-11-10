@@ -30,11 +30,12 @@
     confirmed: [], // confirmed games
     mine: {}, // id -> game, every game I'm in (any status)
     all: [], // every game, admin only
+    emails: {}, // uid -> email, admin only
     elo: FoosElo.replay([]),
     loaded: { players: false, games: false },
   };
   var unsubMine = [];
-  var unsubAll = null;
+  var unsubAdmin = [];
 
   function isAdmin() {
     return !!state.user && state.user.email === cfg.adminEmail;
@@ -63,11 +64,6 @@
     var p = state.players[uid];
     if (!p) return "(deleted player)";
     return p.nickname ? p.displayName + ' "' + p.nickname + '"' : p.displayName;
-  }
-
-  function andrewId(uid) {
-    var p = state.players[uid];
-    return p && p.email ? p.email.split("@")[0] : "";
   }
 
   function playerLink(uid) {
@@ -127,13 +123,17 @@
   }
 
   // Fill a <select> with players, keeping the current choice across re-renders.
+  // Players who share a name get a short id so they can be told apart.
   function fillPlayerSelect(sel, excludeUid) {
     var keep = sel.value;
     var uids = Object.keys(state.players)
       .filter(function (u) { return u !== excludeUid; })
       .sort(function (a, b) { return nameOf(a).localeCompare(nameOf(b)); });
+    var seen = {};
+    uids.forEach(function (u) { seen[nameOf(u)] = (seen[nameOf(u)] || 0) + 1; });
     sel.innerHTML = '<option value="">— pick a player —</option>' + uids.map(function (u) {
-      return '<option value="' + esc(u) + '">' + esc(nameOf(u)) + " (" + esc(andrewId(u)) + ")</option>";
+      var tag = seen[nameOf(u)] > 1 ? " #" + u.slice(0, 4) : "";
+      return '<option value="' + esc(u) + '">' + esc(nameOf(u) + tag) + "</option>";
     }).join("");
     sel.value = keep;
   }
@@ -203,7 +203,7 @@
       var box = el.querySelector(".fb-board");
       var uids = ranked();
       if (!uids.length) {
-        box.innerHTML = "<p>No players yet. Sign in with your Andrew account to be the first.</p>";
+        box.innerHTML = "<p>No players yet. Sign in to be the first.</p>";
         return;
       }
       box.innerHTML = '<table class="fb-table"><thead><tr><th>#</th><th></th><th>Player</th>' +
@@ -245,6 +245,7 @@
       el.innerHTML = '<div class="fb-profile"></div><div class="fb-edit"></div><h3>Games</h3><div class="fb-history"></div>';
       var canEdit = state.user && (state.user.uid === uid || isAdmin());
       if (canEdit && state.players[uid]) mountProfileForm(el.querySelector(".fb-edit"), uid);
+      tiltCard(el.querySelector(".fb-profile"));
     },
     update: function (el, uid) {
       var p = state.players[uid];
@@ -257,15 +258,7 @@
       var editBox = el.querySelector(".fb-edit");
       if (!editBox.firstChild && state.user && (state.user.uid === uid || isAdmin())) mountProfileForm(editBox, uid);
 
-      var r = record(uid);
-      var rank = ranked().indexOf(uid) + 1;
-      box.innerHTML = '<div class="fb-profile-head">' + avatar(uid, 128) + "<div>" +
-        "<h2>" + esc(p.displayName) + "</h2>" +
-        (p.nickname ? "<p><em>&ldquo;" + esc(p.nickname) + "&rdquo;</em></p>" : "") +
-        "<p><strong>Elo " + rating(uid) + "</strong> · rank " + rank + " of " + Object.keys(state.players).length +
-        " · " + r.wins + "–" + r.losses + "</p></div></div>" +
-        "<h3>Strengths</h3><p class=\"fb-pre\">" + (esc(p.strengths) || "<em>—</em>") + "</p>" +
-        "<h3>Weaknesses</h3><p class=\"fb-pre\">" + (esc(p.weaknesses) || "<em>—</em>") + "</p>";
+      box.innerHTML = playerCard(uid);
 
       var hist = (state.elo.history[uid] || []).slice().reverse();
       el.querySelector(".fb-history").innerHTML = hist.length
@@ -282,6 +275,56 @@
         : "<p>No confirmed games yet.</p>";
     },
   };
+
+  // The profile as a trading card: photo, rating, record, peak, streak, nemesis.
+  function playerCard(uid) {
+    var p = state.players[uid];
+    var r = record(uid);
+    var s = FoosElo.stats(state.elo.history[uid]);
+    var photo = p.photo && p.photo.indexOf("data:image/jpeg;base64,") === 0
+      ? '<img src="' + p.photo + '" alt="">'
+      : '<span class="fb-card-initials">' + esc(p.displayName.split(/\s+/).map(function (w) { return w.charAt(0); }).join("").slice(0, 2).toUpperCase()) + "</span>";
+    var streak = s.streak ? (s.streak.won ? "W" : "L") + s.streak.count : "—";
+    var nemesis = s.nemesis ? playerLink(s.nemesis.uid) + ' <span class="fb-muted">' + s.nemesis.wins + "–" + s.nemesis.losses + "</span>" : "—";
+    function stat(label, value) {
+      return "<div><dt>" + label + "</dt><dd>" + value + "</dd></div>";
+    }
+    function blurb(label, text) {
+      return "<h4>" + label + '</h4><p class="fb-pre">' + (esc(text) || "—") + "</p>";
+    }
+    return '<div class="fb-card"><div class="fb-card-shine"></div><div class="fb-card-glare"></div>' +
+      '<div class="fb-card-top"><span class="fb-card-name">' + esc(p.displayName) + "</span>" +
+      '<span class="fb-card-elo">' + rating(uid) + "<small>ELO</small></span></div>" +
+      '<div class="fb-card-photo">' + photo + "</div>" +
+      (p.nickname ? '<div class="fb-card-nick">&ldquo;' + esc(p.nickname) + "&rdquo;</div>" : "") +
+      '<dl class="fb-card-stats">' +
+      stat("Rank", "#" + (ranked().indexOf(uid) + 1) + '<span class="fb-muted">/' + Object.keys(state.players).length + "</span>") +
+      stat("Record", r.wins + "–" + r.losses) +
+      stat("Peak", Math.round(s.peak)) +
+      stat("Streak", streak) +
+      '<div class="fb-card-nemesis"><dt>Nemesis</dt><dd>' + nemesis + "</dd></div></dl>" +
+      '<div class="fb-card-text">' + blurb("Strengths", p.strengths) + blurb("Weaknesses", p.weaknesses) + "</div></div>";
+  }
+
+  // Tilt and shine follow the pointer. The variables live on the container, so
+  // they survive the card being re-rendered by a live data update.
+  function tiltCard(box) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    box.addEventListener("pointermove", function (e) {
+      var card = box.querySelector(".fb-card");
+      if (!card || e.pointerType === "touch") return;
+      var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width;
+      var y = (e.clientY - r.top) / r.height;
+      if (x < 0 || x > 1 || y < 0 || y > 1) return box.classList.remove("fb-tilting");
+      box.classList.add("fb-tilting");
+      box.style.setProperty("--mx", (x * 100).toFixed(1) + "%");
+      box.style.setProperty("--my", (y * 100).toFixed(1) + "%");
+      box.style.setProperty("--rx", ((0.5 - y) * 16).toFixed(2) + "deg");
+      box.style.setProperty("--ry", ((x - 0.5) * 20).toFixed(2) + "deg");
+    });
+    box.addEventListener("pointerleave", function () { box.classList.remove("fb-tilting"); });
+  }
 
   function mountProfileForm(box, uid) {
     var p = state.players[uid];
@@ -321,7 +364,7 @@
   }
 
   function signInPrompt(el, what) {
-    el.innerHTML = "<p>Sign in with your Andrew account to " + what + ".</p>";
+    el.innerHTML = "<p>Sign in to " + what + ".</p>";
   }
 
   views.report = {
@@ -418,6 +461,7 @@
         '<label>B <input name="scoreB" type="number" min="0" max="99"></label></fieldset>' +
         '<label>Played at <input name="when" type="datetime-local"></label>' +
         '<button type="submit">Add game</button></form>' +
+        "<h2>Players</h2><p>Deleting a player also deletes all their games.</p><div class=\"fb-admin-players\"></div>" +
         "<h2>All games</h2><div class=\"fb-all\"></div>";
       var f = el.querySelector("form");
       f.addEventListener("submit", function (e) {
@@ -456,6 +500,15 @@
       if (!isAdmin()) return;
       fillPlayerSelect(el.querySelector("select[name=a]"));
       fillPlayerSelect(el.querySelector("select[name=b]"));
+      var uids = Object.keys(state.players).sort(function (a, b) { return nameOf(a).localeCompare(nameOf(b)); });
+      el.querySelector(".fb-admin-players").innerHTML = uids.length
+        ? '<table class="fb-table"><thead><tr><th></th><th>Player</th><th>Email</th><th class="fb-num">Games</th><th></th></tr></thead><tbody>' +
+          uids.map(function (u) {
+            return "<tr><td>" + avatar(u, 28) + "</td><td>" + playerLink(u) + "</td><td>" + esc(state.emails[u] || "") +
+              '</td><td class="fb-num">' + gamesOf(u).length + "</td>" +
+              '<td><button data-act="delete-player" data-id="' + esc(u) + '">Delete</button></td></tr>';
+          }).join("") + "</tbody></table>"
+        : "<p>No players yet.</p>";
       var games = state.all.slice().sort(function (a, b) { return b.playedAt - a.playedAt; });
       el.querySelector(".fb-all").innerHTML = games.length
         ? '<table class="fb-table"><thead><tr><th>When</th><th>A</th><th>B</th><th>Winner</th><th>Score</th><th>Status</th><th></th></tr></thead><tbody>' +
@@ -469,10 +522,36 @@
     },
   };
 
-  // Buttons in the game lists, handled once for the whole view.
+  // Every game a player is in, whatever its status (admin only: needs state.all).
+  function gamesOf(uid) {
+    return state.all.filter(function (g) { return g.playerA === uid || g.playerB === uid; });
+  }
+
+  // A player's games go with them, so nothing they were in keeps counting.
+  function deletePlayer(uid) {
+    var games = gamesOf(uid);
+    if (!window.confirm("Delete " + nameOf(uid) + " and their " + games.length + " game(s)? Everyone's Elo will be recomputed.")) {
+      return null;
+    }
+    var batch = db.batch();
+    games.forEach(function (g) { batch.delete(db.collection("games").doc(g.id)); });
+    batch.delete(db.collection("players").doc(uid));
+    batch.delete(db.collection("emails").doc(uid));
+    return batch.commit().then(function () { showFlash("Player deleted."); });
+  }
+
+  // Buttons in the game and player lists, handled once for the whole view.
   view.addEventListener("click", function (e) {
     var btn = e.target.closest("button[data-act]");
     if (!btn) return;
+    if (btn.getAttribute("data-act") === "delete-player") {
+      var del = deletePlayer(btn.getAttribute("data-id"));
+      if (del) {
+        btn.disabled = true;
+        del.catch(fail);
+      }
+      return;
+    }
     var ref = db.collection("games").doc(btn.getAttribute("data-id"));
     var act = btn.getAttribute("data-act");
     var p;
@@ -530,20 +609,51 @@
     if (isAdmin()) links.push(["#/admin", "Admin"]);
     nav.innerHTML = links.map(function (l) { return '<a href="' + l[0] + '">' + esc(l[1]) + "</a>"; }).join(" · ");
 
+    // Only redrawn when sign-in state changes, so live updates don't wipe a half-typed email.
+    var who = state.user ? state.user.uid : "";
+    if (authBox.getAttribute("data-who") === who && authBox.firstChild) return;
+    authBox.setAttribute("data-who", who);
     authBox.innerHTML = state.user
       ? "Signed in as " + esc(state.user.email) + ' <button type="button" class="fb-signout">Sign out</button>'
-      : '<button type="button" class="fb-signin">Sign in with Andrew account</button>';
+      : '<button type="button" class="fb-signin">Sign in with Google</button>' +
+        '<form class="fb-linkform"><input type="email" name="email" required placeholder="or any email" aria-label="Email address">' +
+        '<button type="submit">Email me a sign-in link</button></form>';
   }
+
+  var LINK_EMAIL_KEY = "foosLinkEmail";
 
   authBox.addEventListener("click", function (e) {
     if (e.target.classList.contains("fb-signin")) {
       var provider = new firebase.auth.GoogleAuthProvider();
-      provider.setCustomParameters({ hd: cfg.emailDomain, prompt: "select_account" });
+      provider.setCustomParameters({ prompt: "select_account" });
       auth.signInWithPopup(provider).catch(fail);
     } else if (e.target.classList.contains("fb-signout")) {
       auth.signOut();
     }
   });
+
+  authBox.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = e.target.email.value.trim();
+    auth.sendSignInLinkToEmail(email, { url: location.origin + location.pathname, handleCodeInApp: true }).then(function () {
+      try { localStorage.setItem(LINK_EMAIL_KEY, email); } catch (err) { /* private mode: we'll ask again */ }
+      e.target.reset();
+      showFlash("Sign-in link sent to " + email + ". Open it on this device to finish signing in.");
+    }).catch(fail);
+  });
+
+  // Landing here from an emailed sign-in link.
+  if (auth.isSignInWithEmailLink(location.href)) {
+    var linkEmail = null;
+    try { linkEmail = localStorage.getItem(LINK_EMAIL_KEY); } catch (err) { /* ignore */ }
+    if (!linkEmail) linkEmail = window.prompt("Confirm the email address you signed in with:");
+    if (linkEmail) {
+      auth.signInWithEmailLink(linkEmail, location.href).then(function () {
+        try { localStorage.removeItem(LINK_EMAIL_KEY); } catch (err) { /* ignore */ }
+        history.replaceState(null, "", location.pathname + location.hash);
+      }).catch(fail);
+    }
+  }
 
   // ---- data ----------------------------------------------------------------
 
@@ -551,6 +661,13 @@
     state.elo = FoosElo.replay(state.confirmed);
     renderNav();
     refresh();
+    // Faces for the table at the top of the page (table.js), best-ranked first.
+    document.dispatchEvent(new CustomEvent("foos:players", {
+      detail: ranked().map(function (uid) {
+        var photo = state.players[uid].photo;
+        return { uid: uid, photo: photo && photo.indexOf("data:image/jpeg;base64,") === 0 ? photo : "" };
+      }),
+    }));
   }
 
   db.collection("players").onSnapshot(function (snap) {
@@ -580,29 +697,38 @@
     unsubMine = [listen("playerA", "A"), listen("playerB", "B")];
   }
 
-  function watchAll() {
-    unsubAll = db.collection("games").onSnapshot(function (snap) {
-      state.all = snap.docs.map(gameFromDoc);
-      recompute();
-    }, fail);
+  function watchAdmin() {
+    unsubAdmin = [
+      db.collection("games").onSnapshot(function (snap) {
+        state.all = snap.docs.map(gameFromDoc);
+        recompute();
+      }, fail),
+      db.collection("emails").onSnapshot(function (snap) {
+        var emails = {};
+        snap.forEach(function (doc) { emails[doc.id] = doc.data().email; });
+        state.emails = emails;
+        recompute();
+      }, fail),
+    ];
   }
 
   function stopWatching() {
-    unsubMine.forEach(function (u) { u(); });
+    unsubMine.concat(unsubAdmin).forEach(function (u) { u(); });
     unsubMine = [];
-    if (unsubAll) unsubAll();
-    unsubAll = null;
+    unsubAdmin = [];
     state.mine = {};
     state.all = [];
+    state.emails = {};
   }
 
-  // First sign-in creates the player doc from the Google profile.
+  // First sign-in creates the public player doc. The email goes in a separate
+  // doc that only the player and the admin can read.
   function ensurePlayer(user) {
     var ref = db.collection("players").doc(user.uid);
+    db.collection("emails").doc(user.uid).set({ email: user.email }).catch(fail);
     return ref.get().then(function (doc) {
       if (doc.exists) return;
       return ref.set({
-        email: user.email,
         displayName: (user.displayName || user.email.split("@")[0]).slice(0, 60),
         nickname: "",
         photo: "",
@@ -615,16 +741,11 @@
 
   auth.onAuthStateChanged(function (user) {
     stopWatching();
-    if (user && !(user.email || "").toLowerCase().endsWith("@" + cfg.emailDomain)) {
-      auth.signOut();
-      showFlash("Please sign in with your @" + cfg.emailDomain + " account.", true);
-      user = null;
-    }
     state.user = user;
     if (user) {
       ensurePlayer(user).catch(fail);
       watchMine(user.uid);
-      if (isAdmin()) watchAll();
+      if (isAdmin()) watchAdmin();
     }
     navigate(true);
   });

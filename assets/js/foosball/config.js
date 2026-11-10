@@ -11,5 +11,4 @@ window.FOOS_CONFIG = {
   },
   // Must match isAdmin() in tools/foosball/firestore.rules.
   adminEmail: "mjones2@andrew.cmu.edu",
-  emailDomain: "andrew.cmu.edu",
 };
