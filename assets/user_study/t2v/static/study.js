@@ -11,7 +11,9 @@
   const T = window.PVS_TRANSPORT;  // static (GitHub Pages) site only: static_site/pvs_static.js; unset under Flask
   const $ = (id) => document.getElementById(id);
   const S = { token: null, task: null, answers: {}, events: [], player: null, exPlayers: [], busy: false,
-              t0: 0, visibleMs: 0, visibleSince: null, firstInstructions: false };
+              t0: 0, visibleMs: 0, visibleSince: null, firstInstructions: false, note: "" };
+  const RETRY_MSG = "Saving\u2026 the server is busy, so this can take a few minutes. Your answers are kept and " +
+                    "will be sent automatically - please keep this tab open.";
 
   // ------------------------------------------------------------------------------------------ logging ---
   function log(type, extra) {
@@ -19,9 +21,9 @@
                                   assignment_id: S.task ? S.task.assignment_id : null }, extra || {}));
   }
   function takeEvents() { const e = S.events; S.events = []; return e; }
-  function flush(useBeacon) {
+  function flush(useBeacon, why) {
     if (!S.token || !S.events.length) return;
-    if (T) return T.events(S.token, takeEvents(), useBeacon);
+    if (T) return T.events(S.token, takeEvents(), useBeacon, why);
     const body = JSON.stringify({ events: takeEvents() });
     const url = `/api/session/${S.token}/events`;
     if (useBeacon && navigator.sendBeacon) navigator.sendBeacon(url, new Blob([body], { type: "application/json" }));
@@ -32,15 +34,16 @@
     const now = performance.now();
     if (document.hidden) {
       if (S.visibleSince !== null) { S.visibleMs += now - S.visibleSince; S.visibleSince = null; }
-      log("visibility", { payload: { hidden: true } }); flush(true);
+      log("visibility", { payload: { hidden: true } }); flush(true, "hidden");
     } else {
       if (S.task) S.visibleSince = now;
       log("visibility", { payload: { hidden: false } });
     }
   });
+  window.addEventListener("pagehide", () => flush(true, "unload"));
 
-  async function api(path, body, method) {
-    if (T) return T.api(path, body, method);
+  async function api(path, body, method, opts) {
+    if (T) return T.api(path, body, method, opts);
     for (let attempt = 0; ; attempt++) {
       try {
         const r = await fetch(path, { method: method || (body ? "POST" : "GET"),
@@ -437,7 +440,10 @@
 
   // ------------------------------------------------------------------------------------------ tasks ---
   async function loadTask() {
-    const r = await api(`/api/session/${S.token}/task`);
+    let r;
+    try { r = await api(`/api/session/${S.token}/task`, undefined, undefined,
+                        { onRetry: () => { if (S.task) $("gateMsg").textContent = RETRY_MSG; } }); }
+    catch (e) { r = { ok: false, data: { error: "network" } }; }
     if (!r.ok) return message("Something went wrong", "<p>Please reload the page.</p>");
     render(r.data);
   }
@@ -445,7 +451,7 @@
   function render(task) {
     if (S.player) { S.player.destroy(); S.player = null; }
     if (task.done) return finish(task);
-    S.task = task; S.answers = {};
+    S.task = task; S.answers = {}; S.note = "";
     S.t0 = performance.now(); S.visibleMs = 0; S.visibleSince = document.hidden ? null : S.t0;
     show("screenTask");
     $("instrLine").textContent = task.instruction_line;
@@ -502,6 +508,7 @@
     if (left) msgs.push(`answer ${left} more item${left > 1 ? "s" : ""}`);
     let msg = msgs.join(" and ");
     if (msg) msg = msg[0].toUpperCase() + msg.slice(1) + " to unlock Submit.";
+    else if (S.note) msg = S.note;  // why the last submit failed, until the next one
     $("gateMsg").textContent = msg;
     $("btnSubmit").disabled = !!(left || unwatched) || S.busy;
   }
@@ -509,22 +516,28 @@
   async function submit() {
     const { left, unwatched } = gateState();
     if (left || unwatched || S.busy) return;
-    S.busy = true; $("btnSubmit").disabled = true;
+    S.busy = true; S.note = ""; $("btnSubmit").disabled = true;
     const now = performance.now();
     const visible = S.visibleMs + (S.visibleSince !== null ? now - S.visibleSince : 0);
     const payload = { assignment_id: S.task.assignment_id, answers: S.answers,
                       client_time_ms: Math.round(now - S.t0), client_visible_ms: Math.round(visible),
                       events: takeEvents() };
+    const slow = setTimeout(() => { $("gateMsg").textContent = "Saving\u2026"; }, 3000);
     let r;
-    try { r = await api(`/api/session/${S.token}/submit`, payload); }
+    try { r = await api(`/api/session/${S.token}/submit`, payload, undefined,
+                        { onRetry: () => { clearTimeout(slow); $("gateMsg").textContent = RETRY_MSG; } }); }
     catch (e) { r = { ok: false, data: { error: "network" } }; }
+    clearTimeout(slow);
     S.busy = false;
     if (!r.ok) {
-      if (r.data.error === "not_current_task") return loadTask();
-      $("gateMsg").textContent = r.data.error === "network"
-        ? "Connection problem - please press Submit again."
-        : `Could not submit (${r.data.error}). Please make sure the videos played to the end and try again.`;
-      setTimeout(updateGate, 500);
+      const err = r.data.error;
+      if (err === "not_current_task") return loadTask();
+      S.note = err === "network" || err === "busy"
+        ? "The server did not answer. Your answers on this page are kept - please wait a minute, then press Submit again."
+        : err === "not_watched"
+          ? "Please play the videos to the end once more, then press Submit again."
+          : `Could not submit (${err || r.status}). Please press Submit again.`;
+      updateGate();
       return;
     }
     render(r.data);
