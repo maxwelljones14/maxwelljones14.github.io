@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which motion looks more natural?</title>
+<link rel="stylesheet" href="../static/study.css?v=89cf80f4a7">
+</head>
+<body>
+<div id="app">
+  <header id="topbar" hidden>
+    <div id="instrLine" class="instr-line"></div>
+    <div class="progress" aria-live="polite">
+      <span id="progressText"></span>
+      <div class="bar"><div id="progressFill"></div></div>
+    </div>
+    <button id="btnInstructions" class="btn btn-secondary" type="button">Instructions</button>
+  </header>
+
+  <section id="screenConsent" class="screen card-screen">
+    <div class="card">
+      <h1>Which motion looks more natural?</h1>
+      <div class="criteria consent-criteria"><h2>What you will judge</h2><p>Each task shows <b>two AI-generated videos</b> of the same scene side by side, playing in sync. Both show the same animal or object moving. Pick the video in which <b>its movement looks more natural and physically plausible</b>:</p><ul><li>the body moves the way the real animal or object would (legs, wings or fins in a believable rhythm, no gliding or sliding);</li><li>believable weight, balance and contact with the floor and other objects;</li><li>nothing floats, teleports, passes through things or bends impossibly.</li></ul><p>A second question asks which video better shows the <b>requested motion</b> (shown above the videos). Judge the motion, not image quality. You must pick one video: if they look alike, pick the slightly better one.</p></div>
+      <div class="consent">
+<p><b>This is a research study.</b></p>
+<ul>
+ <li>You will watch 24 pairs of short, silent videos and pick the better video of each pair for two questions. It takes about 20 minutes. Please use a desktop or laptop computer.</li>
+ <li>Participation is voluntary. You can withdraw at any time by closing this page and returning the study
+     on Prolific.</li>
+ <li>Your responses are anonymous and will be used for an academic research paper.</li>
+</ul>
+<p>By clicking <b>I agree</b> you confirm that you are 18 or older and agree to take part.</p>
+</div>
+      <div class="actions">
+        <button id="btnDecline" class="btn btn-secondary" type="button">I do not agree</button>
+        <button id="btnAgree" class="btn btn-primary" type="button">I agree</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="screenTask" class="screen" hidden>
+    <div id="taskGrid" class="task layout-single">
+      <div id="mediaArea" class="media-area"></div>
+      <div id="checkArea" class="check-area">
+        <p id="checkHeading" class="check-heading" hidden></p>
+        <ul id="checklist" class="checklist"></ul>
+        <div class="submit-row">
+          <div id="gateMsg" class="gate-msg"></div>
+          <button id="btnSubmit" class="btn btn-primary" type="button" disabled>Submit</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="screenMessage" class="screen card-screen" hidden>
+    <div class="card">
+      <h1 id="msgHeading"></h1>
+      <div id="msgBody"></div>
+    </div>
+  </section>
+
+  <div id="instrModal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="instrTitle">
+    <div class="modal-box">
+      <div class="modal-cols">
+        <div class="instr-text">
+          <h2 id="instrTitle">Instructions</h2>
+          <div id="instrCriteria" class="criteria"></div>
+          <ul id="instrRules"></ul>
+        </div>
+        <div class="instr-example">
+          <h3>Worked example</h3>
+          <div id="exRequest" class="request-box" hidden></div>
+          <div id="exMedia" class="ex-media"></div>
+          <ul id="exChecklist" class="checklist ex-checklist"></ul>
+          <p id="exNote" class="ex-note"></p>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <div id="exGateMsg" class="gate-msg"></div>
+        <button id="btnCloseInstr" class="btn btn-primary" type="button">Start the tasks</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>window.PAGE = {"checklist_heading": "", "choices": [["left", "Left video"], ["right", "Right video"]], "criteria": "\u003cp\u003eEach task shows \u003cb\u003etwo AI-generated videos\u003c/b\u003e of the same scene side by side, playing in sync. Both show the same animal or object moving. Pick the video in which \u003cb\u003eits movement looks more natural and physically plausible\u003c/b\u003e:\u003c/p\u003e\u003cul\u003e\u003cli\u003ethe body moves the way the real animal or object would (legs, wings or fins in a believable rhythm, no gliding or sliding);\u003c/li\u003e\u003cli\u003ebelievable weight, balance and contact with the floor and other objects;\u003c/li\u003e\u003cli\u003enothing floats, teleports, passes through things or bends impossibly.\u003c/li\u003e\u003c/ul\u003e\u003cp\u003eA second question asks which video better shows the \u003cb\u003erequested motion\u003c/b\u003e (shown above the videos). Judge the motion, not image quality. You must pick one video: if they look alike, pick the slightly better one.\u003c/p\u003e", "example": {"checklist": [{"answer": "left", "options": [["left", "Left video"], ["right", "Right video"]], "text": "Which video shows more natural, physically plausible motion of the dachshund?", "why": "Left: the dog walks with its legs and jumps with believable weight. Right: it floats up and drifts through the air without moving its legs."}, {"answer": "left", "options": [["left", "Left video"], ["right", "Right video"]], "text": "Which video better shows the requested motion?", "why": "Only the left dog walks across the rug, jumps onto the ottoman and sits."}], "layout": "pair", "media": [{"label": "Left video", "role": "video_a", "src": "../media/e413c4c607e4eb9e.mp4", "type": "video"}, {"label": "Right video", "role": "video_b", "src": "../media/a6600751d770ef2c.mp4", "type": "video"}], "note": "Here both questions are clear. Often the two videos look much more alike: then pick the one whose motion looks even slightly more natural.", "request": "The dachshund walks across the rug, jumps up onto the green ottoman and sits down on it.", "request_steps": ["The dachshund walks across the rug.", "The dachshund jumps up onto the green ottoman.", "The dachshund sits down on it."]}, "instruction_line": "Click Play and watch both videos. Pick the one whose motion looks more natural and physically plausible.", "params": {"prolific_pid": "", "study_id": "", "session_id": ""}, "prolific": true, "request_label": "Requested motion", "resume": false, "rules": ["Click \u003cb\u003ePlay\u003c/b\u003e to start. Submit unlocks once every video has played to the end and every question is answered. Use \u003ci\u003eReplay\u003c/i\u003e or the slider to look again.", "The two videos play in sync. If one is shorter, it shows a black screen after it ends. Which video is on the left is random.", "Ignore image quality (blur, small glitches) unless it stops you from answering.", "You can reopen these instructions with the \u003ci\u003eInstructions\u003c/i\u003e button (top right)."], "study": "motion", "title": "Which motion looks more natural?"};</script>
+<script src="../static/config.js?v=64e1bd06a1"></script>
+<script src="../static/pvs_core.js?v=c8c201c209"></script>
+<script src="../static/pvs_static.js?v=2cd2b577a7"></script>
+<script src="../static/study.js?v=f6363fc72e"></script>
+</body>
+</html>
