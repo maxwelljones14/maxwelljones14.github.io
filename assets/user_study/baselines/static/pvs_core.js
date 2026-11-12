@@ -258,10 +258,13 @@ var PVSCore = (function () {
 
     function nextTask(s) {
       if (s.status !== "completed") touchSession(s, now());
-      var a = assignmentsOf(s.session_uid).filter(function (x) { return !x.submitted_at; })[0];
+      var open = assignmentsOf(s.session_uid).filter(function (x) { return !x.submitted_at; }), a = open[0];
       if (!a) return finish(s);
       if (!a.first_shown_at) upd(a, { first_shown_at: ts(now()) });
-      return taskPayload(s, a);
+      // the following task rides along, so study.js can show it at once and save this one in the background
+      var out = taskPayload(s, a);
+      out.next = open[1] ? taskPayload(s, open[1]) : null;
+      return out;
     }
 
     function optionValues(c) { return c.options.map(function (o) { return o[0]; }); }

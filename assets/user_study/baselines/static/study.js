@@ -4,14 +4,19 @@
    or (edit_pair study) a synced 2x2 grid (top: the two "before" clips, bottom: the two edited clips) + questions
    with their own answer sets (e.g. Left / Right / Tie / Neither). Each question may carry `options`.
    Nothing autoplays: the participant clicks Play. Submit unlocks only when every item is answered AND every
-   video has fired `ended` at least once. */
+   video has fired `ended` at least once.
+   Each task payload carries `next` (the following task, or null on the last one): Submit shows it at once and
+   saves the answers in the background, one save at a time and in order. A save the server refuses puts the
+   participant back on the server's current task (see saveInBackground). Without `next` (an older server), or on
+   the last task, Submit waits for the reply as before. */
 (() => {
   "use strict";
   const P = window.PAGE;
   const T = window.PVS_TRANSPORT;  // static (GitHub Pages) site only: static_site/pvs_static.js; unset under Flask
   const $ = (id) => document.getElementById(id);
   const S = { token: null, task: null, answers: {}, events: [], player: null, exPlayers: [], busy: false,
-              t0: 0, visibleMs: 0, visibleSince: null, firstInstructions: false, note: "" };
+              t0: 0, visibleMs: 0, visibleSince: null, firstInstructions: false, note: "",
+              queue: Promise.resolve(), saving: 0, epoch: 0 };
   const RETRY_MSG = "Saving\u2026 the server is busy, so this can take a few minutes. Your answers are kept and " +
                     "will be sent automatically - please keep this tab open.";
 
@@ -448,10 +453,52 @@
     render(r.data);
   }
 
+  // Warms the browser cache with the next task's clips, after the current ones have had a head start.
+  function preload(task) {
+    if (!task || !task.media) return;
+    setTimeout(() => { for (const m of task.media) fetch(m.src).catch(() => {}); }, 1500);
+  }
+
+  // A background save that did not come back with the task on screen: ask the server for its current task. A
+  // retried save that had landed answers not_current_task and the server is on the task on screen (nothing to do);
+  // otherwise the answers were not stored and the participant is put back on the server's current task.
+  async function resync(why) {
+    let r;
+    try { r = await api(`/api/session/${S.token}/task`); }
+    catch (e) { r = { ok: false, data: { error: "network" } }; }
+    if (!r.ok) return message("Something went wrong", "<p>Please reload the page. Your saved answers are kept.</p>");
+    if (S.task && !r.data.done && r.data.assignment_id === S.task.assignment_id) {
+      S.task.next = r.data.next; preload(r.data.next);
+      return;
+    }
+    S.epoch++; S.busy = false;
+    render(r.data);
+    if (!r.data.done) {
+      S.redoNote = why === "not_watched"
+        ? "Your answers to the previous video could not be saved because it did not register as watched to the end. Please answer it again."
+        : "Your answers to the previous video could not be saved. Please answer it again.";
+      updateGate();
+    }
+  }
+
+  async function saveInBackground(payload, shownId, epoch) {
+    if (epoch !== S.epoch) return;  // dropped: an earlier save failed and the page went back to that task
+    let r;
+    try { r = await api(`/api/session/${S.token}/submit`, payload, undefined,
+                        { onRetry: () => { if (S.busy) $("gateMsg").textContent = RETRY_MSG; } }); }
+    catch (e) { r = { ok: false, data: { error: "network" } }; }
+    if (epoch !== S.epoch) return;
+    if (r.ok && !r.data.done && r.data.assignment_id === shownId) {
+      if (S.task && S.task.assignment_id === shownId) { S.task.next = r.data.next; preload(r.data.next); }
+      return;
+    }
+    await resync(r.ok ? "" : r.data.error);
+  }
+
   function render(task) {
     if (S.player) { S.player.destroy(); S.player = null; }
     if (task.done) return finish(task);
-    S.task = task; S.answers = {}; S.note = "";
+    S.task = task; S.answers = {}; S.note = ""; S.redoNote = "";
     S.t0 = performance.now(); S.visibleMs = 0; S.visibleSince = document.hidden ? null : S.t0;
     show("screenTask");
     $("instrLine").textContent = task.instruction_line;
@@ -490,6 +537,7 @@
     }
     updateGate();
     fit();
+    preload(task.next);
   }
 
   function gateState() {
@@ -509,6 +557,7 @@
     let msg = msgs.join(" and ");
     if (msg) msg = msg[0].toUpperCase() + msg.slice(1) + " to unlock Submit.";
     else if (S.note) msg = S.note;  // why the last submit failed, until the next one
+    if (S.redoNote) msg = S.redoNote + (msg ? " " + msg : "");  // why this task is shown again
     $("gateMsg").textContent = msg;
     $("btnSubmit").disabled = !!(left || unwatched) || S.busy;
   }
@@ -517,11 +566,28 @@
     const { left, unwatched } = gateState();
     if (left || unwatched || S.busy) return;
     S.busy = true; S.note = ""; $("btnSubmit").disabled = true;
+    const shown = S.task;
     const now = performance.now();
     const visible = S.visibleMs + (S.visibleSince !== null ? now - S.visibleSince : 0);
-    const payload = { assignment_id: S.task.assignment_id, answers: S.answers,
-                      client_time_ms: Math.round(now - S.t0), client_visible_ms: Math.round(visible),
-                      events: takeEvents() };
+    const payload = { assignment_id: shown.assignment_id, answers: S.answers,
+                      client_time_ms: Math.round(now - S.t0), client_visible_ms: Math.round(visible) };
+    if (shown.next === undefined && S.saving) {  // the previous save's reply brings this task's successor
+      $("gateMsg").textContent = "Saving\u2026";
+      await S.queue;
+      if (S.task !== shown) return;  // that save failed and the page went back to it
+    }
+    payload.events = takeEvents();
+    if (shown.next) {
+      const epoch = S.epoch;
+      S.saving++;
+      S.queue = S.queue.then(() => saveInBackground(payload, shown.next.assignment_id, epoch))
+        .catch(() => {}).then(() => { S.saving--; });
+      S.busy = false;
+      render(shown.next);
+      return;
+    }
+    await S.queue;  // the server takes the answers in order
+    if (S.task !== shown) return;
     const slow = setTimeout(() => { $("gateMsg").textContent = "Saving\u2026"; }, 3000);
     let r;
     try { r = await api(`/api/session/${S.token}/submit`, payload, undefined,
