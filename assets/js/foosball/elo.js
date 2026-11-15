@@ -10,7 +10,8 @@
   }
 
   // games: [{id, playerA, playerB, winner, playedAt (ms)}], confirmed only.
-  // Returns ratings and W-L per uid, per-uid history, and the change each game made.
+  // Returns ratings and W-L per uid, per-uid history, the change each game made,
+  // and the games in the order they were replayed.
   function replay(games) {
     var ordered = games.slice().sort(function (a, b) {
       if (a.playedAt !== b.playedAt) return a.playedAt - b.playedAt;
@@ -46,7 +47,7 @@
       changes[g.id] = { winner: w, loser: l, delta: delta, winnerBefore: rw, loserBefore: rl };
     });
 
-    return { ratings: ratings, records: records, history: history, changes: changes };
+    return { ratings: ratings, records: records, history: history, changes: changes, ordered: ordered };
   }
 
   // Card stats from one player's history (as returned by replay): peak rating,

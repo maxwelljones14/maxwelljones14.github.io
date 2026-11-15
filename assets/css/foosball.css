@@ -98,3 +98,51 @@
   #foosball .fb-card-shine { animation: none; }
   #foosball .fb-shake, #foosball .fb-goal-banner { animation: none; }
 }
+
+/* ---- 5+ games toggle ---- */
+#foosball .fb-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.5rem; }
+#foosball .fb-head h2 { margin: 0; }
+#foosball .fb-filter { display: inline-flex; border: 1px solid var(--global-divider-color); border-radius: 999px; padding: 2px; }
+#foosball .fb-filter button { border: none; background: transparent; color: var(--global-text-color); font: inherit; font-size: 0.8rem; font-weight: 600; padding: 0.25rem 0.8rem; border-radius: 999px; cursor: pointer; }
+#foosball .fb-filter button[aria-pressed="true"] { background: var(--global-theme-color); color: #fff; }
+#foosball .fb-filter button:focus-visible { outline: 2px solid var(--global-theme-color); outline-offset: 1px; }
+#foosball .fb-small { font-size: 0.85rem; }
+#foosball .fb-linkbtn { border: none; background: none; padding: 0; color: var(--global-theme-color); font: inherit; cursor: pointer; text-decoration: underline; }
+
+/* ---- Elo graph ---- */
+#foosball {
+  --fb-s1: #2a78d6; --fb-s2: #eb6834; --fb-s3: #1baf7a; --fb-s4: #eda100;
+  --fb-s5: #e87ba4; --fb-s6: #008300; --fb-s7: #6250d6; --fb-s8: #e34948; --fb-s-other: #a9a7a0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) #foosball {
+    --fb-s1: #3987e5; --fb-s2: #d95926; --fb-s3: #199e70; --fb-s4: #c98500;
+    --fb-s5: #d55181; --fb-s6: #008300; --fb-s7: #9085e9; --fb-s8: #e66767; --fb-s-other: #6b6a65;
+  }
+}
+:root[data-theme="dark"] #foosball {
+  --fb-s1: #3987e5; --fb-s2: #d95926; --fb-s3: #199e70; --fb-s4: #c98500;
+  --fb-s5: #d55181; --fb-s6: #008300; --fb-s7: #9085e9; --fb-s8: #e66767; --fb-s-other: #6b6a65;
+}
+#foosball .fb-graph { position: relative; width: 100%; margin-bottom: 0.75rem; }
+#foosball .fb-chart { display: block; max-width: 100%; height: auto; overflow: visible; }
+#foosball .fb-grid { stroke: var(--global-divider-color); stroke-width: 1; }
+#foosball .fb-grid-start { stroke-dasharray: 4 4; stroke: var(--global-text-color); opacity: 0.35; }
+#foosball .fb-axis { fill: var(--global-text-color); opacity: 0.65; font-size: 11px; }
+#foosball .fb-endlabel { fill: var(--global-text-color); font-size: 12px; font-weight: 600; }
+#foosball .fb-line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; transition: opacity 0.15s; }
+#foosball .fb-focus .fb-line { opacity: 0.15; }
+#foosball .fb-focus .fb-line.fb-hi { opacity: 1; stroke-width: 3; }
+#foosball .fb-cross { stroke: var(--global-text-color); opacity: 0.4; stroke-width: 1; }
+#foosball .fb-dot { stroke: var(--global-bg-color); stroke-width: 2; }
+#foosball .fb-hit { fill: transparent; cursor: crosshair; }
+#foosball .fb-tip { position: absolute; pointer-events: none; z-index: 2; min-width: 11rem; max-width: 16rem; padding: 0.5rem 0.65rem; border-radius: 8px; border: 1px solid var(--global-divider-color); background: var(--global-bg-color); color: var(--global-text-color); font-size: 0.8rem; line-height: 1.35; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18); }
+#foosball .fb-tip table { width: 100%; margin-top: 0.3rem; border-collapse: collapse; }
+#foosball .fb-tip td { padding: 1px 0; }
+#foosball .fb-tip-hi td { font-weight: 700; }
+#foosball .fb-swatch { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: baseline; }
+#foosball .fb-legend { list-style: none; padding: 0; margin: 0 0 1rem; display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; font-size: 0.85rem; }
+#foosball .fb-legend li p { margin: 0; }
+@media (prefers-reduced-motion: reduce) {
+  #foosball .fb-line { transition: none; }
+}
