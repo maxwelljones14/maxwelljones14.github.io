@@ -6,7 +6,7 @@ The `/foosball/` page (`_pages/foosball.md`) is a static page backed by Firebase
 - **Firestore**: `players/{uid}` (public profile; photo stored as a small JPEG data URL), `emails/{uid}` (readable only by that player and the admin) and `games/{id}`.
 - **Elo** is never stored. `assets/js/foosball/elo.js` replays every confirmed game in `playedAt` order (start 1000, K=32). Deleting or fixing a game automatically recomputes everyone's rating.
 
-A player's report creates a `pending` game. It only counts once the *other* player confirms it. The admin (`mjones2@andrew.cmu.edu`, set in both `firestore.rules` and `config.js`) can add games that are already confirmed, with any date, confirm or delete any game, and delete players (which deletes their games too). `firestore.rules` enforces all of this. The UI checks are only a convenience.
+A player's report creates a `pending` game. It only counts once the *other* player confirms it. The admins (`mjones2@andrew.cmu.edu` and `maxwelljonesnova@gmail.com`, listed in both `firestore.rules` and `config.js`) can add games that are already confirmed, with any date, confirm or delete any game, and delete players (which deletes their games too). `firestore.rules` enforces all of this. The UI checks are only a convenience.
 
 ## One-time setup
 

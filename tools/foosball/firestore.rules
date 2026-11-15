@@ -18,7 +18,7 @@ service cloud.firestore {
     }
 
     function isAdmin() {
-      return isUser() && request.auth.token.email == 'mjones2@andrew.cmu.edu';
+      return isUser() && request.auth.token.email in ['mjones2@andrew.cmu.edu', 'maxwelljonesnova@gmail.com'];
     }
 
     function playerExists(uid) {
