@@ -131,6 +131,7 @@
 #foosball .fb-axis { fill: var(--global-text-color); opacity: 0.65; font-size: 11px; }
 #foosball .fb-endlabel { fill: var(--global-text-color); font-size: 12px; font-weight: 600; }
 #foosball .fb-line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; transition: opacity 0.15s; }
+#foosball .fb-tail { stroke-width: 1.5; stroke-dasharray: 2 4; }
 #foosball .fb-focus .fb-line { opacity: 0.15; }
 #foosball .fb-focus .fb-line.fb-hi { opacity: 1; stroke-width: 3; }
 #foosball .fb-cross { stroke: var(--global-text-color); opacity: 0.4; stroke-width: 1; }

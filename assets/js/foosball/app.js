@@ -390,6 +390,12 @@
     }).forEach(function (u) {
       var d = series[u].map(function (pt, j) { return (j ? "L" : "M") + x(pt[0]).toFixed(1) + " " + y(pt[1]).toFixed(1); }).join("");
       svg += '<path class="fb-line" data-uid="' + esc(u) + '" d="' + d + '" style="stroke:' + colors[u] + '"/>';
+      // Dotted from their last game to the present, so every line ends at the right edge.
+      var last = series[u][series[u].length - 1];
+      if (last[0] < N) {
+        svg += '<path class="fb-line fb-tail" data-uid="' + esc(u) + '" d="M' + x(last[0]).toFixed(1) + " " + y(last[1]).toFixed(1) +
+          "H" + x(N).toFixed(1) + '" style="stroke:' + colors[u] + '"/>';
+      }
     });
     // Direct labels at the line ends when there are few enough to read.
     if (uids.length <= 4) {
