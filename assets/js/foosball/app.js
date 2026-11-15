@@ -122,6 +122,49 @@
     });
   }
 
+  // The leaderboard and graph show only players with MIN_GAMES+ games unless
+  // the viewer flips the toggle. Remembered per browser.
+  var MIN_GAMES = 5;
+  var SHOW_ALL_KEY = "foosShowAll";
+  var showAll = false;
+  try { showAll = localStorage.getItem(SHOW_ALL_KEY) === "1"; } catch (err) { /* ignore */ }
+
+  function gamesPlayed(uid) {
+    var r = record(uid);
+    return r.wins + r.losses;
+  }
+
+  function shown(uid) {
+    return showAll || gamesPlayed(uid) >= MIN_GAMES;
+  }
+
+  function filterToggle() {
+    return '<div class="fb-filter" role="group" aria-label="Which players to show">' +
+      '<button type="button" data-show-all="0">' + MIN_GAMES + "+ games</button>" +
+      '<button type="button" data-show-all="1">Everyone</button></div>';
+  }
+
+  function syncToggle(el) {
+    var buttons = el.querySelectorAll("[data-show-all]");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].setAttribute("aria-pressed", String((buttons[i].getAttribute("data-show-all") === "1") === showAll));
+    }
+  }
+
+  function hiddenNote() {
+    var n = Object.keys(state.players).filter(function (u) { return !shown(u); }).length;
+    return n ? '<p class="fb-muted fb-small">' + n + " player" + (n === 1 ? "" : "s") + " with fewer than " + MIN_GAMES +
+      ' games hidden. <button type="button" class="fb-linkbtn" data-show-all="1">Show everyone</button></p>' : "";
+  }
+
+  view.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-show-all]");
+    if (!b) return;
+    showAll = b.getAttribute("data-show-all") === "1";
+    try { localStorage.setItem(SHOW_ALL_KEY, showAll ? "1" : "0"); } catch (err) { /* ignore */ }
+    refresh();
+  });
+
   function showFlash(msg, isError) {
     flash.textContent = msg;
     flash.className = "fb-flash" + (isError ? " fb-error" : "");
@@ -208,13 +251,18 @@
 
   views.leaderboard = {
     mount: function (el) {
-      el.innerHTML = "<h2>Leaderboard</h2><div class=\"fb-board\"></div>";
+      el.innerHTML = '<div class="fb-head"><h2>Leaderboard</h2>' + filterToggle() + '</div><div class="fb-board"></div>';
     },
     update: function (el) {
+      syncToggle(el);
       var box = el.querySelector(".fb-board");
-      var uids = ranked();
-      if (!uids.length) {
+      if (!Object.keys(state.players).length) {
         box.innerHTML = "<p>No players yet. Sign in to be the first.</p>";
+        return;
+      }
+      var uids = ranked().filter(shown);
+      if (!uids.length) {
+        box.innerHTML = "<p>Nobody has played " + MIN_GAMES + " games yet.</p>" + hiddenNote();
         return;
       }
       box.innerHTML = '<table class="fb-table"><thead><tr><th>#</th><th></th><th>Player</th>' +
@@ -224,7 +272,7 @@
           return "<tr><td>" + (played(u) ? i + 1 : "—") + "</td><td>" + avatar(u, 32) + "</td><td>" + playerLink(u) + "</td>" +
             '<td class="fb-num">' + eloText(u) + '</td><td class="fb-num">' + r.wins + "–" + r.losses + "</td>" +
             '<td class="fb-num">' + (r.wins + r.losses) + "</td></tr>";
-        }).join("") + "</tbody></table>";
+        }).join("") + "</tbody></table>" + hiddenNote();
     },
   };
 
@@ -250,6 +298,194 @@
         : "<p>No confirmed games yet.</p>";
     },
   };
+
+  // ---- Elo graph ----------------------------------------------------------
+  // x is the game number (every confirmed game, in replay order), so a burst of
+  // games played in one sitting doesn't squash into a vertical line.
+
+  var SLOTS = 8; // categorical colours in foosball.css; everyone else is grey
+
+  // Colour follows the player, not their rank: regulars (5+ games) get the
+  // colours first in sign-up order, so flipping the toggle never repaints anyone.
+  function colorOf() {
+    var created = function (u) {
+      var c = state.players[u] && state.players[u].createdAt;
+      return c && c.toMillis ? c.toMillis() : 0;
+    };
+    var order = Object.keys(state.players).filter(played).sort(function (a, b) {
+      var ra = gamesPlayed(a) >= MIN_GAMES;
+      var rb = gamesPlayed(b) >= MIN_GAMES;
+      if (ra !== rb) return ra ? -1 : 1;
+      return created(a) - created(b) || (a < b ? -1 : 1);
+    });
+    var colors = {};
+    order.forEach(function (u, i) { colors[u] = i < SLOTS ? "var(--fb-s" + (i + 1) + ")" : "var(--fb-s-other)"; });
+    return colors;
+  }
+
+  function niceStep(range, target) {
+    var steps = [5, 10, 20, 25, 50, 100, 200, 250, 500];
+    for (var i = 0; i < steps.length; i++) if (range / steps[i] <= target) return steps[i];
+    return 1000;
+  }
+
+  function shortName(uid) {
+    var p = state.players[uid];
+    return p ? p.nickname || p.displayName : "(deleted)";
+  }
+
+  function drawGraph(el) {
+    var box = el.querySelector(".fb-graph");
+    var legend = el.querySelector(".fb-legend");
+    var games = state.elo.ordered || [];
+    var colors = colorOf();
+    // series[uid] = [[gameNumber, rating], ...], starting at 1000 just before their first game.
+    var series = {};
+    games.forEach(function (g, i) {
+      var c = state.elo.changes[g.id];
+      [[c.winner, c.winnerBefore, c.delta], [c.loser, c.loserBefore, -c.delta]].forEach(function (t) {
+        if (!shown(t[0])) return;
+        if (!series[t[0]]) series[t[0]] = [[i, t[1]]];
+        series[t[0]].push([i + 1, t[1] + t[2]]);
+      });
+    });
+    var uids = Object.keys(series).sort(function (a, b) { return rating(b) - rating(a); });
+    if (!uids.length) {
+      box.innerHTML = "<p>" + (games.length ? "Nobody has played " + MIN_GAMES + " games yet." : "No confirmed games yet.") + "</p>" + hiddenNote();
+      legend.innerHTML = "";
+      return;
+    }
+
+    var W = Math.max(300, box.clientWidth || 600);
+    var H = Math.round(Math.min(420, Math.max(260, W * 0.5)));
+    var m = { t: 12, r: uids.length <= 4 ? 90 : 14, b: 44, l: 44 };
+    var lo = FoosElo.START, hi = FoosElo.START;
+    uids.forEach(function (u) { series[u].forEach(function (pt) { lo = Math.min(lo, pt[1]); hi = Math.max(hi, pt[1]); }); });
+    var step = niceStep(hi - lo || 1, 5);
+    lo = Math.floor((lo - step * 0.25) / step) * step;
+    hi = Math.ceil((hi + step * 0.25) / step) * step;
+    var N = games.length;
+    var x = function (i) { return m.l + (W - m.l - m.r) * (i / N); };
+    var y = function (v) { return m.t + (H - m.t - m.b) * (1 - (v - lo) / (hi - lo)); };
+
+    var svg = '<svg class="fb-chart" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Elo rating of each player after every confirmed game">';
+    for (var v = lo; v <= hi; v += step) {
+      svg += '<line class="fb-grid' + (v === FoosElo.START ? " fb-grid-start" : "") + '" x1="' + m.l + '" x2="' + (W - m.r) + '" y1="' + y(v) + '" y2="' + y(v) + '"/>' +
+        '<text class="fb-axis" x="' + (m.l - 6) + '" y="' + (y(v) + 4) + '" text-anchor="end">' + v + "</text>";
+    }
+    // Date ticks, at most ~6, skipping repeats of the same day.
+    var ticks = Math.min(N, Math.max(2, Math.floor((W - m.l - m.r) / 90)));
+    var lastLabel = "";
+    for (var k = 0; k <= ticks; k++) {
+      var gi = Math.round((N - 1) * k / ticks);
+      var label = new Date(games[gi].playedAt).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+      if (label === lastLabel) continue;
+      lastLabel = label;
+      svg += '<text class="fb-axis" x="' + x(gi + 1) + '" y="' + (H - m.b + 18) + '" text-anchor="middle">' + esc(label) + "</text>";
+    }
+    svg += '<text class="fb-axis" x="' + ((m.l + W - m.r) / 2) + '" y="' + (H - 6) + '" text-anchor="middle">Confirmed games, in order</text>';
+    // Grey lines underneath, coloured ones on top.
+    uids.slice().sort(function (a, b) {
+      return (colors[a] === "var(--fb-s-other)" ? 0 : 1) - (colors[b] === "var(--fb-s-other)" ? 0 : 1);
+    }).forEach(function (u) {
+      var d = series[u].map(function (pt, j) { return (j ? "L" : "M") + x(pt[0]).toFixed(1) + " " + y(pt[1]).toFixed(1); }).join("");
+      svg += '<path class="fb-line" data-uid="' + esc(u) + '" d="' + d + '" style="stroke:' + colors[u] + '"/>';
+    });
+    // Direct labels at the line ends when there are few enough to read.
+    if (uids.length <= 4) {
+      var ends = uids.map(function (u) { var pts = series[u]; return { u: u, y: y(pts[pts.length - 1][1]) }; })
+        .sort(function (a, b) { return a.y - b.y; });
+      for (var e = 1; e < ends.length; e++) ends[e].y = Math.max(ends[e].y, ends[e - 1].y + 14);
+      ends.forEach(function (o) {
+        svg += '<text class="fb-endlabel" x="' + (W - m.r + 6) + '" y="' + (o.y + 4) + '">' + esc(shortName(o.u)) + "</text>";
+      });
+    }
+    svg += '<line class="fb-cross" y1="' + m.t + '" y2="' + (H - m.b) + '" visibility="hidden"/><g class="fb-dots"></g>' +
+      '<rect class="fb-hit" x="' + m.l + '" y="0" width="' + (W - m.l - m.r) + '" height="' + H + '"/></svg>';
+    box.innerHTML = svg + '<div class="fb-tip" hidden></div>';
+
+    legend.innerHTML = uids.map(function (u) {
+      return '<li data-uid="' + esc(u) + '"><span class="fb-swatch" style="background:' + colors[u] + '"></span>' +
+        '<a href="#/player/' + esc(u) + '">' + esc(nameOf(u)) + "</a> <span class=\"fb-muted\">" + rating(u) + "</span></li>";
+    }).join("") + (hiddenNote() ? "<li>" + hiddenNote() + "</li>" : "");
+
+    var chart = box.querySelector("svg");
+    var tip = box.querySelector(".fb-tip");
+    var cross = chart.querySelector(".fb-cross");
+    var dots = chart.querySelector(".fb-dots");
+
+    function highlight(uid) {
+      chart.classList.toggle("fb-focus", !!uid);
+      var lines = chart.querySelectorAll(".fb-line");
+      for (var i = 0; i < lines.length; i++) lines[i].classList.toggle("fb-hi", lines[i].getAttribute("data-uid") === uid);
+    }
+
+    // Rating of uid after game number i (null before their first game).
+    function at(uid, i) {
+      var pts = series[uid], r = null;
+      for (var j = 0; j < pts.length && pts[j][0] <= i; j++) r = pts[j][1];
+      return r;
+    }
+
+    chart.querySelector(".fb-hit").addEventListener("pointermove", function (ev) {
+      var rect = chart.getBoundingClientRect();
+      var px = (ev.clientX - rect.left) * (W / rect.width);
+      var i = Math.max(1, Math.min(N, Math.round((px - m.l) / (W - m.l - m.r) * N)));
+      var g = games[i - 1];
+      var c = state.elo.changes[g.id];
+      cross.setAttribute("visibility", "visible");
+      cross.setAttribute("x1", x(i));
+      cross.setAttribute("x2", x(i));
+      var rows = uids.map(function (u) { return { u: u, r: at(u, i) }; })
+        .filter(function (o) { return o.r != null; })
+        .sort(function (a, b) { return b.r - a.r; });
+      dots.innerHTML = rows.filter(function (o) { return o.u === c.winner || o.u === c.loser; }).map(function (o) {
+        return '<circle class="fb-dot" cx="' + x(i) + '" cy="' + y(o.r) + '" r="4.5" style="fill:' + colors[o.u] + '"/>';
+      }).join("");
+      var score = g.scoreA == null ? "" : " " + (g.winner === g.playerA ? g.scoreA + "–" + g.scoreB : g.scoreB + "–" + g.scoreA);
+      tip.innerHTML = '<div class="fb-muted">Game ' + i + " · " + esc(fmtDate(g.playedAt)) + "</div>" +
+        "<div><b>" + esc(shortName(c.winner)) + "</b> beat " + esc(shortName(c.loser)) + esc(score) +
+        ' <span class="fb-muted">(±' + Math.round(c.delta) + ")</span></div>" +
+        "<table>" + rows.slice(0, 10).map(function (o) {
+          var involved = o.u === c.winner || o.u === c.loser;
+          return "<tr" + (involved ? ' class="fb-tip-hi"' : "") + '><td><span class="fb-swatch" style="background:' + colors[o.u] + '"></span>' +
+            esc(shortName(o.u)) + '</td><td class="fb-num">' + Math.round(o.r) + "</td></tr>";
+        }).join("") + "</table>" + (rows.length > 10 ? '<div class="fb-muted">+' + (rows.length - 10) + " more</div>" : "");
+      tip.hidden = false;
+      var bx = box.getBoundingClientRect();
+      var left = ev.clientX - bx.left + 14;
+      if (left + tip.offsetWidth > bx.width) left = ev.clientX - bx.left - tip.offsetWidth - 14;
+      tip.style.left = Math.max(0, left) + "px";
+      tip.style.top = Math.max(0, Math.min(ev.clientY - bx.top - 20, bx.height - tip.offsetHeight)) + "px";
+    });
+    chart.querySelector(".fb-hit").addEventListener("pointerleave", function () {
+      cross.setAttribute("visibility", "hidden");
+      dots.innerHTML = "";
+      tip.hidden = true;
+    });
+    legend.onmouseover = function (ev) {
+      var li = ev.target.closest("li[data-uid]");
+      highlight(li ? li.getAttribute("data-uid") : null);
+    };
+    legend.onmouseleave = function () { highlight(null); };
+  }
+
+  views.graph = {
+    mount: function (el) {
+      el.innerHTML = '<div class="fb-head"><h2>Elo over time</h2>' + filterToggle() + "</div>" +
+        '<div class="fb-graph"></div><ul class="fb-legend"></ul>';
+    },
+    update: function (el) {
+      syncToggle(el);
+      drawGraph(el);
+    },
+  };
+
+  var resizeTimer = null;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () { if (current && current.name === "graph") refresh(); }, 150);
+  });
 
   views.player = {
     mount: function (el, uid) {
@@ -610,7 +846,7 @@
   }
 
   function renderNav() {
-    var links = [["#/", "Leaderboard"], ["#/games", "Games"]];
+    var links = [["#/", "Leaderboard"], ["#/graph", "Elo graph"], ["#/games", "Games"]];
     if (state.user) {
       var waiting = Object.keys(state.mine).filter(function (k) {
         var g = state.mine[k];
