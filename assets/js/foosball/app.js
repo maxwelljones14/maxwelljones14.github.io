@@ -38,7 +38,7 @@
   var unsubAdmin = [];
 
   function isAdmin() {
-    return !!state.user && state.user.email === cfg.adminEmail;
+    return !!state.user && cfg.adminEmails.indexOf(state.user.email) !== -1;
   }
 
   // ---- helpers -----------------------------------------------------------

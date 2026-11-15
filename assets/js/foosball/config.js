@@ -12,5 +12,5 @@ window.FOOS_CONFIG = {
     appId: "1:258418869616:web:6a8d00467873ca48fcfbb5",
   },
   // Must match isAdmin() in tools/foosball/firestore.rules.
-  adminEmail: "mjones2@andrew.cmu.edu",
+  adminEmails: ["mjones2@andrew.cmu.edu", "maxwelljonesnova@gmail.com"],
 };
