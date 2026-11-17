@@ -1,7 +1,7 @@
 /* written by scripts/export_static_site.py: the Apps Script web app that records the answers (empty =
    preview only) */
 window.PVS_STATIC = {
- "script_url": "",
+ "script_url": "https://script.google.com/macros/s/AKfycbzjvx8GOjGTX039Hh9bzVY1eWRRb2qzH57dWB1nxM2ceNtHtwTTglvQUbWA2aFMMjGA/exec",
  "data_base": "../data/",
  "test_pid_prefix": "TEST_"
 };
